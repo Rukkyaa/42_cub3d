@@ -1,0 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
+/*   Updated: 2023/02/16 16:22:48 by axlamber         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../includes/cub3d.h"
+
+int	main(int argc, char **argv)
+{
+	t_game	game;
+
+	if (argc != 2)
+		return (EXIT_FAILURE);
+	game.map = get_map(argv[1]);
+	var_init(&game);
+	mlx_hook(game.win, 2, 1L << 0, key_gestion, &game);
+	mlx_hook(game.win, 17, 0, close_window, &game);
+	mlx_loop(game.mlx);
+	return (EXIT_SUCCESS);
+}

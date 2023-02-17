@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   shapes.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 09:38:51 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 10:44:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 11:58:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-void	draw_square(t_game *game, int x, int y, int width, int color)
+void	draw_filled_square(t_game *game, int x, int y, int width, int color)
 {
 	int	i;
 
@@ -21,23 +21,19 @@ void	draw_square(t_game *game, int x, int y, int width, int color)
 		draw_vertical_line(game, x, y + i, width, color);
 }
 
-// void draw_circle(t_game *game, t_vector center, int radius, int color)
-// {
-//     int x = center.x - radius;
-//     while (x <= center.x  + radius) {
-//         int y = center.y - radius;
-//         while (y <=  center.y  + radius) {
-//             float distance = sqrt((x - center.x ) * (x - center.x ) + (y -  center.y) * (y -  center.y));
-//             if (distance <= radius) {
-//                 //my_mlx_pixel_put(&model->img, x, y, 8888);
-// 				mlx_pixel_put(game->mlx, game->win, x, y, color);
-//             }
-//             y++;
-//         }
-//         x++;
-//     }
-// }
+void	draw_square(t_game *game, int x, int y, int width, int color)
+{
+	int	i;
 
+	i = -1;
+	while (++i < width)
+	{
+		mlx_pixel_put(game->mlx, game->win, x, y + i, color);
+		mlx_pixel_put(game->mlx, game->win, x + width - 1, y + i, color);	
+	}
+	draw_vertical_line(game, x, y + width - 1, width, color);	
+	draw_vertical_line(game, x, y, width, color);	
+}
 
 void	draw_vertical_line(t_game *game, int x, int y, int len, int color)
 {
@@ -64,7 +60,6 @@ void draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int co
 
     // Calculate the error term and the delta values
     float error = dx - dy;
-    float delta_error = 2 * (dx - dy);
     float delta_x = x_dir;
     float delta_y = y_dir;
 
@@ -101,21 +96,36 @@ void draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int co
     }
 }
 
-void    draw_filled_circle(t_game *game, t_vector center, int radius, int color) {
-    int x, y;
-    int x_start = center.x - radius;
-    int x_end = center.x + radius;
-    int y_start = center.y - radius;
-    int y_end = center.y + radius;
-    float r_squared = pow(radius, 2);
+void    draw_filled_circle(t_game *game, t_vector mid, int radius, int color)
+{
+	int	x;
+	int	y;
 
-    for (x = x_start; x <= x_end; x++) {
-        for (y = y_start; y <= y_end; y++) {
-            float distance_squared = pow(x - center.x, 2) + pow(y - center.y, 2);
-
-            if (distance_squared <= r_squared) {
+	x =  mid.x - radius;
+	while (++x < mid.x + radius)
+	{
+		y = mid.y - radius;
+		while (++y < mid.y + radius)
+            if (pow(x - mid.x, 2) + pow(y - mid.y, 2) <= pow(radius, 2))
                 mlx_pixel_put(game->mlx, game->win, x, y, color);
-            }
-        }
     }
+}
+
+void	load_grid(t_game *game)
+{
+	int	i;
+	int	j;
+
+	i = -1;
+	while (++i < 8)
+	{
+		j = -1;
+		while (++j < 8)
+		{
+			if (game->map[i][j] == '1')
+				draw_square(game, j * 64, i * 64, 64, 0xFFFFFF);
+			else
+				draw_square(game, j * 64, i * 64, 64, 0xFFFFFF);
+		}
+	}
 }

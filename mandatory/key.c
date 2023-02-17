@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 11:18:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:00:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ int handle_key_state(void *g)
 		game->player.pos.x += 3;
 	}
 	usleep(16000);
+	load_grid(game);
 	draw_player(game, RED_PIXEL);
 	return (0);
 }

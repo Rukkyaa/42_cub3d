@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:15:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 15:05:42 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define GREEN_PIXEL 0x00FF00
 # define BLUE_PIXEL 0x0000FF
 # define BLACK_PIXEL 0x000000
+# define WHITE_PIXEL 0x111111
 
 typedef struct vector
 {
@@ -51,6 +52,7 @@ typedef struct s_player
 {
 	t_vector	pos;
 	t_vector	direction;
+	t_vector	current_tile;
 }				t_player;
 
 typedef struct s_game
@@ -63,6 +65,9 @@ typedef struct s_game
 	t_player	player;
 }				t_game;
 
+// Ray casting
+void	cast_2D_ray(t_game *game);
+
 // Shapes
 void 	draw_circle(t_game *game, t_vector center, int radius, int color);
 void	draw_square(t_game *game, int x, int y, int width, int color);
@@ -72,6 +77,7 @@ void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
 void 	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color);
 void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
 void	load_grid(t_game *game);
+void	load_map(t_game *game);
 
 // Events 
 int		key_gestion(int keycode, t_game *game);
@@ -79,7 +85,14 @@ int		handle_keyrelease(int keycode, t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int 	handle_key_state(void *g);
 
+// Vector operations
+t_vector vec_sum(t_vector vec1, t_vector vec2);
 void	rotate(t_vector *vector, float angle);
+t_vector vec_scalar_mult(t_vector vec1, double i);
+
+t_vector pixel_to_tile(t_vector vector);
+t_vector tile_to_pixel(t_vector tile_coord);
+int tile_out_of_bound(t_vector tile_coord);
 
 void	draw_player(t_game *game, int color);
 void	var_init(t_game *game);

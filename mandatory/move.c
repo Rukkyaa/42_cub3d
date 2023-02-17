@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:10:01 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 15:11:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,17 @@
 void	draw_player_direction(t_game *game, int color)
 {
 	t_vector point;
-	point.x = (int) (game->player.pos.x + game->player.direction.x * 100.0f);
-	point.y = (int) (game->player.pos.y + game->player.direction.y * 100.0f);
+	point.x = (int) (game->player.pos.x + game->player.direction.x * 500.0f);
+	point.y = (int) (game->player.pos.y + game->player.direction.y * 500.0f);
 	
 	draw_line(game, game->player.pos, point, 3, color);	
 }
 
 void	draw_player(t_game *game, int color)
 {
-	draw_filled_circle(game, game->player.pos, 10, color);
+	cast_2D_ray(game);
 	draw_player_direction(game, color);
+	draw_filled_circle(game, game->player.pos, 5, color);
 }
 
 void	move(t_game *game, char direction)

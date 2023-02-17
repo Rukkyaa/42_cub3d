@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:16:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 15:42:17 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,10 @@ void	load_map(t_game *game)
 		{
 			if (game->map[i][j] == '1')
 				draw_filled_square(game, j * 64, i * 64, 64, BLUE_PIXEL);
-			else
+			else if(game->map[i][j] == '0')
 				draw_filled_square(game, j * 64, i * 64, 64, GREEN_PIXEL);
+			else
+				draw_filled_square(game, j * 64, i * 64, 64, 888888);
 		}
 	}
 }
@@ -41,10 +43,10 @@ void	var_init(t_game *game)
 		game->key_release_states[i] = 1;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, 8 * 64, 8 * 64, "cub3d");
-	game->player.pos.x = 100;
-	game->player.pos.y = 100;
-	game->player.direction.x = 1;
-	game->player.direction.y = 1;
+	game->player.pos.x = 4*64;
+	game->player.pos.y = 4*64;
+	game->player.direction.x = 64;
+	game->player.direction.y = 64;
 	load_map(game);
 	load_grid(game);
 }

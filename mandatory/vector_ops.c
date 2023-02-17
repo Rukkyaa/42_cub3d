@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 12:10:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 15:06:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,47 @@
 // 	vector->x = x;
 // 	vector->y = y;
 // }
+
+int tile_out_of_bound(t_vector tile_coord)
+{
+    return( 0 < tile_coord.x  && tile_coord.x < 64 * 8 && 0 < tile_coord.y  && tile_coord.y < 64 * 8);
+}
+
+t_vector tile_to_pixel(t_vector tile_coord)
+{
+    t_vector pixel_coord;
+
+    pixel_coord.x = (int) (tile_coord.x * 64.0f);
+    pixel_coord.y = (int) (tile_coord.y * 64.0f);
+    return(pixel_coord);
+}
+
+t_vector pixel_to_tile(t_vector vector)
+{
+    t_vector tile_coord;
+
+    tile_coord.x = (int) (vector.x / 64.0f);
+    tile_coord.y = (int) (vector.y / 64.0f);
+    return(tile_coord);
+}
+
+t_vector vec_sum(t_vector vec1, t_vector vec2)
+{
+    t_vector sum;
+
+    sum.x = vec1.x + vec2.x;
+    sum.y = vec1.y + vec2.y;
+    return(sum);
+}
+
+t_vector vec_scalar_mult(t_vector vec1, double i)
+{
+    t_vector mult;
+
+    mult.x = vec1.x * i;
+    mult.y = vec1.y * i;
+    return(mult);
+}
 
 void	rotate(t_vector *vector, float angle)
 {

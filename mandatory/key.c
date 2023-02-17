@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:16:23 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:10:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,50 @@ int handle_key_state(void *g)
 {
 	t_game *game;
 	game = (t_game *) g;
-	draw_player(game, GREEN_PIXEL);
+	int render;
+
+	render = 0;
+	
 	if (game->key_states['w']) {
 		printf("up\n");
-		game->player.pos.y -= 3;
+		game->player.pos.y -= 3;	
+		render = 1;
 	}
 	if (game->key_states['s'] ) {
 		printf("down\n");
 		game->player.pos.y += 3;
+		render = 1;
 	}
 	if (game->key_states['a' ]) {
 		printf("left\n");
 		game->player.pos.x -= 3;
+		render = 1;
 	}
 	if (game->key_states['d'] ) {
 		printf("right\n");
 		game->player.pos.x += 3;
+		render = 1;
 	}
 	if (game->key_states[0]) {
 		// printf("rotate_left\n");
 		rotate(&(game->player.direction), -1);
+		render = 1;
 		// close_window(game);
 	}
 	if (game->key_states[1] ) {
 		// printf("rotate_right\n");
 		rotate(&(game->player.direction), 1);
+		render = 1;
 		// close_window(game);
 	}
 	// printf("f\n");
-	usleep(16000);
-	load_grid(game);
-	draw_player(game, RED_PIXEL);
+	usleep(16600);
+	if(render)
+	{
+		load_map(game);
+		load_grid(game);
+		draw_player(game, RED_PIXEL);
+	}
 	return (0);
 }
 

@@ -3,20 +3,40 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:16:23 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 13:57:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+void	img_pix_put(t_img *img, int x, int y, int color)
+{
+	char    *pixel;
+	int		i;
+
+	i = img->bpp - 8;
+    pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));
+	while (i >= 0)
+	{
+		/* big endian, MSB is the leftmost bit */
+		if (img->endian != 0)
+			*pixel++ = (color >> i) & 0xFF;
+		/* little endian, LSB is the leftmost bit */
+		else
+			*pixel++ = (color >> (img->bpp - 8 - i)) & 0xFF;
+		i -= 8;
+	}
+}
+
 int handle_key_state(void *g)
 {
 	t_game *game;
 	game = (t_game *) g;
-	draw_player(game, GREEN_PIXEL);
+	if (game->key_states['w'] || game->key_states['s'] ||game->key_states['a'] ||game->key_states['d'] ||game->key_states[0] ||game->key_states[1])
+		draw_player(game, GREEN_PIXEL);
 	if (game->key_states['w']) {
 		printf("up\n");
 		game->player.pos.y -= 3;
@@ -43,10 +63,11 @@ int handle_key_state(void *g)
 		rotate(&(game->player.direction), 1);
 		// close_window(game);
 	}
-	// printf("f\n");
 	usleep(16000);
-	load_grid(game);
+	if (game->key_states['w'] || game->key_states['s'] ||game->key_states['a'] ||game->key_states['d'] ||game->key_states[0] ||game->key_states[1])
+		load_grid(game);
 	draw_player(game, RED_PIXEL);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	return (0);
 }
 
@@ -74,18 +95,3 @@ int	handle_keyrelease(int keycode, t_game *game)
 		game->key_states[1]= 0;
 	return(0);
 }
-
-// int	key_gestion(int keycode, t_game *game)
-// {
-// 	if (keycode == ESC)
-// 		close_window(game);
-// 	else if (keycode == W)
-// 		move(game, 'N');
-// 	else if (keycode == S)
-// 		move(game, 'S');
-// 	else if (keycode == A)
-// 		move(game, 'W');
-// 	else if (keycode == D)
-// 		move(game, 'E');
-// 	return (0);
-// }

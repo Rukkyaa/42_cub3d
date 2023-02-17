@@ -3,33 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:16:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 14:39:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
-
-void	load_map(t_game *game)
-{
-	int	i;
-	int	j;
-
-	i = -1;
-	while (++i < 8)
-	{
-		j = -1;
-		while (++j < 8)
-		{
-			if (game->map[i][j] == '1')
-				draw_filled_square(game, j * 64, i * 64, 64, BLUE_PIXEL);
-			else
-				draw_filled_square(game, j * 64, i * 64, 64, GREEN_PIXEL);
-		}
-	}
-}
 
 void	var_init(t_game *game)
 {
@@ -45,6 +26,10 @@ void	var_init(t_game *game)
 	game->player.pos.y = 100;
 	game->player.direction.x = 1;
 	game->player.direction.y = 1;
+	game->img.mlx_img = mlx_new_image(game->mlx, 8 * 64, 8 * 64);
+	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
+			&game->img.line_len, &game->img.endian);
 	load_map(game);
 	load_grid(game);
+	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 }

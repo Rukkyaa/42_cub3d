@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:15:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 14:39:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,17 +46,26 @@ typedef struct vector
 	double			y;
 }					t_vector;
 
-
 typedef struct s_player
 {
 	t_vector	pos;
 	t_vector	direction;
 }				t_player;
 
+typedef struct s_img
+{
+	void	*mlx_img;
+	char	*addr;
+	int		bpp; /* bits per pixel */
+	int		line_len;
+	int		endian;
+}	t_img;
+
 typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
+	t_img		img;
 	char		**map;
 	int				key_states[256];
 	int				key_release_states[256];
@@ -64,14 +73,19 @@ typedef struct s_game
 }				t_game;
 
 // Shapes
+void	draw_square(t_game *game, t_vector pos, int width, int color);
+void	draw_filled_square(t_game *game, t_vector pos, int width, int color);
+
 void 	draw_circle(t_game *game, t_vector center, int radius, int color);
-void	draw_square(t_game *game, int x, int y, int width, int color);
-void	draw_filled_square(t_game *game, int x, int y, int width, int color);
-void	draw_vertical_line(t_game *game, int x, int y, int len, int color);
+void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
+
+void	draw_vertical_line(t_game *game, t_vector pos, int len, int color);
 void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
 void 	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color);
-void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
+
 void	load_grid(t_game *game);
+void	load_map(t_game *game);
+void	img_pix_put(t_img *img, int x, int y, int color);
 
 // Events 
 int		key_gestion(int keycode, t_game *game);

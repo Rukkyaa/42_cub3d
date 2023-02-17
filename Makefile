@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/17 10:42:28 by teliet           ###   ########.fr        #
+#    Updated: 2023/02/17 10:52:44 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ INCLUDE = includes/
 LIBFT = -L libft/ -lft
 
 .c.o :
-	cc -Wall -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
+	cc -Wall -Wextra -g -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
 
 all: $(NAME)
 

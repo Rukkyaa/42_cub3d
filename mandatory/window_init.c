@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 10:14:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 11:00:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ void	load_map(t_game *game)
 void	var_init(t_game *game)
 {
 	int i = 256;
-	while(i--)
+	while(--i)
 		game->key_states[i] = 0;
 	i = 256;
-	while(i--)
+	while(--i)
 		game->key_release_states[i] = 1;
 	game->mlx = mlx_init();
 	game->win = mlx_new_window(game->mlx, 8 * 64, 8 * 64, "cub3d");

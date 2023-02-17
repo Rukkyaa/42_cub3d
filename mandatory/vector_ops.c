@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 15:06:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 16:14:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,19 @@
 // 	vector->y = y;
 // }
 
+int pixel_out_of_bound(float x, float y)
+{
+    t_vector pixel_coord;
+    
+
+    pixel_coord.x = x;
+    pixel_coord.y = y;
+    return(!( 0 <= pixel_coord.x  && pixel_coord.x < 512 && 0 <= pixel_coord.y  && pixel_coord.y < 512));
+}
+
 int tile_out_of_bound(t_vector tile_coord)
 {
-    return( 0 < tile_coord.x  && tile_coord.x < 64 * 8 && 0 < tile_coord.y  && tile_coord.y < 64 * 8);
+    return (!( 0 <= tile_coord.x  && tile_coord.x < 8 && 0 <= tile_coord.y  && tile_coord.y < 8));
 }
 
 t_vector tile_to_pixel(t_vector tile_coord)

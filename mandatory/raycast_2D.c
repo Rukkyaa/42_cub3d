@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 15:46:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 16:31:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	cast_2D_ray(t_game *game)
 
     while(!tile_found && distance < max_distance)
     {
-        if(v_ray_length_1D.x < v_ray_length_1D.y)
+        if(v_ray_length_1D.x > v_ray_length_1D.y)
         {
             v_map_check.x += v_step.x;
             v_ray_length_1D.x += v_ray_unit_step.x;
@@ -80,8 +80,9 @@ void	cast_2D_ray(t_game *game)
         }
         printf("distance :%f\n",distance);
         printf("v_ray_length_1D : %f-%f\n",v_ray_length_1D.x, v_ray_length_1D.y);
-        t_vector collision_point = vec_scalar_mult(v_ray_dir, distance * 64);
+        t_vector collision_point = vec_scalar_mult(v_ray_dir, distance );
         collision_point = vec_sum(collision_point, game->player.pos);
+        printf("collision_point : %f-%f\n",collision_point.x, collision_point.y);
         printf("collision_point : %f-%f\n",collision_point.x, collision_point.y);
         draw_filled_circle(game,collision_point, 12, BLACK_PIXEL);
         // draw_line(game,  game->player.pos, vec_sum(collision_point, game->player.pos), 3, RED_PIXEL);

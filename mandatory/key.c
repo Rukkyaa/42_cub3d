@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 12:11:13 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:16:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ int handle_key_state(void *g)
 	}
 	// printf("f\n");
 	usleep(16000);
+	load_grid(game);
 	draw_player(game, RED_PIXEL);
 	return (0);
 }

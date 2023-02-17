@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 11:51:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:16:37 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,9 @@ void	load_map(t_game *game)
 		while (++j < 8)
 		{
 			if (game->map[i][j] == '1')
-				draw_square(game, j * 64, i * 64, 64, BLUE_PIXEL);
+				draw_filled_square(game, j * 64, i * 64, 64, BLUE_PIXEL);
 			else
-				draw_square(game, j * 64, i * 64, 64, GREEN_PIXEL);
+				draw_filled_square(game, j * 64, i * 64, 64, GREEN_PIXEL);
 		}
 	}
 }
@@ -46,4 +46,5 @@ void	var_init(t_game *game)
 	game->player.direction.x = 1;
 	game->player.direction.y = 1;
 	load_map(game);
+	load_grid(game);
 }

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 11:30:01 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 12:15:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,12 @@ typedef struct s_game
 // Shapes
 void 	draw_circle(t_game *game, t_vector center, int radius, int color);
 void	draw_square(t_game *game, int x, int y, int width, int color);
+void	draw_filled_square(t_game *game, int x, int y, int width, int color);
 void	draw_vertical_line(t_game *game, int x, int y, int len, int color);
+void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
 void 	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color);
 void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
+void	load_grid(t_game *game);
 
 // Events 
 int		key_gestion(int keycode, t_game *game);

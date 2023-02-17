@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 11:18:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:11:13 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,17 @@ int handle_key_state(void *g)
 		printf("right\n");
 		game->player.pos.x += 3;
 	}
+	if (game->key_states[0]) {
+		// printf("rotate_left\n");
+		rotate(&(game->player.direction), -1);
+		// close_window(game);
+	}
+	if (game->key_states[1] ) {
+		// printf("rotate_right\n");
+		rotate(&(game->player.direction), 1);
+		// close_window(game);
+	}
+	// printf("f\n");
 	usleep(16000);
 	draw_player(game, RED_PIXEL);
 	return (0);
@@ -46,9 +57,9 @@ int	handle_keypress(int keycode, t_game *game)
 	if (keycode == W || keycode == A || keycode == S || keycode == D)
 		game->key_states[keycode] = 1;
 	if (keycode == RIGHT)
-		game->key_states[0];
+		game->key_states[0] = 1;
     if (keycode == LEFT)
-		game->key_states[1];
+		game->key_states[1] = 1;
 	return 0;
 }
 
@@ -57,9 +68,9 @@ int	handle_keyrelease(int keycode, t_game *game)
 	if (keycode == W || keycode == A || keycode == S || keycode == D)
 		game->key_states[keycode] = 0;
 	if (keycode == RIGHT)
-		game->key_states[0];
+		game->key_states[0] = 0;
     if (keycode == LEFT)
-		game->key_states[1];
+		game->key_states[1]= 0;
 	return(0);
 }
 

@@ -3,18 +3,20 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/17 10:52:44 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/17 11:31:17 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 SRC = mandatory/main.c mandatory/window_init.c mandatory/get_map.c mandatory/key.c \
-		mandatory/free.c mandatory/move.c mandatory/shapes.c
+		mandatory/free.c mandatory/move.c mandatory/shapes.c mandatory/vector_ops.c
 
+
+LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJS = $(SRC:.c=.o)
 
@@ -29,7 +31,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@make --no-print-directory -C libft/
-	@cc $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 $(LIBFT) -o $(NAME)
+	@cc $(OBJS) $(LFLAGS) $(LIBFT) -o $(NAME)
 
 debug: $(LIBS) clean
 	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 

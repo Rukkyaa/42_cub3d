@@ -6,41 +6,42 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/16 17:30:21 by teliet           ###   ########.fr        #
+#    Updated: 2023/02/17 10:42:28 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 SRC = mandatory/main.c mandatory/window_init.c mandatory/get_map.c mandatory/key.c \
-		mandatory/free.c mandatory/move.c
+		mandatory/free.c mandatory/move.c mandatory/shapes.c
 
-CC = gcc
 
-HEADERS = -I ./includes
+OBJS = $(SRC:.c=.o)
 
-LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+INCLUDE = includes/
 
-LIBS =  -L libft/ -lft
+LIBFT = -L libft/ -lft
 
-OBJ = $(SRC:.c=.o)
+.c.o :
+	cc -Wall -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
 
-all: ${NAME}
- 
-$(NAME): $(OBJ) $(LIBS)
-	$(CC) $(OBJ) $(LIBS) $(HEADERS) $(LFLAGS) -o $(NAME)
+all: $(NAME)
 
-	
-debug: clean
+$(NAME): $(OBJS)
+	@make --no-print-directory -C libft/
+	@cc $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 $(LIBFT) -o $(NAME)
+
+debug: $(LIBS) clean
 	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 
 
-%.o: %.c
-	$(CC) -Wall -Wextra -Werror $(HEADERS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
-
 clean:
-	/bin/rm -f ${OBJ}
+	@make --no-print-directory clean -C libft/
+	@rm -f $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	/bin/rm -f ${NAME}
+	@make --no-print-directory fclean -C libft/
+	@rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

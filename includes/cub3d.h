@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/16 17:21:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 10:44:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,17 @@
 # define BLUE_PIXEL 0x0000FF
 # define BLACK_PIXEL 0x000000
 
+typedef struct vector
+{
+	double			x;
+	double			y;
+}					t_vector;
+
+
 typedef struct s_player
 {
-	int		x;
-	int		y;
+	t_vector	pos;
+	t_vector	direction;
 }				t_player;
 
 typedef struct s_game
@@ -49,14 +56,29 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	char		**map;
+	int				key_states[256];
+	int				key_release_states[256];
 	t_player	player;
 }				t_game;
 
+// Shapes
+void 	draw_circle(t_game *game, t_vector center, int radius, int color);
+void	draw_square(t_game *game, int x, int y, int width, int color);
+void	draw_vertical_line(t_game *game, int x, int y, int len, int color);
+void 	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color);
+void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
+
+// Events 
+int		key_gestion(int keycode, t_game *game);
+int		handle_keyrelease(int keycode, t_game *game);
+int		handle_keypress(int keycode, t_game *game);
+int 	handle_key_state(void *g);
+
+
+void	draw_player(t_game *game, int color);
 void	var_init(t_game *game);
 char	**get_map(char *arg);
-int		key_gestion(int keycode, t_game *game);
 int		close_window(t_game *game);
 void	move(t_game *game, char direction);
-void	draw_square(t_game *game, int x, int y, int width, int color);
 
 #endif

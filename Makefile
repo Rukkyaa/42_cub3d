@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/16 15:30:13 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/16 17:30:21 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,29 +15,32 @@ NAME = cub3d
 SRC = mandatory/main.c mandatory/window_init.c mandatory/get_map.c mandatory/key.c \
 		mandatory/free.c mandatory/move.c
 
-OBJS = $(SRC:.c=.o)
+CC = gcc
 
-INCLUDE = includes/
+HEADERS = -I ./includes
 
-LIBFT = -L libft/ -lft
+LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
-.c.o :
-	cc -Wall -Wextra -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
+LIBS =  -L libft/ -lft
 
-all: $(NAME)
+OBJ = $(SRC:.c=.o)
 
-$(NAME): $(OBJS)
-	@make --no-print-directory -C libft/
-	@cc $(OBJS) mlx/libmlx.a mlx/libmlx_Linux.a -L. -lXext -L. -lX11 $(LIBFT) -o $(NAME)
+all: ${NAME}
+ 
+$(NAME): $(OBJ) $(LIBS)
+	$(CC) $(OBJ) $(LIBS) $(HEADERS) $(LFLAGS) -o $(NAME)
+
+	
+debug: clean
+	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 
+
+%.o: %.c
+	$(CC) -Wall -Wextra -Werror $(HEADERS) -I/usr/include -Imlx_linux -O3 -c $< -o $@
 
 clean:
-	@make --no-print-directory clean -C libft/
-	@rm -f $(OBJS) $(OBJS_BONUS)
+	/bin/rm -f ${OBJ}
 
 fclean: clean
-	@make --no-print-directory fclean -C libft/
-	@rm -f $(NAME)
+	/bin/rm -f ${NAME}
 
 re: fclean all
-
-.PHONY: all clean fclean re

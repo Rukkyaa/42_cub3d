@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by rukkyaa           #+#    #+#              #
-#    Updated: 2023/01/19 00:15:48 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/02/17 15:08:54 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -64,7 +64,7 @@ $(NAME): \
 	$(PRINT_OBJS) $(CHECKING_OBJS)
 	@$(AR) $(NAME) $(STRING_OBJS) $(MEMORY_OBJS) $(CONVERTION_OBJS) \
 	$(PRINT_OBJS) $(CHECKING_OBJS)
-	@printf "\033[K\033[1;32m| Libft        : compiled              |\n\033[m"
+	@printf "\033[K\033[1;32m| Libft : compiled                     |\n\033[m"
 	@setterm -cursor on
 
 bonus: $(OBJS) $(BONUS_OBJS)

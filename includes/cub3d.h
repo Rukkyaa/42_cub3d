@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 16:06:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:57:22 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	cast_2D_ray(t_game *game);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);
+void	clean_map(t_game *game);
 
 // Shapes
 void	draw_square(t_game *game, t_vector pos, int width, int color);
@@ -104,6 +105,8 @@ int 	handle_key_state(void *g);
 t_vector vec_sum(t_vector vec1, t_vector vec2);
 void	rotate(t_vector *vector, float angle);
 t_vector vec_scalar_mult(t_vector vec1, double i);
+t_vector vec_mult(t_vector vec1, t_vector vec2);
+void 	angle_to_vector(double angle, double* vector);
 
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);

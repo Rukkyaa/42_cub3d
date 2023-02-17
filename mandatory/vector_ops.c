@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 16:14:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:43:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,15 @@ t_vector vec_sum(t_vector vec1, t_vector vec2)
     return(sum);
 }
 
+t_vector vec_mult(t_vector vec1, t_vector vec2)
+{
+    t_vector mult;
+
+    mult.x = vec1.x * vec2.x;
+    mult.y = vec1.y * vec2.y;
+    return(mult);
+}
+
 t_vector vec_scalar_mult(t_vector vec1, double i)
 {
     t_vector mult;
@@ -80,6 +89,16 @@ t_vector vec_scalar_mult(t_vector vec1, double i)
     mult.x = vec1.x * i;
     mult.y = vec1.y * i;
     return(mult);
+}
+
+void angle_to_vector(double angle, double* vector) {
+    vector[0] = cos(angle);
+    vector[1] = sin(angle);
+    
+    // normalize the vector
+    double magnitude = sqrt(pow(vector[0], 2) + pow(vector[1], 2));
+    vector[0] /= magnitude;
+    vector[1] /= magnitude;
 }
 
 void	rotate(t_vector *vector, float angle)

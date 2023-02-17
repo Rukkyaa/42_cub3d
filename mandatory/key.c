@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 16:20:41 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:57:55 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ int handle_key_state(void *g)
 	{
 		load_map(game);
 		load_grid(game);
+		clean_map(game);
 	}
 	draw_player(game, RED_PIXEL);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);

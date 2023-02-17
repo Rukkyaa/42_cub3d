@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 16:31:32 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:53:39 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ void	cast_2D_ray(t_game *game)
 	//draw_filled_square(game,  tile_coord.x * 64, tile_coord.y * 64, 64, 88888);
 
 	t_vector v_ray_unit_step;
-	v_ray_unit_step.x = sqrt(1 + (game->player.direction.y / game->player.direction.x) * (game->player.direction.y / game->player.direction.x) );
-	v_ray_unit_step.y = sqrt(1 + (game->player.direction.x / game->player.direction.y) * (game->player.direction.x / game->player.direction.y)) ;
+	v_ray_unit_step.x = sqrt(1 + (v_ray_dir.y / v_ray_dir.x) * (v_ray_dir.y / v_ray_dir.x) );
+	v_ray_unit_step.y = sqrt(1 + (v_ray_dir.x / v_ray_dir.y) * (v_ray_dir.x / v_ray_dir.y)) ;
 
 
     printf(" \n --------------- \n Start raycast from : %f-%f\n",game->player.pos.x, game->player.pos.y);
     printf("v_ray_unit_step : %f-%f\n",v_ray_unit_step.x, v_ray_unit_step.y);
+        printf("v_map_check : %f-%f\n",v_map_check.x, v_map_check.y);
     
 	// Starting Conditions
 	if (v_ray_dir.x < 0)
@@ -66,28 +67,36 @@ void	cast_2D_ray(t_game *game)
 
     while(!tile_found && distance < max_distance)
     {
-        if(v_ray_length_1D.x > v_ray_length_1D.y)
+        printf(" \n --------------- \n");
+        printf("distance :%f\n",distance);
+        if(v_ray_length_1D.x < v_ray_length_1D.y)
         {
             v_map_check.x += v_step.x;
-            v_ray_length_1D.x += v_ray_unit_step.x;
             distance = v_ray_length_1D.x;
+            v_ray_length_1D.x += v_ray_unit_step.x;
         }
         else
         {
+            printf("v_map_check : %f-%f\n",v_map_check.x, v_map_check.y);
             v_map_check.y += v_step.y;
-            v_ray_length_1D.y += v_ray_unit_step.y;
+            printf("v_map_check : %f-%f\n",v_map_check.x, v_map_check.y);
             distance = v_ray_length_1D.y;
+            v_ray_length_1D.y += v_ray_unit_step.y;
         }
         printf("distance :%f\n",distance);
+        printf("v_step : %f-%f\n",v_step.x, v_step.y);
+        printf("v_ray_dir : %f-%f\n",v_ray_dir.x, v_ray_dir.y);
         printf("v_ray_length_1D : %f-%f\n",v_ray_length_1D.x, v_ray_length_1D.y);
-        t_vector collision_point = vec_scalar_mult(v_ray_dir, distance );
+        printf("v_map_check : %f-%f\n",v_map_check.x, v_map_check.y);
+        t_vector collision_point = vec_scalar_mult(v_ray_dir, distance * 64);
+        printf("collision_point : %f-%f\n",collision_point.x, collision_point.y);
+       // collision_point = vec_mult(v_map_check, game->player.direction); 
         collision_point = vec_sum(collision_point, game->player.pos);
         printf("collision_point : %f-%f\n",collision_point.x, collision_point.y);
-        printf("collision_point : %f-%f\n",collision_point.x, collision_point.y);
-        draw_filled_circle(game,collision_point, 12, BLACK_PIXEL);
-        // draw_line(game,  game->player.pos, vec_sum(collision_point, game->player.pos), 3, RED_PIXEL);
+        draw_filled_circle(game, collision_point, 12, BLACK_PIXEL);
+        //draw_line(game,  game->player.pos, vec_sum(collision_point, game->player.pos), 3, RED_PIXEL);
         // draw_filled_circle(game,  collision_point, 10, WHITE_PIXEL);
-        if(!tile_out_of_bound(v_map_check))
+        if(tile_out_of_bound(v_map_check))
             return ;
         if(game->map[(int)v_map_check.y][(int)v_map_check.x] == '1')
         {
@@ -96,5 +105,7 @@ void	cast_2D_ray(t_game *game)
         else
             game->map[(int)v_map_check.y][(int)v_map_check.x] = 'B';
     }
+    // while(1)
+    //     ;
     // return (distance);
 }

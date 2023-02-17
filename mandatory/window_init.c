@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 16:32:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/17 17:47:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,7 @@ void	var_init(t_game *game)
 	game->win = mlx_new_window(game->mlx, 8 * 64, 8 * 64, "cub3d");
 	game->player.pos.x = 4*64;
 	game->player.pos.y = 4*64;
-	game->player.direction.x = 64;
-	game->player.direction.y = 1;
+	angle_to_vector(3 * M_PI / 4, &game->player.direction);
 	game->img.mlx_img = mlx_new_image(game->mlx, 8 * 64, 8 * 64);
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);

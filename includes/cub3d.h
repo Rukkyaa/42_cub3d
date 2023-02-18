@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:57:22 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/18 14:00:21 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 # define LEFT 65363
 
 // COLORS
-# define RED_PIXEL 0xFF0000
+# define RED_PIXEL   0xFF0000
 # define GREEN_PIXEL 0x00FF00
-# define BLUE_PIXEL 0x0000FF
+# define BLUE_PIXEL  0x0000FF
 # define BLACK_PIXEL 0x000000
-# define WHITE_PIXEL 0x111111
+# define WHITE_PIXEL 0xFFFFFF
 
 typedef struct vector
 {

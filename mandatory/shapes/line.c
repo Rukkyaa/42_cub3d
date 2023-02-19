@@ -3,14 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 16:08:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/19 13:29:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color)
+{
+	int	i;
+
+	i = -1;
+	while (++i < len)
+		img_pix_put(img, pos.x , pos.y + i, color);
+}
+
 
 void	draw_vertical_line(t_game *game, t_vector pos, int len, int color)
 {

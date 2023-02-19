@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:57:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/19 14:46:48 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,25 +40,37 @@ int handle_key_state(void *g)
 	game = (t_game *) g;
 	int render;
 
+
 	render = 0;
-	if (game->key_states['w']) {
-		printf("up\n");
-		game->player.pos.y -= 3;	
+	if (game->key_states['z']) {
+		printf("Forward\n");
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		printf("Good\n");
 		render = 1;
 	}
 	if (game->key_states['s'] ) {
-		printf("down\n");
-		game->player.pos.y += 3;
+		printf("Backward\n");
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, -2));
+		print_vector2D(&game->player.pos, "player position :");
+		// game->player.pos.y += 10 * game->player.direction.y;
 		render = 1;
 	}
-	if (game->key_states['a' ]) {
+	if (game->key_states['q' ]) {
 		printf("left\n");
-		game->player.pos.x -= 3;
+		rotate(&(game->player.direction), 270);
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		rotate(&(game->player.direction), 90);
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		// game->player.pos.x -= 10 * game->player.direction.x;
 		render = 1;
 	}
 	if (game->key_states['d'] ) {
 		printf("right\n");
-		game->player.pos.x += 3;
+		rotate(&(game->player.direction), 90);
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		rotate(&(game->player.direction), 270);
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		// game->player.pos.x += 10 * game->player.direction.x;
 		render = 1;
 	}
 	if (game->key_states[0]) {
@@ -74,14 +86,25 @@ int handle_key_state(void *g)
 		// close_window(game);
 	}
 	usleep(16000);
-	if (game->key_states['w'] || game->key_states['s'] ||game->key_states['a'] ||game->key_states['d'] ||game->key_states[0] ||game->key_states[1])
+	if (game->key_states['z'] || game->key_states['s'] ||game->key_states['q'] ||game->key_states['d'] ||game->key_states[0] ||game->key_states[1])
 	{
 		load_map(game);
+		printf("load_map\n");
 		load_grid(game);
+		printf("load_grid\n");
 		clean_map(game);
+		printf("clean_map\n");
+		clear_img(&game->fps_img);
+		printf("clear_img\n");
+		render_fps(game);
+		printf("render_fps\n");
 	}
-	draw_player(game, RED_PIXEL);
+	// draw_player(game, RED_PIXEL);
+		printf("draw_player\n");
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
+		printf("mlx_put_image_to_window\n");
+	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+		printf("mlx_put_image_to_window\n");
 	return (0);
 }
 
@@ -90,7 +113,7 @@ int	handle_keypress(int keycode, t_game *game)
 	printf("%d\n", keycode);
 	if (keycode == ESC)
 		close_window(game);
-	if (keycode == W || keycode == A || keycode == S || keycode == D)
+	if (keycode == 'z' || keycode == 'q' || keycode == 'd' || keycode == 's')
 		game->key_states[keycode] = 1;
 	if (keycode == RIGHT)
 		game->key_states[0] = 1;
@@ -101,7 +124,7 @@ int	handle_keypress(int keycode, t_game *game)
 
 int	handle_keyrelease(int keycode, t_game *game)
 {
-	if (keycode == W || keycode == A || keycode == S || keycode == D)
+	if (keycode == 'z' || keycode == 'q' || keycode == 'd' || keycode == 's')
 		game->key_states[keycode] = 0;
 	if (keycode == RIGHT)
 		game->key_states[0] = 0;

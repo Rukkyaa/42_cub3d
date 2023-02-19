@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 17:57:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/19 13:44:59 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,22 @@ void	clean_map(t_game *game)
 		{
 			if (game->map[i][j] == 'B')
 				game->map[i][j] = '0';
+		}
+	}
+}
+
+void	clear_img(t_img *img)
+{
+	int			i;
+	int			j;
+	
+	i = -1;
+	while (++i < RES_Y)
+	{
+		j = -1;
+		while (++j < RES_X)
+		{
+			img_pix_put(img, i , j, BLACK_PIXEL);
 		}
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   circle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:20:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/17 14:23:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/19 13:16:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @param radius: radius of the circle
 ** @param color: color of the circle
 */
-void	draw_filled_circle(t_game *game, t_vector mid, int radius, int color)
+void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color)
 {
 	int	x;
 	int	y;
@@ -32,6 +32,6 @@ void	draw_filled_circle(t_game *game, t_vector mid, int radius, int color)
 		y = mid.y - radius;
 		while (++y < mid.y + radius)
 			if (pow(x - mid.x, 2) + pow(y - mid.y, 2) <= pow(radius, 2))
-				img_pix_put(&game->img, x, y, color);
+				img_pix_put(img, x, y, color);
 	}
 }

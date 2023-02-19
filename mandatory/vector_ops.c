@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/17 17:43:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/18 14:40:50 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,14 +91,42 @@ t_vector vec_scalar_mult(t_vector vec1, double i)
     return(mult);
 }
 
-void angle_to_vector(double angle, double* vector) {
-    vector[0] = cos(angle);
-    vector[1] = sin(angle);
+void angle_to_vector(double angle, t_vector *vector) {
+    // vector->x = cos(angle);
+}
+
+void vector_to_angle(double angle, t_vector *vector) {
+    vector->x = cos(angle);
+    vector->y = sin(angle);
     
     // normalize the vector
-    double magnitude = sqrt(pow(vector[0], 2) + pow(vector[1], 2));
-    vector[0] /= magnitude;
-    vector[1] /= magnitude;
+    double magnitude = sqrt(pow(vector->x, 2) + pow(vector->y, 2));
+    vector->x /= magnitude;
+    vector->y /= magnitude;
+}
+
+void    print_vector2D(t_vector *vector, char *name)
+{
+    printf("-----------------------------------------------\n");
+    printf("| %s : x : %f | y : %f   |\n", name, vector->x, vector->y);
+    printf("-----------------------------------------------\n");
+}
+
+void	rotate_rad(t_vector *vector, float angle)
+{
+
+	// Calculate the sine and cosine of the angle
+	float cosine = cosf(angle);
+	float sine = sinf(angle);
+
+	// Rotate the vector using the rotation matrix
+	float x = vector->x * cosine - vector->y * sine;
+	float y = vector->x * sine + vector->y * cosine;
+
+	// Update the vector with the rotated coordinates
+	vector->x = x;
+	vector->y = y;
+    // printf("new vector : %f-%f\n",vector->x, vector->y);
 }
 
 void	rotate(t_vector *vector, float angle)

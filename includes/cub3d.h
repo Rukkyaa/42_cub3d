@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/18 14:00:21 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/19 21:53:24 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,9 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
 
 # define ESC 65307
 # define A 97
@@ -33,6 +36,13 @@
 # define S 115
 # define RIGHT 65361
 # define LEFT 65363
+
+
+# define FOV_RADIANS ( M_PI * 2 / 3 )
+
+
+# define RES_X ( 64 * 8 )
+# define RES_Y ( 64 * 8)
 
 // COLORS
 # define RED_PIXEL   0xFF0000
@@ -67,7 +77,9 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*win;
+	void		*fps_win;
 	t_img		img;
+	t_img		fps_img;
 	char		**map;
 	int				key_states[256];
 	int				key_release_states[256];
@@ -75,22 +87,24 @@ typedef struct s_game
 }				t_game;
 
 // Ray casting
-void	cast_2D_ray(t_game *game);
+float	cast_2D_ray(t_game *game, t_vector direction);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	clean_map(t_game *game);
+void    render_fps(t_game *game);
+void	clear_img(t_img *img);
 
 // Shapes
 void	draw_square(t_game *game, t_vector pos, int width, int color);
 void	draw_filled_square(t_game *game, t_vector pos, int width, int color);
 
 void 	draw_circle(t_game *game, t_vector center, int radius, int color);
-void    draw_filled_circle(t_game *game, t_vector center, int radius, int color);
+void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color);
 
 void	draw_vertical_line(t_game *game, t_vector pos, int len, int color);
+void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color);
 void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
-void 	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color);
 
 void	load_grid(t_game *game);
 void	load_map(t_game *game);
@@ -104,9 +118,11 @@ int 	handle_key_state(void *g);
 // Vector operations
 t_vector vec_sum(t_vector vec1, t_vector vec2);
 void	rotate(t_vector *vector, float angle);
+void	rotate_rad(t_vector *vector, float angle);
 t_vector vec_scalar_mult(t_vector vec1, double i);
 t_vector vec_mult(t_vector vec1, t_vector vec2);
-void 	angle_to_vector(double angle, double* vector);
+void angle_to_vector(double angle, t_vector *vector);
+void    print_vector2D(t_vector *vector, char *name);
 
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);

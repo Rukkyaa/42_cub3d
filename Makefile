@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/17 15:52:04 by teliet           ###   ########.fr        #
+#    Updated: 2023/02/18 14:32:21 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,8 @@ NAME = cub3d
 SRC = mandatory/main.c mandatory/window_init.c mandatory/get_map.c mandatory/key.c \
 		mandatory/free.c mandatory/move.c mandatory/vector_ops.c \
 		mandatory/raycast_2D.c \
-		mandatory/render/load.c
+		mandatory/render/load.c \
+		mandatory/render/render_fps.c
 
 LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 

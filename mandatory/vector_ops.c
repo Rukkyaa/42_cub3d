@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/18 14:40:50 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/20 17:02:12 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,28 @@ void	rotate_rad(t_vector *vector, float angle)
 	vector->x = x;
 	vector->y = y;
     // printf("new vector : %f-%f\n",vector->x, vector->y);
+}
+
+t_vector	rotate2(t_vector vector, float angle)
+{
+    // printf("vector : %f-%f\n",vector->x, vector->y);
+	// Convert the angle from degrees to radians
+    t_vector    output;
+	angle = angle * M_PI / 180.0f;
+
+	// Calculate the sine and cosine of the angle
+	float cosine = cosf(angle);
+	float sine = sinf(angle);
+
+	// Rotate the vector using the rotation matrix
+	float x = vector.x * cosine - vector.y * sine;
+	float y = vector.x * sine + vector.y * cosine;
+
+	// Update the vector with the rotated coordinates
+	output.x = x;
+	output.y = y;
+    // printf("new vector : %f-%f\n",vector->x, vector->y);
+    return(output);
 }
 
 void	rotate(t_vector *vector, float angle)

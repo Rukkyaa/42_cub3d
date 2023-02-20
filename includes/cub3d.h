@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/19 21:53:24 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/20 17:02:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,7 @@ t_vector vec_scalar_mult(t_vector vec1, double i);
 t_vector vec_mult(t_vector vec1, t_vector vec2);
 void angle_to_vector(double angle, t_vector *vector);
 void    print_vector2D(t_vector *vector, char *name);
+t_vector	rotate2(t_vector vector, float angle);
 
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);

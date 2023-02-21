@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 13:12:01 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 15:19:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,14 @@ t_vector vec_mult(t_vector vec1, t_vector vec2)
     return(mult);
 }
 
+double vec_distance(t_vector vec1, t_vector vec2)
+{
+    double dist;
+
+    dist = sqrt( (vec1.x - vec2.x) *  (vec1.x - vec2.x) + (vec1.y - vec2.y) *  (vec1.y - vec2.y));
+    return(dist);
+}
+
 t_vector vec_scalar_mult(t_vector vec1, double i)
 {
     t_vector mult;
@@ -89,6 +97,15 @@ t_vector vec_scalar_mult(t_vector vec1, double i)
     mult.x = vec1.x * i;
     mult.y = vec1.y * i;
     return(mult);
+}
+
+t_vector normalize(t_vector vec) {
+    float magnitude = sqrt(vec.x * vec.x + vec.y * vec.y);
+    if (magnitude == 0) {
+        return vec;
+    }
+    t_vector norm_vec = { vec.x / magnitude, vec.y / magnitude };
+    return norm_vec;
 }
 
 void angle_to_vector(double angle, t_vector *vector) {
@@ -110,6 +127,15 @@ void    print_vector2D(t_vector *vector, char *name)
     printf("-----------------------------------------------\n");
     printf("| %s : x : %f | y : %f   |\n", name, vector->x, vector->y);
     printf("-----------------------------------------------\n");
+}
+
+double angle_between_vectors(t_vector v1, t_vector v2) 
+{
+    double dot_product = v1.x * v2.x + v1.y * v2.y;
+    double magnitude1 = sqrt(v1.x * v1.x + v1.y * v1.y);
+    double magnitude2 = sqrt(v2.x * v2.x + v2.y * v2.y);
+    double cos_theta = dot_product / (magnitude1 * magnitude2);
+    return acosf(cos_theta);
 }
 
 void	rotate_rad(t_vector *vector, float angle)

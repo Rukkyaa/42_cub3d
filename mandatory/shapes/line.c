@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/19 13:29:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/21 15:28:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,35 @@ void	draw_vertical_line(t_game *game, t_vector pos, int len, int color)
 	i = -1;
 	while (++i < len)
 		img_pix_put(&game->img, pos.x + i, pos.y, color);
+}
+
+void draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color) {
+    int x1 = vec1.x;
+    int y1 = vec1.y;
+    int x2 = vec2.x;
+    int y2 = vec2.y;
+    int dx = x2 - x1;
+    int dy = y2 - y1;
+    int steps;
+    float x_inc, y_inc, x = x1, y = y1;
+
+    if (abs(dx) > abs(dy))
+        steps = abs(dx);
+    else
+        steps = abs(dy);
+
+    x_inc = dx / (float) steps;
+    y_inc = dy / (float) steps;
+
+    int i = 0;
+    while (i <= steps) {
+        int ix = round(x);
+        int iy = round(y);
+        img_pix_put(img, ix, iy, color);
+        x += x_inc;
+        y += y_inc;
+        i++;
+    }
 }
 
 void draw_line(t_game *game, t_vector posA, t_vector posB, int thickness, int color) 

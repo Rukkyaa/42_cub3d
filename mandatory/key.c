@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 18:28:39 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:37:43 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,16 @@ int handle_key_state(void *g)
 		render = 1;
 		// close_window(game);
 	}
+	if (game->key_states['r'] ) {
+		game->player.direction_adjust+=5;
+		// close_window(game);
+	}
+	if (game->key_states['f'] ) {
+		game->player.direction_adjust-=5;
+		// close_window(game);
+	}
 	usleep(16000);
-	if (game->key_states['w'] || game->key_states['s'] ||game->key_states['a'] ||game->key_states['d'] ||game->key_states[0] ||game->key_states[1])
+	if (game->key_states['w'] || game->key_states['s'] ||game->key_states['a'] || game->key_states['d'] || game->key_states['f'] || game->key_states['r']  ||game->key_states[0] ||game->key_states[1])
 	{
 		load_map(game);
 		load_grid(game);
@@ -81,7 +89,7 @@ int	handle_keypress(int keycode, t_game *game)
 	printf("%d\n", keycode);
 	if (keycode == ESC)
 		close_window(game);
-	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's')
+	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's' ||  keycode == 'r' ||  keycode == 'f')
 		game->key_states[keycode] = 1;
 	if (keycode == RIGHT)
 		game->key_states[0] = 1;
@@ -92,7 +100,7 @@ int	handle_keypress(int keycode, t_game *game)
 
 int	handle_keyrelease(int keycode, t_game *game)
 {
-	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's')
+	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's' ||  keycode == 'r' ||  keycode == 'f')
 		game->key_states[keycode] = 0;
 	if (keycode == RIGHT)
 		game->key_states[0] = 0;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 15:04:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:49:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	var_init(t_game *game)
 	game->player.pos.y = 3*64 + 32; 
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
+	game->player.direction_adjust = 5; 
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     print_vector2D(&game->player.direction, "player dir");
 	// close_window(game);

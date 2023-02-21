@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 12:47:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 14:53:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,7 +153,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
         //draw_line(game,  game->player.pos, vec_sum(collision_point, game->player.pos), 3, RED_PIXEL);
         // draw_filled_circle(game,  collision_point, 10, WHITE_PIXEL);
         i++;
-        if(tile_out_of_bound(v_map_check))
+        if(tile_out_of_bound(v_map_check, game))
             break ;
         if(game->map[(int)v_map_check.y][(int)v_map_check.x] == '1')
         {

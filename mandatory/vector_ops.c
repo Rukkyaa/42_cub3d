@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/20 17:02:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 13:12:01 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@ int pixel_out_of_bound(float x, float y)
 {
     t_vector pixel_coord;
     
-
+    // printf("pixel out of bound : %d|%d\n", x, y);
     pixel_coord.x = x;
     pixel_coord.y = y;
-    return(!( 0 <= pixel_coord.x  && pixel_coord.x < 512 && 0 <= pixel_coord.y  && pixel_coord.y < 512));
+    return(!( 0 <= pixel_coord.x  && pixel_coord.x < RES_X && 0 <= pixel_coord.y  && pixel_coord.y < RES_Y));
 }
 
 int tile_out_of_bound(t_vector tile_coord)

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 17:02:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 12:50:35 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,13 @@
 # define LEFT 65363
 
 
-# define FOV_RADIANS ( M_PI * 2 / 3 )
+# define FOV_RADIANS ( M_PI / 2 )
+# define FOV 90
 
+# define RES_X  1280
+# define RES_Y  720
 
-# define RES_X ( 64 * 8 )
-# define RES_Y ( 64 * 8)
+# define MAX_DISTANCE 10
 
 // COLORS
 # define RED_PIXEL   0xFF0000
@@ -50,12 +52,21 @@
 # define BLUE_PIXEL  0x0000FF
 # define BLACK_PIXEL 0x000000
 # define WHITE_PIXEL 0xFFFFFF
+# define PALE_BLUE 	 0x25F7C6
+# define PALE_BLUE_SHADED 	 0x0D5243
 
 typedef struct vector
 {
 	double			x;
 	double			y;
 }					t_vector;
+
+typedef struct s_collision
+{
+	t_vector		point;
+	char		orientation;
+	float		distance;
+}					t_collision;
 
 typedef struct s_player
 {
@@ -87,7 +98,7 @@ typedef struct s_game
 }				t_game;
 
 // Ray casting
-float	cast_2D_ray(t_game *game, t_vector direction);
+t_collision	cast_2D_ray(t_game *game, t_vector direction);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);

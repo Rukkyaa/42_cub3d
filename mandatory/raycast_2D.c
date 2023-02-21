@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/19 13:58:54 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/21 12:47:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,14 +28,56 @@ void    print_circle_relative_tile_pos(t_game *game, t_vector point)
     draw_filled_circle(&game->img, point, 12, RED_PIXEL);   
 }
 
+// char get_collision_orientation(t_vector v_tile_coord, t_vector v_collision_coord)
+// {
+//     print_vector2D(&v_tile_coord, "v_tile_coord : ");
+//     print_vector2D(&v_collision_coord, "v_collision_coord : ");
+//     if(v_collision_coord.x < v_collision_coord.y)
+//     {
+//         if((int) (v_collision_coord.x / 64) == v_tile_coord.x)
+//             return 'O';
+//         else
+//             return 'S';
+//     }
+//     if(v_collision_coord.x > v_collision_coord.y)
+//     {
+//         if((int) (v_collision_coord.x / 64)== v_tile_coord.x + 1)
+//             return 'E';
+//         else
+//             return 'N';
+//     }
+// }
 
-float	cast_2D_ray(t_game *game, t_vector direction)
+char get_collision_orientation(char last_step, t_vector v_step)
+{
+    // print_vector2D(&v_tile_coord, "v_tile_coord : ");
+    // print_vector2D(&v_collision_coord, "v_collision_coord : ");
+    if(last_step == 'x')
+    {
+        if(v_step.x == 1)
+            return 'O';
+        else
+            return 'E';
+    }
+    else
+    {
+        if(v_step.y == 1)
+            return 'N';
+        else
+            return 'S';
+    }
+}
+
+
+t_collision	cast_2D_ray(t_game *game, t_vector direction)
 {
 	t_vector v_ray_dir = direction;
 	t_vector v_step;
 	t_vector v_ray_length_1D;
 	t_vector v_map_check = pixel_to_tile(game->player.pos);
     t_vector collision_point;
+    t_collision collision;
+    char last_step;
     int i = 0; 
 	//draw_filled_square(game,  tile_coord.x * 64, tile_coord.y * 64, 64, 88888);
 
@@ -75,7 +117,7 @@ float	cast_2D_ray(t_game *game, t_vector direction)
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.y));
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.x));
     int tile_found = 0;
-    float max_distance = 100.0f;
+    float max_distance = MAX_DISTANCE;
     float distance = 0.0f;
 
     while(!tile_found && distance < max_distance)
@@ -84,12 +126,14 @@ float	cast_2D_ray(t_game *game, t_vector direction)
         // printf("distance :%f\n",distance);
         if(v_ray_length_1D.x < v_ray_length_1D.y)
         {
+            last_step = 'x';
             v_map_check.x += v_step.x;
             distance = v_ray_length_1D.x;
             v_ray_length_1D.x += v_ray_unit_step.x;
         }
         else
         {
+            last_step = 'y';
             // printf("v_map_check : %f: %f\n",v_map_check.x, v_map_check.y);
             v_map_check.y += v_step.y;
             // printf("v_map_check : %f: %f\n",v_map_check.x, v_map_check.y);
@@ -97,7 +141,7 @@ float	cast_2D_ray(t_game *game, t_vector direction)
             v_ray_length_1D.y += v_ray_unit_step.y;
         }
         // printf("distance :%f\n",distance);
-        // printf("v_step : %f: %f\n",v_step.x, v_step.y);
+        // printf("v_stepdistance : %f: %f\n",v_step.x, v_step.y);
         // printf("v_ray_dir : %f: %f\n",v_ray_dir.x, v_ray_dir.y);
         // printf("v_ray_length_1D : %f: %f\n",v_ray_length_1D.x, v_ray_length_1D.y);
         // printf("v_map_check : %f-%f\n",v_map_check.x, v_map_check.y);
@@ -124,7 +168,9 @@ float	cast_2D_ray(t_game *game, t_vector direction)
     }
     //  printf("distance :%f\n",distance);
    // draw_line(game,  game->player.pos, collision_point, 3, RED_PIXEL);
+    collision.distance = distance;
+    collision.orientation = get_collision_orientation(last_step, v_step);
+    collision.point = collision_point;
 
-
-    return ((distance ));
+    return ((collision ));
 }

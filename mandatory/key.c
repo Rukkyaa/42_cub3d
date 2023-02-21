@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/20 16:54:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 13:13:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int handle_key_state(void *g)
 		// close_window(game);
 	}
 	if (game->key_states[1] ) {
-		// printf("rotate_right\n");
+		printf("rotate_right\n");
 		rotate(&(game->player.direction), 1);
 		render = 1;
 		// close_window(game);

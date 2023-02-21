@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/19 13:44:59 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/21 13:13:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void	clear_img(t_img *img)
 	int			j;
 	
 	i = -1;
-	while (++i < RES_Y)
+	while (++i < RES_X)
 	{
 		j = -1;
-		while (++j < RES_X)
+		while (++j < RES_Y)
 		{
 			img_pix_put(img, i , j, BLACK_PIXEL);
 		}

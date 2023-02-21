@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 18:48:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:06:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ void	var_init(t_game *game)
 			&game->fps_img.line_len, &game->fps_img.endian);
 	game->img.width = map_width(game->map);
 	game->img.heigth = map_heigth(game->map);
-	game->fps_img.width = map_width(game->map);
-	game->fps_img.heigth = map_heigth(game->map);
+	game->fps_img.width = RES_X / 64;
+	game->fps_img.heigth = RES_Y / 64;
 	load_map(game);
 	load_grid(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);

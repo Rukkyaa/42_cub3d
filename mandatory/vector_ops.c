@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 18:52:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/21 19:06:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ int pixel_out_of_bound(float x, float y, t_img *image)
 {
     t_vector pixel_coord;
     
+	(void)image;
     // printf("pixel out of bound : %d|%d\n", x, y);
     pixel_coord.x = x;
     pixel_coord.y = y;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 15:43:47 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 15:51:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,12 +142,27 @@ double 		angle_between_vectors(t_vector v1, t_vector v2) ;
 
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);
-int tile_out_of_bound(t_vector tile_coord);
+int tile_out_of_bound(t_vector tile_coord, t_game *game);
 int pixel_out_of_bound(float x, float y);
 void	draw_player(t_game *game, int color);
 void	var_init(t_game *game);
 char	**get_map(char *arg);
 int		close_window(t_game *game);
 void	move(t_game *game, char direction);
+
+/**************************************
+** $$\      $$\  $$$$$$\  $$$$$$$\   **
+** $$$\    $$$ |$$  __$$\ $$  __$$\  **
+** $$$$\  $$$$ |$$ /  $$ |$$ |  $$ | **
+** $$\$$\$$ $$ |$$$$$$$$ |$$$$$$$  | **
+** $$ \$$$  $$ |$$  __$$ |$$  ____/  **
+** $$ |\$  /$$ |$$ |  $$ |$$ |       **
+** $$ | \_/ $$ |$$ |  $$ |$$ |       **
+** \__|     \__|\__|  \__|\__|       **
+**************************************/
+
+int		map_heigth(char **map);
+int		map_width(char **map);
+char	**get_map(char *arg);
 
 #endif

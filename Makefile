@@ -3,16 +3,16 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/18 14:32:21 by theo             ###   ########.fr        #
+#    Updated: 2023/02/21 14:37:57 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
-SRC = mandatory/main.c mandatory/window_init.c mandatory/get_map.c mandatory/key.c \
+SRC = mandatory/main.c mandatory/window_init.c mandatory/key.c \
 		mandatory/free.c mandatory/move.c mandatory/vector_ops.c \
 		mandatory/raycast_2D.c \
 		mandatory/render/load.c \
@@ -25,6 +25,10 @@ OBJS = $(SRC:.c=.o)
 # SHAPES FILES #
 SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, square circle line))
 SHAPE_OBJS = $(SHAPE_SRC:.c=.o)
+
+# MAP FILES# #
+MAP_SRC = $(addprefix mandatory/map/, $(addsuffix .c, get_map map_utils))
+MAP_OBJS = $(MAP_SRC:.c=.o)
 
 LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
@@ -47,10 +51,10 @@ LIBFT = -L libft/ -lft
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(SHAPE_OBJS)
+$(NAME): $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS)
 	@printf "\033[K\033[1;32m| Cub3d : compiled                     |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS) $(SHAPE_OBJS) $(LFLAGS) $(LIBFT) -o $(NAME)
+	@cc $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(LFLAGS) $(LIBFT) -o $(NAME)
 	@printf "\033[1;32m========================================\n"
 	@printf "|         COMPILATION FINISHED !       |\n"
 	@printf "========================================\n\033[m"
@@ -65,7 +69,7 @@ clean:
 	@printf "========================================\n\033[m"
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
-	@rm -f $(OBJS) $(OBJS_BONUS) $(SHAPE_OBJS)
+	@rm -f $(OBJS) $(OBJS_BONUS) $(SHAPE_OBJS) $(MAP_OBJS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

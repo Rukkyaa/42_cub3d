@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 15:19:23 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 15:52:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,10 @@ int pixel_out_of_bound(float x, float y)
     return(!( 0 <= pixel_coord.x  && pixel_coord.x < RES_X && 0 <= pixel_coord.y  && pixel_coord.y < RES_Y));
 }
 
-int tile_out_of_bound(t_vector tile_coord)
+int tile_out_of_bound(t_vector tile_coord, t_game *game)
 {
-    return (!( 0 <= tile_coord.x  && tile_coord.x < 8 && 0 <= tile_coord.y  && tile_coord.y < 8));
+    return (!( 0 <= tile_coord.x  && tile_coord.x < map_width(game->map)
+		&& 0 <= tile_coord.y  && tile_coord.y < map_heigth(game->map)));
 }
 
 t_vector tile_to_pixel(t_vector tile_coord)

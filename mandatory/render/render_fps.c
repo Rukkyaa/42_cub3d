@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/21 15:49:38 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:27:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,20 +72,26 @@ void    render_fps(t_game *game)
 //     t_vector v_right;
 //     t_vector line_pos;
 //     t_vector v_ray_dir;
+//     t_vector v_player_to_camera_plane;
 //     float halfWidth;
 //     float offset;
-//     halfWidth = tan(FOV / 2) ;
+//     halfWidth = tanf((float)FOV_RADIANS / 2.0f) * 32 ;
+//     printf("half_width : %f\n", halfWidth);
 //     v_right  = normalize(rotate2(game->player.direction, 90)) ;
-//     // v_ray_dir.x = game->player.direction.x;
+//     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, 120);
+//     draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
+//     // v_ray_dir.x = game->player.direction.x;s
 //     // v_ray_dir.y = game->player.direction.y;
-//     v_ray_dir = vec_scalar_mult(game->player.direction, 64);
+//     // v_ray_dir = vec_scalar_mult(game->player.direction, 5);
 //     line_pos.x = 0;
 //     while(i < RES_X)
 //     {
-//         line_pos.x++;
-//         offset = ((2.0 * i / (RES_X - 1.0)) - 1.0) * halfWidth;
-//         v_ray_dir = vec_sum(game->player.direction, vec_scalar_mult(v_right, offset));
+//         line_pos.x+= RES_X / RES_X;
+//         offset = ((2.0f * (float) i / (RES_X - 1.0f)) - 1.0f) * halfWidth;
+//         // printf("offset : %f\n", offset);
+//         v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, offset));
 //         v_ray_dir = normalize(v_ray_dir);
+//         // printf("angle : %f\n", angle_between_vectors(v_ray_dir, game->player.direction));
 //         // printf("%d : ", line_pos.x);
 //         // print_vector2D(&v_ray_dir, "raycast dir");
 //         collision = cast_2D_ray(game, v_ray_dir);
@@ -103,5 +109,7 @@ void    render_fps(t_game *game)
 //         i++;
 //         // img_pix_put(&game->fps_img, line_pos.x, 400, RED_PIXEL);
 //     }
+//     // close_window(game);
+//     draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
 //     // close_window(game);
 // }

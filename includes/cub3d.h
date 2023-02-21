@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 15:51:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:14:26 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@
 # define FOV 90
 
 # define RES_X  1280
-# define RES_Y  1280
+# define RES_Y  720
 
 # define MAX_DISTANCE 10
 

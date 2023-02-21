@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 14:40:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:28:39 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,13 @@ int handle_key_state(void *g)
 	render = 0;
 	if (game->key_states['w']) {
 		printf("Forward\n");
-		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
 		printf("Good\n");
 		render = 1;
 	}
 	if (game->key_states['s'] ) {
 		printf("Backward\n");
-		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, -2));
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, -4));
 		print_vector2D(&game->player.pos, "player position :");
 		// game->player.pos.y += 10 * game->player.direction.y;
 		render = 1;
@@ -36,7 +36,7 @@ int handle_key_state(void *g)
 	if (game->key_states['a' ]) {
 		printf("left\n");
 		rotate(&(game->player.direction), 270);
-		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
 		rotate(&(game->player.direction), 90);
 		// game->player.pos.x -= 10 * game->player.direction.x;
 		render = 1;
@@ -44,20 +44,20 @@ int handle_key_state(void *g)
 	if (game->key_states['d'] ) {
 		printf("right\n");
 		rotate(&(game->player.direction), 90);
-		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 2));
+		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
 		rotate(&(game->player.direction), 270);
 		// game->player.pos.x += 10 * game->player.direction.x;
 		render = 1;
 	}
 	if (game->key_states[0]) {
 		// printf("rotate_left\n");
-		rotate(&(game->player.direction), -1);
+		rotate(&(game->player.direction), -3);
 		render = 1;
 		// close_window(game);
 	}
 	if (game->key_states[1] ) {
 		printf("rotate_right\n");
-		rotate(&(game->player.direction), 1);
+		rotate(&(game->player.direction), 3);
 		render = 1;
 		// close_window(game);
 	}

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 14:57:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/21 18:35:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	load_map(t_game *game)
 	while (++i < map_heigth(game->map))
 	{
 		j = -1;
-		while (++j < map_width(game->map))
+		while (++j < (map_width(game->map)))
 		{
 			pos.x = j * 64;
 			pos.y = i * 64;

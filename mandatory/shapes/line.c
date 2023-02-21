@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 15:52:17 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 19:00:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	img_pix_put(t_img *img, int x, int y, int color)
 	int		i;
 
 
-	if(pixel_out_of_bound(x, y))
+	if(pixel_out_of_bound(x, y, img))
 		return ;
 	i = img->bpp - 8;
     pixel = img->addr + (y * img->line_len + x * (img->bpp / 8));

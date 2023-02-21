@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vector_ops.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 15:52:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 19:06:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,20 +31,22 @@
 // 	vector->y = y;
 // }
 
-int pixel_out_of_bound(float x, float y)
+int pixel_out_of_bound(float x, float y, t_img *image)
 {
     t_vector pixel_coord;
     
+	(void)image;
     // printf("pixel out of bound : %d|%d\n", x, y);
     pixel_coord.x = x;
     pixel_coord.y = y;
-    return(!( 0 <= pixel_coord.x  && pixel_coord.x < RES_X && 0 <= pixel_coord.y  && pixel_coord.y < RES_Y));
+    return(!( 0 <= pixel_coord.x  && pixel_coord.x < image->width * 64
+		&& 0 <= pixel_coord.y  && pixel_coord.y < image->heigth * 64));
 }
 
 int tile_out_of_bound(t_vector tile_coord, t_game *game)
 {
-    return (!( 0 <= tile_coord.x  && tile_coord.x < map_width(game->map)
-		&& 0 <= tile_coord.y  && tile_coord.y < map_heigth(game->map)));
+    return (!( 0 <= tile_coord.x  && tile_coord.x < game->img.width
+		&& 0 <= tile_coord.y  && tile_coord.y < game->img.heigth));
 }
 
 t_vector tile_to_pixel(t_vector tile_coord)

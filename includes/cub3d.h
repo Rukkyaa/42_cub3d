@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 18:14:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/21 18:51:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,8 @@ typedef struct s_img
 	int		bpp; /* bits per pixel */
 	int		line_len;
 	int		endian;
+	int		width;
+	int		heigth;
 }	t_img;
 
 typedef struct s_game
@@ -143,7 +145,7 @@ double 		angle_between_vectors(t_vector v1, t_vector v2) ;
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);
 int tile_out_of_bound(t_vector tile_coord, t_game *game);
-int pixel_out_of_bound(float x, float y);
+int pixel_out_of_bound(float x, float y, t_img *image);
 void	draw_player(t_game *game, int color);
 void	var_init(t_game *game);
 char	**get_map(char *arg);

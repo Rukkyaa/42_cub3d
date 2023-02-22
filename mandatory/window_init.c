@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:04:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:33:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	var_init(t_game *game)
 	game->player.direction.y = 0; 
 	game->player.direction_adjust = 5; 
 	// angle_to_vector( M_PI / 4, &game->player.direction);
-    print_vector2D(&game->player.direction, "player dir");
+    vec_print(&game->player.direction, "player dir");
 	// close_window(game);
 	game->img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
 	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);

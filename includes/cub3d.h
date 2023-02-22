@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:04:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:47:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,17 +140,8 @@ int		handle_keypress(int keycode, t_game *game);
 int 	game_loop(void *g);
 
 // Vector operations
-t_vector 	vec_sum(t_vector vec1, t_vector vec2);
 void		rotate(t_vector *vector, float angle);
-void		rotate_rad(t_vector *vector, float angle);
-t_vector 	vec_scalar_mult(t_vector vec1, double i);
-t_vector 	vec_mult(t_vector vec1, t_vector vec2);
-void 		angle_to_vector(double angle, t_vector *vector);
-void    	print_vector2D(t_vector *vector, char *name);
 t_vector	rotate2(t_vector vector, float angle);
-t_vector 	normalize(t_vector vec);
-double 		vec_distance(t_vector vec1, t_vector vec2);
-double 		angle_between_vectors(t_vector v1, t_vector v2) ;
 
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);
@@ -176,5 +167,26 @@ void	move(t_game *game, char direction);
 int		map_heigth(char **map);
 int		map_width(char **map);
 char	**get_map(char *arg);
+
+/*****************************************************************
+** $$\    $$\ $$$$$$$$\  $$$$$$\ $$$$$$$$\  $$$$$$\  $$$$$$$\   **
+** $$ |   $$ |$$  _____|$$  __$$\\__$$  __|$$  __$$\ $$  __$$\  **
+** $$ |   $$ |$$ |      $$ /  \__|  $$ |   $$ /  $$ |$$ |  $$ | **
+** \$$\  $$  |$$$$$\    $$ |        $$ |   $$ |  $$ |$$$$$$$  | **
+**  \$$\$$  / $$  __|   $$ |        $$ |   $$ |  $$ |$$  __$$<  **
+**   \$$$  /  $$ |      $$ |  $$\   $$ |   $$ |  $$ |$$ |  $$ | **
+**    \$  /   $$$$$$$$\ \$$$$$$  |  $$ |    $$$$$$  |$$ |  $$ | **
+**     \_/    \________| \______/   \__|    \______/ \__|  \__| **
+*****************************************************************/
+
+t_vector	vec_sum(t_vector vec1, t_vector vec2);
+t_vector	vec_mult(t_vector vec1, t_vector vec2);
+t_vector	vec_scalar_mult(t_vector vec1, double i);
+t_vector	vec_normalize(t_vector vec);
+void		vec_to_angle(double angle, t_vector *vector);
+void		vec_print(t_vector *vector, char *name);
+void		vec_rotate_rad(t_vector *vector, float angle);
+double		vec_distance(t_vector vec1, t_vector vec2);
+double		vec_angle(t_vector v1, t_vector v2);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 10:47:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:40:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void    render_fps(t_game *game)
     float offset;
     halfWidth = tanf((float)FOV_RADIANS / 2.0f) * game->player.direction_adjust ;
     //printf("half_width : %f\n", halfWidth);
-    v_right  = normalize(rotate2(game->player.direction, 90)) ;
+    v_right  = vec_normalize(rotate2(game->player.direction, 90)) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->player.direction_adjust);
     //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
     // v_ray_dir.x = game->player.direction.x;s
@@ -89,14 +89,14 @@ void    render_fps(t_game *game)
         offset = ((2.0f * (float) line_pos.x / (RES_X - 1.0f)) - 1.0f) * halfWidth;
         // printf("offset : %f\n", offset);
         v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, offset));
-        v_ray_dir = normalize(v_ray_dir);
+        v_ray_dir = vec_normalize(v_ray_dir);
         // printf("angle : %f\n", angle_between_vectors(v_ray_dir, game->player.direction));
         // printf("%d : ", line_pos.x);
         // print_vector2D(&v_ray_dir, "raycast dir");
         collision = cast_2D_ray(game, v_ray_dir);
         // printf("distance : %d \n", distance);
         // line_height = (RES_Y * ( 1 - (collision.distance * 1 / MAX_DISTANCE));
-        float ca = angle_between_vectors(v_ray_dir, game->player.direction);
+        float ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * cosf(ca);
         line_height = ( 64 / collision.distance ) * game->player.direction_adjust  ;
         line_pos.y = RES_Y / 2 - line_height / 2;

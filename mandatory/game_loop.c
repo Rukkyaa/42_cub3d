@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:05:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 11:33:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int game_loop(void *g)
 	if (game->key_states['s'] ) {
 		printf("Backward\n");
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, -4));
-		print_vector2D(&game->player.pos, "player position :");
+		vec_print(&game->player.pos, "player position :");
 		// game->player.pos.y += 10 * game->player.direction.y;
 		render = 1;
 	}

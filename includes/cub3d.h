@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 10:55:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 11:04:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -137,7 +137,7 @@ void	load_map(t_game *game);
 int		key_gestion(int keycode, t_game *game);
 int		handle_keyrelease(int keycode, t_game *game);
 int		handle_keypress(int keycode, t_game *game);
-int 	handle_key_state(void *g);
+int 	game_loop(void *g);
 
 // Vector operations
 t_vector 	vec_sum(t_vector vec1, t_vector vec2);

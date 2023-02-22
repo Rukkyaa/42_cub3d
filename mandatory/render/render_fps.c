@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 08:46:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:47:36 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ void    render_fps(t_game *game)
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //     draw_vertical_line_2(&game->fps_img, line_pos, line_size, RED_PIXEL);
-        if(collision.orientation == 'S' || collision.orientation == 'O')
+        if(collision.orientation == 'S' || collision.orientation == 'N')
             draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE);
         else
             draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE_SHADED);

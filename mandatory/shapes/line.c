@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 08:55:37 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 10:47:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color)
 		img_pix_put(img, pos.x, i, 0x191970);
 	i = -1;
 	while (++i < len)
-		img_pix_put(img, pos.x , pos.y + i, 0x1E90FF);
+		img_pix_put(img, pos.x , pos.y + i, color);
 	while (i < RES_Y)
 		img_pix_put(img, pos.x , pos.y + i++, 0x87CEEB);
 }

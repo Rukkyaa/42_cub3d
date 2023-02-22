@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:33:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:56:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,29 +35,29 @@ int game_loop(void *g)
 	}
 	if (game->key_states['a' ]) {
 		printf("left\n");
-		rotate(&(game->player.direction), 270);
+		vec_rotate_edit(&(game->player.direction), 270);
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
-		rotate(&(game->player.direction), 90);
+		vec_rotate_edit(&(game->player.direction), 90);
 		// game->player.pos.x -= 10 * game->player.direction.x;
 		render = 1;
 	}
 	if (game->key_states['d'] ) {
 		printf("right\n");
-		rotate(&(game->player.direction), 90);
+		vec_rotate_edit(&(game->player.direction), 90);
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
-		rotate(&(game->player.direction), 270);
+		vec_rotate_edit(&(game->player.direction), 270);
 		// game->player.pos.x += 10 * game->player.direction.x;
 		render = 1;
 	}
 	if (game->key_states[0]) {
 		// printf("rotate_left\n");
-		rotate(&(game->player.direction), -3);
+		vec_rotate_edit(&(game->player.direction), -3);
 		render = 1;
 		// close_window(game);
 	}
 	if (game->key_states[1] ) {
 		printf("rotate_right\n");
-		rotate(&(game->player.direction), 3);
+		vec_rotate_edit(&(game->player.direction), 3);
 		render = 1;
 		// close_window(game);
 	}
@@ -81,5 +81,6 @@ int game_loop(void *g)
 	draw_player(game, RED_PIXEL);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->fps_win, game->texture.wall.mlx_img, 0, 0);
 	return (0);
 }

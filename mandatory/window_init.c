@@ -6,17 +6,23 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:33:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:58:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
+{
+	texture->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
+		&game->texture.text_width, &game->texture.text_heigth);
+	texture->addr = mlx_get_data_addr(texture->mlx_img, &texture->bpp,
+			&texture->line_len, &texture->endian);
+}
+
 void	load_img(t_game *game)
 {
-	game->texture.wall = mlx_xpm_file_to_image(game->mlx,
-		"mandatory/images/wall.xpm", &game->texture.text_width,
-			&game->texture.text_heigth);
+	ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
 }
 
 void	var_init(t_game *game)

@@ -6,25 +6,25 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/22 11:39:31 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/22 14:58:19 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = cub3d
 
 SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
-		mandatory/free.c mandatory/move.c mandatory/vector_ops.c \
+		mandatory/free.c mandatory/move.c \
 		mandatory/raycast_2D.c \
 		mandatory/render/load.c \
 		mandatory/render/render_fps.c \
-		mandatory/events.c
+		mandatory/events.c \
 
 LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJS = $(SRC:.c=.o)
 
 # SHAPES FILES #
-SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, square circle line))
+SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, square circle line pixel_utils))
 SHAPE_OBJS = $(SHAPE_SRC:.c=.o)
 
 # MAP FILES# #
@@ -33,7 +33,7 @@ MAP_OBJS = $(MAP_SRC:.c=.o)
 
 # VECTOR FILES #
 VECTOR_SRC = $(addprefix mandatory/vector/vec_, $(addsuffix .c, angle distance mult normalize \
-	print scalar_mult sum to_angle))
+	print scalar_mult sum to_angle rotate_edit rotate))
 VECTOR_OBJS = $(VECTOR_SRC:.c=.o)
 
 LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
@@ -42,6 +42,7 @@ INCLUDE = ./includes
 
 LIBFT = -L libft/ -lft
 
+flag:= 1
 .c.o :
 	@setterm -cursor off
 	@if [ $(flag) = "1" ]; then\

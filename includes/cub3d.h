@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:47:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:42:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,14 +55,6 @@
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 
-// TEXTURE
-typedef struct s_texture
-{
-	void	*wall;
-	int		text_heigth;
-	int		text_width;
-}				t_texture;
-
 typedef struct vector
 {
 	double			x;
@@ -94,6 +86,15 @@ typedef struct s_img
 	int		width;
 	int		heigth;
 }	t_img;
+
+// TEXTURE
+typedef struct s_texture
+{
+	t_img	wall;
+	// void	*wall;
+	int		text_heigth;
+	int		text_width;
+}				t_texture;
 
 typedef struct s_game
 {
@@ -139,10 +140,6 @@ int		handle_keyrelease(int keycode, t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int 	game_loop(void *g);
 
-// Vector operations
-void		rotate(t_vector *vector, float angle);
-t_vector	rotate2(t_vector vector, float angle);
-
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);
 int tile_out_of_bound(t_vector tile_coord, t_game *game);
@@ -183,9 +180,11 @@ t_vector	vec_sum(t_vector vec1, t_vector vec2);
 t_vector	vec_mult(t_vector vec1, t_vector vec2);
 t_vector	vec_scalar_mult(t_vector vec1, double i);
 t_vector	vec_normalize(t_vector vec);
+t_vector	vec_rotate(t_vector vector, float angle);
 void		vec_to_angle(double angle, t_vector *vector);
 void		vec_print(t_vector *vector, char *name);
 void		vec_rotate_rad(t_vector *vector, float angle);
+void		vec_rotate_edit(t_vector *vector, float angle);
 double		vec_distance(t_vector vec1, t_vector vec2);
 double		vec_angle(t_vector v1, t_vector v2);
 

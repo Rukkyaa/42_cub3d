@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 11:40:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 14:15:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void    render_fps(t_game *game)
     float offset;
     halfWidth = tanf((float)FOV_RADIANS / 2.0f) * game->player.direction_adjust ;
     //printf("half_width : %f\n", halfWidth);
-    v_right  = vec_normalize(rotate2(game->player.direction, 90)) ;
+    v_right  = vec_normalize(vec_rotate(game->player.direction, 90)) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->player.direction_adjust);
     //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
     // v_ray_dir.x = game->player.direction.x;s

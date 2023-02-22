@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vector_ops.c                                       :+:      :+:    :+:   */
+/*   pixel_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/17 11:20:57 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/22 11:47:44 by axlamber         ###   ########.fr       */
+/*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
+/*   Updated: 2023/02/22 14:18:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 int	pixel_out_of_bound(float x, float y, t_img *image)
 {
@@ -44,40 +44,4 @@ t_vector	pixel_to_tile(t_vector vector)
 	tile_coord.x = (int)(vector.x / 64.0f);
 	tile_coord.y = (int)(vector.y / 64.0f);
 	return (tile_coord);
-}
-
-//vec_rotate
-t_vector	rotate2(t_vector vector, float angle)
-{
-	t_vector	output;
-	float		cosine;
-	float		sine;
-	float		x;
-	float		y;
-
-	angle = angle * M_PI / 180.0f;
-	cosine = cosf(angle);
-	sine = sinf(angle);
-	x = vector.x * cosine - vector.y * sine;
-	y = vector.x * sine + vector.y * cosine;
-	output.x = x;
-	output.y = y;
-	return (output);
-}
-
-//vec_rotate_edit
-void	rotate(t_vector *vector, float angle)
-{
-	float	cosine;
-	float	sine;
-	float	x;
-	float	y;
-
-	angle = angle * M_PI / 180.0f;
-	cosine = cosf(angle);
-	sine = sinf(angle);
-	x = vector->x * cosine - vector->y * sine;
-	y = vector->x * sine + vector->y * cosine;
-	vector->x = x;
-	vector->y = y;
 }

@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 19:51:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 10:55:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
+
+void	load_img(t_game *game)
+{
+	game->texture.wall = mlx_xpm_file_to_image(game->mlx,
+		"mandatory/images/wall.xpm", &game->texture.text_width,
+			&game->texture.text_heigth);
+}
 
 void	var_init(t_game *game)
 {
@@ -41,6 +48,7 @@ void	var_init(t_game *game)
 	game->img.heigth = map_heigth(game->map);
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
+	load_img(game);
 	load_map(game);
 	load_grid(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);

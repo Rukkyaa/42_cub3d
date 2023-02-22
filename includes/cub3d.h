@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 19:51:39 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 10:55:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,14 @@
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 
+// TEXTURE
+typedef struct s_texture
+{
+	void	*wall;
+	int		text_heigth;
+	int		text_width;
+}				t_texture;
+
 typedef struct vector
 {
 	double			x;
@@ -98,6 +106,7 @@ typedef struct s_game
 	int				key_states[256];
 	int				key_release_states[256];
 	t_player	player;
+	t_texture	texture;
 }				t_game;
 
 // Ray casting

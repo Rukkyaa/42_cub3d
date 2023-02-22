@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 17:35:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 18:46:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+	ft_xpm_to_img(game, &game->texture.wall, "images/wall_revert.xpm");
 }
 
 void	var_init(t_game *game)

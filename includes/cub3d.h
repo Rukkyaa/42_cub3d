@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 12:00:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:26:50 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "../mlx/mlx/mlx.h"
-# include "../mlx/mlx/mlx_int.h"
 # include "../libft/includes/libft.h"
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -59,7 +58,7 @@
 // TEXTURE
 typedef struct s_texture
 {
-	t_img_stolen	*wall;
+	void	*wall;
 	int				text_height;
 	int				text_width;
 }				t_texture;
@@ -85,21 +84,6 @@ typedef struct s_player
 	int			direction_adjust;
 	t_vector	current_tile;
 }				t_player;
-
-typedef struct	s_img_stolen
-{
-	XImage			*image;
-	Pixmap			pix;
-	GC				gc;
-	int				size_line;
-	int				bpp;
-	int				width;
-	int				height;
-	int				type;
-	int				format;
-	char			*data;
-	XShmSegmentInfo	shm;
-}				t_img_stolen;
 
 typedef struct s_img
 {

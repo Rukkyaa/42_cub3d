@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 12:02:06 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:27:18 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,8 +142,8 @@ void    render_fps(t_game *game)
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //     draw_vertical_line_2(&game->fps_img, line_pos, line_size, RED_PIXEL);
-        //basic_render(game, collision, line_pos, line_height);
-        texture_render(game, collision, line_pos, line_height);
+        basic_render(game, collision, line_pos, line_height);
+        // texture_render(game, collision, line_pos, line_height);
         i++;
         // img_pix_put(&game->fps_img, line_pos.x, 400, RED_PIXEL);
         line_pos.x+= RES_X / RES_X;

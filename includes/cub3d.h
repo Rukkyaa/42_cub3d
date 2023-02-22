@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:04:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:00:55 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include "../mlx/mlx/mlx.h"
+# include "../mlx/mlx/mlx_int.h"
 # include "../libft/includes/libft.h"
 # include <sys/types.h>
 # include <sys/stat.h>
@@ -58,9 +59,9 @@
 // TEXTURE
 typedef struct s_texture
 {
-	void	*wall;
-	int		text_heigth;
-	int		text_width;
+	t_img_stolen	*wall;
+	int				text_height;
+	int				text_width;
 }				t_texture;
 
 typedef struct vector
@@ -72,8 +73,9 @@ typedef struct vector
 typedef struct s_collision
 {
 	t_vector		point;
-	char		orientation;
-	float		distance;
+	char			orientation;
+	float			distance;
+	float			x_pos_tex;
 }					t_collision;
 
 typedef struct s_player
@@ -83,6 +85,21 @@ typedef struct s_player
 	int			direction_adjust;
 	t_vector	current_tile;
 }				t_player;
+
+typedef struct	s_img_stolen
+{
+	XImage			*image;
+	Pixmap			pix;
+	GC				gc;
+	int				size_line;
+	int				bpp;
+	int				width;
+	int				height;
+	int				type;
+	int				format;
+	char			*data;
+	XShmSegmentInfo	shm;
+}				t_img_stolen;
 
 typedef struct s_img
 {
@@ -161,6 +178,9 @@ void	var_init(t_game *game);
 char	**get_map(char *arg);
 int		close_window(t_game *game);
 void	move(t_game *game, char direction);
+
+// mlx Utils
+unsigned int img_pix_read(t_img *img, int x, int y);
 
 /**************************************
 ** $$\      $$\  $$$$$$\  $$$$$$$\   **

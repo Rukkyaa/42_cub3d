@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 10:47:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:02:06 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,44 @@
 //     return vec;
 // }
 
+void    basic_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
+{
+    if(collision.orientation == 'S' || collision.orientation == 'N')
+        draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE);
+    else
+        draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE_SHADED);  
+}
+
+void texture_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
+{
+    int i = 0;
+    int j = 0;
+    int x_text = 0;
+    int y_text = 0;
+    int pixel_color;
+    
+    // while(i < line_height)
+    // {
+    //     x_text = fmod(collision.point.x, 64) / 64 * game->texture.text_width;
+    //     pixel_color =  img_pix_read(&game->texture.wall,  , i);  
+    //     printf("pixel %d : %f\n", i, pixel_color);
+    //     img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
+    //     i++;
+    // }
+    while( i < game->texture.text_width)
+    {
+        j = 0;
+        while( j < game->texture.text_height)
+        {
+           pixel_color =  img_pix_read(&game->texture.wall, i , j);  
+           printf("pixel %d : %f\n", i, pixel_color);
+           img_pix_put(&game->fps_img, i, j, pixel_color);
+           j++;
+        }
+        i++;
+    }
+}
+
 void    render_fps(t_game *game)
 {
     int i = 0;
@@ -104,10 +142,8 @@ void    render_fps(t_game *game)
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //     draw_vertical_line_2(&game->fps_img, line_pos, line_size, RED_PIXEL);
-        if(collision.orientation == 'S' || collision.orientation == 'N')
-            draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE);
-        else
-            draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE_SHADED);
+        //basic_render(game, collision, line_pos, line_height);
+        texture_render(game, collision, line_pos, line_height);
         i++;
         // img_pix_put(&game->fps_img, line_pos.x, 400, RED_PIXEL);
         line_pos.x+= RES_X / RES_X;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:04:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 12:01:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	load_img(t_game *game)
 {
-	game->texture.wall = mlx_xpm_file_to_image(game->mlx,
+	game->texture.wall = (t_img_stolen*) mlx_xpm_file_to_image(game->mlx,
 		"mandatory/images/wall.xpm", &game->texture.text_width,
-			&game->texture.text_heigth);
+			&game->texture.text_height);
 }
 
 void	var_init(t_game *game)

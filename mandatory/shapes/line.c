@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 16:51:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:13:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,9 @@ void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color)
 		img_pix_put(img, pos.x, i, 0x191970);
 	i = -1;
 	while (++i < len)
+	{
 		img_pix_put(img, pos.x, pos.y + i, color);
+	}
 	while (i < RES_Y)
 		img_pix_put(img, pos.x, pos.y + i++, 0x87CEEB);
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:58:36 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/22 17:35:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 {
 	texture->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
-		&game->texture.text_width, &game->texture.text_heigth);
+		&texture->width, &texture->heigth);
 	texture->addr = mlx_get_data_addr(texture->mlx_img, &texture->bpp,
 			&texture->line_len, &texture->endian);
 }

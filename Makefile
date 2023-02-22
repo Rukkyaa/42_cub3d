@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/22 16:37:09 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/22 17:17:21 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ flag:= 1
 	fi
 	@printf "\033[1;32m|\033[32m                                       \033[m\r"
 	@printf "\033[1;35m|\033[0;32m Compiling $@... \033[m\r"
-	@cc -Wall -Wextra -g -I $(INCLUDE) -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
+	@cc -Wall -Wextra -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
 	$(eval flag=$(shell echo $$(($(flag)+1))))
 
 all: $(NAME)

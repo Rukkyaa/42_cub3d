@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 18:46:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:28:54 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,9 @@ void	edit_player_pos(t_game *game)
 void	edit_player_rotate(t_game *game)
 {
 	if (game->key_states[0])
-		vec_rotate_edit(&(game->player.direction), -3);
+		vec_rotate_edit(&(game->player.direction), -5);
 	if (game->key_states[1])
-		vec_rotate_edit(&(game->player.direction), 3);
+		vec_rotate_edit(&(game->player.direction), 5);
 	if (game->key_states['r'])
 		game->player.direction_adjust += 5;
 	if (game->key_states['f'])
@@ -74,17 +74,7 @@ int	game_loop(void *g)
 	game = (t_game *) g;
 	edit_player_pos(game);
 	edit_player_rotate(game);
-	usleep(16000);
+	usleep(8000);
 	render(game);
-	int y = -1;
-	int x;
-	while (++y < 64)
-	{
-		x = -1;
-		while (++x < 64)
-			img_pix_put(&game->fps_img, x, y, get_color(&game->texture.wall, x, y));
-	}
-	mlx_put_image_to_window(game->mlx, game->fps_win,
-		game->fps_img.mlx_img, 0, 0);
 	return (0);
 }

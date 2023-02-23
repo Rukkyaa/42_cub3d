@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/23 16:07:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:32:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,11 +73,15 @@ void    basic_render(t_game *game, t_collision collision, t_vector line_pos, dou
 
 void texture_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
 {
-    int i = 0;
+    int i = -1;
     int j = 0;
     int x_text = 0;
     int y_text = 0;
     int pixel_color;
+
+	while (++i < line_pos.y)
+		img_pix_put(&game->fps_img, line_pos.x, i, 0x87CEEB);
+	i = 0;
     
     while(i < line_height)
     {
@@ -88,6 +92,8 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
         img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
         i++;
     }
+	while (i < RES_Y)
+		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, GREEN_PIXEL);
     // while( i < game->texture.text_width)
     // {
     //     j = 0;

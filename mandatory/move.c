@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 18:11:58 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:43:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void	draw_player(t_game *game, int color)
 	// cast_2D_ray(game);
 	draw_player_direction(game, color);
 	draw_filled_circle(&game->img, game->player.pos, 5, color);
+	draw_filled_circle(&game->img, game->player.collision_pos, 5, color);
 }
 
 void	move(t_game *game, char direction)

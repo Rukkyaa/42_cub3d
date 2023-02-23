@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/23 13:56:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:40:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ typedef struct s_collision
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	collision_pos;
 	t_vector	direction;
-	int			direction_adjust;
+	t_vector	speed;
+	float			direction_adjust;
 	t_vector	current_tile;
 }				t_player;
 
@@ -104,6 +106,7 @@ typedef struct s_game
 	void		*mlx;
 	void		*win;
 	void		*fps_win;
+	int			time_inc;
 	t_img		img;
 	t_img		fps_img;
 	char		**map;

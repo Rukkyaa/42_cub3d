@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/23 16:29:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 18:52:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,12 @@ void	var_init(t_game *game)
 	game->fps_win = mlx_new_window(game->mlx, RES_X, RES_Y, "first_person");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
+	game->player.collision_pos.x = game->player.pos.x + 32;
+	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
-	game->player.direction_adjust = 5; 
+	game->player.direction_adjust = 10; 
+	game->time_inc = 150;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

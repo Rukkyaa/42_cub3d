@@ -6,17 +6,23 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 12:26:58 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:42:04 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
+void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
+{
+	texture->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
+		&texture->width, &texture->heigth);
+	texture->addr = mlx_get_data_addr(texture->mlx_img, &texture->bpp,
+			&texture->line_len, &texture->endian);
+}
+
 void	load_img(t_game *game)
 {
-	game->texture.wall = mlx_xpm_file_to_image(game->mlx,
-		"mandatory/images/wall.xpm", &game->texture.text_width,
-			&game->texture.text_height);
+	ft_xpm_to_img(game, &game->texture.wall, "images/wall_revert.xpm");
 }
 
 void	var_init(t_game *game)
@@ -36,7 +42,7 @@ void	var_init(t_game *game)
 	game->player.direction.y = 0; 
 	game->player.direction_adjust = 5; 
 	// angle_to_vector( M_PI / 4, &game->player.direction);
-    print_vector2D(&game->player.direction, "player dir");
+    vec_print(&game->player.direction, "player dir");
 	// close_window(game);
 	game->img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
 	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);

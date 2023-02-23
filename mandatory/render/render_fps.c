@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/22 12:27:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:38:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,26 +79,26 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
     int y_text = 0;
     int pixel_color;
     
-    // while(i < line_height)
-    // {
-    //     x_text = fmod(collision.point.x, 64) / 64 * game->texture.text_width;
-    //     pixel_color =  img_pix_read(&game->texture.wall,  , i);  
-    //     printf("pixel %d : %f\n", i, pixel_color);
-    //     img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
-    //     i++;
-    // }
-    while( i < game->texture.text_width)
+    while(i < line_height)
     {
-        j = 0;
-        while( j < game->texture.text_height)
-        {
-           pixel_color =  img_pix_read(&game->texture.wall, i , j);  
-           printf("pixel %d : %f\n", i, pixel_color);
-           img_pix_put(&game->fps_img, i, j, pixel_color);
-           j++;
-        }
+        x_text = fmod(collision.point.x, 64) / 64 * game->texture.text_width;
+        pixel_color =  img_pix_read(&game->texture.wall,  , i);  
+        printf("pixel %d : %f\n", i, pixel_color);
+        img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
         i++;
     }
+    // while( i < game->texture.text_width)
+    // {
+    //     j = 0;
+    //     while( j < game->texture.text_height)
+    //     {
+    //        pixel_color =  img_pix_read(&game->texture.wall, i , j);  
+    //        printf("pixel %d : %f\n", i, pixel_color);
+    //        img_pix_put(&game->fps_img, i, j, pixel_color);
+    //        j++;
+    //     }
+    //     i++;
+    // }
 }
 
 void    render_fps(t_game *game)
@@ -117,7 +117,7 @@ void    render_fps(t_game *game)
     //printf("half_width : %f\n", halfWidth);
     v_right  = normalize(rotate2(game->player.direction, 90)) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->player.direction_adjust);
-    //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
+    //sdraw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
     // v_ray_dir.x = game->player.direction.x;s
     // v_ray_dir.y = game->player.direction.y;
     // v_ray_dir = vec_scalar_mult(game->player.direction, 5);
@@ -149,6 +149,6 @@ void    render_fps(t_game *game)
         line_pos.x+= RES_X / RES_X;
     }
     // close_window(game);
-    //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
+    draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLUE_PIXEL);
     // close_window(game);
 }

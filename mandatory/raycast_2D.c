@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/21 19:47:06 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:39:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
        // collision_point = vec_mult(v_map_check, game->player.direction); 
         collision_point = vec_sum(collision_point, game->player.pos);
         // printf("collision_point : %f: %f\n",collision_point.x, collision_point.y);
-        //draw_line_dda(&game->img,  game->player.pos, collision_point, RED_PIXEL);
+        draw_line_dda(&game->img,  game->player.pos, collision_point, RED_PIXEL);
         // draw_filled_circle(game,  collision_point, 10, WHITE_PIXEL);
         i++;
         if(tile_out_of_bound(v_map_check, game))
@@ -171,6 +171,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
     collision.distance = distance;
     collision.orientation = get_collision_orientation(last_step, v_step);
     collision.point = collision_point;
+    collision.x_pos_tex = 
 
     return ((collision ));
 }

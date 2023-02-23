@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 12:26:50 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/22 13:32:12 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define LEFT 65363
 
 
-# define FOV_RADIANS ( M_PI * 2 / 3  )
+# define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
 # define RES_X  1280

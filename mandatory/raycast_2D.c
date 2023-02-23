@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/23 12:41:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:08:17 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,22 @@ char get_collision_orientation(char last_step, t_vector v_step)
             return 'N';
         else
             return 'S';
+    }
+}
+
+double get_texture_x(char last_step, t_vector v_collision_point, t_vector v_map_check)
+{
+    if(last_step == 'x')
+    {
+        // printf("%f\n",v_collision_point.y - v_map_check.y  * 64);
+        return (v_collision_point.y - v_map_check.y * 64);
+    }
+    else
+    {
+        //     vec_print(&v_collision_point, "v_collision_point");
+        // vec_print(&v_map_check, "v_map_check");
+        // printf("%f\n",v_collision_point.x - v_map_check.x * 64);
+        return (v_collision_point.x - v_map_check.x * 64);
     }
 }
 
@@ -150,7 +166,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
        // collision_point = vec_mult(v_map_check, game->player.direction); 
         collision_point = vec_sum(collision_point, game->player.pos);
         // printf("collision_point : %f: %f\n",collision_point.x, collision_point.y);
-        draw_line_dda(&game->img,  game->player.pos, collision_point, RED_PIXEL);
+        //draw_line_dda(&game->img,  game->player.pos, collision_point, RED_PIXEL);
         // draw_filled_circle(game,  collision_point, 10, WHITE_PIXEL);
         i++;
         if(tile_out_of_bound(v_map_check, game))
@@ -171,7 +187,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
     collision.distance = distance;
     collision.orientation = get_collision_orientation(last_step, v_step);
     collision.point = collision_point;
-    collision.x_pos_tex = 
+    collision.x_pos_tex = get_texture_x(last_step, collision_point ,v_map_check);
 
-    return ((collision ));
+    return ((collision));
 }

@@ -3,14 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2023/02/22 13:32:12 by teliet           ###   ########.fr       */
-=======
-/*   Updated: 2023/02/22 16:36:26 by axlamber         ###   ########.fr       */
->>>>>>> 55b61cd11a1e3559482cb231d08ac58f141559ec
+/*   Updated: 2023/02/23 13:56:37 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +56,6 @@
 # define PALE_BLUE_SHADED 	 0x0D5243
 
 // TEXTURE
-typedef struct s_texture
-{
-	void	*wall;
-	int				text_height;
-	int				text_width;
-}				t_texture;
 
 typedef struct vector
 {

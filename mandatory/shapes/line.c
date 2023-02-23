@@ -6,22 +6,22 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/23 12:42:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 12:43:06 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
 
-unsigned int img_pix_read(t_img *img, int x, int y)
-{
-	char *pixel;
+// unsigned int img_pix_read(t_img *img, int x, int y)
+// {
+// 	char *pixel;
 
-	if(pixel_out_of_bound(x, y, img))
-		return (0);
-    pixel = ( img->addr + (y * img->line_len + x * (img->bpp / 8)));
-	return(*(unsigned int *)pixel);
-}
+// 	if(pixel_out_of_bound(x, y, img))
+// 		return (0);
+//     pixel = ( img->addr + (y * img->line_len + x * (img->bpp / 8)));
+// 	return(*(unsigned int *)pixel);
+// }
 
 // void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 // {

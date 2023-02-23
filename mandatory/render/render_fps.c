@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/23 12:42:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:07:57 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,9 +81,10 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
     
     while(i < line_height)
     {
-        x_text = fmod(collision.point.x, 64) / 64 * game->texture.text_width;
-        pixel_color =  img_pix_read(&game->texture.wall,  , i);  
-        printf("pixel %d : %f\n", i, pixel_color);
+        x_text = (int) collision.x_pos_tex;
+        y_text = (int) ((i / line_height) * 64);
+        pixel_color =  img_pix_read(&game->texture.wall, x_text, y_text) ;
+        // printf("pixel %d %d : %ld\n", x_text, y_text, pixel_color);
         img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
         i++;
     }
@@ -142,8 +143,8 @@ void    render_fps(t_game *game)
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //     draw_vertical_line_2(&game->fps_img, line_pos, line_size, RED_PIXEL);
-        basic_render(game, collision, line_pos, line_height);
-        // texture_render(game, collision, line_pos, line_height);
+        //basic_render(game, collision, line_pos, line_height);
+        texture_render(game, collision, line_pos, line_height);
         i++;
         // img_pix_put(&game->fps_img, line_pos.x, 400, RED_PIXEL);
         line_pos.x+= RES_X / RES_X;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:44:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/23 16:10:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,20 @@ int handle_key_state(void *g)
 
 	render = 0;
 	if (game->key_states['w']) {
-		printf("Forward\n");
+		//printf("Forward\n");
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
-		printf("Good\n");
+		//printf("Good\n");
 		render = 1;
 	}
 	if (game->key_states['s'] ) {
-		printf("Backward\n");
+		//printf("Backward\n");
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, -4));
 		vec_print(&game->player.pos, "player position :");
 		// game->player.pos.y += 10 * game->player.direction.y;
 		render = 1;
 	}
 	if (game->key_states['a' ]) {
-		printf("left\n");
+		//printf("left\n");
 		vec_rotate_edit(&(game->player.direction), 270);
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
 		vec_rotate_edit(&(game->player.direction), 90);
@@ -42,7 +42,7 @@ int handle_key_state(void *g)
 		render = 1;
 	}
 	if (game->key_states['d'] ) {
-		printf("right\n");
+		//printf("right\n");
 		vec_rotate_edit(&(game->player.direction), 90);
 		game->player.pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, 4));
 		vec_rotate_edit(&(game->player.direction), 270);
@@ -56,7 +56,7 @@ int handle_key_state(void *g)
 		// close_window(game);
 	}
 	if (game->key_states[1] ) {
-		printf("rotate_right\n");
+		//printf("rotate_right\n");
 		vec_rotate_edit(&(game->player.direction), 3);
 		render = 1;
 		// close_window(game);
@@ -87,7 +87,7 @@ int handle_key_state(void *g)
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	printf("%d\n", keycode);
+	//printf("%d\n", keycode);
 	if (keycode == ESC)
 		close_window(game);
 	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's' ||  keycode == 'r' ||  keycode == 'f')

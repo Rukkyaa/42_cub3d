@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/23 16:32:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/23 16:39:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
     int pixel_color;
 
 	while (++i < line_pos.y)
-		img_pix_put(&game->fps_img, line_pos.x, i, 0x87CEEB);
+		img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
 	i = 0;
     
     while(i < line_height)
@@ -93,7 +93,7 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
         i++;
     }
 	while (i < RES_Y)
-		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, GREEN_PIXEL);
+		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, 0x8b668b);
     // while( i < game->texture.text_width)
     // {
     //     j = 0;

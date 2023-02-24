@@ -6,16 +6,20 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:36:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:57:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+#define MINIAUDIO_IMPLEMENTATION
 
 int	main(int argc, char **argv)
 {
 	t_game	game;
+	t_sounds	sound;
 
+	load_sounds(&sound);
+	ma_device_start(&sound.footstep.device);
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	game.map = get_map(argv[1]);
@@ -30,5 +34,7 @@ int	main(int argc, char **argv)
 	mlx_hook(game.win, 17, 0, close_window, &game);
 	mlx_hook(game.fps_win, 17, 0, close_window, &game);
 	mlx_loop(game.mlx);
+	ma_device_uninit(&sound.footstep.device);
+	clear_sounds(&sound);
 	return (EXIT_SUCCESS);
 }

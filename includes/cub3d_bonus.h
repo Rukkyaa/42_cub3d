@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:33:36 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:58:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include "../includes/miniaudio.h"
+
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
 #endif
@@ -56,6 +58,18 @@
 # define PALE_BLUE_SHADED 	 0x0D5243
 
 // TEXTURE
+
+typedef struct s_sound
+{
+	ma_decoder			decoder;
+	ma_device_config	device_config;
+	ma_device			device;
+}				t_sound;
+
+typedef struct s_sounds
+{
+	t_sound	footstep;
+}				t_sounds;
 
 typedef struct vector
 {
@@ -197,5 +211,9 @@ void		vec_rotate_rad(t_vector *vector, float angle);
 void		vec_rotate_edit(t_vector *vector, float angle);
 double		vec_distance(t_vector vec1, t_vector vec2);
 double		vec_angle(t_vector v1, t_vector v2);
+
+//SOUND
+void		load_sounds(t_sounds *sounds);
+void		clear_sounds(t_sounds *sounds);
 
 #endif

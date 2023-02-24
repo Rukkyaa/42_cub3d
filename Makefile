@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/24 14:31:33 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/24 15:04:52 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ OBJS = $(SRC:.c=.o)
 SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, square circle line pixel_utils))
 SHAPE_OBJS = $(SHAPE_SRC:.c=.o)
 
-# MAP FILES# #
+# MAP FILES #
 MAP_SRC = $(addprefix mandatory/map/, $(addsuffix .c, get_map map_utils))
 MAP_OBJS = $(MAP_SRC:.c=.o)
 
@@ -70,6 +70,13 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 	print scalar_mult sum to_angle rotate_edit rotate))
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
+# SOUND FILES #
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
+SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
+
+# MINIAUDIO #
+MINIAUDIO = bonus/sound/miniaudio.o
+
 #
 #
 # END BONUS
@@ -103,10 +110,10 @@ $(NAME): $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
 
-bonus: $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS)
+bonus: $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(LFLAGS) $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"
@@ -122,7 +129,7 @@ clean:
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
 	@rm -f $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
-	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS)
+	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

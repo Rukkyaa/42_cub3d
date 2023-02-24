@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/22 17:17:21 by axlamber         ###   ########.fr        #
+#    Updated: 2023/02/24 14:31:33 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,42 @@ LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 INCLUDE = ./includes
 
+#
+#
+# BONUS
+#
+#
+
+NAME_BONUS = cub3d_bonus
+
+SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
+		bonus/free.c bonus/move.c \
+		bonus/raycast_2D.c \
+		bonus/render/load.c \
+		bonus/render/render_fps.c bonus/render/color.c \
+		bonus/events.c \
+
+OBJS_BONUS = $(SRC_BONUS:.c=.o)
+
+# SHAPES FILES #
+SHAPE_SRC_BONUS = $(addprefix bonus/shapes/, $(addsuffix .c, square circle line pixel_utils))
+SHAPE_OBJS_BONUS = $(SHAPE_SRC_BONUS:.c=.o)
+
+# MAP FILES# #
+MAP_SRC_BONUS = $(addprefix bonus/map/, $(addsuffix .c, get_map map_utils))
+MAP_OBJS_BONUS = $(MAP_SRC_BONUS:.c=.o)
+
+# VECTOR FILES #
+VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance mult normalize \
+	print scalar_mult sum to_angle rotate_edit rotate))
+VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
+
+#
+#
+# END BONUS
+#
+#
+
 LIBFT = -L libft/ -lft
 
 flag:= 1
@@ -67,6 +103,15 @@ $(NAME): $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
 
+bonus: $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS)
+	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
+	@make --no-print-directory -C libft/
+	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(LFLAGS) $(LIBFT) -o $(NAME_BONUS)
+	@printf "\033[1;32m========================================\n"
+	@printf "|            BONUS FINISHED !          |\n"
+	@printf "========================================\n\033[m"
+	@setterm -cursor on
+
 debug: $(LIBS) clean
 	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 
 
@@ -76,13 +121,14 @@ clean:
 	@printf "========================================\n\033[m"
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
-	@rm -f $(OBJS) $(OBJS_BONUS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
+	@rm -f $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
+	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean
 	@printf "\033[K\033[1;31m|\033[1;31m Destroying all                       \033[1;31m|\n\033[m"
 	@make --no-print-directory fclean -C libft/
-	@rm -f $(NAME)
+	@rm -f $(NAME) $(NAME_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 re: fclean all

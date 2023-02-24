@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:58:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:34:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # endif
 
 # include <stdio.h>
+# include <stdbool.h>
 # include <stdlib.h>
 # include "../mlx/mlx/mlx.h"
 # include "../libft/includes/libft.h"
@@ -128,6 +129,7 @@ typedef struct s_game
 	int				key_release_states[256];
 	t_player	player;
 	t_texture	texture;
+	t_sounds	sounds;
 }				t_game;
 
 // Ray casting
@@ -215,5 +217,6 @@ double		vec_angle(t_vector v1, t_vector v2);
 //SOUND
 void		load_sounds(t_sounds *sounds);
 void		clear_sounds(t_sounds *sounds);
+bool		player_moving(t_game *game);
 
 #endif

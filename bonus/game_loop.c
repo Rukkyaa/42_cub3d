@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:36:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:02:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,19 @@ void	render(t_game *game)
 		game->fps_img.mlx_img, 0, 0);
 }
 
+bool	player_moving(t_game *game)
+{
+	return (game->key_states['w'] == 1 || game->key_states['a'] == 1
+		|| game->key_states['s'] == 1 || game->key_states['d'] == 1);
+}
+
 int	game_loop(void *g)
 {
 	t_game	*game;
 
 	game = (t_game *) g;
+	if (!player_moving(game))
+		ma_device_stop(&game->sounds.footstep.device);
 	edit_player_pos(game);
 	edit_player_rotate(game);
 	usleep(8000);

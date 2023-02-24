@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:36:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:16:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,13 +85,26 @@ int handle_key_state(void *g)
 	return (0);
 }
 
+bool	player_moving(t_game *game)
+{
+	return (game->key_states['w'] == 1 || game->key_states['a'] == 1
+		|| game->key_states['s'] == 1 || game->key_states['d'] == 1);
+}
+
 int	handle_keypress(int keycode, t_game *game)
 {
 	//printf("%d\n", keycode);
 	if (keycode == ESC)
 		close_window(game);
 	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's' ||  keycode == 'r' ||  keycode == 'f')
+	{
+		if (!player_moving(keycode, game))
+		{
+			printf("OUI\n");
+			ma_device_start(&game.sounds.footstep.device);
+		}
 		game->key_states[keycode] = 1;
+	}
 	if (keycode == RIGHT)
 		game->key_states[0] = 1;
     if (keycode == LEFT)
@@ -103,6 +116,8 @@ int	handle_keyrelease(int keycode, t_game *game)
 {
 	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's' ||  keycode == 'r' ||  keycode == 'f')
 		game->key_states[keycode] = 0;
+	if (!player_moving(keycode, game))
+		ma_device_uninit(&game.sounds.footstep.device);
 	if (keycode == RIGHT)
 		game->key_states[0] = 0;
     if (keycode == LEFT)

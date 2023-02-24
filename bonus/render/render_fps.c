@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/24 14:40:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:43:53 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,22 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
     //     }
     //     i++;
     // }
+}
+
+void    render_floor_col(t_vector v_ray_dir, int screen_y_start_point, float plane_halfwidth)
+{
+    int vertical_ray_increment = RES_Y - screen_y_start_point / RES_Y;
+
+    int i = 0;
+    int plane_height = (RES_Y / RES_X) * plane_halfwidth * 2;
+    int player_height = 32;
+
+    
+    while(i < RES_Y)
+    {
+        i++;
+    }
+    
 }
 
 void    render_fps(t_game *game)

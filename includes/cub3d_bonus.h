@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 15:34:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:43:10 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,11 +72,17 @@ typedef struct s_sounds
 	t_sound	footstep;
 }				t_sounds;
 
-typedef struct vector
+typedef struct t_vector
 {
 	double			x;
 	double			y;
 }					t_vector;
+
+typedef struct s_vector3d
+{
+	double			x;
+	double			y;
+}					t_vector3d;
 
 typedef struct s_collision
 {

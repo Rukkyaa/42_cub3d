@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/23 18:54:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/24 17:17:53 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ void	render(t_game *game)
 		clean_map(game);
 		clear_img(&game->fps_img);
 		render_fps(game);
-		psychedelic_view(game,&game->fps_img);
+		// psychedelic_view(game,&game->fps_img);
 	}
 	game->time_inc++;
 	draw_player(game, RED_PIXEL);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 14:33:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:14:53 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,13 @@ typedef struct vector
 	double			y;
 }					t_vector;
 
+typedef struct s_vector3d
+{
+	double			x;
+	double			y;
+	double			z;
+}					t_vector3d;
+
 typedef struct s_collision
 {
 	t_vector		point;
@@ -74,6 +81,7 @@ typedef struct s_collision
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector3d	pos3d;
 	t_vector	collision_pos;
 	t_vector	direction;
 	t_vector	speed;
@@ -197,5 +205,6 @@ void		vec_rotate_rad(t_vector *vector, float angle);
 void		vec_rotate_edit(t_vector *vector, float angle);
 double		vec_distance(t_vector vec1, t_vector vec2);
 double		vec_angle(t_vector v1, t_vector v2);
+void		vec3_print(t_vector3d vector, char *name);
 
 #endif

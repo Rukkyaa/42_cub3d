@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/24 14:35:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:40:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,6 @@ void    basic_render(t_game *game, t_collision collision, t_vector line_pos, dou
 void texture_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
 {
     int i = -1;
-    int j = 0;
     int x_text = 0;
     int y_text = 0;
     int pixel_color;
@@ -111,7 +110,6 @@ void texture_render(t_game *game, t_collision collision, t_vector line_pos, doub
 void    render_fps(t_game *game)
 {
     int i = 0;
-    float distance;
     float line_height;
     t_collision collision;
     t_vector v_right;

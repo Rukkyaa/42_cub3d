@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/24 14:36:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:38:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,7 +133,6 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.y));
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.x));
     int tile_found = 0;
-    float max_distance = MAX_DISTANCE;
     float distance = 0.0f;
 
     while(!tile_found )//&& distance < max_distance)

@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 16:53:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:35:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	load_grid(t_game *game)
 {

@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:28:41 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:28:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 t_vector	vec_scalar_mult(t_vector vec1, double i)
 {

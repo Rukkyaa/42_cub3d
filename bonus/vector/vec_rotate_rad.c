@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:45:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:46:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	vec_rotate_rad(t_vector *vector, float angle)
 {

@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:15:47 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:15:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	vec_rotate_edit(t_vector *vector, float angle)
 {

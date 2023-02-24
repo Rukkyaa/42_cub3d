@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 14:32:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/21 14:34:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:35:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 int	map_heigth(char **map)
 {

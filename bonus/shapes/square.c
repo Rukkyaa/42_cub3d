@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:58:16 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:19:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 /*
 ** Draw a filled square on the screen at position (x, y) with a given of width

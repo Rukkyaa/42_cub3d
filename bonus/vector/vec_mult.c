@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:27:27 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:27:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 t_vector	vec_mult(t_vector vec1, t_vector vec2)
 {

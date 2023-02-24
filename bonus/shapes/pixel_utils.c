@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:18:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 int	pixel_out_of_bound(float x, float y, t_img *image)
 {

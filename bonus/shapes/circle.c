@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   circle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:20:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/19 13:16:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/24 14:35:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 /*
 ** Draw a circle on the screen at position (x, y) with a given of radius and

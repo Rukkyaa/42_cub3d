@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:57:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/22 16:38:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d_bonus.h"
 
 int	handle_keypress(int keycode, t_game *game)
 {

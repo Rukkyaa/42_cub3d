@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:31:04 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 11:31:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/24 14:36:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d.h"
+#include "cub3d_bonus.h"
 
 void	vec_print(t_vector *vector, char *name)
 {

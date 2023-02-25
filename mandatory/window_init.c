@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 18:07:51 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/25 16:53:09 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,15 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+	ft_xpm_to_img(game, &game->texture.wall, "images/CRATE_2M.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+}
+
+void	init_camera(t_camera *camera)
+{
+	camera->proj_plane_distance = (0.5 * (float) RES_X) / tanf(0.f * FOV_RADIANS);
+	camera->proj_plane_height =  camera->proj_plane_distance * tanf(0.f * FOV_RADIANS);
+	camera->proj_plane_width =  camera->proj_plane_height * RES_X / RES_Y;
 }
 
 void	var_init(t_game *game)
@@ -42,7 +50,7 @@ void	var_init(t_game *game)
 	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.pos3d.x = 3*64 + 32;
 	game->player.pos3d.y = 3*64 + 32; 
-	game->player.pos3d.z = 32;
+	game->player.pos3d.z = 64;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
 	game->player.direction_adjust = 10; 
@@ -60,6 +68,7 @@ void	var_init(t_game *game)
 	game->img.heigth = map_heigth(game->map);
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
+	init_camera(&game->camera);
 	load_img(game);
 	load_map(game);
 	load_grid(game);

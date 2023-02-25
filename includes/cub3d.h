@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 18:14:53 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/25 16:48:39 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define LEFT 65363
 
 
-# define FOV_RADIANS ( M_PI / 2 )
+# define FOV_RADIANS ( M_PI / 2)
 # define FOV 60
 
 # define RES_X  1280
@@ -109,6 +109,13 @@ typedef struct s_texture
 	int		text_width;
 }				t_texture;
 
+typedef struct s_camera
+{
+	float	proj_plane_distance;
+	float	proj_plane_height;
+	float	proj_plane_width;
+}					t_camera;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -122,6 +129,7 @@ typedef struct s_game
 	int				key_release_states[256];
 	t_player	player;
 	t_texture	texture;
+	t_camera	camera;
 }				t_game;
 
 // Ray casting

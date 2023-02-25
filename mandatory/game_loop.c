@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 17:17:53 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/25 18:31:27 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,14 @@ void	edit_player_rotate(t_game *game)
 {
 	if (game->key_states[0])
 	{
-		vec_rotate_edit(&(game->player.direction), -5);
+		vec_rotate_edit(&(game->player.direction), -3);
 	}
 	if (game->key_states[1])
-		vec_rotate_edit(&(game->player.direction), 5);
+		vec_rotate_edit(&(game->player.direction), 3);
 	if (game->key_states['r'])
-		game->player.direction_adjust += 0.1;
+		game->player.direction_adjust += 0.01;
 	if (game->key_states['f'])
-		game->player.direction_adjust -= 0.1;
+		game->player.direction_adjust -= 0.01;
 }
 
 void	render(t_game *game)
@@ -100,7 +100,7 @@ void	render(t_game *game)
 		// psychedelic_view(game,&game->fps_img);
 	}
 	game->time_inc++;
-	draw_player(game, RED_PIXEL);
+	//draw_player(game, RED_PIXEL);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
@@ -113,7 +113,7 @@ int	game_loop(void *g)
 	game = (t_game *) g;
 	edit_player_pos(game);
 	edit_player_rotate(game);
-	usleep(16000);
+	//usleep(16000);
 	render(game);
 	return (0);
 }

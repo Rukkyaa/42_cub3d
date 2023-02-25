@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 16:53:09 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/25 18:34:09 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 void	load_img(t_game *game)
 {
 	ft_xpm_to_img(game, &game->texture.wall, "images/CRATE_2M.xpm");
+	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
+	
 	// ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
 }
 
 void	init_camera(t_camera *camera)
 {
-	camera->proj_plane_distance = (0.5 * (float) RES_X) / tanf(0.f * FOV_RADIANS);
-	camera->proj_plane_height =  camera->proj_plane_distance * tanf(0.f * FOV_RADIANS);
-	camera->proj_plane_width =  camera->proj_plane_height * RES_X / RES_Y;
+	camera->proj_plane_height =  10;
+	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
+	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
 }
 
 void	var_init(t_game *game)
@@ -69,6 +71,9 @@ void	var_init(t_game *game)
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
 	init_camera(&game->camera);
+	printf("distance : %f\n",game->camera.proj_plane_distance);
+	printf("height : %f\n",game->camera.proj_plane_height);
+	printf("width : %f\n",game->camera.proj_plane_width);
 	load_img(game);
 	load_map(game);
 	load_grid(game);

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 16:48:39 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/25 18:25:11 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 # define LEFT 65363
 
 
-# define FOV_RADIANS ( M_PI / 2)
+# define FOV_RADIANS ( M_PI / 3)
 # define FOV 60
 
 # define RES_X  1280
@@ -85,7 +85,7 @@ typedef struct s_player
 	t_vector	collision_pos;
 	t_vector	direction;
 	t_vector	speed;
-	float			direction_adjust;
+	float		direction_adjust;
 	t_vector	current_tile;
 }				t_player;
 
@@ -104,6 +104,7 @@ typedef struct s_img
 typedef struct s_texture
 {
 	t_img	wall;
+	t_img	ground;
 	// void	*wall;
 	int		text_heigth;
 	int		text_width;

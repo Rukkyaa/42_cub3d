@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/25 18:25:11 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/26 19:48:51 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,10 @@ typedef struct s_collision
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	speed;
 	t_vector3d	pos3d;
 	t_vector	collision_pos;
 	t_vector	direction;
-	t_vector	speed;
 	float		direction_adjust;
 	t_vector	current_tile;
 }				t_player;

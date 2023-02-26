@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/26 20:56:12 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/26 21:57:19 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,30 @@ int		is_walkable(t_game *game, t_vector tile_coord)
 {
 	if(tile_out_of_bound(tile_coord, game))
 		return (0);
-	printf("walkable\n");
-	vec_print(&tile_coord, "tile_coord");
 	if(game->map[(int) tile_coord.y][(int) tile_coord.x] == '1')
 		return (0);
-	printf("walkable\n");
 	return (1);
 }
 
+t_vector	vec_resize(t_vector vec1, double i)
+{
+	t_vector	v_resized;
+
+	v_resized = vec_normalize(vec1);
+	v_resized = vec_scalar_mult(v_resized, i);
+	return (v_resized);
+}
+
+
 int		player_collides(t_game *game, t_vector speed)
 {
-	t_vector plane_pos = vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance));
+	t_vector plane_pos = vec_sum(game->player.pos,vec_resize(speed, game->camera.proj_plane_distance)); //vec_sum(game->player.pos, vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance));
+	// vec_print(&plane_pos, "plane_pos");
 	t_vector next_pos = vec_sum(speed, plane_pos);
 	t_vector next_tile = pixel_to_tile(next_pos);
-	vec_print(&game->player.pos, "player.pos");
-	vec_print(&next_pos, "next_pos");
-	vec_print(&next_tile, "next_tile");
+	// vec_print(&game->player.pos, "player.pos");
+	// vec_print(&next_pos, "next_pos");
+	// vec_print(&next_tile, "next_tile");
 	draw_filled_circle(&game->img, next_pos, 10, BLUE_PIXEL);
 	//game->map[(int) next_tile.y][(int) next_tile.x] = 'B';
 	return(!is_walkable(game, next_tile));
@@ -61,28 +69,28 @@ void	edit_player_pos(t_game *game)
 	t_vector right = vec_rotate(game->player.direction, 90);
 	t_vector left = vec_rotate(game->player.direction, 270);
 	if (game->key_states['w'] )
-		game->player.speed = vec_scalar_mult(game->player.direction, 4);
+		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )
-		game->player.speed = vec_scalar_mult(game->player.direction, -4);
+		game->player.speed = vec_scalar_mult(game->player.direction, -1);
 	if (game->key_states['a'])
 	{
-		game->player.speed = vec_sum(game->player.speed, right);
+		game->player.speed = vec_sum(game->player.speed, left);
 		// game->player.speed = vec_scalar_mult(game->player.direction, 4);
 		// game->player.speed  = vec_sum(game->player.pos,
 		// 		vec_scalar_mult(game->player.direction, 4));
 		// vec_rotate_edit(&(game->player.direction), 90);
 	}
-	// if (game->key_states['d'])
-	// {
-	// 	vec_rotate_edit(&(game->player.direction), 90);
-	// 	game->player.pos = vec_sum(game->player.pos,
-	// 			vec_scalar_mult(game->player.direction, 4));
-	// 	vec_rotate_edit(&(game->player.direction), 270);
-	// }
-	if(player_collides(game, game->player.speed))
-		return;
-	printf("walkable\n");
-	game->player.pos = vec_sum(game->player.pos, game->player.speed);
+	else if (game->key_states['d'])
+	{
+		game->player.speed = vec_sum(game->player.speed, right);
+		// vec_rotate_edit(&(game->player.direction), 90);
+		// game->player.pos = vec_sum(game->player.pos,
+		// 		vec_scalar_mult(game->player.direction, 4));
+		// vec_rotate_edit(&(game->player.direction), 270);
+	}
+	game->player.speed = vec_scalar_mult(game->player.speed, 4);
+	if(!player_collides(game, game->player.speed))
+		game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
 }

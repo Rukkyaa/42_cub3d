@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 15:07:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:14:27 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "../includes/cub3d_bonus.h"
 
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 {
@@ -22,7 +22,17 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+	ft_xpm_to_img(game, &game->texture.wall, "images/CRATE_2M.xpm");
+	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
+	
+	// ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+}
+
+void	init_camera(t_camera *camera)
+{
+	camera->proj_plane_height =  10;
+	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
+	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
 }
 
 void	var_init(t_game *game)
@@ -38,9 +48,15 @@ void	var_init(t_game *game)
 	game->fps_win = mlx_new_window(game->mlx, RES_X, RES_Y, "first_person");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
+	game->player.collision_pos.x = game->player.pos.x + 32;
+	game->player.collision_pos.y = game->player.pos.y + 32;
+	game->player.pos3d.x = 3*64 + 32;
+	game->player.pos3d.y = 3*64 + 32; 
+	game->player.pos3d.z = 64;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
-	game->player.direction_adjust = 5; 
+	game->player.direction_adjust = 10; 
+	game->time_inc = 150;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);
@@ -54,6 +70,10 @@ void	var_init(t_game *game)
 	game->img.heigth = map_heigth(game->map);
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
+	init_camera(&game->camera);
+	printf("distance : %f\n",game->camera.proj_plane_distance);
+	printf("height : %f\n",game->camera.proj_plane_height);
+	printf("width : %f\n",game->camera.proj_plane_width);
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

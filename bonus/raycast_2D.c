@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/24 14:38:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:00:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "cub3d_bonus.h"
+#include "../includes/cub3d_bonus.h"
 
 // void	cast_2D_ray(t_game *game)
 // {
@@ -133,6 +133,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.y));
     // print_circle_relative_tile_pos(game, vec_scalar_mult(v_ray_dir, v_ray_length_1D.x));
     int tile_found = 0;
+    float max_distance = MAX_DISTANCE;
     float distance = 0.0f;
 
     while(!tile_found )//&& distance < max_distance)
@@ -167,6 +168,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
         // printf("collision_point : %f: %f\n",collision_point.x, collision_point.y);
         //draw_line_dda(&game->img,  game->player.pos, collision_point, RED_PIXEL);
         // draw_filled_circle(game,  collision_point, 10, WHITE_PIXEL);
+        
         i++;
         if(tile_out_of_bound(v_map_check, game))
             break ;
@@ -177,7 +179,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
         }
         else
         {
-            game->map[(int)v_map_check.y][(int)v_map_check.x] = 'B';
+            //game->map[(int)v_map_check.y][(int)v_map_check.x] = 'B';
             // draw_filled_circle(game, collision_point, 8, BLACK_PIXEL);
         }
     }

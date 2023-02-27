@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 17:43:10 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/27 15:02:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 # define S 115
 # define RIGHT 65361
 # define LEFT 65363
+# define SHIFT 65505
 
 
 # define FOV_RADIANS ( M_PI / 2 )
@@ -82,7 +83,15 @@ typedef struct s_vector3d
 {
 	double			x;
 	double			y;
+	double			z;
 }					t_vector3d;
+
+typedef struct s_camera
+{
+	float	proj_plane_distance;
+	float	proj_plane_height;
+	float	proj_plane_width;
+}					t_camera;
 
 typedef struct s_collision
 {
@@ -95,10 +104,11 @@ typedef struct s_collision
 typedef struct s_player
 {
 	t_vector	pos;
+	t_vector	speed;
+	t_vector3d	pos3d;
 	t_vector	collision_pos;
 	t_vector	direction;
-	t_vector	speed;
-	float			direction_adjust;
+	float		direction_adjust;
 	t_vector	current_tile;
 }				t_player;
 
@@ -118,6 +128,7 @@ typedef struct s_texture
 {
 	t_img	wall;
 	// void	*wall;
+	t_img	ground;
 	int		text_heigth;
 	int		text_width;
 }				t_texture;
@@ -136,6 +147,7 @@ typedef struct s_game
 	t_player	player;
 	t_texture	texture;
 	t_sounds	sounds;
+	t_camera	camera;
 }				t_game;
 
 // Ray casting
@@ -223,6 +235,6 @@ double		vec_angle(t_vector v1, t_vector v2);
 //SOUND
 void		load_sounds(t_sounds *sounds);
 void		clear_sounds(t_sounds *sounds);
-bool		player_moving(t_game *game);
+int			player_moving(t_game *game);
 
 #endif

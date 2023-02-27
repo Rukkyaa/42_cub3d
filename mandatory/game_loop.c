@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/26 21:57:19 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/27 13:03:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ void	edit_player_pos(t_game *game)
 	if (game->key_states['a'])
 	{
 		game->player.speed = vec_sum(game->player.speed, left);
+		game->player.speed = vec_normalize(game->player.speed);
 		// game->player.speed = vec_scalar_mult(game->player.direction, 4);
 		// game->player.speed  = vec_sum(game->player.pos,
 		// 		vec_scalar_mult(game->player.direction, 4));
@@ -83,12 +84,16 @@ void	edit_player_pos(t_game *game)
 	else if (game->key_states['d'])
 	{
 		game->player.speed = vec_sum(game->player.speed, right);
+		game->player.speed = vec_normalize(game->player.speed);
 		// vec_rotate_edit(&(game->player.direction), 90);
 		// game->player.pos = vec_sum(game->player.pos,
 		// 		vec_scalar_mult(game->player.direction, 4));
 		// vec_rotate_edit(&(game->player.direction), 270);
 	}
-	game->player.speed = vec_scalar_mult(game->player.speed, 4);
+	if(game->key_states[2] && game->key_states['w'])
+		game->player.speed = vec_scalar_mult(game->player.speed, 6);
+	else
+		game->player.speed = vec_scalar_mult(game->player.speed, 4);
 	if(!player_collides(game, game->player.speed))
 		game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;

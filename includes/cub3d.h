@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/26 21:41:20 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/27 12:50:50 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@
 # define D 100
 # define S 115
 # define RIGHT 65361
-# define LEFT 65363
+# define LEFT  65363
+# define SHIFT 65505
 
 
 # define FOV_RADIANS ( M_PI / 3)

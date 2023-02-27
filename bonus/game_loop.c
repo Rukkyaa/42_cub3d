@@ -6,7 +6,11 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/02/27 15:21:11 by teliet           ###   ########.fr       */
+=======
+/*   Updated: 2023/02/27 14:40:23 by axlamber         ###   ########.fr       */
+>>>>>>> 7b694e8e2c206f6dbdcaef0bc1eb89df96fb19d6
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,10 +129,8 @@ void	render_map(t_game *game)
 		load_grid(game);
 		clean_map(game);
 		clear_img(&game->fps_img);
-		render_fps(game);
-		// psychedelic_view(game,&game->fps_img);
 	}
-	game->time_inc++;
+	render_fps(game);
 	draw_player(game, RED_PIXEL);
 
 }

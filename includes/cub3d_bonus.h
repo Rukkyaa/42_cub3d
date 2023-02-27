@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:02:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/27 15:26:37 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ typedef struct s_game
 	char		**map;
 	int				key_states[256];
 	int				key_release_states[256];
+	t_vector	mouse;
 	t_player	player;
 	t_texture	texture;
 	t_sounds	sounds;

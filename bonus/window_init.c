@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:14:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/27 15:26:33 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,8 @@ void	var_init(t_game *game)
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
 	init_camera(&game->camera);
-	printf("distance : %f\n",game->camera.proj_plane_distance);
-	printf("height : %f\n",game->camera.proj_plane_height);
-	printf("width : %f\n",game->camera.proj_plane_width);
+	game->mouse.x = 0;
+	game->mouse.y = 0;
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

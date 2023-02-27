@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:26:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/27 18:18:28 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,10 @@ int		handle_keyrelease(int keycode, t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int 	game_loop(void *g);
 
+// Controls
+t_vector	get_next_tile(t_game *game, t_vector direction);
+
+
 t_vector pixel_to_tile(t_vector vector);
 t_vector tile_to_pixel(t_vector tile_coord);
 int tile_out_of_bound(t_vector tile_coord, t_game *game);
@@ -231,6 +235,7 @@ void		vec_print(t_vector *vector, char *name);
 void		vec_rotate_rad(t_vector *vector, float angle);
 void		vec_rotate_edit(t_vector *vector, float angle);
 double		vec_distance(t_vector vec1, t_vector vec2);
+double 		vec3d_distance(t_vector3d vec1, t_vector3d vec2);
 double		vec_angle(t_vector v1, t_vector v2);
 
 //SOUND

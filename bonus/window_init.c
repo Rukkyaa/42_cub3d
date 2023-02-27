@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:26:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/27 17:17:35 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ void	var_init(t_game *game)
 	game->player.pos3d.z = 64;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
+	game->player.speed.x = 0;
+	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
 	game->time_inc = 150;
 	// angle_to_vector( M_PI / 4, &game->player.direction);

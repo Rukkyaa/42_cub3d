@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/27 15:14:05 by teliet           ###   ########.fr        #
+#    Updated: 2023/02/27 16:08:14 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,11 +49,11 @@ INCLUDE = ./includes
 NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
-		bonus/free.c bonus/move.c \
+		bonus/free.c bonus/draw_player.c \
 		bonus/raycast_2D.c \
 		bonus/render/load.c \
 		bonus/render/render_fps.c bonus/render/color.c \
-		bonus/events.c \
+		bonus/events.c bonus/collision.c \
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 

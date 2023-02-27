@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 15:07:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:42:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,8 @@ void	var_init(t_game *game)
 	game->img.heigth = map_heigth(game->map);
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
+	game->mouse.x = 0;
+	game->mouse.y = 0;
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

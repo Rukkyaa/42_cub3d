@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 16:58:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:46:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,7 @@ void	render_map(t_game *game)
 		clear_img(&game->fps_img);
 	}
 	render_fps(game);
+	// psychedelic_view(game, &game->fps_img);
 	load_map(game);
 	draw_player(game, RED_PIXEL);
 
@@ -185,6 +186,7 @@ int	game_loop(void *g)
 	}
 	edit_player_pos(game);
 	render(game);
+	game->time_inc++;
 	//usleep(16000);
 	return (0);
 }

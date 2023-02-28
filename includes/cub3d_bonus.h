@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 18:18:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 10:52:40 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,6 +149,10 @@ typedef struct s_game
 	t_texture	texture;
 	t_sounds	sounds;
 	t_camera	camera;
+	t_vector	v_up;
+	t_vector	v_down;
+	t_vector	v_left;
+	t_vector	v_right;
 }				t_game;
 
 // Ray casting

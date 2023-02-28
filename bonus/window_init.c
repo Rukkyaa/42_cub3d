@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 17:17:35 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 11:30:04 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,18 @@ void	init_camera(t_camera *camera)
 	camera->proj_plane_height =  10;
 	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
 	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
+}
+
+void	init_basic_vectors(t_game *game)
+{
+	game->v_left.x = -1;
+	game->v_left.y = 0;
+	game->v_right.x = 1;
+	game->v_right.y = 0;
+	game->v_up.x = 0;
+	game->v_up.y = -1;
+	game->v_down.x = 0;
+	game->v_down.y = 1;
 }
 
 void	var_init(t_game *game)
@@ -79,6 +91,7 @@ void	var_init(t_game *game)
 	load_map(game);
 	load_sounds(&game->sounds);
 	load_grid(game);
+	init_basic_vectors(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
 }

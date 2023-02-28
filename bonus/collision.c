@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collision.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:56:35 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/27 18:28:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 11:06:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_vector	get_next_tile(t_game *game, t_vector direction)
 	t_vector v_map_check = pixel_to_tile(game->player.pos);
     t_vector collision_point;
     char last_step;
-    int i = 0; 
     int distance = 0;
 
 	t_vector v_ray_unit_step;

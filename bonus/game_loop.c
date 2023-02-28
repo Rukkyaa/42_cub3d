@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 19:14:24 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 11:03:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ t_vector		player_collides(t_game *game, t_vector speed)
 	t_vector current_tile = pixel_to_tile(game->player.pos);
 	if(game->map[(int) (current_tile.y +  next_tile.y)][(int) (current_tile.x + next_tile.x)] != '1')
 		return(opposition);
-	t_vector next_pos = vec_sum(speed, game->player.pos);
 	vec_print(&next_tile, "next_tile");
 	vec_print(&game->player.pos, "player_pos");
 	if(next_tile.x == -1 && fmod(game->player.pos.x, 64) < 15)

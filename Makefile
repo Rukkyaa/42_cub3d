@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/27 16:08:14 by teliet           ###   ########.fr        #
+#    Updated: 2023/02/28 16:28:39 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 		bonus/raycast_2D.c \
 		bonus/render/load.c \
 		bonus/render/render_fps.c bonus/render/color.c \
-		bonus/events.c bonus/collision.c \
+		bonus/events.c \
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 11:55:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:28:28 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,98 +40,43 @@ t_vector	vec_resize(t_vector vec1, double i)
 	return (v_resized);
 }
 
-
-// t_vector		player_collides(t_game *game, t_vector speed)
-// {
-// 	// vec_print(&plane_pos, "plane_pos");
-// 	printf("check collision\n");
-// 	t_vector opposition;
-// 	opposition.x = 0;
-// 	opposition.y = 0;
-// 	if(speed.x == 0 && speed.y == 0)
-// 		return (opposition);
-// 	speed  = vec_normalize(speed);
-// 	t_vector next_tile = get_next_tile(game, speed);
-// 	t_vector current_tile = pixel_to_tile(game->player.pos);
-// 	if(game->map[(int) (current_tile.y +  next_tile.y)][(int) (current_tile.x + next_tile.x)] != '1')
-// 		return(opposition);
-// 	t_vector next_pos = vec_sum(speed, game->player.pos);
-// 	vec_print(&next_tile, "next_tile");
-// 	vec_print(&game->player.pos, "player_pos");
-// 	if(next_tile.x == -1 && fmod(game->player.pos.x, 64) < 15)
-// 	{
-// 		 opposition.x = -game->player.speed.x;
-// 		 opposition.y = game->player.speed.y;
-// 		// opposition.x = -game->player.speed.x;
-// 		// if(opposition.y < 0)
-// 		// 	opposition.y = -game->player.speed.y;
-// 		// else 
-// 		// 	opposition.y = game->player.speed.y;
-// 	}
-// 	else if(next_tile.x == 1 && fmod(game->player.pos.x, 64) > 64 - 15)
-// 	{
-// 		opposition.x = -game->player.speed.x;
-// 		opposition.y = game->player.speed.y;
-// 		// opposition.x = -game->player.speed.x;
-// 		// if(opposition.y < 0)
-// 		// 	opposition.y = -game->player.speed.y;
-// 		// else 
-// 		// 	opposition.y = game->player.speed.y;
-// 	}
-// 	else if(next_tile.y == -1 && fmod(game->player.pos.y, 64) < 15)
-// 	{
-// 		opposition.x = game->player.speed.x;
-// 		opposition.y = -game->player.speed.y;
-// 		// opposition.y = -game->player.speed.y;
-// 		// if(opposition.y < 0)
-// 		// 	opposition.y = -game->player.speed.y;
-// 		// else 
-// 		// 	opposition.y = game->player.speed.y;
-// 	}
-// 	else if(next_tile.y == 1 && fmod(game->player.pos.y, 64) > 64 - 15)
-// 	{
-// 		opposition.x = game->player.speed.x;
-// 		opposition.y = -game->player.speed.y;
-// 		// opposition.y = -game->player.speed.y;
-// 		// if(opposition.y < 0)
-// 		// 	opposition.y = -game->player.speed.y;
-// 		// else 
-// 		// 	opposition.y = game->player.speed.y;
-// 	}
-// 	// vec_print(&game->player.pos, "player.pos");
-// 	// vec_print(&next_pos, "next_pos");
-// 	// vec_print(&next_tile, "next_tile");
-// 	// draw_filled_circle(&game->img, next_pos, 10, BLUE_PIXEL);
-// 	//game->map[(int) next_tile.y][(int) next_tile.x] = 'B';
-// 	// return(!is_walkable(game, next_tile));
-// 	return opposition;
-// }
+static int		is_walkable(t_game *game, int x, int y)
+{
+	//game->map[y][x] = 'B';
+	return(game->map[y][x] != '1');
+}
 
 void		player_collides(t_game *game, t_vector speed)
 {
-	// vec_print(&plane_pos, "plane_pos");
-	printf("check collision\n");
-	t_vector opposition;
-	opposition.x = 0;
-	opposition.y = 0;
-	if(speed.x == 0 && speed.y == 0)
-		return ;
-	speed  = vec_normalize(speed);
-	t_vector current_tile = pixel_to_tile(game->player.pos);
+	t_vector v_offset;
+	t_vector vi_pos;
+	t_vector vi_pos_add_offset;
+	t_vector vi_pos_sub_offset;
+	
+	v_offset.x = 0;
+	v_offset.y = 0;
+	if (speed.x > 0)
+		v_offset.x = 25;
+	else
+		v_offset.x = -25;
+	if (speed.y > 0)
+		v_offset.y = 25;
+	else
+		v_offset.y = -25;
 
-	t_vector next_tile = get_next_tile(game, speed);
-	t_vector next_pos = vec_sum(speed, game->player.pos);
-	// vec_print(&next_tile, "next_tile");
-	// vec_print(&game->player.pos, "player_pos");
-	if(next_tile.x == -1 && fmod(next_pos.x, 64) < 15)
+	vi_pos = pixel_to_tile(game->player.pos);
+	vi_pos_add_offset = pixel_to_tile(vec_sum(game->player.pos, v_offset));
+
+	if(!is_walkable(game , vi_pos_add_offset.x,  vi_pos.y))
+	{
 		game->player.speed.x = 0;
-	else if(next_tile.x == 1 && fmod(next_pos.x, 64) > 64 - 15)
-		game->player.speed.x = 0;
-	if(next_tile.y == -1 && fmod(next_pos.y, 64) < 15)
+	}
+	if(!is_walkable(game , vi_pos.x, vi_pos_add_offset.y))
+	{
 		game->player.speed.y = 0;
-	else if(next_tile.y == 1 && fmod(next_pos.y, 64) > 64 - 15)
-		game->player.speed.y = 0;
+	}
 }
+
 
 
 void	edit_player_pos(t_game *game)
@@ -160,7 +105,6 @@ void	edit_player_pos(t_game *game)
 	else
 		game->player.speed = vec_scalar_mult(game->player.speed, 4);
 	player_collides(game, game->player.speed);
-	//game->player.speed = vec_sum(game->player.speed, opposition);
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;

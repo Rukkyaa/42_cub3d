@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/27 16:29:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 11:06:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ void    basic_render(t_game *game, t_collision collision, t_vector line_pos, dou
 void wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
 {
     int i = -1;
-    int j = 0;
     int x_text = 0;
     int y_text = 0;
     int pixel_color;
@@ -70,19 +69,17 @@ int get_floor_color(t_game *game, t_vector3d intersection)
     return(img_pix_read(&game->texture.ground, v_texture_pos.x, v_texture_pos.y));
 }
 
-void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, float plane_halfwidth)
+void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos)
 {
     t_vector3d v3d_ray_dir;
     t_vector3d v3d_intersect_point;
     t_vector v_intersect_point;
-    int distance;
     int i = line_pos.y;
     float plane_height = game->camera.proj_plane_height;
     float vertical_ray_increment = (float) plane_height * 2.27 / (float) RES_Y; //(((float) (RES_Y - line_pos.y) / (float) RES_Y) * plane_height) / (RES_Y - line_pos.y) ;
     // printf( "plane_height : %f\n", plane_height);
     // printf( "plane_width : %f\n", plane_halfwidth * 2);
     // printf( "vertical_ray_increment : %f\n", vertical_ray_increment);
-    int player_height = 32;
 
     v3d_ray_dir.x = v_ray_dir.x;
     v3d_ray_dir.y = v_ray_dir.y;
@@ -117,7 +114,6 @@ void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, fl
 void    render_fps(t_game *game)
 {
     int i = 0;
-    float distance;
     float line_height;
     t_collision collision;
     t_vector v_right;
@@ -149,7 +145,7 @@ void    render_fps(t_game *game)
         collision.distance  = collision.distance * cosf(ca);
         line_height = ( 64 / collision.distance ) * game->camera.proj_plane_distance  ;
         line_pos.y = RES_Y / 2 + line_height / 2;
-        render_floor_col(game, v_ray_dir2, line_pos, halfWidth);
+        render_floor_col(game, v_ray_dir2, line_pos);
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2

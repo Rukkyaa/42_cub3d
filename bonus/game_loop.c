@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 16:29:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:58:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,10 +83,23 @@ void	edit_player_pos(t_game *game)
 {
 	t_vector right = vec_rotate(game->player.direction, 90);
 	t_vector left = vec_rotate(game->player.direction, 270);
-	t_vector opposition;
-	opposition.x = 0;
-	opposition.y = 0;
-	if (game->key_states['w'] )
+
+	if (player_moving(game) && game->key_states[2] == 1)
+	{
+		ma_device_stop(&game->sounds.footstep.device);
+		ma_device_start(&game->sounds.dejavu.device);
+	}
+	else if (player_moving(game))
+	{
+		ma_device_start(&game->sounds.footstep.device);
+		ma_device_stop(&game->sounds.dejavu.device);
+	}
+	else
+	{
+		ma_device_stop(&game->sounds.footstep.device);
+		ma_device_stop(&game->sounds.dejavu.device);
+	}
+	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )
 		game->player.speed = vec_scalar_mult(game->player.direction, -1);
@@ -168,9 +181,9 @@ int	game_loop(void *g)
 		|| game->key_states['f'] || game->key_states['r']
 		|| game->key_states[0] || game->key_states[1])
 	{
-		edit_player_pos(game);
 		edit_player_rotate(game);		
 	}
+	edit_player_pos(game);
 	render(game);
 	//usleep(16000);
 	return (0);

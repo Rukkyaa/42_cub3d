@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 14:52:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 17:59:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ void	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness,
 		{
 			for (int j = 0; j < thickness; j++)
 			{
-				img_pix_put(&game->imgz, x + i, y + j, color);
+				img_pix_put(&game->img, x + i, y + j, color);
 			}
 		}
 		error2 = 2 * error;

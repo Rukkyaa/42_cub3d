@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:00:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 15:18:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	load_map(t_game *game)
 		j = -1;
 		while (++j < (map_width(game->map)))
 		{
-			pos.x = j * 64;
-			pos.y = i * 64;
+			pos.x = j * 32;
+			pos.y = i * 32;
 			if (game->map[i][j] == '1')
-				draw_filled_square(game, pos, 64, BLUE_PIXEL);
+				draw_filled_square(game, pos, 32, BLUE_PIXEL);
 			else if (game->map[i][j] == '0')
-				draw_filled_square(game, pos, 64, GREEN_PIXEL);
+				draw_filled_square(game, pos, 32, GREEN_PIXEL);
 			else
-				draw_filled_square(game, pos, 64, 888888);
+				draw_filled_square(game, pos, 32, 888888);
 		}
 	}
 }

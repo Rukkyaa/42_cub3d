@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sound.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:12:52 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:22:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ void	load_sound(t_sound *sound, char *name)
 void	load_sounds(t_sounds *sounds)
 {
 	load_sound(&sounds->footstep, "bonus/sound/footstep.mp3");
+	load_sound(&sounds->dejavu, "bonus/sound/dejavu.mp3");
 }
 
 void	clear_sounds(t_sounds *sounds)

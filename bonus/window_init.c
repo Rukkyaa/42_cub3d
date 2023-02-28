@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 11:30:04 by teliet           ###   ########.fr       */
+/*   Updated: 2023/02/28 16:30:43 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,6 +92,6 @@ void	var_init(t_game *game)
 	load_sounds(&game->sounds);
 	load_grid(game);
 	init_basic_vectors(game);
-	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
+	// mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
 }

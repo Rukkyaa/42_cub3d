@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 16:53:17 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:28:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
-# define RES_X  1280
+# define RES_X 1280
 # define RES_Y  720
 
 # define MAX_DISTANCE 10

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 17:46:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:43:36 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ void	render_map(t_game *game)
 		clear_img(&game->fps_img);
 	}
 	render_fps(game);
-	// psychedelic_view(game, &game->fps_img);
+	//psychedelic_view(game, &game->fps_img);
 	load_map(game);
 	draw_player(game, RED_PIXEL);
 
@@ -157,8 +157,11 @@ void	render_map(t_game *game)
 
 void	render(t_game *game)
 {
+
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
+	// mlx_put_image_to_window(game->mlx, game->fps_win,
+	// 	&game->texture.wall, 0, 0);
 	// mlx_put_image_to_window(game->mlx, game->fps_win, game->img.mlx_img, 0, 0);
 }
 

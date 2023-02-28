@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/02/28 11:06:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/02/28 18:40:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
     
     while(i < line_height)
     {
-        x_text = (int) collision.x_pos_tex;
-        y_text = (int) (((line_height - i) / line_height) * 64);
+        x_text = (int) ((collision.x_pos_tex / 64.0f) * game->texture.wall.width);
+        y_text = (int) (((line_height - i) / line_height) * game->texture.wall.heigth);
         pixel_color =  img_pix_read(&game->texture.wall, x_text, y_text) ;
         // printf("pixel %d %d : %ld\n", x_text, y_text, pixel_color);
         img_pix_put(&game->fps_img, line_pos.x, line_pos.y - i, pixel_color);
@@ -63,8 +63,8 @@ int get_floor_color(t_game *game, t_vector3d intersection)
     v_tile.y = (int) intersection.y / 64;
 
     // to do : get texture of the specific tile hit
-    v_texture_pos.x = fmod(intersection.x, 64);
-    v_texture_pos.y = fmod(intersection.y, 64);
+    v_texture_pos.x = fmod(intersection.x, game->texture.ground.width);
+    v_texture_pos.y = fmod(intersection.y,  game->texture.ground.heigth);
     // vec_print(&v_texture_pos, "v_texture_pos");
     return(img_pix_read(&game->texture.ground, v_texture_pos.x, v_texture_pos.y));
 }
@@ -143,7 +143,7 @@ void    render_fps(t_game *game)
         // printf("distance : %d \n", distance);
         float ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * cosf(ca);
-        line_height = ( 64 / collision.distance ) * game->camera.proj_plane_distance  ;
+        line_height = ( 64/ collision.distance ) * game->camera.proj_plane_distance  ;
         line_pos.y = RES_Y / 2 + line_height / 2;
         render_floor_col(game, v_ray_dir2, line_pos);
         // printf("orientation : %c\n", collision.orientation);

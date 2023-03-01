@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 12:50:50 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:43:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@
 # define FOV_RADIANS ( M_PI / 3)
 # define FOV 60
 
-# define RES_X  1280
-# define RES_Y  720
+# define RES_X  1920
+# define RES_Y  1080
 
 # define MAX_DISTANCE 10
 
@@ -106,6 +106,7 @@ typedef struct s_texture
 {
 	t_img	wall;
 	t_img	ground;
+	t_img	roof;
 	// void	*wall;
 	int		text_heigth;
 	int		text_width;

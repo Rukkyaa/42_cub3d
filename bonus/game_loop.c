@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 18:43:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:10:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	psychedelic_view(t_game *game, t_img *img)
 	int	j;
 	int	pixel_color;
 	printf("%f\n", ((float) (game->time_inc % 300) / 300.0f));
-	game->player.direction_adjust = 15 - ((float) (game->time_inc % 300) / 300.0f) * 10.0f;
+	game->player.direction_adjust = cos(game->time_inc) + 3;
 	i = -1;
 	while (++i < RES_X)
 	{
@@ -91,6 +91,7 @@ void	edit_player_pos(t_game *game)
 	}
 	else if (player_moving(game))
 	{
+		//
 		ma_device_start(&game->sounds.footstep.device);
 		ma_device_stop(&game->sounds.dejavu.device);
 	}
@@ -145,12 +146,14 @@ void	render_map(t_game *game)
 		|| game->key_states[0] || game->key_states[1])
 	{
 		load_grid(game);
-		clean_map(game);
+		// clean_map(game);
 		clear_img(&game->fps_img);
 	}
+
 	render_fps(game);
-	//psychedelic_view(game, &game->fps_img);
-	load_map(game);
+	// if (game->key_states[2])
+	// 	psychedelic_view(game, &game->fps_img);
+	// load_map(game);
 	draw_player(game, RED_PIXEL);
 
 }

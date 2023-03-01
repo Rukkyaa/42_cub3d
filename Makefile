@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/02/28 16:28:39 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/01 15:55:11 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,6 +40,8 @@ LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 INCLUDE = ./includes
 
+HEADERS = ./includes/cub3d
+
 #
 #
 # BONUS
@@ -51,8 +53,6 @@ NAME_BONUS = cub3d_bonus
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 		bonus/free.c bonus/draw_player.c \
 		bonus/raycast_2D.c \
-		bonus/render/load.c \
-		bonus/render/render_fps.c bonus/render/color.c \
 		bonus/events.c \
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
@@ -74,14 +74,14 @@ VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
+# RENDER #
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps color))
+RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
+
 # MINIAUDIO #
 MINIAUDIO = bonus/sound/miniaudio.o
 
-#
-#
-# END BONUS
-#
-#
+HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 
 LIBFT = -L libft/ -lft
 
@@ -101,7 +101,7 @@ flag:= 1
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
+$(NAME): $(HEADERS) $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@printf "\033[K\033[1;32m| Cub3d : compiled                     |\n\033[m"
 	@make --no-print-directory -C libft/
 	@cc $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS) $(LFLAGS) $(LIBFT) -o $(NAME)
@@ -110,10 +110,12 @@ $(NAME): $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
 
-bonus: $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)
+bonus: $(NAME_BONUS)
+
+$(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"
@@ -129,7 +131,7 @@ clean:
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
 	@rm -f $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
-	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)
+	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

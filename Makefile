@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/01 16:53:07 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/01 17:46:03 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -123,6 +123,18 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BO
 
 debug: $(LIBS) clean
 	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 
+
+perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
+	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"
+	@make --no-print-directory -C libft/
+	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -pg -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@printf "\033[1;32m========================================\n"
+	@printf "|            PERF FINISHED !           |\n"
+	@printf "========================================\n\033[m"
+	@setterm -cursor on
+	@./cub3d_bonus maps/map.cub
+	@gprof cub3d_bonus gmon.out > analysis.txt
+	@rm gmon.out
 
 clean:
 	@printf "\033[1;31m========================================\n"

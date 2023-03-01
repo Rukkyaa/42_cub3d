@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/01 16:57:14 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:29:55 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	load_img(t_game *game)
 {
 	ft_xpm_to_img(game, &game->texture.wall, "images/pjay2.xpm");
 	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
-	// ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/FLOOR_1C.xpm");
+	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/CRATE_1C.xpm");
 	
 	// ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
 }

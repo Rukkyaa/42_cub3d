@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/01 16:53:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:25:33 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,7 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
     int pixel_color;
     int min_i;
     int max_i;
-    // if(line_pos.y - line_height < 0)
-    // {
-    //     min_i = 0;
-    // }
-    // else
-    //     max_i = line_pos.y - line_height;
+    
     min_i = (int) fmax(0 , line_pos.y - line_height);
     max_i = (int) fmin(RES_Y - 1, line_pos.y );
     int offset = min_i - (line_pos.y - line_height);
@@ -42,12 +37,6 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
     // printf("offset : %d\n", offset);
     // printf("line height : %f\n", line_height);
     // printf("line_pos_y : %f\n",  line_pos.y);
-    // if(line_pos.y >= RES_Y)
-    // {
-    //     max_i = RES_Y - 1;
-    // }
-    // else
-    //     max_i = line_pos.y;
 
     // Sky
     i = 0;
@@ -79,7 +68,7 @@ t_vector3d get_floor_intersection(t_vector3d position, t_vector3d direction) {
 }
 
 
-int get_floor_color(t_game *game, t_vector3d intersection)
+int get_floor_color(t_game *game, t_vector3d intersection, t_img *img)
 {
     t_vector v_tile;
     t_vector v_texture_pos;
@@ -91,10 +80,10 @@ int get_floor_color(t_game *game, t_vector3d intersection)
     v_texture_pos.x = fmod(intersection.x, game->texture.ground.width);
     v_texture_pos.y = fmod(intersection.y,  game->texture.ground.heigth);
     // vec_print(&v_texture_pos, "v_texture_pos");
-    return(img_pix_read(&game->texture.ground, v_texture_pos.x, v_texture_pos.y));
+    return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
 }
 
-void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos)
+void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, double line_height)
 {
     t_vector3d v3d_ray_dir;
     t_vector3d v3d_intersect_point;
@@ -129,7 +118,8 @@ void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos)
         // draw_line_dda(&game->img, game->player.pos, vec_sum(game->player.pos, test), RED_PIXEL);
         // img_pix_put(&game->img, v_intersect_point.x, v_intersect_point.y, GREEN_PIXEL);
         //draw_filled_circle(&game->img, v_intersect_point, 10, BLUE_PIXEL);
-        img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point));
+        img_pix_put(&game->fps_img, line_pos.x, RES_Y - i, get_floor_color(game, v3d_intersect_point,  &game->texture.roof));
+        img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.ground));
         i++;
     }
     
@@ -170,13 +160,13 @@ void    render_fps(t_game *game)
         collision.distance  = collision.distance * cosf(ca);
         line_height = ( 64/ collision.distance ) * game->camera.proj_plane_distance  ;
         line_pos.y = RES_Y / 2 + line_height / 2;
-        render_floor_col(game, v_ray_dir2, line_pos);
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //basic_render(game, collision, line_pos, line_height);
 		
         wall_render(game, collision, line_pos, line_height);
+        render_floor_col(game, v_ray_dir2, line_pos, line_height);
         i++;
         line_pos.x+= RES_X / RES_X;
     }

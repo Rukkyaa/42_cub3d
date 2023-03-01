@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/01 16:53:07 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/01 17:31:09 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ flag:= 1
 	fi
 	@printf "\033[1;32m|\033[32m                                       \033[m\r"
 	@printf "\033[1;35m|\033[0;32m Compiling $@... \033[m\r"
-	@cc -Wall -Wextra -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
+	@cc -Wall -Wextra -g3 -O3 -I $(INCLUDE) -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
 	$(eval flag=$(shell echo $$(($(flag)+1))))
 
 all: $(NAME)
@@ -115,7 +115,7 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/01 16:46:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:56:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ typedef struct s_texture
 	t_img	wall;
 	// void	*wall;
 	t_img	ground;
+	t_img	roof;
 	int		text_heigth;
 	int		text_width;
 }				t_texture;

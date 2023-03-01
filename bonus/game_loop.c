@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/01 16:10:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/01 16:49:21 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,7 +145,7 @@ void	render_map(t_game *game)
 		|| game->key_states['f'] || game->key_states['r']
 		|| game->key_states[0] || game->key_states[1])
 	{
-		load_grid(game);
+		//load_grid(game);
 		// clean_map(game);
 		clear_img(&game->fps_img);
 	}
@@ -153,7 +153,7 @@ void	render_map(t_game *game)
 	render_fps(game);
 	// if (game->key_states[2])
 	// 	psychedelic_view(game, &game->fps_img);
-	// load_map(game);
+	//load_map(game);
 	draw_player(game, RED_PIXEL);
 
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/01 17:25:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/02 09:19:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,9 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
     }
     while(i < max_i)
     {
-        x_text = (int) ((collision.x_pos_tex / 64.0f) * game->texture.wall.width);
-        y_text = (int) (((i + offset - min_i) / line_height) * game->texture.wall.heigth);
-        pixel_color =  img_pix_read(&game->texture.wall, x_text, y_text) ;
+        x_text = (int) ((collision.x_pos_tex / 64.0f) * collision.wall.width);
+        y_text = (int) (((i + offset - min_i) / line_height) * collision.wall.heigth);
+        pixel_color =  img_pix_read(&collision.wall, x_text, y_text) ;
         // printf("pixel %d %d : %ld\n", x_text, y_text, pixel_color);
         img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         i++;

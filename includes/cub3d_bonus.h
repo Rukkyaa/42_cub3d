@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/01 17:39:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:16:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,6 @@ typedef struct s_camera
 	float	proj_plane_width;
 }					t_camera;
 
-typedef struct s_collision
-{
-	t_vector		point;
-	char			orientation;
-	float			distance;
-	float			x_pos_tex;
-}					t_collision;
-
 typedef struct s_player
 {
 	t_vector	pos;
@@ -137,6 +129,15 @@ typedef struct s_texture
 	int		text_heigth;
 	int		text_width;
 }				t_texture;
+
+typedef struct s_collision
+{
+	t_vector		point;
+	t_img			wall;
+	char			orientation;
+	float			distance;
+	float			x_pos_tex;
+}					t_collision;
 
 typedef struct s_game
 {

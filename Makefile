@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/01 17:51:00 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/02 08:58:50 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -120,9 +120,6 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BO
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
-
-debug: $(LIBS) clean
-	$(CC) $(SRC) $(LIBS) $(HEADERS) $(LFLAGS) -g3 -O3 -o $(NAME) 
 
 perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/02 09:22:08 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:28:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,13 +109,10 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
         i++;
         if(tile_out_of_bound(v_map_check, game))
             break ;
-        if(game->map[(int)v_map_check.y][(int)v_map_check.x] == '1' || game->map[(int)v_map_check.y][(int)v_map_check.x] == '2')
+        if(is_wall(game->map[(int)v_map_check.y][(int)v_map_check.x]))
         {
             tile_found = 1;
-			if (game->map[(int)v_map_check.y][(int)v_map_check.x] == '1')
-				collision.wall = game->texture.ground;
-			else
-				collision.wall = game->texture.wall;
+			get_wall(game, &collision, game->map[(int)v_map_check.y][(int)v_map_check.x]);
         }
     }
     collision.distance = distance;

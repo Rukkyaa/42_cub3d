@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 09:16:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:27:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,9 @@ void	clean_map(t_game *game);
 void    render_fps(t_game *game);
 void	clear_img(t_img *img);
 int		get_color(t_img *img, int x, int y);
+int		is_wall(char c);
+void	get_wall(t_game *game, t_collision *collision, char c);
+
 
 // Shapes
 void	draw_square(t_game *game, t_vector pos, int width, int color);

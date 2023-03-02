@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/02 09:10:40 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/02 09:24:01 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps color))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps color wall))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #

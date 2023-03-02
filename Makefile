@@ -6,10 +6,22 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/02 08:58:50 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/02 09:10:40 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
+MLXFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
+
+#################################################################################################
+# $$\      $$\  $$$$$$\  $$\   $$\ $$$$$$$\   $$$$$$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  #
+# $$$\    $$$ |$$  __$$\ $$$\  $$ |$$  __$$\ $$  __$$\\__$$  __|$$  __$$\ $$  __$$\\$$\   $$  | #
+# $$$$\  $$$$ |$$ /  $$ |$$$$\ $$ |$$ |  $$ |$$ /  $$ |  $$ |   $$ /  $$ |$$ |  $$ |\$$\ $$  /  #
+# $$\$$\$$ $$ |$$$$$$$$ |$$ $$\$$ |$$ |  $$ |$$$$$$$$ |  $$ |   $$ |  $$ |$$$$$$$  | \$$$$  /   #
+# $$ \$$$  $$ |$$  __$$ |$$ \$$$$ |$$ |  $$ |$$  __$$ |  $$ |   $$ |  $$ |$$  __$$<   \$$  /    #
+# $$ |\$  /$$ |$$ |  $$ |$$ |\$$$ |$$ |  $$ |$$ |  $$ |  $$ |   $$ |  $$ |$$ |  $$ |   $$ |     #
+# $$ | \_/ $$ |$$ |  $$ |$$ | \$$ |$$$$$$$  |$$ |  $$ |  $$ |    $$$$$$  |$$ |  $$ |   $$ |     #
+# \__|     \__|\__|  \__|\__|  \__|\_______/ \__|  \__|  \__|    \______/ \__|  \__|   \__|     #
+#################################################################################################
 NAME = cub3d
 
 SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
@@ -19,7 +31,6 @@ SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
 		mandatory/render/render_fps.c mandatory/render/color.c \
 		mandatory/events.c \
 
-LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 OBJS = $(SRC:.c=.o)
 
@@ -36,7 +47,6 @@ VECTOR_SRC = $(addprefix mandatory/vector/vec_, $(addsuffix .c, angle distance m
 	print scalar_mult sum to_angle rotate_edit rotate))
 VECTOR_OBJS = $(VECTOR_SRC:.c=.o)
 
-LFLAGS = -Lmlx -lmlx_Linux -L/usr/lib -Imlx_linux -lXext -lX11 -lm -lz
 
 INCLUDE = ./includes
 
@@ -104,7 +114,7 @@ all: $(NAME)
 $(NAME): $(HEADERS) $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@printf "\033[K\033[1;32m| Cub3d : compiled                     |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS) $(LFLAGS) $(LIBFT) -o $(NAME)
+	@cc $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS) $(MLXFLAGS) $(LIBFT) -o $(NAME)
 	@printf "\033[1;32m========================================\n"
 	@printf "|         COMPILATION FINISHED !       |\n"
 	@printf "========================================\n\033[m"
@@ -115,7 +125,7 @@ bonus: $(NAME_BONUS)
 $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(LFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"

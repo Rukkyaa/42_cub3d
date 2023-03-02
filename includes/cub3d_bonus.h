@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 09:39:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 21:48:19 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -169,12 +169,12 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);
-void	clean_map(t_game *game);
 void    render_fps(t_game *game);
 void	clear_img(t_img *img);
 int		get_color(t_img *img, int x, int y);
 int		is_wall(char c);
 void	get_wall(t_game *game, t_collision *collision, char c);
+void	wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height);
 
 
 // Shapes

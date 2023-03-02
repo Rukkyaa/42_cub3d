@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 14:57:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 23:16:41 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,19 @@ void	draw_player_direction(t_game *game, int color)
 
 void	draw_player(t_game *game, int color)
 {
-	// cast_2D_ray(game);
-	// draw_player_direction(game, color);
-	draw_filled_circle(&game->fps_img, game->player.pos, 5, color);
-	// draw_filled_circle(&game->img, game->player.collision_pos, 5, color);
+	t_vector	pos;
+
+	if ((int)(game->player.pos.y / 64) < 3)
+		pos.y = game->player.pos.y;
+	else if ((int)(game->player.pos.y / 64) + 4 > map_heigth(game->map))
+		pos.y = game->player.pos.y - (map_heigth(game->map) - 7) * 64;
+	else
+		pos.y = 64 * 3 + 32;
+	if ((int)(game->player.pos.x / 64) < 3)
+		pos.x = game->player.pos.x;
+	else if ((int)(game->player.pos.x / 64) + 4 > map_width(game->map))
+		pos.x = game->player.pos.x - (map_width(game->map) - 7) * 64;
+	else
+		pos.x = 64 * 3 + 32;
+	draw_filled_circle(&game->fps_img, pos, 5, color);
 }

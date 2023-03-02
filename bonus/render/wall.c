@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 09:27:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:43:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,19 @@
 
 int	is_wall(char c)
 {
-	return (c == '1' || c == '2');
+	return (c == '1' || c == '2' || c == '3' || c == '4');
 }
 
 void	get_wall(t_game *game, t_collision *collision, char c)
 {
 	if (c == '1')
-		collision->wall = game->texture.wall;
+		collision->wall = game->texture.wall1;
 	else if (c == '2')
-		collision->wall = game->texture.ground;
+		collision->wall = game->texture.wall2;
+	else if (c == '3')
+		collision->wall = game->texture.wall3;
+	else if (c == '4')
+		collision->wall = game->texture.wall4;
 }
 
 void wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 09:27:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:39:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include <time.h>
 # include "../includes/miniaudio.h"
 
 #ifndef M_PI
@@ -122,8 +123,10 @@ typedef struct s_img
 // TEXTURE
 typedef struct s_texture
 {
-	t_img	wall;
-	// void	*wall;
+	t_img	wall1;
+	t_img	wall2;
+	t_img	wall3;
+	t_img	wall4;
 	t_img	ground;
 	t_img	roof;
 	int		text_heigth;

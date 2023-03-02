@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 09:15:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/02 09:47:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ t_vector	vec_resize(t_vector vec1, double i)
 
 static int		is_walkable(t_game *game, int x, int y)
 {
-	return(game->map[y][x] != '1' && game->map[y][x] != '2');
+	return(!is_wall(game->map[y][x]));
 }
 
 void		player_collides(t_game *game, t_vector speed)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/03 10:15:29 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/03/03 18:41:16 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps color wall))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #

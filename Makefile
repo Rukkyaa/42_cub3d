@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/02 21:45:04 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/03/03 10:15:29 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -68,7 +68,7 @@ SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
 # SHAPES FILES #
-SHAPE_SRC_BONUS = $(addprefix bonus/shapes/, $(addsuffix .c, square circle line pixel_utils))
+SHAPE_SRC_BONUS = $(addprefix bonus/shapes/, $(addsuffix .c, square circle line pixel_utils rectangle))
 SHAPE_OBJS_BONUS = $(SHAPE_SRC_BONUS:.c=.o)
 
 # MAP FILES# #

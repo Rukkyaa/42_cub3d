@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/03 10:42:26 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/03 12:22:43 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	get_x(t_game *game, int *x, int *x_end)
 	}
 	else
 	{
-		*x = (int)(game->player.pos.x / 64) - 4;
+		*x = (int)(game->player.pos.x / 64) - 3;
 		*x_end = (int)(game->player.pos.x / 64) + 4;
 	}
 }
@@ -57,6 +57,7 @@ void	load_map(t_game *game)
 	int			x_end;
 	int			y_end;
 	t_vector	pos;
+	t_vector	size;
 
 	pos.x = 0;
 	pos.y = 0;
@@ -64,15 +65,34 @@ void	load_map(t_game *game)
 	while (++y < map_heigth(game->map) && y < y_end)
 	{
 		get_x(game, &x, &x_end);
+		if (x != -1 && x != map_width(game->map) - 8)
+		{
+			size.y = 32;
+			size.x = 32 - (int)game->player.pos.x % 64 / 2;
+			if (is_wall(game->map[y][x]))
+				draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
+			else
+				draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
+			pos.x = 32 - (int)game->player.pos.x % 64 / 2;
+		}
 		while (++x < (map_width(game->map)) && x < x_end)
 		{
-			if (game->map[y][x] == '1')
+			if (is_wall(game->map[y][x]))
 				draw_filled_square(game, pos, 32, BLUE_PIXEL);
 			else if (game->map[y][x] == '0')
 				draw_filled_square(game, pos, 32, GREEN_PIXEL);
 			else
 				draw_filled_square(game, pos, 32, 888888);
 			pos.x += 32;
+		}
+		if (x_end != 7 && x_end != map_width(game->map))
+		{
+			size.y = 32;
+			size.x = (int)game->player.pos.x % 64 / 2;
+			if (is_wall(game->map[y][x]))
+				draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
+			else
+				draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
 		}
 		pos.x = 0;
 		pos.y += 32;

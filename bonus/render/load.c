@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/03 12:22:43 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/03 12:55:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	get_x(t_game *game, int *x, int *x_end)
 	}
 	else
 	{
-		*x = (int)(game->player.pos.x / 64) - 3;
-		*x_end = (int)(game->player.pos.x / 64) + 4;
+		*x = (int)(game->player.pos.x / 64) - 4;
+		*x_end = (int)(game->player.pos.x / 64) + 3;
 	}
 }
 

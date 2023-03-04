@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 21:49:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/04 18:08:28 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,7 @@ void	edit_player_pos(t_game *game)
 	}
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
+		printf("Inventory !\n");
 	else if (game->key_states['s'] )
 		game->player.speed = vec_scalar_mult(game->player.direction, -1);
 	if (game->key_states['a'])
@@ -149,7 +150,6 @@ void	render_map(t_game *game)
 
 void	render(t_game *game)
 {
-
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
 }

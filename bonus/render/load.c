@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/03 12:55:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/04 18:00:45 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,16 @@ void	load_map(t_game *game)
 	while (++y < map_heigth(game->map) && y < y_end)
 	{
 		get_x(game, &x, &x_end);
-		if (x != -1 && x != map_width(game->map) - 8)
-		{
-			size.y = 32;
-			size.x = 32 - (int)game->player.pos.x % 64 / 2;
-			if (is_wall(game->map[y][x]))
-				draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
-			else
-				draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
-			pos.x = 32 - (int)game->player.pos.x % 64 / 2;
-		}
+		// if (x != -1 && x != map_width(game->map) - 8)
+		// {
+		// 	size.y = 32;
+		// 	size.x = 32 - (int)game->player.pos.x % 64 / 2;
+		// 	if (is_wall(game->map[y][x]))
+		// 		draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
+		// 	else
+		// 		draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
+		// 	pos.x = 32 - (int)game->player.pos.x % 64 / 2;
+		// }
 		while (++x < (map_width(game->map)) && x < x_end)
 		{
 			if (is_wall(game->map[y][x]))
@@ -85,15 +85,15 @@ void	load_map(t_game *game)
 				draw_filled_square(game, pos, 32, 888888);
 			pos.x += 32;
 		}
-		if (x_end != 7 && x_end != map_width(game->map))
-		{
-			size.y = 32;
-			size.x = (int)game->player.pos.x % 64 / 2;
-			if (is_wall(game->map[y][x]))
-				draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
-			else
-				draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
-		}
+		// if (x_end != 7 && x_end != map_width(game->map))
+		// {
+		// 	size.y = 32;
+		// 	size.x = (int)game->player.pos.x % 64 / 2;
+		// 	if (is_wall(game->map[y][x]))
+		// 		draw_filled_rectangle(game, pos, size, BLUE_PIXEL);
+		// 	else
+		// 		draw_filled_rectangle(game, pos, size, GREEN_PIXEL);
+		// }
 		pos.x = 0;
 		pos.y += 32;
 	}

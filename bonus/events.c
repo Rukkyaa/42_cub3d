@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 10:57:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/02/28 16:56:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/04 18:07:07 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	handle_keypress(int keycode, t_game *game)
 	if (keycode == ESC)
 		close_window(game);
 	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's'
-		|| keycode == 'r' || keycode == 'f')
+		|| keycode == 'r' || keycode == 'f' || keycode == 'e')
 		game->key_states[keycode] = 1;
 	if (keycode == RIGHT)
 		game->key_states[0] = 1;
@@ -32,7 +32,7 @@ int	handle_keypress(int keycode, t_game *game)
 int	handle_keyrelease(int keycode, t_game *game)
 {
 	if (keycode == 'w' || keycode == 'a' || keycode == 'd' || keycode == 's'
-		|| keycode == 'r' || keycode == 'f')
+		|| keycode == 'r' || keycode == 'f' || keycode == 'e')
 		game->key_states[keycode] = 0;
 	if (keycode == RIGHT)
 		game->key_states[0] = 0;

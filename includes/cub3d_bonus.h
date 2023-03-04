@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/04 18:16:20 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/04 18:23:32 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@
 # include <time.h>
 # include "../includes/miniaudio.h"
 
-#ifndef M_PI
-    #define M_PI 3.14159265358979323846
-#endif
+# ifndef M_PI
+#  define M_PI 3.14159265358979323846
+# endif
 
 # define ESC 65307
 # define A 97
@@ -42,7 +42,6 @@
 # define RIGHT 65361
 # define LEFT 65363
 # define SHIFT 65505
-
 
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
@@ -121,7 +120,7 @@ typedef struct s_img
 {
 	void	*mlx_img;
 	char	*addr;
-	int		bpp; /* bits per pixel */
+	int		bpp;
 	int		line_len;
 	int		endian;
 	int		width;
@@ -159,8 +158,8 @@ typedef struct s_game
 	t_img		img;
 	t_img		fps_img;
 	char		**map;
-	int				key_states[256];
-	int				key_release_states[256];
+	int			key_states[256];
+	int			key_release_states[256];
 	t_vector	mouse;
 	t_player	player;
 	t_texture	texture;
@@ -173,57 +172,58 @@ typedef struct s_game
 }				t_game;
 
 // Ray casting
-t_collision	cast_2D_ray(t_game *game, t_vector direction);
+t_collision		cast_2D_ray(t_game *game, t_vector direction);
 
 // Render
-void	img_pix_put(t_img *img, int x, int y, int color);
-void    render_fps(t_game *game);
-void	clear_img(t_img *img);
-int		get_color(t_img *img, int x, int y);
-int		is_wall(char c);
-void	get_wall(t_game *game, t_collision *collision, char c);
-void	wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height);
-
+void			img_pix_put(t_img *img, int x, int y, int color);
+void			render_fps(t_game *game);
+void			clear_img(t_img *img);
+int				get_color(t_img *img, int x, int y);
+int				is_wall(char c);
+void			get_wall(t_game *game, t_collision *collision, char c);
+void			wall_render(t_game *game, t_collision collision,
+					t_vector line_pos, double line_height);
 
 // Shapes
-void	draw_square(t_game *game, t_vector pos, int width, int color);
-void	draw_filled_square(t_game *game, t_vector pos, int width, int color);
-
-void 	draw_circle(t_game *game, t_vector center, int radius, int color);
-void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color);
-
-void	draw_vertical_line(t_game *game, t_vector pos, int len, int color);
-void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color);
-void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
-void 	draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color);
-
-void	draw_filled_rectangle(t_game *game, t_vector vec, t_vector size, int color);
-
-void	load_grid(t_game *game);
-void	load_map(t_game *game);
+void			draw_square(t_game *game, t_vector pos, int width, int color);
+void			draw_filled_square(t_game *game, t_vector pos,
+					int width, int color);
+void			draw_circle(t_game *game, t_vector center,
+					int radius, int color);
+void			draw_filled_circle(t_img *img, t_vector mid,
+					int radius, int color);
+void			draw_vertical_line(t_game *game, t_vector pos,
+					int len, int color);
+void			draw_vertical_line_2(t_img *img, t_vector pos,
+					int len, int color);
+void			draw_line_dda(t_img *img, t_vector vec1,
+					t_vector vec2, int color);
+void			draw_filled_rectangle(t_game *game, t_vector vec,
+					t_vector size, int color);
+void			load_grid(t_game *game);
+void			load_map(t_game *game);
 
 // Events 
-int		key_gestion(int keycode, t_game *game);
-int		handle_keyrelease(int keycode, t_game *game);
-int		handle_keypress(int keycode, t_game *game);
-int 	game_loop(void *g);
+int				key_gestion(int keycode, t_game *game);
+int				handle_keyrelease(int keycode, t_game *game);
+int				handle_keypress(int keycode, t_game *game);
+int				game_loop(void *g);
 
 // Controls
-t_vector	get_next_tile(t_game *game, t_vector direction);
+t_vector		get_next_tile(t_game *game, t_vector direction);
 
-
-t_vector pixel_to_tile(t_vector vector);
-t_vector tile_to_pixel(t_vector tile_coord);
-int tile_out_of_bound(t_vector tile_coord, t_game *game);
-int pixel_out_of_bound(float x, float y, t_img *image);
-void	draw_player(t_game *game, int color);
-void	var_init(t_game *game);
-char	**get_map(char *arg);
-int		close_window(t_game *game);
-void	move(t_game *game, char direction);
+t_vector		pixel_to_tile(t_vector vector);
+t_vector		tile_to_pixel(t_vector tile_coord);
+int				tile_out_of_bound(t_vector tile_coord, t_game *game);
+int				pixel_out_of_bound(float x, float y, t_img *image);
+void			draw_player(t_game *game, int color);
+void			var_init(t_game *game);
+char			**get_map(char *arg);
+int				close_window(t_game *game);
+void			move(t_game *game, char direction);
 
 // mlx Utils
-unsigned int img_pix_read(t_img *img, int x, int y);
+unsigned int	img_pix_read(t_img *img, int x, int y);
 
 /**************************************
 ** $$\      $$\  $$$$$$\  $$$$$$$\   **
@@ -236,9 +236,9 @@ unsigned int img_pix_read(t_img *img, int x, int y);
 ** \__|     \__|\__|  \__|\__|       **
 **************************************/
 
-int		map_heigth(char **map);
-int		map_width(char **map);
-char	**get_map(char *arg);
+int				map_heigth(char **map);
+int				map_width(char **map);
+char			**get_map(char *arg);
 
 /*****************************************************************
 ** $$\    $$\ $$$$$$$$\  $$$$$$\ $$$$$$$$\  $$$$$$\  $$$$$$$\   **
@@ -251,18 +251,18 @@ char	**get_map(char *arg);
 **     \_/    \________| \______/   \__|    \______/ \__|  \__| **
 *****************************************************************/
 
-t_vector	vec_sum(t_vector vec1, t_vector vec2);
-t_vector	vec_mult(t_vector vec1, t_vector vec2);
-t_vector	vec_scalar_mult(t_vector vec1, double i);
-t_vector	vec_normalize(t_vector vec);
-t_vector	vec_rotate(t_vector vector, float angle);
-void		vec_to_angle(double angle, t_vector *vector);
-void		vec_print(t_vector *vector, char *name);
-void		vec_rotate_rad(t_vector *vector, float angle);
-void		vec_rotate_edit(t_vector *vector, float angle);
-double		vec_distance(t_vector vec1, t_vector vec2);
-double 		vec3d_distance(t_vector3d vec1, t_vector3d vec2);
-double		vec_angle(t_vector v1, t_vector v2);
+t_vector		vec_sum(t_vector vec1, t_vector vec2);
+t_vector		vec_mult(t_vector vec1, t_vector vec2);
+t_vector		vec_scalar_mult(t_vector vec1, double i);
+t_vector		vec_normalize(t_vector vec);
+t_vector		vec_rotate(t_vector vector, float angle);
+void			vec_to_angle(double angle, t_vector *vector);
+void			vec_print(t_vector *vector, char *name);
+void			vec_rotate_rad(t_vector *vector, float angle);
+void			vec_rotate_edit(t_vector *vector, float angle);
+double			vec_distance(t_vector vec1, t_vector vec2);
+double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);
+double			vec_angle(t_vector v1, t_vector v2);
 
 /*******************************************************
 **  $$$$$$\   $$$$$$\  $$\   $$\ $$\   $$\ $$$$$$$\   **
@@ -274,8 +274,8 @@ double		vec_angle(t_vector v1, t_vector v2);
 ** \$$$$$$  | $$$$$$  |\$$$$$$  |$$ | \$$ |$$$$$$$  | **
 **  \______/  \______/  \______/ \__|  \__|\_______/  **
 *******************************************************/
-void		load_sounds(t_sounds *sounds);
-void		clear_sounds(t_sounds *sounds);
-int			player_moving(t_game *game);
+void			load_sounds(t_sounds *sounds);
+void			clear_sounds(t_sounds *sounds);
+int				player_moving(t_game *game);
 
 #endif

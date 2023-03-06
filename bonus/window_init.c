@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:54:34 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:10:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,15 +49,6 @@ void	init_basic_vectors(t_game *game)
 	game->v_up.y = -1;
 	game->v_down.x = 0;
 	game->v_down.y = 1;
-}
-
-void	init_inventory(t_game *game)
-{
-	int	i;
-
-	i = -1;
-	while (++i < 36)
-		game->inventory.items[i] = "empty";
 }
 
 void	var_init(t_game *game)

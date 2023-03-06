@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:50:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 17:10:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -294,5 +294,7 @@ double			vec_angle(t_vector v1, t_vector v2);
 void			load_sounds(t_sounds *sounds);
 void			clear_sounds(t_sounds *sounds);
 int				player_moving(t_game *game);
+
+void			init_inventory(t_game *game);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:22:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:54:34 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,15 @@ void	init_basic_vectors(t_game *game)
 	game->v_down.y = 1;
 }
 
+void	init_inventory(t_game *game)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 36)
+		game->inventory.items[i] = "empty";
+}
+
 void	var_init(t_game *game)
 {
 	int i = 256;
@@ -75,6 +84,7 @@ void	var_init(t_game *game)
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
 	game->time_inc = 150;
+	game->time.delta_frame_ms = 1;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);
@@ -95,6 +105,7 @@ void	var_init(t_game *game)
 	load_map(game);
 	load_sounds(&game->sounds);
 	init_basic_vectors(game);
+	init_inventory(game);
 	// mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:30:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:50:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,6 +161,7 @@ typedef struct s_collision
 typedef struct s_inventory
 {
 	t_img	img;
+	char	*items[30];
 }				t_inventory;
 
 typedef struct s_game

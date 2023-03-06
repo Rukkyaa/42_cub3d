@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:04:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/06 16:40:57 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, do
     t_vector v_intersect_point;
     int i = line_pos.y;
     float plane_height = game->camera.proj_plane_height;
-    float vertical_ray_increment = (float) plane_height * 2.27 / (float) RES_Y; //(((float) (RES_Y - line_pos.y) / (float) RES_Y) * plane_height) / (RES_Y - line_pos.y) ;
+    float vertical_ray_increment = (float) plane_height * 2.27 * 1.25 / (float) RES_Y; //(((float) (RES_Y - line_pos.y) / (float) RES_Y) * plane_height) / (RES_Y - line_pos.y) ;
     // printf( "plane_height : %f\n", plane_height);
     // printf( "plane_width : %f\n", plane_halfwidth * 2);
     // printf( "vertical_ray_increment : %f\n", vertical_ray_increment);

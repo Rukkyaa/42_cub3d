@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:29:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:51:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,10 @@ void	render(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
 	if (game->key_states['e'])
+	{
 		mlx_put_image_to_window(game->mlx, game->fps_win,
 			game->inventory.img.mlx_img, 300, 159);
+	}
 }
 
 int	player_moving(t_game *game)

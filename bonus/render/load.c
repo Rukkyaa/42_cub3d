@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/04 18:00:45 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/06 12:45:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	get_x(t_game *game, int *x, int *x_end)
 	else
 	{
 		*x = (int)(game->player.pos.x / 64) - 4;
-		*x_end = (int)(game->player.pos.x / 64) + 3;
+		*x_end = (int)(game->player.pos.x / 64) + 4;
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:16:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:30:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <time.h>
+# include <sys/time.h>
 # include "../includes/miniaudio.h"
 
 # ifndef M_PI
@@ -98,6 +99,14 @@ typedef struct s_vector3d
 	double			z;
 }					t_vector3d;
 
+typedef struct s_time
+{
+	struct timeval	last_frame;
+	struct timeval	frame;
+	long			delta_frame_ms;
+	int				fps;
+}					t_time;
+
 typedef struct s_camera
 {
 	float	proj_plane_distance;
@@ -166,6 +175,7 @@ typedef struct s_game
 	int			key_states[256];
 	int			key_release_states[256];
 	t_inventory	inventory;
+	t_time		time;
 	t_vector	mouse;
 	t_player	player;
 	t_texture	texture;

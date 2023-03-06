@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 16:24:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 16:29:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	psychedelic_view(t_game *game, t_img *img)
 	int	i;
 	int	j;
 	int	pixel_color;
-	printf("%f\n", ((float) (game->time_inc % 300) / 300.0f));
+	// printf("%f\n", ((float) (game->time_inc % 300) / 300.0f));
 	game->player.direction_adjust = cos(game->time_inc) + 3;
 	i = -1;
 	while (++i < RES_X)
@@ -114,9 +114,9 @@ void	edit_player_pos(t_game *game)
 		game->player.speed = vec_normalize(game->player.speed);
 	}
 	if(game->key_states[2] && game->key_states['w'])
-		game->player.speed = vec_scalar_mult(game->player.speed, 10);
+		game->player.speed = vec_scalar_mult(game->player.speed, 200 * game->time.delta_frame_ms / 1000.0f);
 	else
-		game->player.speed = vec_scalar_mult(game->player.speed, 4);
+		game->player.speed = vec_scalar_mult(game->player.speed, 100 * game->time.delta_frame_ms / 1000.0f);
 	player_collides(game, game->player.speed);
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
@@ -163,11 +163,45 @@ int	player_moving(t_game *game)
 		|| game->key_states['s'] == 1 || game->key_states['d'] == 1);
 }
 
+int	time_elapsed_ms(struct timeval start_time, struct timeval now)
+{
+	return ((now.tv_sec - start_time.tv_sec) * 1000 + (now.tv_usec
+			- start_time.tv_usec) / 1000);
+}
+
+void	handle_time(t_game *game)
+{
+	game->time.last_frame.tv_sec = game->time.frame.tv_sec;
+	game->time.last_frame.tv_usec = game->time.frame.tv_usec;
+	gettimeofday(&game->time.frame, NULL);
+	game->time.delta_frame_ms = time_elapsed_ms(game->time.last_frame, game->time.frame);
+	game->time.fps = 1000.0f / (float) game->time.delta_frame_ms;
+	// printf("last frame : %ld \n", game->time.last_frame.tv_sec);
+	// printf("frame : %ld \n", game->time.frame.tv_sec);
+	// printf("delta frame : %d \n", game->time.delta_frame_ms);
+	// ft_putstr_fd("\rFPS :", 1);
+	// ft_putnbr_fd(game->time.fps, 1);
+	//printf("FPS: %ld \n", game->time.fps);
+}
+
+void	handle_sync(t_game *game)
+{
+	struct timeval frame_end;
+	long frame_duration;
+	
+	gettimeofday(&frame_end, NULL);
+	frame_duration = time_elapsed_ms(game->time.frame, frame_end);
+	if(frame_duration < 17)
+		usleep((17 - frame_duration) * 1000);
+}
+
+
 int	game_loop(void *g)
 {
 	t_game	*game;
 
 	game = (t_game *) g;
+	handle_time(game);
 	render_map(game);
 	if (!player_moving(game))
 		ma_device_stop(&game->sounds.footstep.device);
@@ -181,6 +215,8 @@ int	game_loop(void *g)
 	edit_player_pos(game);
 	render(game);
 	game->time_inc++;
+	handle_sync(game);
+	mlx_string_put(game->mlx, game->fps_win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
 	//usleep(16000);
 	return (0);
 }

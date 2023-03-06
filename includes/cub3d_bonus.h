@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/04 18:23:32 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/06 16:16:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,8 @@
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
-# define RES_X  1280
-# define RES_Y  720
+# define RES_X  1600
+# define RES_Y  900
 
 # define MAX_DISTANCE 10
 
@@ -149,6 +149,11 @@ typedef struct s_collision
 	float			x_pos_tex;
 }					t_collision;
 
+typedef struct s_inventory
+{
+	t_img	img;
+}				t_inventory;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -160,6 +165,7 @@ typedef struct s_game
 	char		**map;
 	int			key_states[256];
 	int			key_release_states[256];
+	t_inventory	inventory;
 	t_vector	mouse;
 	t_player	player;
 	t_texture	texture;

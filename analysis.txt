@@ -3,14 +3,14 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 59.71      0.83     0.83                             img_pix_put
- 27.34      1.21     0.38                             img_pix_read
-  4.32      1.27     0.06                             render_floor_col
-  3.60      1.32     0.05                             render_fps
-  2.88      1.36     0.04                             clear_img
-  0.72      1.37     0.01                             _init
-  0.72      1.38     0.01                             mlx_put_image_to_window
-  0.72      1.39     0.01                             vec_scalar_mult
+ 41.98      0.68     0.68                             img_pix_put
+ 24.07      1.07     0.39                             img_pix_read
+ 24.07      1.46     0.39                             render_floor_col
+  7.41      1.58     0.12                             wall_render
+  0.62      1.59     0.01                             _init
+  0.62      1.60     0.01                             cast_2D_ray
+  0.62      1.61     0.01                             render_map
+  0.62      1.62     0.01                             vec_normalize
 
  %         the percentage of the total running time of the
 time       program used by this function.

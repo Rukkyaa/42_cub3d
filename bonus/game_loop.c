@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/04 18:24:07 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/06 11:39:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	edit_player_pos(t_game *game)
 		game->player.speed = vec_normalize(game->player.speed);
 	}
 	if(game->key_states[2] && game->key_states['w'])
-		game->player.speed = vec_scalar_mult(game->player.speed, 6);
+		game->player.speed = vec_scalar_mult(game->player.speed, 10);
 	else
 		game->player.speed = vec_scalar_mult(game->player.speed, 4);
 	player_collides(game, game->player.speed);
@@ -140,8 +140,8 @@ void	edit_player_rotate(t_game *game)
 void	render_map(t_game *game)
 {
 	render_fps(game);
-	// if (game->key_states[2])
-	// 	psychedelic_view(game, &game->fps_img);
+	if (game->key_states[2])
+		psychedelic_view(game, &game->fps_img);
 	load_map(game);
 	draw_player(game, RED_PIXEL);
 

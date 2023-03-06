@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/04 18:23:32 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/06 16:14:09 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <time.h>
+# include <sys/time.h>
 # include "../includes/miniaudio.h"
 
 # ifndef M_PI
@@ -46,8 +47,8 @@
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
-# define RES_X  1280
-# define RES_Y  720
+# define RES_X  1280 //1600
+# define RES_Y  720 //900
 
 # define MAX_DISTANCE 10
 
@@ -97,6 +98,14 @@ typedef struct s_vector3d
 	double			y;
 	double			z;
 }					t_vector3d;
+
+typedef struct s_time
+{
+	struct timeval	last_frame;
+	struct timeval	frame;
+	long			delta_frame_ms;
+	int				fps;
+}					t_time;
 
 typedef struct s_camera
 {
@@ -160,6 +169,7 @@ typedef struct s_game
 	char		**map;
 	int			key_states[256];
 	int			key_release_states[256];
+	t_time		time;
 	t_vector	mouse;
 	t_player	player;
 	t_texture	texture;

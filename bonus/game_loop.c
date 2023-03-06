@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 17:12:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:23:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -197,6 +197,11 @@ void	handle_sync(t_game *game)
 		usleep((17 - frame_duration) * 1000);
 }
 
+int	is_collectible(t_game *game)
+{
+	return (game->map[(int)game->player.pos.y / 64]
+		[(int)game->player.pos.x / 64] == 'W');
+}
 
 int	game_loop(void *g)
 {
@@ -213,6 +218,12 @@ int	game_loop(void *g)
 		|| game->key_states[0] || game->key_states[1])
 	{
 		edit_player_rotate(game);		
+	}
+	if (is_collectible(game))
+	{
+		game->inventory.items[0] = "AK47";
+		game->map[(int)game->player.pos.y / 64]
+			[(int)game->player.pos.x / 64] = '0';
 	}
 	edit_player_pos(game);
 	render(game);

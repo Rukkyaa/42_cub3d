@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   circle.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:20:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 15:14:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:22:52 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color)
 	int	x;
 	int	y;
 
-	mid.x = mid.x / 2;
-	mid.y = mid.y / 2;
+
 	x = mid.x - radius;
 	while (++x < mid.x + radius)
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 17:10:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:28:21 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,14 @@ void	init_basic_vectors(t_game *game)
 	game->v_up.y = -1;
 	game->v_down.x = 0;
 	game->v_down.y = 1;
+}
+
+void init_sprites(t_game *game)
+{
+	ft_xpm_to_img(game, &game->sprites[0].texture, "images/retro_texture_pack/SLIME_1A.xpm");
+	game->sprites[0].pos.x = 64 * 2;
+	game->sprites[0].pos.y = 64 * 2;
+	game->sprites[0].pos.z = 0;
 }
 
 void	var_init(t_game *game)
@@ -99,4 +107,5 @@ void	var_init(t_game *game)
 	init_inventory(game);
 	// mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+	init_sprites(game);
 }

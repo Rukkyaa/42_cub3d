@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/03 18:36:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/07 14:44:51 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,13 +68,13 @@ void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color)
 		img_pix_put(img, pos.x, pos.y + i++, 0x87CEEB);
 }
 
-void	draw_vertical_line(t_game *game, t_vector pos, int len, int color)
+void	draw_vertical_line(t_img *img, t_vector pos, int len, int color)
 {
 	int	i;
 
 	i = -1;
 	while (++i < len)
-		img_pix_put(&game->fps_img, pos.x + i, pos.y, color);
+		img_pix_put(img, pos.x + i, pos.y, color);
 }
 
 void	draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color)

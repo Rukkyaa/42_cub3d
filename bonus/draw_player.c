@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/02 23:16:41 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/07 15:23:10 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 void	draw_player_direction(t_game *game, int color)
 {
 	t_vector point;
-	point.x = (int) (game->player.pos.x + game->player.direction.x * 10.0f);
-	point.y = (int) (game->player.pos.y + game->player.direction.y * 10.0f);
+	point.x = (int) (game->player.pos.x + game->player.direction.x * 20.0f);
+	point.y = (int) (game->player.pos.y + game->player.direction.y * 20.0f);
 	
+	draw_filled_circle(&game->img, game->player.pos, 5, color);
 	draw_line_dda(&game->img, game->player.pos, point, color);	
 }
 
@@ -38,4 +39,6 @@ void	draw_player(t_game *game, int color)
 	else
 		pos.x = 64 * 3 + 32;
 	draw_filled_circle(&game->fps_img, pos, 5, color);
+	draw_player_direction(game, RED_PIXEL);
+	// draw_filled_circle(&game->img, game->player.pos, 5, color);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:53:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/07 13:17:51 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	init_camera(t_camera *camera)
 	camera->proj_plane_height =  10;
 	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
 	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
+}
+
+void init_sprites(t_game *game)
+{
+	
 }
 
 void	var_init(t_game *game)
@@ -79,4 +84,5 @@ void	var_init(t_game *game)
 	load_grid(game);
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+	init_sprites();
 }

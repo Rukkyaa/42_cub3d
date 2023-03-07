@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:58:16 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:00:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/07 14:46:57 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_filled_square(t_game *game, t_vector vec, int width, int color)
+void	draw_filled_square(t_img *img, t_vector vec, int width, int color)
 {
 	int			i;
 	t_vector	pos;
@@ -31,7 +31,7 @@ void	draw_filled_square(t_game *game, t_vector vec, int width, int color)
 	{
 		pos.x = vec.x;
 		pos.y = vec.y + i;
-		draw_vertical_line(game, pos, width, color);
+		draw_vertical_line(img, pos, width, color);
 	}
 }
 
@@ -44,7 +44,7 @@ void	draw_filled_square(t_game *game, t_vector vec, int width, int color)
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_square(t_game *game, t_vector pos, int width, int color)
+void	draw_square(t_img *img, t_vector pos, int width, int color)
 {
 	int			i;
 	t_vector	vec;
@@ -54,10 +54,10 @@ void	draw_square(t_game *game, t_vector pos, int width, int color)
 	i = -1;
 	while (++i < width)
 	{
-		img_pix_put(&game->img, vec.x, vec.y + i, color);
-		img_pix_put(&game->img, vec.x + width - 1, vec.y + i, color);
+		img_pix_put(img, vec.x, vec.y + i, color);
+		img_pix_put(img, vec.x + width - 1, vec.y + i, color);
 	}
-	draw_vertical_line(game, vec, width, color);
+	draw_vertical_line(img, vec, width, color);
 	vec.y = pos.y + width - 1;
-	draw_vertical_line(game, vec, width, color);
+	draw_vertical_line(img, vec, width, color);
 }

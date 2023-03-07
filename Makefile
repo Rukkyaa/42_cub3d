@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/06 17:10:58 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/07 14:57:01 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,10 +82,10 @@ VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
 SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
-SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
+SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall sprites debug_map))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 18:23:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:03:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,12 +143,17 @@ void	render_map(t_game *game)
 	if (game->key_states[2])
 		psychedelic_view(game, &game->fps_img);
 	load_map(game);
+	//clear_img(&game->img);
+	load_map_debug(game);
+	load_grid(game);
 	draw_player(game, RED_PIXEL);
 
 }
 
 void	render(t_game *game)
 {
+	mlx_put_image_to_window(game->mlx, game->win,
+		game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
 	if (game->key_states['e'])
@@ -229,6 +234,7 @@ int	game_loop(void *g)
 	render(game);
 	game->time_inc++;
 	handle_sync(game);
+	render_sprites(game);
 	mlx_string_put(game->mlx, game->fps_win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
 	//usleep(16000);
 	return (0);

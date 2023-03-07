@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 13:17:51 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/07 18:52:48 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,6 @@ void	init_camera(t_camera *camera)
 	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
 }
 
-void init_sprites(t_game *game)
-{
-	
-}
 
 void	var_init(t_game *game)
 {

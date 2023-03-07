@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 15:28:21 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/07 21:36:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	init_camera(t_camera *camera)
 	camera->proj_plane_height =  10;
 	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
 	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
+	camera->plane.x = 0;
+	camera->plane.y = camera->proj_plane_width / 2;
 }
 
 void	init_basic_vectors(t_game *game)
@@ -79,6 +81,7 @@ void	var_init(t_game *game)
 	game->player.pos3d.z = 64;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
+	game->player.angle = 0; 
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 14:47:29 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/07 19:38:04 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,6 +112,7 @@ typedef struct s_camera
 	float	proj_plane_distance;
 	float	proj_plane_height;
 	float	proj_plane_width;
+	t_vector			plane;
 }					t_camera;
 
 typedef struct s_player
@@ -121,6 +122,7 @@ typedef struct s_player
 	t_vector3d	pos3d;
 	t_vector	collision_pos;
 	t_vector	direction;
+	float		angle;
 	float		direction_adjust;
 	t_vector	current_tile;
 }				t_player;

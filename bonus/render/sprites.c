@@ -6,35 +6,70 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/07 15:38:10 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/07 21:37:33 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-// void    render_sprites(t_game *game)
-// {
-//     t_vector3d player_to_sprite;
-//     player_to_sprite.x = game->sprites[0].pos.x - game->player.pos3d.x;
-//     player_to_sprite.y = game->sprites[0].pos.y - game->player.pos3d.y;
-//     player_to_sprite.z = game->sprites[0].pos.z;
+float   deg_to_rad(float angle)
+{
+    return angle * M_PI / 180.0f;
+}
 
-//     t_vector standard_vec;
-//     standard_vec.x = 1;
-//     standard_vec.y = 1;
-//   float CS=cos(vec_angle(game->player.direction, standard_vec)), SN=sin(vec_angle(game->player.direction, standard_vec)); //rotate around origin
-//   float a = player_to_sprite.y * CS + player_to_sprite.x * SN; 
-//   float b= player_to_sprite.x *CS-player_to_sprite.y*SN; 
-//   player_to_sprite.x = a;
-//   player_to_sprite.y= b;
+void    render_sprites(t_game *game)
+{
+    t_vector player_to_sprite;
+    player_to_sprite.x = game->sprites[0].pos.x - game->player.pos.x;
+    player_to_sprite.y = game->sprites[0].pos.y - game->player.pos.y;
+    // player_to_sprite.z = game->sprites[0].pos.z;
 
-//     t_vector screen_pos;
-//   screen_pos.x =(player_to_sprite.x * 108.0 / player_to_sprite.y) + (RES_X/2); //convert to screen x,y
-//   screen_pos.y =(player_to_sprite.z *108.0 / player_to_sprite.y)+ (RES_Y/2);
+    t_vector standard_vec;
+    standard_vec.x = 1;
+    standard_vec.y = 0;
+    //float CS=cosf(vec_angle(game->player.direction, standard_vec)), SN=sinf(vec_angle(game->player.direction, standard_vec)); //rotate around origin
+    float angle = vec_angle(game->player.direction, player_to_sprite);
+    vec_rotate_edit(&player_to_sprite, -game->player.angle);
+    printf("player_sprite_angle : %f\n", vec_angle(player_to_sprite, standard_vec) * 180 / M_PI);
+    float z_angle = vec_angle(game->player.direction, player_to_sprite);
+    t_vector screen_pos;
+    // player_to_sprite = vec_normalize(player_to_sprite);
 
-// //   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
-//   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x, screen_pos.y);
-// }
+
+
+    // Y AXIS ON SCREEN
+    float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
+    printf("xy_distance : %f\n", xy_distance);
+    t_vector z_vector;
+    z_vector.x = xy_distance;
+    z_vector.y = game->sprites[0].pos.z - 32;
+    vec_print(&z_vector, "z_vector");
+    float y_dist = (z_vector.y / z_vector.x);
+    printf("y_dist: %f\n", y_dist);
+    y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
+    printf("y_dist scaled: %f\n", y_dist);
+
+    
+    // X AXIS ON SCREEN
+    // vec_print(&player_to_sprite, "player to sprite");
+    // printf("proj dist : %f\n", game->camera.proj_plane_distance);
+    float x_dist = (player_to_sprite.y / player_to_sprite.x) ;
+    // printf("x dist : %f\n", x_dist);
+    x_dist = x_dist * ( (float) RES_X / 2) ; // scaline x_dist
+    // printf("x dist scaled : %f\n", x_dist);
+    screen_pos.x =  x_dist + RES_X / 2;
+    screen_pos.y =  - y_dist + (RES_Y / 2);
+    // printf("screen_pos_x : %f\n", screen_pos.x );
+//   screen_pos.x =(player_to_sprite.x * 1 / player_to_sprite.y) + (RES_X / 2); //convert to screen x,y
+//   screen_pos.y =(player_to_sprite.z * 1 / player_to_sprite.y) + (RES_Y / 2);
+
+    // TODO : add condition if angle too wide
+
+    
+//   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
+  mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x - game->sprites[0].texture.width/2, 
+        screen_pos.y - game->sprites[0].texture.heigth/2);
+}
 t_vector vec_3d_to_2D(t_vector3d input) 
 {
     t_vector output;
@@ -44,23 +79,23 @@ t_vector vec_3d_to_2D(t_vector3d input)
     return (output);
 }
 
-void    render_sprites(t_game *game)
-{
-    t_vector player_to_sprite;
-    player_to_sprite.x = game->sprites[0].pos.x - game->player.pos3d.x;
-    player_to_sprite.y = game->sprites[0].pos.y - game->player.pos3d.y;
-   // player_to_sprite.z = game->sprites[0].pos.z;
-    draw_line_dda(&game->img, game->player.pos, vec_sum(game->player.pos, player_to_sprite), RED_PIXEL);
-    float inv_det = 1.0 / ((game->camera.proj_plane_width * game->player.direction.y) - (game->camera.proj_plane_height * game->player.direction.x));
+// void    render_sprites(t_game *game)
+// {
+//     t_vector player_to_sprite;
+//     player_to_sprite.x = game->sprites[0].pos.x - game->player.pos3d.x;
+//     player_to_sprite.y = game->sprites[0].pos.y - game->player.pos3d.y;
+//    // player_to_sprite.z = game->sprites[0].pos.z;
+//     draw_line_dda(&game->img, game->player.pos, vec_sum(game->player.pos, player_to_sprite), RED_PIXEL);
+//     float inv_det = 1.0 / ((game->camera.plane.x * game->player.direction.y) - (game->camera.plane.y * game->player.direction.x));
     
-    float transformX = inv_det * (game->player.direction.y * player_to_sprite.x - player_to_sprite.y * player_to_sprite.y);
-    float transformY = inv_det * (-game->camera.proj_plane_height * player_to_sprite.x - player_to_sprite.y * game->camera.proj_plane_width);
+//     float transformX = inv_det * (game->player.direction.y * player_to_sprite.x - game->player.direction.x * player_to_sprite.y);
+//     float transformY = inv_det * (-game->camera.plane.y * player_to_sprite.x - player_to_sprite.y * game->camera.plane.x);
 
-    t_vector screen_pos;
-    screen_pos.x =(RES_X / 2) * (1 + transformX / transformY); //convert to screen x,y
-    screen_pos.y = abs((int) (RES_Y / transformY));
-    vec_print(&screen_pos, "screen_pos");
-    draw_filled_circle(&game->img, vec_3d_to_2D(game->sprites[0].pos), 5, BLUE_PIXEL);
-//   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
-    mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x, screen_pos.y);
-}
+//     t_vector screen_pos;
+//     screen_pos.x =(RES_X / 2) * (1 + transformX / transformY); //convert to screen x,y
+//     screen_pos.y = fabs((RES_Y / transformY));
+//     vec_print(&screen_pos, "screen_pos");
+//     draw_filled_circle(&game->img, vec_3d_to_2D(game->sprites[0].pos), 5, BLUE_PIXEL);
+// //   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
+//     mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x, screen_pos.y);
+// }

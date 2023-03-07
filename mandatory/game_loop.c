@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 13:03:52 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/07 18:40:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,9 +105,13 @@ void	edit_player_rotate(t_game *game)
 	if (game->key_states[0])
 	{
 		vec_rotate_edit(&(game->player.direction), -3);
+		vec_rotate_edit(&(game->camera.plane), -3);
 	}
 	if (game->key_states[1])
+	{
 		vec_rotate_edit(&(game->player.direction), 3);
+		vec_rotate_edit(&(game->camera.plane), 3);
+	}
 	if (game->key_states['r'])
 		game->player.direction_adjust += 0.01;
 	if (game->key_states['f'])

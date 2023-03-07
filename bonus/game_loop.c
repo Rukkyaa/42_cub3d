@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 15:03:26 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/07 21:04:21 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,9 +128,16 @@ void	edit_player_rotate(t_game *game)
 	if (game->key_states[0])
 	{
 		vec_rotate_edit(&(game->player.direction), -3);
+		vec_rotate_edit(&(game->camera.plane), -3);
+		game->player.angle -= 3;
 	}
 	if (game->key_states[1])
+	{
 		vec_rotate_edit(&(game->player.direction), 3);
+		vec_rotate_edit(&(game->camera.plane), 3);
+		game->player.angle += 3;
+	}
+	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 		game->player.direction_adjust += 0.01;
 	if (game->key_states['f'])
@@ -214,7 +221,6 @@ int	game_loop(void *g)
 
 	game = (t_game *) g;
 	handle_time(game);
-	render_map(game);
 	if (!player_moving(game))
 		ma_device_stop(&game->sounds.footstep.device);
 	if (game->key_states['w'] || game->key_states['s']
@@ -231,11 +237,12 @@ int	game_loop(void *g)
 			[(int)game->player.pos.x / 64] = '0';
 	}
 	edit_player_pos(game);
+	render_map(game);
 	render(game);
 	game->time_inc++;
 	handle_sync(game);
 	render_sprites(game);
-	mlx_string_put(game->mlx, game->fps_win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
+	mlx_string_put(game->mlx, game->fps_win, 100 , RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
 	//usleep(16000);
 	return (0);
 }

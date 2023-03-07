@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 18:23:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/06 18:25:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ int	game_loop(void *g)
 		game->map[(int)game->player.pos.y / 64]
 			[(int)game->player.pos.x / 64] = '0';
 	}
+	printf("%s\n", game->inventory.items[0]);
 	edit_player_pos(game);
 	render(game);
 	game->time_inc++;

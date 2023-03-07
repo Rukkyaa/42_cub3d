@@ -3,31 +3,15 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
-<<<<<<< HEAD
- 41.98      0.68     0.68                             img_pix_put
- 24.07      1.07     0.39                             img_pix_read
- 24.07      1.46     0.39                             render_floor_col
-  7.41      1.58     0.12                             wall_render
-  0.62      1.59     0.01                             _init
-  0.62      1.60     0.01                             cast_2D_ray
-  0.62      1.61     0.01                             render_map
-  0.62      1.62     0.01                             vec_normalize
-=======
- 41.99      5.03     5.03                             img_pix_put
- 31.55      8.81     3.78                             img_pix_read
- 12.85     10.35     1.54                             render_floor_col
-  7.10     11.20     0.85                             wall_render
-  3.67     11.64     0.44                             render_map
-  1.50     11.82     0.18                             _init
-  0.42     11.87     0.05                             render_fps
-  0.25     11.90     0.03                             vec_angle
-  0.25     11.93     0.03                             vec_normalize
-  0.08     11.94     0.01                             cast_2D_ray
-  0.08     11.95     0.01                             draw_vertical_line
-  0.08     11.96     0.01                             drmp3_L3_imdct36
-  0.08     11.97     0.01                             tile_to_pixel
-  0.08     11.98     0.01                             vec_scalar_mult
->>>>>>> efc1fc1eed3359fbdf9815d4fc28d2c1c6dafc06
+ 48.73      2.11     2.11                             img_pix_put
+ 18.71      2.92     0.81                             img_pix_read
+ 15.47      3.59     0.67                             render_floor_col
+ 13.16      4.16     0.57                             wall_render
+  2.08      4.25     0.09                             _init
+  0.69      4.28     0.03                             cast_2D_ray
+  0.46      4.30     0.02                             draw_vertical_line
+  0.46      4.32     0.02                             render_fps
+  0.23      4.33     0.01                             vec_angle
 
  %         the percentage of the total running time of the
 time       program used by this function.

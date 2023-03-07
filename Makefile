@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/07 14:23:07 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/07 15:19:11 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ VECTOR_OBJS = $(VECTOR_SRC:.c=.o)
 
 INCLUDE = ./includes
 
-HEADERS = ./includes/cub3d
+HEADERS = ./includes/cub3d.h
 
 #
 #
@@ -89,7 +89,7 @@ RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pi
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #
-INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils))
+INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils refresh))
 INVENTORY_OBJS_BONUS = $(INVENTORY_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #

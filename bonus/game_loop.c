@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 18:25:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:58:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void	render(t_game *game)
 	{
 		mlx_put_image_to_window(game->mlx, game->fps_win,
 			game->inventory.img.mlx_img, 300, 159);
+		refresh_inventory(game);
 	}
 }
 
@@ -225,6 +226,8 @@ int	game_loop(void *g)
 		game->map[(int)game->player.pos.y / 64]
 			[(int)game->player.pos.x / 64] = '0';
 	}
+	// mlx_put_image_to_window(game->mlx, game->fps_win,
+	// 		game->weapon.sword.mlx_img, 0, 0);
 	printf("%s\n", game->inventory.items[0]);
 	edit_player_pos(game);
 	render(game);

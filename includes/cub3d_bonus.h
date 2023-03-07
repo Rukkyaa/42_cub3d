@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 14:17:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:58:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,10 +167,15 @@ typedef struct s_collision
 	float			x_pos_tex;
 }					t_collision;
 
+typedef struct s_weapon
+{
+	t_img	sword;
+}				t_weapon;
+
 typedef struct s_inventory
 {
 	t_img	img;
-	char	*items[30];
+	char	*items[36];
 }				t_inventory;
 
 typedef struct s_game
@@ -185,6 +190,7 @@ typedef struct s_game
 	int			key_states[256];
 	int			key_release_states[256];
 	t_inventory	inventory;
+	t_weapon	weapon;
 	t_time		time;
 	t_vector	mouse;
 	t_player	player;
@@ -332,5 +338,6 @@ int				player_moving(t_game *game);
 ** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
+void			refresh_inventory(t_game *game);
 
 #endif

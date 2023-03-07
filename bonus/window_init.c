@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 17:10:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/07 15:57:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
 	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
+	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 }
 
 void	init_camera(t_camera *camera)

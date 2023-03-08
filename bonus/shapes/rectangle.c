@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rectangle.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:12:31 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/03 10:14:59 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/08 12:11:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_filled_rectangle(t_game *game, t_vector vec, t_vector size, int color)
+void	draw_filled_rectangle(t_vector vec, t_vector size, int color)
 {
 	int			i;
 	t_vector	pos;
@@ -31,7 +31,7 @@ void	draw_filled_rectangle(t_game *game, t_vector vec, t_vector size, int color)
 	{
 		pos.x = vec.x;
 		pos.y = vec.y + i;
-		draw_vertical_line(game, pos, size.x, color);
+		draw_vertical_line(pos, size.x, color);
 	}
 }
 

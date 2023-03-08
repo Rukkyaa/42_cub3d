@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:57:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:15:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	get_wall(t_game *game, t_collision *collision, char c)
 		collision->wall = game->texture.wall4;
 }
 
-void wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
+void wall_render(t_collision collision, t_vector line_pos, double line_height)
 {
     int i;
     int x_text = 0;

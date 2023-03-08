@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:55:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:04:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ void		player_collides(t_game *game, t_vector speed)
 	t_vector v_offset;
 	t_vector vi_pos;
 	t_vector vi_pos_add_offset;
-	t_vector vi_pos_sub_offset;
 	
 	v_offset.x = 0;
 	v_offset.y = 0;

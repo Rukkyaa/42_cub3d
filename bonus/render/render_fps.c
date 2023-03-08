@@ -6,13 +6,13 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/08 11:56:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:16:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void    basic_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
+void    basic_render(t_collision collision, t_vector line_pos, double line_height)
 {
     if(collision.orientation == 'S' || collision.orientation == 'N')
         draw_vertical_line_2(&_mlx()->img, line_pos,  line_height, PALE_BLUE);
@@ -47,7 +47,7 @@ int get_floor_color(t_game *game, t_vector3d intersection, t_img *img)
     return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
 }
 
-void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, double line_height)
+void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos)
 {
     t_vector3d v3d_ray_dir;
     t_vector3d v3d_intersect_point;
@@ -129,8 +129,8 @@ void    render_fps(t_game *game)
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //basic_render(game, collision, line_pos, line_height);
 		
-        wall_render(game, collision, line_pos, line_height);
-        render_floor_col(game, v_ray_dir2, line_pos, line_height);
+        wall_render(collision, line_pos, line_height);
+        render_floor_col(game, v_ray_dir2, line_pos);
         i++;
         line_pos.x+= RES_X / RES_X;
     }

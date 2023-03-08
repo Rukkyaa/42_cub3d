@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:53:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:15:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -224,8 +224,10 @@ void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
 void			get_wall(t_game *game, t_collision *collision, char c);
-void			wall_render(t_game *game, t_collision collision,
+void			wall_render(t_collision collision,
 					t_vector line_pos, double line_height);
+void			draw_player(t_game *game, int color);
+
 
 /*****************************************************************
 **  $$$$$$\  $$\   $$\  $$$$$$\  $$$$$$$\  $$$$$$$$\  $$$$$$\   **
@@ -237,20 +239,17 @@ void			wall_render(t_game *game, t_collision collision,
 ** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$ |      $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|  \__|\__|  \__|\__|      \________| \______/  **
 *****************************************************************/
-void			draw_filled_square(t_game *game, t_vector pos,
-					int width, int color);
+void			draw_filled_square(t_vector pos, int width, int color);
 void			draw_circle(t_game *game, t_vector center,
 					int radius, int color);
 void			draw_filled_circle(t_img *img, t_vector mid,
 					int radius, int color);
-void			draw_vertical_line(t_game *game, t_vector pos,
-					int len, int color);
+void			draw_vertical_line(t_vector pos, int len, int color);
 void			draw_vertical_line_2(t_img *img, t_vector pos,
 					int len, int color);
 void			draw_line_dda(t_img *img, t_vector vec1,
 					t_vector vec2, int color);
-void			draw_filled_rectangle(t_game *game, t_vector vec,
-					t_vector size, int color);
+void			draw_filled_rectangle(t_vector vec, t_vector size, int color);
 void			load_grid(t_game *game);
 void			load_map(t_game *game);
 

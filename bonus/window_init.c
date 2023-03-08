@@ -6,13 +6,13 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:54:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:08:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
+void	ft_xpm_to_img(t_img *texture, char *path)
 {
 	texture->mlx_img = mlx_xpm_file_to_image(_mlx()->mlx, path,
 		&texture->width, &texture->heigth);
@@ -22,15 +22,15 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	// ft_xpm_to_img(game, &game->texture.wall1, "images/pjay2.xpm");
-	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
-	ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
-	ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
-	ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
-	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
-	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
-	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
-	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
+	// ft_xpm_to_img(&game->texture.wall1, "images/pjay2.xpm");
+	ft_xpm_to_img(&game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
+	ft_xpm_to_img(&game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
+	ft_xpm_to_img(&game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
+	ft_xpm_to_img(&game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
+	ft_xpm_to_img(&game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
+	ft_xpm_to_img(&game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
+	ft_xpm_to_img(&game->inventory.img, "images/inventory.xpm");
+	ft_xpm_to_img(&game->weapon.sword, "images/weapons/longsword.xpm");
 }
 
 void	init_camera(t_camera *camera)

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:56:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:09:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color)
 		img_pix_put(img, pos.x, pos.y + i++, 0x87CEEB);
 }
 
-void	draw_vertical_line(t_game *game, t_vector pos, int len, int color)
+void	draw_vertical_line(t_vector pos, int len, int color)
 {
 	int	i;
 

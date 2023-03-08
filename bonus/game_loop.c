@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 16:11:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:29:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,11 +149,11 @@ void	render_map(t_game *game)
 
 void	render(t_game *game)
 {
-	mlx_put_image_to_window(game->mlx, game->fps_win,
+	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,
 		game->fps_img.mlx_img, 0, 0);
 	if (game->key_states['e'])
 	{
-		mlx_put_image_to_window(game->mlx, game->fps_win,
+		mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,
 			game->inventory.img.mlx_img, 300, 159);
 		refresh_inventory(game);
 	}
@@ -231,7 +231,7 @@ int	game_loop(void *g)
 	render(game);
 	game->time_inc++;
 	handle_sync(game);
-	mlx_string_put(game->mlx, game->fps_win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
+	mlx_string_put(_mlx()->mlx, _mlx()->win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
 	//usleep(16000);
 	return (0);
 }

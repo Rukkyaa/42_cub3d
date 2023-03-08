@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/06 14:20:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:28:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	mouse_hook(int x, int y, void *param)
 	else if (game->mouse.x < x)
 		vec_rotate_edit(&(game->player.direction), diff_x / 50);
 	game->mouse.x = RES_X / 2;
-	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
+	mlx_mouse_move(_mlx()->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
 	return (0);
 }
 
@@ -40,15 +40,12 @@ int	main(int argc, char **argv)
 	var_init(&game);
 	usleep(1000);
 	ma_device_start(&game.sounds.footstep.device);
-	mlx_mouse_hide(game.mlx, game.fps_win);
-	mlx_hook(game.win, 2, 1L << 1, handle_keypress, &game);
-	mlx_hook(game.win, 3, 1L << 0, handle_keyrelease, &game);
-	mlx_hook(game.fps_win, 2, 1L << 1, handle_keypress, &game);
-	mlx_hook(game.fps_win, 3, 1L << 0, handle_keyrelease, &game);
-	mlx_hook(game.fps_win, 6, 1L << 6, mouse_hook, &game);
-	mlx_loop_hook(game.mlx, game_loop, &game);
-	mlx_hook(game.win, 17, 0, close_window, &game);
-	mlx_loop(game.mlx);
+	mlx_mouse_hide(_mlx()->mlx, _mlx()->win);
+	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, &game);
+	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, &game);
+	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_hook, &game);
+	mlx_loop_hook(_mlx()->mlx, game_loop, &game);
+	mlx_loop(_mlx()->mlx);
 	ma_device_uninit(&game.sounds.footstep.device);
 	clear_sounds(&game.sounds);
 	return (EXIT_SUCCESS);

@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   refresh.c                                          :+:      :+:    :+:   */
+/*   singleton.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:29:39 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/08 10:23:53 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/08 11:18:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	refresh_inventory(t_game *game)
+t_mlx	*_mlx(void)
 {
-	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,
-			game->weapon.sword.mlx_img, 321 + 8, 371+159);
+	static	t_mlx	*mlx = NULL;
+
+	if (!mlx)
+		mlx = malloc(sizeof(t_mlx));
+	if (!mlx)
+		return (NULL);
+	return (mlx);
 }

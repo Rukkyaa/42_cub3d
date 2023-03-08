@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 15:57:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:28:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 {
-	texture->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
+	texture->mlx_img = mlx_xpm_file_to_image(_mlx()->mlx, path,
 		&texture->width, &texture->heigth);
 	texture->addr = mlx_get_data_addr(texture->mlx_img, &texture->bpp,
 			&texture->line_len, &texture->endian);
@@ -60,9 +60,8 @@ void	var_init(t_game *game)
 	i = 256;
 	while(i--)
 		game->key_release_states[i] = 1;
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
-	game->fps_win = mlx_new_window(game->mlx, RES_X, RES_Y, "first_person");
+	_mlx()->mlx = mlx_init();
+	_mlx()->win = mlx_new_window(_mlx()->mlx, RES_X, RES_Y, "cub3d");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;
@@ -77,11 +76,9 @@ void	var_init(t_game *game)
 	game->player.direction_adjust = 10; 
 	game->time_inc = 150;
 	game->time.delta_frame_ms = 1;
-	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
-	// close_window(game);
-	game->img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
-	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);
+	game->img.mlx_img = mlx_new_image(_mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
+	game->fps_img.mlx_img = mlx_new_image(_mlx()->mlx, RES_X, RES_Y);
 	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
 			&game->img.line_len, &game->img.endian);
 	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img, &game->fps_img.bpp,
@@ -98,6 +95,6 @@ void	var_init(t_game *game)
 	load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);
-	// mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+	// mlx_put_image_to_window(_mlx()->mlx, game->win, game->img.mlx_img, 0, 0);
+	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win, game->fps_img.mlx_img, 0, 0);
 }

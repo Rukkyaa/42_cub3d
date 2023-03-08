@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:23:46 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/03 18:36:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/08 11:56:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	draw_vertical_line(t_game *game, t_vector pos, int len, int color)
 
 	i = -1;
 	while (++i < len)
-		img_pix_put(&game->fps_img, pos.x + i, pos.y, color);
+		img_pix_put(&_mlx()->img, pos.x + i, pos.y, color);
 }
 
 void	draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color)
@@ -97,60 +97,5 @@ void	draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color)
 		vec1.x += x_inc;
 		vec1.y += y_inc;
 		i++;
-	}
-}
-
-void	draw_line(t_game *game, t_vector posA, t_vector posB, int thickness,
-		int color)
-{
-	float	dx;
-	float	dy;
-	int		x_dir;
-	int		y_dir;
-	float	error;
-	float	delta_x;
-	float	delta_y;
-	int		x;
-	int		y;
-	float	error2;
-
-	dx = posB.x - posA.x;
-	dy = posB.y - posA.y;
-	x_dir = dx > 0 ? 1 : -1;
-	y_dir = dy > 0 ? 1 : -1;
-	dx = fabsf(dx);
-	dy = fabsf(dy);
-	error = dx - dy;
-	delta_x = x_dir;
-	delta_y = y_dir;
-	x = (int)posA.x;
-	y = (int)posA.y;
-	while (x != (int)posB.x || y != (int)posB.y)
-	{
-		for (int i = 0; i < thickness; i++)
-		{
-			for (int j = 0; j < thickness; j++)
-			{
-				img_pix_put(&game->img, x + i, y + j, color);
-			}
-		}
-		error2 = 2 * error;
-		if (error2 > -dy)
-		{
-			error -= dy;
-			x += delta_x;
-		}
-		if (error2 < dx)
-		{
-			error += dx;
-			y += delta_y;
-		}
-	}
-	for (int i = 0; i < thickness; i++)
-	{
-		for (int j = 0; j < thickness; j++)
-		{
-			img_pix_put(&game->img, x + i, y + j, color);
-		}
 	}
 }

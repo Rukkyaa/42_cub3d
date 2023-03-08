@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/02 09:28:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:47:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ void    print_circle_relative_tile_pos(t_game *game, t_vector point)
 {
     point = vec_scalar_mult(point, 64);
     point = vec_sum(point, game->player.pos);
-    draw_filled_circle(&game->img, point, 12, RED_PIXEL);   
 }
 
 char get_collision_orientation(char last_step, t_vector v_step)
@@ -107,8 +106,6 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction)
         collision_point = vec_sum(collision_point, game->player.pos);
         
         i++;
-        if(tile_out_of_bound(v_map_check, game))
-            break ;
         if(is_wall(game->map[(int)v_map_check.y][(int)v_map_check.x]))
         {
             tile_found = 1;

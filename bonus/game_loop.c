@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:29:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:55:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,7 +141,7 @@ void	render_map(t_game *game)
 {
 	render_fps(game);
 	if (game->key_states[2])
-		psychedelic_view(game, &game->fps_img);
+		psychedelic_view(game, &_mlx()->img);
 	load_map(game);
 	draw_player(game, RED_PIXEL);
 
@@ -150,7 +150,7 @@ void	render_map(t_game *game)
 void	render(t_game *game)
 {
 	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,
-		game->fps_img.mlx_img, 0, 0);
+		_mlx()->img.mlx_img, 0, 0);
 	if (game->key_states['e'])
 	{
 		mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:28:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:54:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,16 +77,11 @@ void	var_init(t_game *game)
 	game->time_inc = 150;
 	game->time.delta_frame_ms = 1;
     vec_print(&game->player.direction, "player dir");
-	game->img.mlx_img = mlx_new_image(_mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
-	game->fps_img.mlx_img = mlx_new_image(_mlx()->mlx, RES_X, RES_Y);
-	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
-			&game->img.line_len, &game->img.endian);
-	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img, &game->fps_img.bpp,
-			&game->fps_img.line_len, &game->fps_img.endian);
-	game->img.width = map_width(game->map);
-	game->img.heigth = map_heigth(game->map);
-	game->fps_img.width = RES_X / 64;
-	game->fps_img.heigth = RES_Y / 64;
+	_mlx()->img.mlx_img = mlx_new_image(_mlx()->mlx, RES_X, RES_Y);
+	_mlx()->img.addr = mlx_get_data_addr(_mlx()->img.mlx_img, &_mlx()->img.bpp,
+			&_mlx()->img.line_len, &_mlx()->img.endian);
+	_mlx()->img.width = RES_X / 64;
+	_mlx()->img.heigth = RES_Y / 64;
 	init_camera(&game->camera);
 	game->mouse.x = 0;
 	game->mouse.y = 0;
@@ -96,5 +91,5 @@ void	var_init(t_game *game)
 	init_basic_vectors(game);
 	init_inventory(game);
 	// mlx_put_image_to_window(_mlx()->mlx, game->win, game->img.mlx_img, 0, 0);
-	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win, game->fps_img.mlx_img, 0, 0);
+	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 }

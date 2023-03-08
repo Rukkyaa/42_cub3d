@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:40:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:56:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void    basic_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
 {
     if(collision.orientation == 'S' || collision.orientation == 'N')
-        draw_vertical_line_2(&game->fps_img, line_pos,  line_height, PALE_BLUE);
+        draw_vertical_line_2(&_mlx()->img, line_pos,  line_height, PALE_BLUE);
     else
-        draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE_SHADED);  
+        draw_vertical_line_2(&_mlx()->img, line_pos, line_height, PALE_BLUE_SHADED);  
 }
 
 t_vector3d get_floor_intersection(t_vector3d position, t_vector3d direction) {
@@ -82,8 +82,8 @@ void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, do
         // draw_line_dda(&game->img, game->player.pos, vec_sum(game->player.pos, test), RED_PIXEL);
         // img_pix_put(&game->img, v_intersect_point.x, v_intersect_point.y, GREEN_PIXEL);
         //draw_filled_circle(&game->img, v_intersect_point, 10, BLUE_PIXEL);
-        img_pix_put(&game->fps_img, line_pos.x, RES_Y - i, get_floor_color(game, v3d_intersect_point,  &game->texture.roof));
-        img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.ground));
+        img_pix_put(&_mlx()->img, line_pos.x, RES_Y - i, get_floor_color(game, v3d_intersect_point,  &game->texture.roof));
+        img_pix_put(&_mlx()->img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.ground));
         i++;
     }
     
@@ -125,7 +125,7 @@ void    render_fps(t_game *game)
         line_height = ( 64/ collision.distance ) * game->camera.proj_plane_distance  ;
         line_pos.y = RES_Y / 2 + line_height / 2;
         // printf("orientation : %c\n", collision.orientation);
-            //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
+            //draw_filled_circle(&_mlx()->img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
         //basic_render(game, collision, line_pos, line_height);
 		

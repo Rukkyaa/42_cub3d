@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:27:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:53:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,6 @@
 ** \$$$$$$  |  $$ |   $$ |  $$ |\$$$$$$  |\$$$$$$  |  $$ |    **
 **  \______/   \__|   \__|  \__| \______/  \______/   \__|    **
 ***************************************************************/
-
-typedef struct s_mlx
-{
-	void		*mlx;
-	void		*win;
-}				t_mlx;
 
 typedef struct s_sound
 {
@@ -184,11 +178,16 @@ typedef struct s_inventory
 	char	*items[36];
 }				t_inventory;
 
+typedef struct s_mlx
+{
+	void		*mlx;
+	void		*win;
+	t_img		img;
+}				t_mlx;
+
 typedef struct s_game
 {
 	int			time_inc;
-	t_img		img;
-	t_img		fps_img;
 	char		**map;
 	int			key_states[256];
 	int			key_release_states[256];
@@ -238,7 +237,6 @@ void			wall_render(t_game *game, t_collision collision,
 ** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$ |      $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|  \__|\__|  \__|\__|      \________| \______/  **
 *****************************************************************/
-void			draw_square(t_game *game, t_vector pos, int width, int color);
 void			draw_filled_square(t_game *game, t_vector pos,
 					int width, int color);
 void			draw_circle(t_game *game, t_vector center,
@@ -266,9 +264,7 @@ int				game_loop(void *g);
 t_vector		get_next_tile(t_game *game, t_vector direction);
 t_vector		pixel_to_tile(t_vector vector);
 t_vector		tile_to_pixel(t_vector tile_coord);
-int				tile_out_of_bound(t_vector tile_coord, t_game *game);
 int				pixel_out_of_bound(float x, float y, t_img *image);
-void			draw_player(t_game *game, int color);
 void			var_init(t_game *game);
 char			**get_map(char *arg);
 int				close_window(t_game *game);

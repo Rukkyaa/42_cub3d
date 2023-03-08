@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 11:28:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 11:33:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,9 +44,11 @@ int	main(int argc, char **argv)
 	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, &game);
 	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, &game);
 	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_hook, &game);
+	mlx_hook(_mlx()->win, 17, 0, close_window, &game);
 	mlx_loop_hook(_mlx()->mlx, game_loop, &game);
 	mlx_loop(_mlx()->mlx);
 	ma_device_uninit(&game.sounds.footstep.device);
 	clear_sounds(&game.sounds);
 	return (EXIT_SUCCESS);
 }
+

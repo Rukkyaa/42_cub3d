@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 21:04:21 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:08:12 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,9 +185,15 @@ int	time_elapsed_ms(struct timeval start_time, struct timeval now)
 
 void	handle_time(t_game *game)
 {
+	static first_call = 1;
 	game->time.last_frame.tv_sec = game->time.frame.tv_sec;
 	game->time.last_frame.tv_usec = game->time.frame.tv_usec;
 	gettimeofday(&game->time.frame, NULL);
+	if(first_call)
+	{
+		first_call = 0;
+		return ;
+	}
 	game->time.delta_frame_ms = time_elapsed_ms(game->time.last_frame, game->time.frame);
 	game->time.fps = 1000.0f / (float) game->time.delta_frame_ms;
 	// printf("last frame : %ld \n", game->time.last_frame.tv_sec);

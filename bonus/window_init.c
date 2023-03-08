@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 13:55:33 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 16:08:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ void	var_init(t_game *game)
 	game->player.direction_adjust = 10; 
 	game->time_inc = 150;
 	game->time.delta_frame_ms = 1;
+	game->time.fps = 0;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

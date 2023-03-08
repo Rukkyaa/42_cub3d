@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 12:04:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:55:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,8 +152,7 @@ void	render(t_game *game)
 		_mlx()->img.mlx_img, 0, 0);
 	if (game->key_states['e'])
 	{
-		mlx_put_image_to_window(_mlx()->mlx, _mlx()->win,
-			game->inventory.img.mlx_img, 300, 159);
+		put_img_to_img(game->inventory.img, _mlx()->img, 300, 159);
 		refresh_inventory(game);
 	}
 }

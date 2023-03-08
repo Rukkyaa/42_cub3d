@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 12:15:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:50:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,6 +227,7 @@ void			get_wall(t_game *game, t_collision *collision, char c);
 void			wall_render(t_collision collision,
 					t_vector line_pos, double line_height);
 void			draw_player(t_game *game, int color);
+void			put_img_to_img(t_img img, t_img fill, int start_x, int start_y);
 
 
 /*****************************************************************

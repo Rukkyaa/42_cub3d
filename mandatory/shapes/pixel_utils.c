@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 14:18:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 15:26:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ int	pixel_out_of_bound(float x, float y, t_img *image)
 
 int	tile_out_of_bound(t_vector tile_coord, t_game *game)
 {
-	return (!(0 <= tile_coord.x && tile_coord.x < game->img.width
-			&& 0 <= tile_coord.y && tile_coord.y < game->img.heigth));
+	return (!(0 <= tile_coord.x && tile_coord.x < RES_X / 64
+			&& 0 <= tile_coord.y && tile_coord.y < RES_Y / 64));
 }
 
 t_vector	tile_to_pixel(t_vector tile_coord)

@@ -6,11 +6,21 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:32:16 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 20:07:18 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 12:28:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+int sign(double x)
+{
+    if (x < 0.0)
+        return -1;
+    else if (x > 0.0)
+        return 1;
+    else
+        return 0;
+}
 
 double	vec_angle(t_vector v1, t_vector v2)
 {
@@ -22,10 +32,16 @@ double	vec_angle(t_vector v1, t_vector v2)
 	dot_product = v1.x * v2.x + v1.y * v2.y;
 	magnitude1 = sqrtf(v1.x * v1.x + v1.y * v1.y);
 	magnitude2 = sqrtf(v2.x * v2.x + v2.y * v2.y);
-	cos_theta = dot_product / (magnitude1 * magnitude2);
-	if(v1.x * v2.y - v1.y * v2.x < 0)
-		return - acosf(cos_theta);
-	else
-		return acosf(cos_theta);
+	
+	// check for zero vectors
+	if (magnitude1 == 0.0 || magnitude2 == 0.0)
+		return 0.0;
 
+	cos_theta = dot_product / (magnitude1 * magnitude2);
+
+	// check for nearly perpendicular vectors
+	if (fabs(cos_theta) > 1.0 - DBL_EPSILON)
+		return acos(sign(dot_product) * 1.0);
+
+	return acos(cos_theta) * sign(v1.x * v2.y - v1.y * v2.x);
 }

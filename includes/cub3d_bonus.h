@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 19:38:04 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 12:08:35 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include <float.h>
 # include <time.h>
 # include <sys/time.h>
 # include "../includes/miniaudio.h"

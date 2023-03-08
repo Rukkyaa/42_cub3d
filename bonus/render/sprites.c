@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/07 21:37:33 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 12:31:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@ float   deg_to_rad(float angle)
 void    render_sprites(t_game *game)
 {
     t_vector player_to_sprite;
+    float angle;
     player_to_sprite.x = game->sprites[0].pos.x - game->player.pos.x;
     player_to_sprite.y = game->sprites[0].pos.y - game->player.pos.y;
-    // player_to_sprite.z = game->sprites[0].pos.z;
-
-    t_vector standard_vec;
-    standard_vec.x = 1;
-    standard_vec.y = 0;
-    //float CS=cosf(vec_angle(game->player.direction, standard_vec)), SN=sinf(vec_angle(game->player.direction, standard_vec)); //rotate around origin
-    float angle = vec_angle(game->player.direction, player_to_sprite);
+    
+    angle = vec_angle(game->player.direction, player_to_sprite);
+    // printf("player_sprite_angle : %f\n", angle);
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
-    printf("player_sprite_angle : %f\n", vec_angle(player_to_sprite, standard_vec) * 180 / M_PI);
+    // printf("player_sprite_angle_rotated : %f\n", angle);
     float z_angle = vec_angle(game->player.direction, player_to_sprite);
     t_vector screen_pos;
     // player_to_sprite = vec_normalize(player_to_sprite);
@@ -39,15 +36,15 @@ void    render_sprites(t_game *game)
 
     // Y AXIS ON SCREEN
     float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
-    printf("xy_distance : %f\n", xy_distance);
+    // printf("xy_distance : %f\n", xy_distance);
     t_vector z_vector;
     z_vector.x = xy_distance;
     z_vector.y = game->sprites[0].pos.z - 32;
-    vec_print(&z_vector, "z_vector");
+    // vec_print(&z_vector, "z_vector");
     float y_dist = (z_vector.y / z_vector.x);
-    printf("y_dist: %f\n", y_dist);
+    // printf("y_dist: %f\n", y_dist);
     y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
-    printf("y_dist scaled: %f\n", y_dist);
+    // printf("y_dist scaled: %f\n", y_dist);
 
     
     // X AXIS ON SCREEN
@@ -64,7 +61,8 @@ void    render_sprites(t_game *game)
 //   screen_pos.y =(player_to_sprite.z * 1 / player_to_sprite.y) + (RES_Y / 2);
 
     // TODO : add condition if angle too wide
-
+    if(fabs(angle) > (float) FOV_RADIANS / 2)
+        return ;
     
 //   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x - game->sprites[0].texture.width/2, 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 12:08:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/08 12:33:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,6 @@ void	var_init(t_game *game)
 	i = 256;
 	while(i--)
 		game->key_release_states[i] = 1;
-	_mlx()->mlx = mlx_init();
-	_mlx()->win = mlx_new_window(_mlx()->mlx, RES_X, RES_Y, "cub3d");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;
@@ -77,11 +75,6 @@ void	var_init(t_game *game)
 	game->time_inc = 150;
 	game->time.delta_frame_ms = 1;
     vec_print(&game->player.direction, "player dir");
-	_mlx()->img.mlx_img = mlx_new_image(_mlx()->mlx, RES_X, RES_Y);
-	_mlx()->img.addr = mlx_get_data_addr(_mlx()->img.mlx_img, &_mlx()->img.bpp,
-			&_mlx()->img.line_len, &_mlx()->img.endian);
-	_mlx()->img.width = RES_X / 64;
-	_mlx()->img.heigth = RES_Y / 64;
 	init_camera(&game->camera);
 	game->mouse.x = 0;
 	game->mouse.y = 0;
@@ -90,6 +83,5 @@ void	var_init(t_game *game)
 	load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);
-	// mlx_put_image_to_window(_mlx()->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(_mlx()->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 }

@@ -2,6 +2,7 @@
     "files.associations": {
         "xlib.h": "c",
         "time.h": "c",
-        "miniaudio.h": "c"
+        "miniaudio.h": "c",
+        "limits": "c"
     }
 }

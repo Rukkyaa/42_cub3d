@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/08 13:56:18 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 18:19:55 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,38 @@ int     sample_img(t_img *img, float x, float y)
 
 void   draw_sprite(t_game *game, t_vector screen_pos, float xy_distance, t_sprite *sprite)
 {
+    t_vector start_pos;
     float line_height =   (RES_Y / game->camera.proj_plane_height) * (sprite->height / xy_distance ) * game->camera.proj_plane_distance;
     float line_width = (RES_X / game->camera.proj_plane_width ) * (sprite->width / xy_distance ) * game->camera.proj_plane_distance;
     int pixel_color;
-    int i = 0;
-    int j = 0;
-    // printf("line_width : %f\n", line_width);
-    // printf("line_height : %f\n", line_height);
-    while(i < line_width)
+
+    // Start
+    start_pos.x = fmax(screen_pos.x - line_width / 2, 0);
+    start_pos.y = fmax(screen_pos.y - line_height, 0);
+
+    // End
+    int max_i = fmin(screen_pos.x + line_width / 2, RES_X - 1);
+    int max_j = fmin(screen_pos.y, RES_Y - 1);
+    
+    vec_print(&screen_pos, "screen_pos");
+    vec_print(&start_pos, "start_pos");
+    printf("max_i : %d\n", max_i);
+    printf("max_j : %d\n", max_j);
+    printf("line_height : %f\n", line_height);
+    printf("line_width : %f\n", line_width);
+    float i = start_pos.x;
+    float j = start_pos.y;
+    while(i < max_i)
     {
-        j = 0;
-        while(j < line_height)
+        j = start_pos.y;
+        while(j < max_j)
         {
-            int x_pos = (screen_pos.x - line_width / 2) + i;
-            int y_pos = screen_pos.y - j;
-            // printf("x_pos : %d\n", x_pos);
-            // printf("y_pos : %d\n", y_pos);
-            pixel_color = sample_img(&sprite->texture, (float) i / line_width,  (float) j / line_height);
+            // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
+            // printf("y_pos : %f\n", start_pos.y - j);
+            pixel_color = sample_img(&sprite->texture, (i - (screen_pos.x - (line_width / 2))) / line_width, (j - (screen_pos.y - line_height)) / line_width);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
-                img_pix_put(&game->fps_img, x_pos, y_pos, pixel_color);
+                img_pix_put(&game->fps_img,  i,  j, pixel_color);
             //sample_texture( (float) i / line_width,  (float) i / line_height, &sprite->texture);
             j++;
         }
@@ -78,7 +90,7 @@ void    render_sprites(t_game *game)
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  - y_dist + (RES_Y / 2);
 
-    if(fabs(angle) > (float) FOV_RADIANS / 2)
+    if(fabs(angle) > M_PI / 2)
         return ;
 
     draw_sprite(game, screen_pos, xy_distance, &game->sprites[0]);

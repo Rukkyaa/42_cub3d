@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 16:08:12 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 19:51:06 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -221,11 +221,22 @@ int	is_collectible(t_game *game)
 		[(int)game->player.pos.x / 64] == 'W');
 }
 
+void	clear_z_buffer(t_game *game)
+{
+	int i = 0;
+	while(i < RES_X)
+	{
+		game->z_buffer[i] = 0;
+		i++;
+	}
+}
+
 int	game_loop(void *g)
 {
 	t_game	*game;
 
 	game = (t_game *) g;
+	clear_z_buffer(game);
 	handle_time(game);
 	if (!player_moving(game))
 		ma_device_stop(&game->sounds.footstep.device);

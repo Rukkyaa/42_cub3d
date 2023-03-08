@@ -6,7 +6,7 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/08 13:17:13 by theo             ###   ########.fr        #
+#    Updated: 2023/03/08 20:30:41 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -63,7 +63,7 @@ NAME_BONUS = cub3d_bonus
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 		bonus/free.c bonus/draw_player.c \
 		bonus/raycast_2D.c \
-		bonus/events.c \
+		bonus/events.c 
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
@@ -85,7 +85,7 @@ SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall sprites debug_map color_ops color_converts))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites debug_map color_ops color_converts))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

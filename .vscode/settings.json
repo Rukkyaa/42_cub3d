@@ -3,6 +3,7 @@
         "xlib.h": "c",
         "time.h": "c",
         "miniaudio.h": "c",
-        "limits": "c"
+        "limits": "c",
+        "cub3d_bonus.h": "c"
     }
 }

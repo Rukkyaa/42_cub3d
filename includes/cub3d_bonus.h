@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 13:18:56 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 20:37:27 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,6 +166,11 @@ typedef struct s_sprite
 	int 	state;
 	float	height;
 	float	width;
+	float	distance;
+	float	screen_width;
+	float	screen_height;
+	int		visible;
+	t_vector	screen_pos;
 	t_img	texture;
 	t_vector3d	pos;
 }				t_sprite;
@@ -202,6 +207,7 @@ typedef struct s_game
 	t_vector	mouse;
 	t_player	player;
 	t_sprite	sprites[10];
+	float			z_buffer[RES_X];
 	t_texture	texture;
 	t_sounds	sounds;
 	t_camera	camera;
@@ -224,6 +230,7 @@ void			get_wall(t_game *game, t_collision *collision, char c);
 void			wall_render(t_game *game, t_collision collision,
 					t_vector line_pos, double line_height);
 void    		render_sprites(t_game *game);
+void 			sort_sprites(t_sprite sprites[], int size);
 
 // Shapes
 void			draw_square(t_img *img, t_vector pos, int width, int color);

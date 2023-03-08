@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 16:08:47 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 20:45:01 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,12 +55,17 @@ void	init_basic_vectors(t_game *game)
 
 void init_sprites(t_game *game)
 {
-	ft_xpm_to_img(game, &game->sprites[0].texture, "images/monster1.xpm");
-	game->sprites[0].pos.x = 64 * 2;
-	game->sprites[0].pos.y = 64 * 2;
-	game->sprites[0].pos.z = 0;
-	game->sprites[0].height = 40;
-	game->sprites[0].width = game->sprites[0].height * (game->sprites[0].texture.width) / (game->sprites[0].texture.heigth);
+	int i = 10;
+	while(--i)
+	{
+		ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
+		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
+		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
+		vec_print(&game->sprites[i].pos, "sprite pos");
+		game->sprites[i].pos.z = 0;
+		game->sprites[i].height = 40;
+		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].texture.width) / (game->sprites[i].texture.heigth);
+	}
 }
 
 void	var_init(t_game *game)

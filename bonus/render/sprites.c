@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/08 12:31:43 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 13:56:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,57 +17,75 @@ float   deg_to_rad(float angle)
     return angle * M_PI / 180.0f;
 }
 
+int     sample_img(t_img *img, float x, float y)
+{
+    return (img_pix_read(img, x * img->width, y * img->heigth));
+}
+
+void   draw_sprite(t_game *game, t_vector screen_pos, float xy_distance, t_sprite *sprite)
+{
+    float line_height =   (RES_Y / game->camera.proj_plane_height) * (sprite->height / xy_distance ) * game->camera.proj_plane_distance;
+    float line_width = (RES_X / game->camera.proj_plane_width ) * (sprite->width / xy_distance ) * game->camera.proj_plane_distance;
+    int pixel_color;
+    int i = 0;
+    int j = 0;
+    // printf("line_width : %f\n", line_width);
+    // printf("line_height : %f\n", line_height);
+    while(i < line_width)
+    {
+        j = 0;
+        while(j < line_height)
+        {
+            int x_pos = (screen_pos.x - line_width / 2) + i;
+            int y_pos = screen_pos.y - j;
+            // printf("x_pos : %d\n", x_pos);
+            // printf("y_pos : %d\n", y_pos);
+            pixel_color = sample_img(&sprite->texture, (float) i / line_width,  (float) j / line_height);
+            // printf("%d %d : %d\n", i, j, pixel_color);
+            if(get_t(pixel_color) == 0)
+                img_pix_put(&game->fps_img, x_pos, y_pos, pixel_color);
+            //sample_texture( (float) i / line_width,  (float) i / line_height, &sprite->texture);
+            j++;
+        }
+        i++;
+    }
+    // close_window(game);
+}
+
 void    render_sprites(t_game *game)
 {
     t_vector player_to_sprite;
+    t_vector screen_pos;
     float angle;
+    
     player_to_sprite.x = game->sprites[0].pos.x - game->player.pos.x;
     player_to_sprite.y = game->sprites[0].pos.y - game->player.pos.y;
     
+    // X AXIS ON SCREEN
     angle = vec_angle(game->player.direction, player_to_sprite);
-    // printf("player_sprite_angle : %f\n", angle);
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
-    // printf("player_sprite_angle_rotated : %f\n", angle);
-    float z_angle = vec_angle(game->player.direction, player_to_sprite);
-    t_vector screen_pos;
-    // player_to_sprite = vec_normalize(player_to_sprite);
-
-
+    float x_dist = (player_to_sprite.y / player_to_sprite.x);
+    x_dist = x_dist * ( (float) RES_X / 2);
 
     // Y AXIS ON SCREEN
     float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
-    // printf("xy_distance : %f\n", xy_distance);
     t_vector z_vector;
     z_vector.x = xy_distance;
     z_vector.y = game->sprites[0].pos.z - 32;
-    // vec_print(&z_vector, "z_vector");
     float y_dist = (z_vector.y / z_vector.x);
-    // printf("y_dist: %f\n", y_dist);
     y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
-    // printf("y_dist scaled: %f\n", y_dist);
 
-    
-    // X AXIS ON SCREEN
-    // vec_print(&player_to_sprite, "player to sprite");
-    // printf("proj dist : %f\n", game->camera.proj_plane_distance);
-    float x_dist = (player_to_sprite.y / player_to_sprite.x) ;
-    // printf("x dist : %f\n", x_dist);
-    x_dist = x_dist * ( (float) RES_X / 2) ; // scaline x_dist
-    // printf("x dist scaled : %f\n", x_dist);
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  - y_dist + (RES_Y / 2);
-    // printf("screen_pos_x : %f\n", screen_pos.x );
-//   screen_pos.x =(player_to_sprite.x * 1 / player_to_sprite.y) + (RES_X / 2); //convert to screen x,y
-//   screen_pos.y =(player_to_sprite.z * 1 / player_to_sprite.y) + (RES_Y / 2);
 
-    // TODO : add condition if angle too wide
     if(fabs(angle) > (float) FOV_RADIANS / 2)
         return ;
-    
-//   mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, 0,0);
-  mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x - game->sprites[0].texture.width/2, 
-        screen_pos.y - game->sprites[0].texture.heigth/2);
+
+    draw_sprite(game, screen_pos, xy_distance, &game->sprites[0]);
+    // mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x - game->sprites[0].texture.width/2, 
+    //         screen_pos.y - game->sprites[0].texture.heigth/2);
 }
+
 t_vector vec_3d_to_2D(t_vector3d input) 
 {
     t_vector output;

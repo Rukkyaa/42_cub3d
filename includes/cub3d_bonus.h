@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 12:08:35 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/08 13:18:56 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,15 @@
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 
-// TEXTURE
+
+// Color conversions
+int					get_t(int trgb);
+int					get_r(int trgb);
+int					get_g(int trgb);
+int					get_b(int trgb);
+
+// Color operations
+int					add_shade(int trgb, int shade);
 
 typedef struct s_sound
 {
@@ -156,6 +164,8 @@ typedef struct s_sprite
 {
 	int		type;
 	int 	state;
+	float	height;
+	float	width;
 	t_img	texture;
 	t_vector3d	pos;
 }				t_sprite;

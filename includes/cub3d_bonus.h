@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:11:11 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:59:31 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@
 
 # define RES_X  1600
 # define RES_Y  900
+# define HALF_RES_X  800
+# define HALF_RES_Y  450
 
 # define MAX_DISTANCE 10
 
@@ -208,6 +210,7 @@ typedef struct s_game
 	t_player	player;
 	t_sprite	sprites[10];
 	float			z_buffer[RES_X];
+	float			ray_offset[RES_X];
 	t_texture	texture;
 	t_sounds	sounds;
 	t_camera	camera;
@@ -312,6 +315,7 @@ void			vec_rotate_edit(t_vector *vector, float angle);
 double			vec_distance(t_vector vec1, t_vector vec2);
 double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec_angle(t_vector v1, t_vector v2);
+t_vector		vec_copy(t_vector vec1);
 
 /*******************************************************
 **  $$$$$$\   $$$$$$\  $$\   $$\ $$\   $$\ $$$$$$$\   **

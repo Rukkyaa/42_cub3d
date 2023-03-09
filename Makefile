@@ -6,7 +6,7 @@
 #    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/08 20:30:41 by theo             ###   ########.fr        #
+#    Updated: 2023/03/09 14:15:54 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -77,7 +77,7 @@ MAP_OBJS_BONUS = $(MAP_SRC_BONUS:.c=.o)
 
 # VECTOR FILES #
 VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance mult normalize \
-	print scalar_mult sum to_angle rotate_edit rotate))
+	print scalar_mult sum to_angle rotate_edit rotate copy))
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #

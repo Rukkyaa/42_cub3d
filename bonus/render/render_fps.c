@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/09 13:09:49 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 14:13:51 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,30 +100,28 @@ void    render_fps(t_game *game)
     t_vector v_ray_dir;
     t_vector v_ray_dir2;
     t_vector v_player_to_camera_plane;
-    float halfWidth;
-    float offset;
-    halfWidth = game->camera.proj_plane_width / 2.0f;
+    float ca;
     //printf("half_width : %f\n", halfWidth);
-    v_right  = vec_normalize(vec_rotate(game->player.direction, 90)) ;
+    v_right  = vec_normalize(game->camera.plane) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
-    line_pos.x = 0;
-    line_pos.y = RES_Y / 2;
+    line_pos.y = HALF_RES_Y;
     while(i < RES_X)
     {
-        offset = ((2.0f * (float) line_pos.x / (RES_X - 1.0f)) - 1.0f) * halfWidth;
-        // printf("offset : %f\n", offset);
-        v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, offset));
-        v_ray_dir2= vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, offset));
+        // offset = ((2.0f * (float) line_pos.x / (RES_X - 1.0f)) - 1.0f) * halfWidth;
+        // // printf("offset : %f\n", offset);
+        v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[i]));
+        v_ray_dir2 = vec_copy(v_ray_dir);
         v_ray_dir = vec_normalize(v_ray_dir);
         // printf("angle : %f\n", angle_between_vectors(v_ray_dir, game->player.direction));
         // printf("%d : ", line_pos.x);
         // print_vector2D(&v_ray_dir, "raycast dir");
         collision = cast_2D_ray(game, v_ray_dir);
         // printf("distance : %d \n", distance);
-        float ca = vec_angle(v_ray_dir, game->player.direction);
+        ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * cosf(ca);
-        line_height = ( 64 / collision.distance ) * game->camera.proj_plane_distance  ;
-        line_pos.y = RES_Y / 2 + line_height / 2;
+        line_height = ( 64 / collision.distance ) * game->camera.proj_plane_distance;
+        line_pos.y = HALF_RES_Y + line_height / 2;
+        line_pos.x = i;
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);
         // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
@@ -132,7 +130,6 @@ void    render_fps(t_game *game)
         wall_render(game, collision, line_pos, line_height);
         render_floor_col(game, v_ray_dir2, line_pos, line_height);
         i++;
-        line_pos.x+= RES_X / RES_X;
     }
     //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLACK_PIXEL);
 }

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 20:45:01 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:44:28 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,15 @@ void	load_img(t_game *game)
 {
 	// ft_xpm_to_img(game, &game->texture.wall1, "images/pjay2.xpm");
 	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
+	printf("bpp : %d\n", game->texture.wall1.bpp);
 	ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
+	printf("bpp : %d\n", game->texture.wall2.bpp);
 	ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
 	ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
 	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
 	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
+	printf("bpp : %d\n", game->inventory.img.bpp);
 }
 
 void	init_camera(t_camera *camera)
@@ -59,6 +62,7 @@ void init_sprites(t_game *game)
 	while(--i)
 	{
 		ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
+		printf("bpp : %d\n", game->sprites[i].texture.bpp);
 		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
 		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
 		vec_print(&game->sprites[i].pos, "sprite pos");
@@ -67,6 +71,18 @@ void init_sprites(t_game *game)
 		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].texture.width) / (game->sprites[i].texture.heigth);
 	}
 }
+
+
+void	precompute_raycast(t_game *game)
+{
+	int i = 0;
+	while(i < RES_X)
+	{
+        game->ray_offset[i] = ((2.0f * (float) i / (RES_X - 1.0f)) - 1.0f) * (game->camera.proj_plane_width / 2);
+		i++;
+	}
+}
+
 
 void	var_init(t_game *game)
 {
@@ -111,6 +127,7 @@ void	var_init(t_game *game)
 	init_camera(&game->camera);
 	game->mouse.x = 0;
 	game->mouse.y = 0;
+	precompute_raycast(game);
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

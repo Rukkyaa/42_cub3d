@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 20:01:18 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:33:09 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
     i = 0;
 	while (i < min_i)
     {
-		img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
+		//img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
         i++;
     }
     while(i < max_i)

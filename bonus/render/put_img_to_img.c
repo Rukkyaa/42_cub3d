@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   vec_resize.c                                       :+:      :+:    :+:   */
+/*   put_img_to_img.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/26 21:37:01 by theo              #+#    #+#             */
-/*   Updated: 2023/03/09 13:40:01 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/08 15:05:34 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/08 15:56:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_vector	vec_resize(t_vector vec1, double i)
+void	put_img_to_img(t_img img, t_img fill, int start_x, int start_y)
 {
-	t_vector	v_resized;
+	int	x;
+	int	y;
 
-	v_resized = vec_normalize(vec1);
-	v_resized = vec_scalar_mult(v_resized, i);
-	return (v_resized);
+	x = -1;
+	while (++x < img.width)
+	{
+		y = -1;
+		while (++y < img.heigth)
+		{
+			if (img_pix_read(&img, x, y) != 4278190080)
+				img_pix_put(&fill, start_x + x, start_y + y,
+					img_pix_read(&img, x, y));
+		}
+	}
 }

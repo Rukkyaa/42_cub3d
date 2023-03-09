@@ -3,21 +3,19 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 29.37      1.73     1.73                             img_pix_read
- 27.84      3.37     1.64                             img_pix_put
- 22.58      4.70     1.33                             render_floor_col
-  4.92      4.99     0.29                             mlx_int_parse_xpm
-  3.40      5.19     0.20                             wall_render
-  3.23      5.38     0.19                             mlx_int_str_str_cote
-  2.89      5.55     0.17                             put_img_to_img
-  1.19      5.62     0.07                             _init
-  1.02      5.68     0.06                             mlx_int_get_line
-  1.02      5.74     0.06                             mlx_int_str_str
-  0.85      5.79     0.05                             draw_sprite
-  0.68      5.83     0.04                             draw_vertical_line
-  0.34      5.85     0.02                             get_t
-  0.34      5.87     0.02                             render_fps
-  0.34      5.89     0.02                             vec_normalize
+ 20.00      0.34     0.34                             mlx_int_parse_xpm
+ 19.41      0.67     0.33                             img_pix_put
+ 19.41      1.00     0.33                             render_floor_col
+ 15.29      1.26     0.26                             img_pix_read
+ 10.59      1.44     0.18                             mlx_int_str_str_cote
+  4.71      1.52     0.08                             _mlx
+  4.12      1.59     0.07                             mlx_int_str_str
+  1.76      1.62     0.03                             _init
+  1.18      1.64     0.02                             cast_2D_ray
+  1.18      1.66     0.02                             mlx_int_get_line
+  1.18      1.68     0.02                             wall_render
+  0.59      1.69     0.01                             draw_vertical_line
+  0.59      1.70     0.01                             ma_decoder__init_data_converter
 
  %         the percentage of the total running time of the
 time       program used by this function.

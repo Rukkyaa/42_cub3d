@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:44:28 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 18:03:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,15 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	// ft_xpm_to_img(game, &game->texture.wall1, "images/pjay2.xpm");
+	// ft_xpm_to_img(&game->texture.wall1, "images/pjay2.xpm");
 	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
-	printf("bpp : %d\n", game->texture.wall1.bpp);
 	ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
-	printf("bpp : %d\n", game->texture.wall2.bpp);
 	ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
 	ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
 	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
 	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
-	printf("bpp : %d\n", game->inventory.img.bpp);
+	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 }
 
 void	init_camera(t_camera *camera)
@@ -92,9 +90,8 @@ void	var_init(t_game *game)
 	i = 256;
 	while(i--)
 		game->key_release_states[i] = 1;
-	game->mlx = mlx_init();
-	game->win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
-	game->fps_win = mlx_new_window(game->mlx, RES_X, RES_Y, "first_person");
+	game->mlx = _mlx()->mlx;
+	game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;
@@ -114,16 +111,13 @@ void	var_init(t_game *game)
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);
-	game->img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
-	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);
-	game->img.addr = mlx_get_data_addr(game->img.mlx_img, &game->img.bpp,
-			&game->img.line_len, &game->img.endian);
-	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img, &game->fps_img.bpp,
-			&game->fps_img.line_len, &game->fps_img.endian);
-	game->img.width = map_width(game->map);
-	game->img.heigth = map_heigth(game->map);
-	game->fps_img.width = RES_X / 64;
-	game->fps_img.heigth = RES_Y / 64;
+	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
+	game->debug_img.addr = mlx_get_data_addr(game->debug_img.mlx_img, &game->debug_img.bpp,
+			&game->debug_img.line_len, &game->debug_img.endian);
+	game->debug_img.width = map_width(game->map);
+	game->debug_img.heigth = map_heigth(game->map);
+	game->fps_win = _mlx()->win;
+	game->fps_img = _mlx()->img;
 	init_camera(&game->camera);
 	game->mouse.x = 0;
 	game->mouse.y = 0;
@@ -133,7 +127,6 @@ void	var_init(t_game *game)
 	load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);
-	// mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
+	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 	init_sprites(game);
 }

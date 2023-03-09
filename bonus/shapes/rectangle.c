@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rectangle.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:12:31 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/07 14:46:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 16:17:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ void	draw_filled_rectangle(t_img *img, t_vector vec, t_vector size, int color)
 // 	i = -1;
 // 	while (++i < width)
 // 	{
-// 		img_pix_put(&game->img, vec.x, vec.y + i, color);
-// 		img_pix_put(&game->img, vec.x + width - 1, vec.y + i, color);
+// 		img_pix_put(&game->debug_img, vec.x, vec.y + i, color);
+// 		img_pix_put(&game->debug_img, vec.x + width - 1, vec.y + i, color);
 // 	}
 // 	draw_vertical_line(game, vec, width, color);
 // 	vec.y = pos.y + width - 1;

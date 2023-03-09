@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:59:31 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 18:11:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 # include <float.h>
 # include <time.h>
 # include <sys/time.h>
+# include <string.h>
 # include "../includes/miniaudio.h"
 
 # ifndef M_PI
@@ -83,6 +84,16 @@ int					get_b(int trgb);
 
 // Color operations
 int					add_shade(int trgb, int shade);
+/***************************************************************
+**  $$$$$$\ $$$$$$$$\ $$$$$$$\  $$\   $$\  $$$$$$\ $$$$$$$$\  **
+** $$  __$$\\__$$  __|$$  __$$\ $$ |  $$ |$$  __$$\\__$$  __| **
+** $$ /  \__|  $$ |   $$ |  $$ |$$ |  $$ |$$ /  \__|  $$ |    **
+** \$$$$$$\    $$ |   $$$$$$$  |$$ |  $$ |$$ |        $$ |    **
+**  \____$$\   $$ |   $$  __$$  $$ |  $$ |$$ |        $$ |    **
+** $$\   $$ |  $$ |   $$ |  $$ |$$ |  $$ |$$ |  $$\   $$ |    **
+** \$$$$$$  |  $$ |   $$ |  $$ |\$$$$$$  |\$$$$$$  |  $$ |    **
+**  \______/   \__|   \__|  \__| \______/  \______/   \__|    **
+***************************************************************/
 
 typedef struct s_sound
 {
@@ -187,24 +198,33 @@ typedef struct s_collision
 	float			x_pos_tex;
 }					t_collision;
 
+typedef struct s_weapon
+{
+	t_img	sword;
+}				t_weapon;
+
 typedef struct s_inventory
 {
 	t_img	img;
-	char	*items[30];
+	char	*items[36];
 }				t_inventory;
 
-typedef struct s_game
+typedef struct s_mlx
 {
 	void		*mlx;
 	void		*win;
-	void		*fps_win;
-	int			time_inc;
 	t_img		img;
-	t_img		fps_img;
+}				t_mlx;
+
+typedef struct s_game
+{
+	void 		*mlx;
+	int			time_inc;
 	char		**map;
 	int			key_states[256];
 	int			key_release_states[256];
 	t_inventory	inventory;
+	t_weapon	weapon;
 	t_time		time;
 	t_vector	mouse;
 	t_player	player;
@@ -218,25 +238,80 @@ typedef struct s_game
 	t_vector	v_down;
 	t_vector	v_left;
 	t_vector	v_right;
+	void		*fps_win;
+	t_img		fps_img;
+	void		*debug_win;
+	t_img		debug_img;
 }				t_game;
 
 // Ray casting
 t_collision		cast_2D_ray(t_game *game, t_vector direction);
 
-// Render
+/************************************************
+**  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **
+** $$  __$$\ $$  __$$\ $$$\    $$$ |$$  _____| **
+** $$ /  \__|$$ /  $$ |$$$$\  $$$$ |$$ |       **
+** $$ |$$$$\ $$$$$$$$ |$$\$$\$$ $$ |$$$$$\     **
+** $$ |\_$$ |$$  __$$ |$$ \$$$  $$ |$$  __|    **
+** $$ |  $$ |$$ |  $$ |$$ |\$  /$$ |$$ |       **
+** \$$$$$$  |$$ |  $$ |$$ | \_/ $$ |$$$$$$$$\  **
+**  \______/ \__|  \__|\__|     \__|\________| **
+************************************************/
+//Move
+void			hooks(t_game *game);
+bool			is_key(int keycode);
+bool			is_walkable(t_game *game, int x, int y);
+bool			is_collectible(t_game *game);
+
+bool			player_moving(t_game *game);
+void			player_collides(t_game *game, t_vector speed);
+void			edit_player_pos(t_game *game);
+void			edit_player_rotate(t_game *game);
+
+//Fps
+void			handle_sync(t_game *game);
+void			handle_time(t_game *game);
+
+
+/*****************************************************************
+** $$$$$$$\  $$$$$$$$\ $$\   $$\ $$$$$$$\  $$$$$$$$\ $$$$$$$\   **
+** $$  __$$\ $$  _____|$$$\  $$ |$$  __$$\ $$  _____|$$  __$$\  **
+** $$ |  $$ |$$ |      $$$$\ $$ |$$ |  $$ |$$ |      $$ |  $$ | **
+** $$$$$$$  |$$$$$\    $$ $$\$$ |$$ |  $$ |$$$$$\    $$$$$$$  | **
+** $$  __$$< $$  __|   $$ \$$$$ |$$ |  $$ |$$  __|   $$  __$$<  **
+** $$ |  $$ |$$ |      $$ |\$$$ |$$ |  $$ |$$ |      $$ |  $$ | **
+** $$ |  $$ |$$$$$$$$\ $$ | \$$ |$$$$$$$  |$$$$$$$$\ $$ |  $$ | **
+** \__|  \__|\________|\__|  \__|\_______/ \________|\__|  \__| **
+*****************************************************************/
 void			img_pix_put(t_img *img, int x, int y, int color);
 void			render_fps(t_game *game);
+void			render_map(t_game *game);
+void			render(t_game *game);
+void			render_ui(t_game *game);
 void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
 void			get_wall(t_game *game, t_collision *collision, char c);
-void			wall_render(t_game *game, t_collision collision,
-					t_vector line_pos, double line_height);
+void 			wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height);
 void    		render_sprites(t_game *game);
 void 			sort_sprites(t_sprite sprites[], int size);
 
 // Shapes
-void			draw_square(t_img *img, t_vector pos, int width, int color);
+void			draw_player(t_game *game, int color);
+void			put_img_to_img(t_img img, t_img fill, int start_x, int start_y);
+void			psychedelic_view(t_game *game, t_img *img);
+
+
+/*****************************************************************
+**  $$$$$$\  $$\   $$\  $$$$$$\  $$$$$$$\  $$$$$$$$\  $$$$$$\   **
+** $$  __$$\ $$ |  $$ |$$  __$$\ $$  __$$\ $$  _____|$$  __$$\  **
+** $$ /  \__|$$ |  $$ |$$ /  $$ |$$ |  $$ |$$ |      $$ /  \__| **
+** \$$$$$$\  $$$$$$$$ |$$$$$$$$ |$$$$$$$  |$$$$$\    \$$$$$$\   **
+**  \____$$\ $$  __$$ |$$  __$$ |$$  ____/ $$  __|    \____$$\  **
+** $$\   $$ |$$ |  $$ |$$ |  $$ |$$ |      $$ |      $$\   $$ | **
+** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$ |      $$$$$$$$\ \$$$$$$  | **
+**  \______/ \__|  \__|\__|  \__|\__|      \________| \______/  **
+*****************************************************************/
 void			draw_filled_square(t_img *img, t_vector pos,
 					int width, int color);
 void			draw_circle(t_game *game, t_vector center,
@@ -255,7 +330,7 @@ void			load_map(t_game *game);
 
 // Events 
 int				key_gestion(int keycode, t_game *game);
-int				handle_keyrelease(int keycode, t_game *game);
+int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
 int				game_loop(void *g);
 
@@ -266,9 +341,7 @@ void	rotate_player(t_game *game, float angle);
 t_vector		get_next_tile(t_game *game, t_vector direction);
 t_vector		pixel_to_tile(t_vector vector);
 t_vector		tile_to_pixel(t_vector tile_coord);
-int				tile_out_of_bound(t_vector tile_coord, t_game *game);
 int				pixel_out_of_bound(float x, float y, t_img *image);
-void			draw_player(t_game *game, int color);
 void			var_init(t_game *game);
 char			**get_map(char *arg);
 int				close_window(t_game *game);
@@ -329,7 +402,6 @@ t_vector		vec_copy(t_vector vec1);
 *******************************************************/
 void			load_sounds(t_sounds *sounds);
 void			clear_sounds(t_sounds *sounds);
-int				player_moving(t_game *game);
 
 /***********************************************************************************************
 ** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **
@@ -342,5 +414,19 @@ int				player_moving(t_game *game);
 ** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
+void			refresh_inventory(t_game *game);
+void			add_item(t_game *game, char *str);
+
+/*********************************************************************************************
+**  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **
+** $$  __$$\ \_$$  _|$$$\  $$ |$$  __$$\ $$ |      $$  _____|\__$$  __|$$  __$$\ $$$\  $$ | **
+** $$ /  \__|  $$ |  $$$$\ $$ |$$ /  \__|$$ |      $$ |         $$ |   $$ /  $$ |$$$$\ $$ | **
+** \$$$$$$\    $$ |  $$ $$\$$ |$$ |$$$$\ $$ |      $$$$$\       $$ |   $$ |  $$ |$$ $$\$$ | **
+**  \____$$\   $$ |  $$ \$$$$ |$$ |\_$$ |$$ |      $$  __|      $$ |   $$ |  $$ |$$ \$$$$ | **
+** $$\   $$ |  $$ |  $$ |\$$$ |$$ |  $$ |$$ |      $$ |         $$ |   $$ |  $$ |$$ |\$$$ | **
+** \$$$$$$  |$$$$$$\ $$ | \$$ |\$$$$$$  |$$$$$$$$\ $$$$$$$$\    $$ |    $$$$$$  |$$ | \$$ | **
+**  \______/ \______|\__|  \__| \______/ \________|\________|   \__|    \______/ \__|  \__| **
+*********************************************************************************************/
+t_mlx			*_mlx(void);
 
 #endif

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/09 14:15:54 by theo             ###   ########.fr        #
+#    Updated: 2023/03/09 15:40:19 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,7 +50,7 @@ VECTOR_OBJS = $(VECTOR_SRC:.c=.o)
 
 INCLUDE = ./includes
 
-HEADERS = ./includes/cub3d
+HEADERS = ./includes/cub3d.h
 
 #
 #
@@ -61,9 +61,8 @@ HEADERS = ./includes/cub3d
 NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
-		bonus/free.c bonus/draw_player.c \
+		bonus/free.c \
 		bonus/raycast_2D.c \
-		bonus/events.c 
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
@@ -77,7 +76,7 @@ MAP_OBJS_BONUS = $(MAP_SRC_BONUS:.c=.o)
 
 # VECTOR FILES #
 VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance mult normalize \
-	print scalar_mult sum to_angle rotate_edit rotate copy))
+	print scalar_mult sum to_angle rotate_edit rotate copy resize))
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
@@ -85,12 +84,21 @@ SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites debug_map color_ops color_converts))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites put_img_to_img debug_map color_ops color_converts \
+	psychedelic_view render draw_player))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #
-INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils))
+INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils refresh))
 INVENTORY_OBJS_BONUS = $(INVENTORY_SRC_BONUS:.c=.o)
+
+# SINGLETONS #
+SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton))
+SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
+
+# GAME #
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move))
+GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
 MINIAUDIO = bonus/sound/miniaudio.o
@@ -126,19 +134,19 @@ $(NAME): $(HEADERS) $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 
 bonus: $(NAME_BONUS)
 
-$(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS)
+$(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS) -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
 
-perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS)
+perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"
 	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS) -pg -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS) -pg -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            PERF FINISHED !           |\n"
 	@printf "========================================\n\033[m"
@@ -154,7 +162,7 @@ clean:
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
 	@rm -f $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
-	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS)
+	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

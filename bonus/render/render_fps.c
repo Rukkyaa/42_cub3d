@@ -3,22 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/09 14:13:51 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 18:05:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-void    basic_render(t_game *game, t_collision collision, t_vector line_pos, double line_height)
-{
-    if(collision.orientation == 'S' || collision.orientation == 'N')
-        draw_vertical_line_2(&game->fps_img, line_pos,  line_height, PALE_BLUE);
-    else
-        draw_vertical_line_2(&game->fps_img, line_pos, line_height, PALE_BLUE_SHADED);  
-}
 
 t_vector3d get_floor_intersection(t_vector3d position, t_vector3d direction) {
     t_vector3d intersection;
@@ -47,7 +39,7 @@ int get_floor_color(t_game *game, t_vector3d intersection, t_img *img)
     return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
 }
 
-void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, double line_height)
+void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos)
 {
     t_vector3d v3d_ray_dir;
     t_vector3d v3d_intersect_point;
@@ -79,9 +71,9 @@ void    render_floor_col(t_game *game, t_vector v_ray_dir, t_vector line_pos, do
         // vec3_print(v3d_intersect_point, "v3d_intersect_point");
         v_intersect_point.x = v3d_intersect_point.x;
         v_intersect_point.y = v3d_intersect_point.y;
-        // draw_line_dda(&game->img, game->player.pos, vec_sum(game->player.pos, test), RED_PIXEL);
-        // img_pix_put(&game->img, v_intersect_point.x, v_intersect_point.y, GREEN_PIXEL);
-        //draw_filled_circle(&game->img, v_intersect_point, 10, BLUE_PIXEL);
+        // draw_line_dda(&game->debug_img, game->player.pos, vec_sum(game->player.pos, test), RED_PIXEL);
+        // img_pix_put(&game->debug_img, v_intersect_point.x, v_intersect_point.y, GREEN_PIXEL);
+        //draw_filled_circle(&game->debug_img, v_intersect_point, 10, BLUE_PIXEL);
         img_pix_put(&game->fps_img, line_pos.x, RES_Y - i, get_floor_color(game, v3d_intersect_point,  &game->texture.roof));
         img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.ground));
         i++;
@@ -128,8 +120,8 @@ void    render_fps(t_game *game)
         //basic_render(game, collision, line_pos, line_height);
 		
         wall_render(game, collision, line_pos, line_height);
-        render_floor_col(game, v_ray_dir2, line_pos, line_height);
+        render_floor_col(game, v_ray_dir2, line_pos);
         i++;
     }
-    //draw_line_dda(&game->img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLACK_PIXEL);
+    //draw_line_dda(&game->debug_img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLACK_PIXEL);
 }

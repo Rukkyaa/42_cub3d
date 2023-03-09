@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:55:08 by theo              #+#    #+#             */
-/*   Updated: 2023/03/07 15:08:37 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 16:20:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@ void	load_grid(t_game *game)
 			pos.x = j * 64;
 			pos.y = i * 64;
 			if (game->map[i][j] == '1')
-				draw_square(&game->img, pos, 64, 0xFFFFFF);
+				draw_square(&game->debug_img, pos, 64, 0xFFFFFF);
 			else
-				draw_square(&game->img, pos, 64, 0xFFFFFF);
+				draw_square(&game->debug_img, pos, 64, 0xFFFFFF);
 		}
 	}
 }
@@ -82,11 +82,11 @@ void	load_map_debug(t_game *game)
 			pos.x = j * 64;
 			pos.y = i * 64;
 			if (game->map[i][j] == '1')
-				draw_filled_square(&game->img, pos, 64, BLUE_PIXEL);
+				draw_filled_square(&game->debug_img, pos, 64, BLUE_PIXEL);
 			else if (game->map[i][j] == '0')
-				draw_filled_square(&game->img, pos, 64, GREEN_PIXEL);
+				draw_filled_square(&game->debug_img, pos, 64, GREEN_PIXEL);
 			else
-				draw_filled_square(&game->img, pos, 64, 888888);
+				draw_filled_square(&game->debug_img, pos, 64, 888888);
 		}
 	}
 }

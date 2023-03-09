@@ -6,27 +6,37 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:28:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:37:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-// int	mouse_hook(int button, int x, int y, void *param)
-// {
-// 	(void)param;
+int	mouse_press(int button, int x, int y, t_game *game)
+{
+	// printf("%s\n", game->inventory)	
+	printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
+	return (0);
+}
 
-// 	printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
-// 	return (0);
-// }
+int	mouse_release(int button, int x, int y, t_game *game)
+{
+	(void)game;
+
+	printf("Release with button : %d in x:%dy:%d\n", button, x, y);
+	return (0);
+}
 
 int	mouse_mouve_hook(int x, int y, t_game *game)
 {
 	static int	hide = 0;
 	int			diff_x;
+	int const	tmp = game->mouse.x;
 
 	(void)y;
-	diff_x = x - game->mouse.x;
+	diff_x = x - tmp;
+	game->mouse.x = x;
+	printf("%d\n", (int)game->mouse.x);
 	if (!game->key_states['e'])
 	{
 		if (!hide)
@@ -34,9 +44,9 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 			mlx_mouse_hide(_mlx()->mlx, _mlx()->win);
 			hide = 1;
 		}
-		if (game->mouse.x > x) 
+		if (tmp > x) 
 			vec_rotate_edit(&(game->player.direction), diff_x / 50);
-		else if (game->mouse.x < x)
+		else if (tmp < x)
 			vec_rotate_edit(&(game->player.direction), diff_x / 50);
 		game->mouse.x = RES_X / 2;
 		mlx_mouse_move(_mlx()->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
@@ -87,7 +97,8 @@ void	hooks(t_game *game)
 	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, game);
 	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, game->key_states);
 	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_mouve_hook, game);
-	// mlx_mouse_hook(_mlx()->win, mouse_hook, game);
+	mlx_hook(_mlx()->win, 4, 1L << 2, mouse_press, game);
+	mlx_hook(_mlx()->win, 5, 1L << 3, mouse_release, game);
 	mlx_hook(_mlx()->win, 17, 0, close_window, game);
 	mlx_loop_hook(_mlx()->mlx, game_loop, game);
 }

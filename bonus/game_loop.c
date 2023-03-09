@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 14:03:39 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:39:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,5 @@ int	game_loop(void *g)
 	game->time_inc++;
 	handle_sync(game);
 	mlx_string_put(_mlx()->mlx, _mlx()->win, 100, RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
-	//usleep(16000);
 	return (0);
 }

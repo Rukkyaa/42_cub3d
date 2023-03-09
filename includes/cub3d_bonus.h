@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:11:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/09 19:27:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -185,6 +185,7 @@ typedef struct s_sprite
 	int		visible;
 	t_vector	screen_pos;
 	t_img	texture;
+	t_img	**img_run;
 	t_vector3d	pos;
 }				t_sprite;
 
@@ -246,6 +247,9 @@ typedef struct s_game
 
 // Ray casting
 t_collision		cast_2D_ray(t_game *game, t_vector direction);
+
+
+t_img	**fill_sprite_animation(t_game *game, char *dir_path);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **

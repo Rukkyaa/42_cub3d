@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:03:05 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/09 19:37:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void init_sprites(t_game *game)
 		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
 		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
 		vec_print(&game->sprites[i].pos, "sprite pos");
+		game->sprites[i].img_run = fill_sprite_animation(game, "images/FPS_pixel_zombie/fps_zombie_RUN");
 		game->sprites[i].pos.z = 0;
 		game->sprites[i].height = 40;
 		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].texture.width) / (game->sprites[i].texture.heigth);

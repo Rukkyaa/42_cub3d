@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/09 14:04:19 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/09 14:06:55 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -61,7 +61,7 @@ HEADERS = ./includes/cub3d.h
 NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
-		bonus/free.c bonus/draw_player.c \
+		bonus/free.c \
 		bonus/raycast_2D.c \
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
@@ -85,7 +85,7 @@ SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
 RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall put_img_to_img \
-	psychedelic_view render))
+	psychedelic_view render draw_player))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 16:22:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:10:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -228,11 +228,10 @@ int	game_loop(void *g)
 	}
 	if (is_collectible(game))
 	{
-		game->inventory.items[0] = "AK47";
+		add_item(game, "sword");
 		game->map[(int)game->player.pos.y / 64]
 			[(int)game->player.pos.x / 64] = '0';
 	}
-	printf("%s\n", game->inventory.items[0]);
 	edit_player_pos(game);
 	render(game);
 	game->time_inc++;

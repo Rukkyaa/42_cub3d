@@ -6,14 +6,14 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 11:12:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 12:22:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 #define MINIAUDIO_IMPLEMENTATION
 
-int	mouse_hook(int x, int y, void *param)
+int	mouse_mouve_hook(int x, int y, void *param)
 {
 	static int	hide = 0;
 	t_game		*game;
@@ -56,7 +56,8 @@ int	main(int argc, char **argv)
 	ma_device_start(&game.sounds.footstep.device);
 	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, &game);
 	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, &game);
-	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_hook, &game);
+	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_mouve_hook, &game);
+	// mlx_mouse_hook(_mlx()->win, mouse_hook, &game);
 	mlx_hook(_mlx()->win, 17, 0, close_window, &game);
 	mlx_loop_hook(_mlx()->mlx, game_loop, &game);
 	mlx_loop(_mlx()->mlx);

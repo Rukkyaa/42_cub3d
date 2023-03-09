@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 15:50:39 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 11:25:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 # include <math.h>
 # include <time.h>
 # include <sys/time.h>
+# include <string.h>
 # include "../includes/miniaudio.h"
 
 # ifndef M_PI
@@ -338,6 +339,7 @@ int				player_moving(t_game *game);
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
 void			refresh_inventory(t_game *game);
+void			add_item(t_game *game, char *str);
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **

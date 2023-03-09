@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:29:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 14:04:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,8 +219,21 @@ t_collision		cast_2D_ray(t_game *game, t_vector direction);
 ** \$$$$$$  |$$ |  $$ |$$ | \_/ $$ |$$$$$$$$\  **
 **  \______/ \__|  \__|\__|     \__|\________| **
 ************************************************/
+//Move
 void			hooks(t_game *game);
 bool			is_key(int keycode);
+bool			is_walkable(t_game *game, int x, int y);
+bool			is_collectible(t_game *game);
+
+bool			player_moving(t_game *game);
+void			player_collides(t_game *game, t_vector speed);
+void			edit_player_pos(t_game *game);
+void			edit_player_rotate(t_game *game);
+
+//Fps
+void			handle_sync(t_game *game);
+void			handle_time(t_game *game);
+
 
 /*****************************************************************
 ** $$$$$$$\  $$$$$$$$\ $$\   $$\ $$$$$$$\  $$$$$$$$\ $$$$$$$\   **
@@ -234,6 +247,8 @@ bool			is_key(int keycode);
 *****************************************************************/
 void			img_pix_put(t_img *img, int x, int y, int color);
 void			render_fps(t_game *game);
+void			render_map(t_game *game);
+void			render(t_game *game);
 void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
@@ -242,6 +257,7 @@ void			wall_render(t_collision collision,
 					t_vector line_pos, double line_height);
 void			draw_player(t_game *game, int color);
 void			put_img_to_img(t_img img, t_img fill, int start_x, int start_y);
+void			psychedelic_view(t_game *game, t_img *img);
 
 
 /*****************************************************************
@@ -338,7 +354,6 @@ double			vec_angle(t_vector v1, t_vector v2);
 *******************************************************/
 void			load_sounds(t_sounds *sounds);
 void			clear_sounds(t_sounds *sounds);
-int				player_moving(t_game *game);
 
 /***********************************************************************************************
 ** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **

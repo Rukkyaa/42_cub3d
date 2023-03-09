@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/09 13:19:18 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/09 14:04:19 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ MAP_OBJS_BONUS = $(MAP_SRC_BONUS:.c=.o)
 
 # VECTOR FILES #
 VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance mult normalize \
-	print scalar_mult sum to_angle rotate_edit rotate))
+	print scalar_mult sum to_angle rotate_edit rotate resize))
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
@@ -84,7 +84,8 @@ SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
-RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall put_img_to_img))
+RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, load render_fps pixel_ops wall put_img_to_img \
+	psychedelic_view render))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #
@@ -96,7 +97,7 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #

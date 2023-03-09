@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 11:25:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:29:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -209,6 +209,19 @@ typedef struct s_game
 // Ray casting
 t_collision		cast_2D_ray(t_game *game, t_vector direction);
 
+/************************************************
+**  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **
+** $$  __$$\ $$  __$$\ $$$\    $$$ |$$  _____| **
+** $$ /  \__|$$ /  $$ |$$$$\  $$$$ |$$ |       **
+** $$ |$$$$\ $$$$$$$$ |$$\$$\$$ $$ |$$$$$\     **
+** $$ |\_$$ |$$  __$$ |$$ \$$$  $$ |$$  __|    **
+** $$ |  $$ |$$ |  $$ |$$ |\$  /$$ |$$ |       **
+** \$$$$$$  |$$ |  $$ |$$ | \_/ $$ |$$$$$$$$\  **
+**  \______/ \__|  \__|\__|     \__|\________| **
+************************************************/
+void			hooks(t_game *game);
+bool			is_key(int keycode);
+
 /*****************************************************************
 ** $$$$$$$\  $$$$$$$$\ $$\   $$\ $$$$$$$\  $$$$$$$$\ $$$$$$$\   **
 ** $$  __$$\ $$  _____|$$$\  $$ |$$  __$$\ $$  _____|$$  __$$\  **
@@ -257,7 +270,7 @@ void			load_map(t_game *game);
 
 // Events 
 int				key_gestion(int keycode, t_game *game);
-int				handle_keyrelease(int keycode, t_game *game);
+int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
 int				game_loop(void *g);
 

@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:15:05 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/09 13:23:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
-#define MINIAUDIO_IMPLEMENTATION
+#include "cub3d_bonus.h"
 
-int	main(int argc, char **argv)
+bool	is_key(int keycode)
 {
-	t_game	game;
-
-	if (argc != 2)
-		return (EXIT_FAILURE);
-	game.map = get_map(argv[1]);
-	var_init(&game);
-	ma_device_start(&game.sounds.footstep.device);
-	hooks(&game);
-	mlx_loop(_mlx()->mlx);
-	ma_device_uninit(&game.sounds.footstep.device);
-	clear_sounds(&game.sounds);
-	return (EXIT_SUCCESS);
+	return (keycode == 'w' || keycode == 'a' || keycode == 'd'
+		|| keycode == 's');
 }
-

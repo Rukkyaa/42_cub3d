@@ -1,0 +1,3376 @@
+GNU Make 4.3
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Reading makefiles...
+Reading makefile 'Makefile'...
+Updating makefiles....
+ Considering target file 'Makefile'.
+  Looking for an implicit rule for 'Makefile'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.o'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.c'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.cc'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.C'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.cpp'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.p'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.f'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.F'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.m'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.r'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.s'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.S'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.mod'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.sh'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile,v'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'RCS/Makefile,v'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'RCS/Makefile'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 's.Makefile'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'SCCS/s.Makefile'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.o'.
+  Looking for a rule with intermediate file 'Makefile.o'.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.c'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.cc'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.C'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.cpp'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.p'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.f'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.F'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.m'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.r'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.s'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.S'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.mod'.
+   Trying pattern rule with stem 'Makefile.o'.
+   Trying implicit prerequisite 'Makefile.o,v'.
+   Trying pattern rule with stem 'Makefile.o'.
+   Trying implicit prerequisite 'RCS/Makefile.o,v'.
+   Trying pattern rule with stem 'Makefile.o'.
+   Trying implicit prerequisite 'RCS/Makefile.o'.
+   Trying pattern rule with stem 'Makefile.o'.
+   Trying implicit prerequisite 's.Makefile.o'.
+   Trying pattern rule with stem 'Makefile.o'.
+   Trying implicit prerequisite 'SCCS/s.Makefile.o'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.c'.
+   Looking for a rule with intermediate file 'Makefile.c'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.y'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.l'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.w'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.w'.
+    Trying pattern rule with stem 'Makefile.c'.
+    Trying implicit prerequisite 'Makefile.c,v'.
+    Trying pattern rule with stem 'Makefile.c'.
+    Trying implicit prerequisite 'RCS/Makefile.c,v'.
+    Trying pattern rule with stem 'Makefile.c'.
+    Trying implicit prerequisite 'RCS/Makefile.c'.
+    Trying pattern rule with stem 'Makefile.c'.
+    Trying implicit prerequisite 's.Makefile.c'.
+    Trying pattern rule with stem 'Makefile.c'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.c'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.y'.
+    Looking for a rule with intermediate file 'Makefile.y'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.y'.
+     Trying implicit prerequisite 'Makefile.y,v'.
+     Trying pattern rule with stem 'Makefile.y'.
+     Trying implicit prerequisite 'RCS/Makefile.y,v'.
+     Trying pattern rule with stem 'Makefile.y'.
+     Trying implicit prerequisite 'RCS/Makefile.y'.
+     Trying pattern rule with stem 'Makefile.y'.
+     Trying implicit prerequisite 's.Makefile.y'.
+     Trying pattern rule with stem 'Makefile.y'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.y'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.l'.
+    Looking for a rule with intermediate file 'Makefile.l'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.l'.
+     Trying implicit prerequisite 'Makefile.l,v'.
+     Trying pattern rule with stem 'Makefile.l'.
+     Trying implicit prerequisite 'RCS/Makefile.l,v'.
+     Trying pattern rule with stem 'Makefile.l'.
+     Trying implicit prerequisite 'RCS/Makefile.l'.
+     Trying pattern rule with stem 'Makefile.l'.
+     Trying implicit prerequisite 's.Makefile.l'.
+     Trying pattern rule with stem 'Makefile.l'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.l'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.w'.
+    Looking for a rule with intermediate file 'Makefile.w'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.w'.
+     Trying implicit prerequisite 'Makefile.w,v'.
+     Trying pattern rule with stem 'Makefile.w'.
+     Trying implicit prerequisite 'RCS/Makefile.w,v'.
+     Trying pattern rule with stem 'Makefile.w'.
+     Trying implicit prerequisite 'RCS/Makefile.w'.
+     Trying pattern rule with stem 'Makefile.w'.
+     Trying implicit prerequisite 's.Makefile.w'.
+     Trying pattern rule with stem 'Makefile.w'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.w'.
+    Trying pattern rule with stem 'Makefile'.
+    Rejecting impossible implicit prerequisite 'Makefile.w'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.cc'.
+   Looking for a rule with intermediate file 'Makefile.cc'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile.cc'.
+    Trying implicit prerequisite 'Makefile.cc,v'.
+    Trying pattern rule with stem 'Makefile.cc'.
+    Trying implicit prerequisite 'RCS/Makefile.cc,v'.
+    Trying pattern rule with stem 'Makefile.cc'.
+    Trying implicit prerequisite 'RCS/Makefile.cc'.
+    Trying pattern rule with stem 'Makefile.cc'.
+    Trying implicit prerequisite 's.Makefile.cc'.
+    Trying pattern rule with stem 'Makefile.cc'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.cc'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.C'.
+   Looking for a rule with intermediate file 'Makefile.C'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile.C'.
+    Trying implicit prerequisite 'Makefile.C,v'.
+    Trying pattern rule with stem 'Makefile.C'.
+    Trying implicit prerequisite 'RCS/Makefile.C,v'.
+    Trying pattern rule with stem 'Makefile.C'.
+    Trying implicit prerequisite 'RCS/Makefile.C'.
+    Trying pattern rule with stem 'Makefile.C'.
+    Trying implicit prerequisite 's.Makefile.C'.
+    Trying pattern rule with stem 'Makefile.C'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.C'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.cpp'.
+   Looking for a rule with intermediate file 'Makefile.cpp'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile.cpp'.
+    Trying implicit prerequisite 'Makefile.cpp,v'.
+    Trying pattern rule with stem 'Makefile.cpp'.
+    Trying implicit prerequisite 'RCS/Makefile.cpp,v'.
+    Trying pattern rule with stem 'Makefile.cpp'.
+    Trying implicit prerequisite 'RCS/Makefile.cpp'.
+    Trying pattern rule with stem 'Makefile.cpp'.
+    Trying implicit prerequisite 's.Makefile.cpp'.
+    Trying pattern rule with stem 'Makefile.cpp'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.cpp'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.p'.
+   Looking for a rule with intermediate file 'Makefile.p'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.web'.
+    Trying pattern rule with stem 'Makefile.p'.
+    Trying implicit prerequisite 'Makefile.p,v'.
+    Trying pattern rule with stem 'Makefile.p'.
+    Trying implicit prerequisite 'RCS/Makefile.p,v'.
+    Trying pattern rule with stem 'Makefile.p'.
+    Trying implicit prerequisite 'RCS/Makefile.p'.
+    Trying pattern rule with stem 'Makefile.p'.
+    Trying implicit prerequisite 's.Makefile.p'.
+    Trying pattern rule with stem 'Makefile.p'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.p'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.web'.
+    Looking for a rule with intermediate file 'Makefile.web'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.web'.
+     Trying implicit prerequisite 'Makefile.web,v'.
+     Trying pattern rule with stem 'Makefile.web'.
+     Trying implicit prerequisite 'RCS/Makefile.web,v'.
+     Trying pattern rule with stem 'Makefile.web'.
+     Trying implicit prerequisite 'RCS/Makefile.web'.
+     Trying pattern rule with stem 'Makefile.web'.
+     Trying implicit prerequisite 's.Makefile.web'.
+     Trying pattern rule with stem 'Makefile.web'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.web'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.f'.
+   Looking for a rule with intermediate file 'Makefile.f'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.F'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.r'.
+    Trying pattern rule with stem 'Makefile.f'.
+    Trying implicit prerequisite 'Makefile.f,v'.
+    Trying pattern rule with stem 'Makefile.f'.
+    Trying implicit prerequisite 'RCS/Makefile.f,v'.
+    Trying pattern rule with stem 'Makefile.f'.
+    Trying implicit prerequisite 'RCS/Makefile.f'.
+    Trying pattern rule with stem 'Makefile.f'.
+    Trying implicit prerequisite 's.Makefile.f'.
+    Trying pattern rule with stem 'Makefile.f'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.f'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.F'.
+    Looking for a rule with intermediate file 'Makefile.F'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.F'.
+     Trying implicit prerequisite 'Makefile.F,v'.
+     Trying pattern rule with stem 'Makefile.F'.
+     Trying implicit prerequisite 'RCS/Makefile.F,v'.
+     Trying pattern rule with stem 'Makefile.F'.
+     Trying implicit prerequisite 'RCS/Makefile.F'.
+     Trying pattern rule with stem 'Makefile.F'.
+     Trying implicit prerequisite 's.Makefile.F'.
+     Trying pattern rule with stem 'Makefile.F'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.F'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.r'.
+    Looking for a rule with intermediate file 'Makefile.r'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile'.
+     Rejecting impossible implicit prerequisite 'Makefile.l'.
+     Trying pattern rule with stem 'Makefile.r'.
+     Trying implicit prerequisite 'Makefile.r,v'.
+     Trying pattern rule with stem 'Makefile.r'.
+     Trying implicit prerequisite 'RCS/Makefile.r,v'.
+     Trying pattern rule with stem 'Makefile.r'.
+     Trying implicit prerequisite 'RCS/Makefile.r'.
+     Trying pattern rule with stem 'Makefile.r'.
+     Trying implicit prerequisite 's.Makefile.r'.
+     Trying pattern rule with stem 'Makefile.r'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.r'.
+   Trying pattern rule with stem 'Makefile'.
+   Rejecting impossible implicit prerequisite 'Makefile.F'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.m'.
+   Looking for a rule with intermediate file 'Makefile.m'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.ym'.
+    Trying pattern rule with stem 'Makefile.m'.
+    Trying implicit prerequisite 'Makefile.m,v'.
+    Trying pattern rule with stem 'Makefile.m'.
+    Trying implicit prerequisite 'RCS/Makefile.m,v'.
+    Trying pattern rule with stem 'Makefile.m'.
+    Trying implicit prerequisite 'RCS/Makefile.m'.
+    Trying pattern rule with stem 'Makefile.m'.
+    Trying implicit prerequisite 's.Makefile.m'.
+    Trying pattern rule with stem 'Makefile.m'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.m'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.ym'.
+    Looking for a rule with intermediate file 'Makefile.ym'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.ym'.
+     Trying implicit prerequisite 'Makefile.ym,v'.
+     Trying pattern rule with stem 'Makefile.ym'.
+     Trying implicit prerequisite 'RCS/Makefile.ym,v'.
+     Trying pattern rule with stem 'Makefile.ym'.
+     Trying implicit prerequisite 'RCS/Makefile.ym'.
+     Trying pattern rule with stem 'Makefile.ym'.
+     Trying implicit prerequisite 's.Makefile.ym'.
+     Trying pattern rule with stem 'Makefile.ym'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.ym'.
+   Trying pattern rule with stem 'Makefile'.
+   Rejecting impossible implicit prerequisite 'Makefile.r'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.s'.
+   Looking for a rule with intermediate file 'Makefile.s'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.S'.
+    Trying pattern rule with stem 'Makefile.s'.
+    Trying implicit prerequisite 'Makefile.s,v'.
+    Trying pattern rule with stem 'Makefile.s'.
+    Trying implicit prerequisite 'RCS/Makefile.s,v'.
+    Trying pattern rule with stem 'Makefile.s'.
+    Trying implicit prerequisite 'RCS/Makefile.s'.
+    Trying pattern rule with stem 'Makefile.s'.
+    Trying implicit prerequisite 's.Makefile.s'.
+    Trying pattern rule with stem 'Makefile.s'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.s'.
+    Trying pattern rule with stem 'Makefile'.
+    Trying implicit prerequisite 'Makefile.S'.
+    Looking for a rule with intermediate file 'Makefile.S'.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Avoiding implicit rule recursion.
+     Trying pattern rule with stem 'Makefile.S'.
+     Trying implicit prerequisite 'Makefile.S,v'.
+     Trying pattern rule with stem 'Makefile.S'.
+     Trying implicit prerequisite 'RCS/Makefile.S,v'.
+     Trying pattern rule with stem 'Makefile.S'.
+     Trying implicit prerequisite 'RCS/Makefile.S'.
+     Trying pattern rule with stem 'Makefile.S'.
+     Trying implicit prerequisite 's.Makefile.S'.
+     Trying pattern rule with stem 'Makefile.S'.
+     Trying implicit prerequisite 'SCCS/s.Makefile.S'.
+   Trying pattern rule with stem 'Makefile'.
+   Rejecting impossible implicit prerequisite 'Makefile.S'.
+   Trying pattern rule with stem 'Makefile'.
+   Trying implicit prerequisite 'Makefile.mod'.
+   Looking for a rule with intermediate file 'Makefile.mod'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'Makefile.mod'.
+    Trying implicit prerequisite 'Makefile.mod,v'.
+    Trying pattern rule with stem 'Makefile.mod'.
+    Trying implicit prerequisite 'RCS/Makefile.mod,v'.
+    Trying pattern rule with stem 'Makefile.mod'.
+    Trying implicit prerequisite 'RCS/Makefile.mod'.
+    Trying pattern rule with stem 'Makefile.mod'.
+    Trying implicit prerequisite 's.Makefile.mod'.
+    Trying pattern rule with stem 'Makefile.mod'.
+    Trying implicit prerequisite 'SCCS/s.Makefile.mod'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.c'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.cc'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.C'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.cpp'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.p'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.f'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.F'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.m'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.r'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.s'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.S'.
+  Trying pattern rule with stem 'Makefile'.
+  Rejecting impossible implicit prerequisite 'Makefile.mod'.
+  Trying pattern rule with stem 'Makefile'.
+  Trying implicit prerequisite 'Makefile.sh'.
+  Looking for a rule with intermediate file 'Makefile.sh'.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'Makefile.sh'.
+   Trying implicit prerequisite 'Makefile.sh,v'.
+   Trying pattern rule with stem 'Makefile.sh'.
+   Trying implicit prerequisite 'RCS/Makefile.sh,v'.
+   Trying pattern rule with stem 'Makefile.sh'.
+   Trying implicit prerequisite 'RCS/Makefile.sh'.
+   Trying pattern rule with stem 'Makefile.sh'.
+   Trying implicit prerequisite 's.Makefile.sh'.
+   Trying pattern rule with stem 'Makefile.sh'.
+   Trying implicit prerequisite 'SCCS/s.Makefile.sh'.
+  No implicit rule found for 'Makefile'.
+  Finished prerequisites of target file 'Makefile'.
+ No need to remake target 'Makefile'.
+Updating goal targets....
+Considering target file 'bonus'.
+ Looking for an implicit rule for 'bonus'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.o'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.c'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.cc'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.C'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.cpp'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.p'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.f'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.F'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.m'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.r'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.s'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.S'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.mod'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.sh'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus,v'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'RCS/bonus,v'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'RCS/bonus'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 's.bonus'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'SCCS/s.bonus'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.o'.
+ Looking for a rule with intermediate file 'bonus.o'.
+  Avoiding implicit rule recursion.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.c'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.cc'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.C'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.cpp'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.p'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.f'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.F'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.m'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.r'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.s'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.S'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.mod'.
+  Trying pattern rule with stem 'bonus.o'.
+  Trying implicit prerequisite 'bonus.o,v'.
+  Trying pattern rule with stem 'bonus.o'.
+  Trying implicit prerequisite 'RCS/bonus.o,v'.
+  Trying pattern rule with stem 'bonus.o'.
+  Trying implicit prerequisite 'RCS/bonus.o'.
+  Trying pattern rule with stem 'bonus.o'.
+  Trying implicit prerequisite 's.bonus.o'.
+  Trying pattern rule with stem 'bonus.o'.
+  Trying implicit prerequisite 'SCCS/s.bonus.o'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.c'.
+  Looking for a rule with intermediate file 'bonus.c'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.y'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.l'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.w'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.w'.
+   Trying pattern rule with stem 'bonus.c'.
+   Trying implicit prerequisite 'bonus.c,v'.
+   Trying pattern rule with stem 'bonus.c'.
+   Trying implicit prerequisite 'RCS/bonus.c,v'.
+   Trying pattern rule with stem 'bonus.c'.
+   Trying implicit prerequisite 'RCS/bonus.c'.
+   Trying pattern rule with stem 'bonus.c'.
+   Trying implicit prerequisite 's.bonus.c'.
+   Trying pattern rule with stem 'bonus.c'.
+   Trying implicit prerequisite 'SCCS/s.bonus.c'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.y'.
+   Looking for a rule with intermediate file 'bonus.y'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.y'.
+    Trying implicit prerequisite 'bonus.y,v'.
+    Trying pattern rule with stem 'bonus.y'.
+    Trying implicit prerequisite 'RCS/bonus.y,v'.
+    Trying pattern rule with stem 'bonus.y'.
+    Trying implicit prerequisite 'RCS/bonus.y'.
+    Trying pattern rule with stem 'bonus.y'.
+    Trying implicit prerequisite 's.bonus.y'.
+    Trying pattern rule with stem 'bonus.y'.
+    Trying implicit prerequisite 'SCCS/s.bonus.y'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.l'.
+   Looking for a rule with intermediate file 'bonus.l'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.l'.
+    Trying implicit prerequisite 'bonus.l,v'.
+    Trying pattern rule with stem 'bonus.l'.
+    Trying implicit prerequisite 'RCS/bonus.l,v'.
+    Trying pattern rule with stem 'bonus.l'.
+    Trying implicit prerequisite 'RCS/bonus.l'.
+    Trying pattern rule with stem 'bonus.l'.
+    Trying implicit prerequisite 's.bonus.l'.
+    Trying pattern rule with stem 'bonus.l'.
+    Trying implicit prerequisite 'SCCS/s.bonus.l'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.w'.
+   Looking for a rule with intermediate file 'bonus.w'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.w'.
+    Trying implicit prerequisite 'bonus.w,v'.
+    Trying pattern rule with stem 'bonus.w'.
+    Trying implicit prerequisite 'RCS/bonus.w,v'.
+    Trying pattern rule with stem 'bonus.w'.
+    Trying implicit prerequisite 'RCS/bonus.w'.
+    Trying pattern rule with stem 'bonus.w'.
+    Trying implicit prerequisite 's.bonus.w'.
+    Trying pattern rule with stem 'bonus.w'.
+    Trying implicit prerequisite 'SCCS/s.bonus.w'.
+   Trying pattern rule with stem 'bonus'.
+   Rejecting impossible implicit prerequisite 'bonus.w'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.cc'.
+  Looking for a rule with intermediate file 'bonus.cc'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus.cc'.
+   Trying implicit prerequisite 'bonus.cc,v'.
+   Trying pattern rule with stem 'bonus.cc'.
+   Trying implicit prerequisite 'RCS/bonus.cc,v'.
+   Trying pattern rule with stem 'bonus.cc'.
+   Trying implicit prerequisite 'RCS/bonus.cc'.
+   Trying pattern rule with stem 'bonus.cc'.
+   Trying implicit prerequisite 's.bonus.cc'.
+   Trying pattern rule with stem 'bonus.cc'.
+   Trying implicit prerequisite 'SCCS/s.bonus.cc'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.C'.
+  Looking for a rule with intermediate file 'bonus.C'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus.C'.
+   Trying implicit prerequisite 'bonus.C,v'.
+   Trying pattern rule with stem 'bonus.C'.
+   Trying implicit prerequisite 'RCS/bonus.C,v'.
+   Trying pattern rule with stem 'bonus.C'.
+   Trying implicit prerequisite 'RCS/bonus.C'.
+   Trying pattern rule with stem 'bonus.C'.
+   Trying implicit prerequisite 's.bonus.C'.
+   Trying pattern rule with stem 'bonus.C'.
+   Trying implicit prerequisite 'SCCS/s.bonus.C'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.cpp'.
+  Looking for a rule with intermediate file 'bonus.cpp'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus.cpp'.
+   Trying implicit prerequisite 'bonus.cpp,v'.
+   Trying pattern rule with stem 'bonus.cpp'.
+   Trying implicit prerequisite 'RCS/bonus.cpp,v'.
+   Trying pattern rule with stem 'bonus.cpp'.
+   Trying implicit prerequisite 'RCS/bonus.cpp'.
+   Trying pattern rule with stem 'bonus.cpp'.
+   Trying implicit prerequisite 's.bonus.cpp'.
+   Trying pattern rule with stem 'bonus.cpp'.
+   Trying implicit prerequisite 'SCCS/s.bonus.cpp'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.p'.
+  Looking for a rule with intermediate file 'bonus.p'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.web'.
+   Trying pattern rule with stem 'bonus.p'.
+   Trying implicit prerequisite 'bonus.p,v'.
+   Trying pattern rule with stem 'bonus.p'.
+   Trying implicit prerequisite 'RCS/bonus.p,v'.
+   Trying pattern rule with stem 'bonus.p'.
+   Trying implicit prerequisite 'RCS/bonus.p'.
+   Trying pattern rule with stem 'bonus.p'.
+   Trying implicit prerequisite 's.bonus.p'.
+   Trying pattern rule with stem 'bonus.p'.
+   Trying implicit prerequisite 'SCCS/s.bonus.p'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.web'.
+   Looking for a rule with intermediate file 'bonus.web'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.web'.
+    Trying implicit prerequisite 'bonus.web,v'.
+    Trying pattern rule with stem 'bonus.web'.
+    Trying implicit prerequisite 'RCS/bonus.web,v'.
+    Trying pattern rule with stem 'bonus.web'.
+    Trying implicit prerequisite 'RCS/bonus.web'.
+    Trying pattern rule with stem 'bonus.web'.
+    Trying implicit prerequisite 's.bonus.web'.
+    Trying pattern rule with stem 'bonus.web'.
+    Trying implicit prerequisite 'SCCS/s.bonus.web'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.f'.
+  Looking for a rule with intermediate file 'bonus.f'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.F'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.r'.
+   Trying pattern rule with stem 'bonus.f'.
+   Trying implicit prerequisite 'bonus.f,v'.
+   Trying pattern rule with stem 'bonus.f'.
+   Trying implicit prerequisite 'RCS/bonus.f,v'.
+   Trying pattern rule with stem 'bonus.f'.
+   Trying implicit prerequisite 'RCS/bonus.f'.
+   Trying pattern rule with stem 'bonus.f'.
+   Trying implicit prerequisite 's.bonus.f'.
+   Trying pattern rule with stem 'bonus.f'.
+   Trying implicit prerequisite 'SCCS/s.bonus.f'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.F'.
+   Looking for a rule with intermediate file 'bonus.F'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.F'.
+    Trying implicit prerequisite 'bonus.F,v'.
+    Trying pattern rule with stem 'bonus.F'.
+    Trying implicit prerequisite 'RCS/bonus.F,v'.
+    Trying pattern rule with stem 'bonus.F'.
+    Trying implicit prerequisite 'RCS/bonus.F'.
+    Trying pattern rule with stem 'bonus.F'.
+    Trying implicit prerequisite 's.bonus.F'.
+    Trying pattern rule with stem 'bonus.F'.
+    Trying implicit prerequisite 'SCCS/s.bonus.F'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.r'.
+   Looking for a rule with intermediate file 'bonus.r'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus'.
+    Rejecting impossible implicit prerequisite 'bonus.l'.
+    Trying pattern rule with stem 'bonus.r'.
+    Trying implicit prerequisite 'bonus.r,v'.
+    Trying pattern rule with stem 'bonus.r'.
+    Trying implicit prerequisite 'RCS/bonus.r,v'.
+    Trying pattern rule with stem 'bonus.r'.
+    Trying implicit prerequisite 'RCS/bonus.r'.
+    Trying pattern rule with stem 'bonus.r'.
+    Trying implicit prerequisite 's.bonus.r'.
+    Trying pattern rule with stem 'bonus.r'.
+    Trying implicit prerequisite 'SCCS/s.bonus.r'.
+  Trying pattern rule with stem 'bonus'.
+  Rejecting impossible implicit prerequisite 'bonus.F'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.m'.
+  Looking for a rule with intermediate file 'bonus.m'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.ym'.
+   Trying pattern rule with stem 'bonus.m'.
+   Trying implicit prerequisite 'bonus.m,v'.
+   Trying pattern rule with stem 'bonus.m'.
+   Trying implicit prerequisite 'RCS/bonus.m,v'.
+   Trying pattern rule with stem 'bonus.m'.
+   Trying implicit prerequisite 'RCS/bonus.m'.
+   Trying pattern rule with stem 'bonus.m'.
+   Trying implicit prerequisite 's.bonus.m'.
+   Trying pattern rule with stem 'bonus.m'.
+   Trying implicit prerequisite 'SCCS/s.bonus.m'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.ym'.
+   Looking for a rule with intermediate file 'bonus.ym'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.ym'.
+    Trying implicit prerequisite 'bonus.ym,v'.
+    Trying pattern rule with stem 'bonus.ym'.
+    Trying implicit prerequisite 'RCS/bonus.ym,v'.
+    Trying pattern rule with stem 'bonus.ym'.
+    Trying implicit prerequisite 'RCS/bonus.ym'.
+    Trying pattern rule with stem 'bonus.ym'.
+    Trying implicit prerequisite 's.bonus.ym'.
+    Trying pattern rule with stem 'bonus.ym'.
+    Trying implicit prerequisite 'SCCS/s.bonus.ym'.
+  Trying pattern rule with stem 'bonus'.
+  Rejecting impossible implicit prerequisite 'bonus.r'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.s'.
+  Looking for a rule with intermediate file 'bonus.s'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.S'.
+   Trying pattern rule with stem 'bonus.s'.
+   Trying implicit prerequisite 'bonus.s,v'.
+   Trying pattern rule with stem 'bonus.s'.
+   Trying implicit prerequisite 'RCS/bonus.s,v'.
+   Trying pattern rule with stem 'bonus.s'.
+   Trying implicit prerequisite 'RCS/bonus.s'.
+   Trying pattern rule with stem 'bonus.s'.
+   Trying implicit prerequisite 's.bonus.s'.
+   Trying pattern rule with stem 'bonus.s'.
+   Trying implicit prerequisite 'SCCS/s.bonus.s'.
+   Trying pattern rule with stem 'bonus'.
+   Trying implicit prerequisite 'bonus.S'.
+   Looking for a rule with intermediate file 'bonus.S'.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Avoiding implicit rule recursion.
+    Trying pattern rule with stem 'bonus.S'.
+    Trying implicit prerequisite 'bonus.S,v'.
+    Trying pattern rule with stem 'bonus.S'.
+    Trying implicit prerequisite 'RCS/bonus.S,v'.
+    Trying pattern rule with stem 'bonus.S'.
+    Trying implicit prerequisite 'RCS/bonus.S'.
+    Trying pattern rule with stem 'bonus.S'.
+    Trying implicit prerequisite 's.bonus.S'.
+    Trying pattern rule with stem 'bonus.S'.
+    Trying implicit prerequisite 'SCCS/s.bonus.S'.
+  Trying pattern rule with stem 'bonus'.
+  Rejecting impossible implicit prerequisite 'bonus.S'.
+  Trying pattern rule with stem 'bonus'.
+  Trying implicit prerequisite 'bonus.mod'.
+  Looking for a rule with intermediate file 'bonus.mod'.
+   Avoiding implicit rule recursion.
+   Avoiding implicit rule recursion.
+   Trying pattern rule with stem 'bonus.mod'.
+   Trying implicit prerequisite 'bonus.mod,v'.
+   Trying pattern rule with stem 'bonus.mod'.
+   Trying implicit prerequisite 'RCS/bonus.mod,v'.
+   Trying pattern rule with stem 'bonus.mod'.
+   Trying implicit prerequisite 'RCS/bonus.mod'.
+   Trying pattern rule with stem 'bonus.mod'.
+   Trying implicit prerequisite 's.bonus.mod'.
+   Trying pattern rule with stem 'bonus.mod'.
+   Trying implicit prerequisite 'SCCS/s.bonus.mod'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.c'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.cc'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.C'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.cpp'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.p'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.f'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.F'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.m'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.r'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.s'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.S'.
+ Trying pattern rule with stem 'bonus'.
+ Rejecting impossible implicit prerequisite 'bonus.mod'.
+ Trying pattern rule with stem 'bonus'.
+ Trying implicit prerequisite 'bonus.sh'.
+ Looking for a rule with intermediate file 'bonus.sh'.
+  Avoiding implicit rule recursion.
+  Trying pattern rule with stem 'bonus.sh'.
+  Trying implicit prerequisite 'bonus.sh,v'.
+  Trying pattern rule with stem 'bonus.sh'.
+  Trying implicit prerequisite 'RCS/bonus.sh,v'.
+  Trying pattern rule with stem 'bonus.sh'.
+  Trying implicit prerequisite 'RCS/bonus.sh'.
+  Trying pattern rule with stem 'bonus.sh'.
+  Trying implicit prerequisite 's.bonus.sh'.
+  Trying pattern rule with stem 'bonus.sh'.
+  Trying implicit prerequisite 'SCCS/s.bonus.sh'.
+ No implicit rule found for 'bonus'.
+  Considering target file 'cub3d_bonus'.
+    Considering target file 'includes/cub3d_bonus.h'.
+     Looking for an implicit rule for 'includes/cub3d_bonus.h'.
+     Trying pattern rule with stem 'cub3d_bonus.h'.
+     Trying implicit prerequisite 'includes/cub3d_bonus.h,v'.
+     Trying pattern rule with stem 'cub3d_bonus.h'.
+     Trying implicit prerequisite 'includes/RCS/cub3d_bonus.h,v'.
+     Trying pattern rule with stem 'cub3d_bonus.h'.
+     Trying implicit prerequisite 'includes/RCS/cub3d_bonus.h'.
+     Trying pattern rule with stem 'cub3d_bonus.h'.
+     Trying implicit prerequisite 'includes/s.cub3d_bonus.h'.
+     Trying pattern rule with stem 'cub3d_bonus.h'.
+     Trying implicit prerequisite 'includes/SCCS/s.cub3d_bonus.h'.
+     No implicit rule found for 'includes/cub3d_bonus.h'.
+     Finished prerequisites of target file 'includes/cub3d_bonus.h'.
+    No need to remake target 'includes/cub3d_bonus.h'.
+    Considering target file 'includes/miniaudio.h'.
+     Looking for an implicit rule for 'includes/miniaudio.h'.
+     Trying pattern rule with stem 'miniaudio.h'.
+     Trying implicit prerequisite 'includes/miniaudio.h,v'.
+     Trying pattern rule with stem 'miniaudio.h'.
+     Trying implicit prerequisite 'includes/RCS/miniaudio.h,v'.
+     Trying pattern rule with stem 'miniaudio.h'.
+     Trying implicit prerequisite 'includes/RCS/miniaudio.h'.
+     Trying pattern rule with stem 'miniaudio.h'.
+     Trying implicit prerequisite 'includes/s.miniaudio.h'.
+     Trying pattern rule with stem 'miniaudio.h'.
+     Trying implicit prerequisite 'includes/SCCS/s.miniaudio.h'.
+     No implicit rule found for 'includes/miniaudio.h'.
+     Finished prerequisites of target file 'includes/miniaudio.h'.
+    No need to remake target 'includes/miniaudio.h'.
+    Considering target file 'bonus/main.o'.
+     Looking for an implicit rule for 'bonus/main.o'.
+     Trying pattern rule with stem 'main'.
+     Trying implicit prerequisite 'bonus/main.c'.
+     Found an implicit rule for 'bonus/main.o'.
+      Considering target file 'bonus/main.c'.
+       Looking for an implicit rule for 'bonus/main.c'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.y'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.l'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.w'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.w'.
+       Trying pattern rule with stem 'main.c'.
+       Trying implicit prerequisite 'bonus/main.c,v'.
+       Trying pattern rule with stem 'main.c'.
+       Trying implicit prerequisite 'bonus/RCS/main.c,v'.
+       Trying pattern rule with stem 'main.c'.
+       Trying implicit prerequisite 'bonus/RCS/main.c'.
+       Trying pattern rule with stem 'main.c'.
+       Trying implicit prerequisite 'bonus/s.main.c'.
+       Trying pattern rule with stem 'main.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.main.c'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.y'.
+       Looking for a rule with intermediate file 'bonus/main.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'main.y'.
+        Trying implicit prerequisite 'bonus/main.y,v'.
+        Trying pattern rule with stem 'main.y'.
+        Trying implicit prerequisite 'bonus/RCS/main.y,v'.
+        Trying pattern rule with stem 'main.y'.
+        Trying implicit prerequisite 'bonus/RCS/main.y'.
+        Trying pattern rule with stem 'main.y'.
+        Trying implicit prerequisite 'bonus/s.main.y'.
+        Trying pattern rule with stem 'main.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.main.y'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.l'.
+       Looking for a rule with intermediate file 'bonus/main.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'main.l'.
+        Trying implicit prerequisite 'bonus/main.l,v'.
+        Trying pattern rule with stem 'main.l'.
+        Trying implicit prerequisite 'bonus/RCS/main.l,v'.
+        Trying pattern rule with stem 'main.l'.
+        Trying implicit prerequisite 'bonus/RCS/main.l'.
+        Trying pattern rule with stem 'main.l'.
+        Trying implicit prerequisite 'bonus/s.main.l'.
+        Trying pattern rule with stem 'main.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.main.l'.
+       Trying pattern rule with stem 'main'.
+       Trying implicit prerequisite 'bonus/main.w'.
+       Looking for a rule with intermediate file 'bonus/main.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'main.w'.
+        Trying implicit prerequisite 'bonus/main.w,v'.
+        Trying pattern rule with stem 'main.w'.
+        Trying implicit prerequisite 'bonus/RCS/main.w,v'.
+        Trying pattern rule with stem 'main.w'.
+        Trying implicit prerequisite 'bonus/RCS/main.w'.
+        Trying pattern rule with stem 'main.w'.
+        Trying implicit prerequisite 'bonus/s.main.w'.
+        Trying pattern rule with stem 'main.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.main.w'.
+       Trying pattern rule with stem 'main'.
+       Rejecting impossible implicit prerequisite 'bonus/main.w'.
+       No implicit rule found for 'bonus/main.c'.
+       Finished prerequisites of target file 'bonus/main.c'.
+      No need to remake target 'bonus/main.c'.
+     Finished prerequisites of target file 'bonus/main.o'.
+     Prerequisite 'bonus/main.c' is older than target 'bonus/main.o'.
+    No need to remake target 'bonus/main.o'.
+    Considering target file 'bonus/window_init.o'.
+     Looking for an implicit rule for 'bonus/window_init.o'.
+     Trying pattern rule with stem 'window_init'.
+     Trying implicit prerequisite 'bonus/window_init.c'.
+     Found an implicit rule for 'bonus/window_init.o'.
+      Considering target file 'bonus/window_init.c'.
+       Looking for an implicit rule for 'bonus/window_init.c'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.y'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.l'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.w'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.w'.
+       Trying pattern rule with stem 'window_init.c'.
+       Trying implicit prerequisite 'bonus/window_init.c,v'.
+       Trying pattern rule with stem 'window_init.c'.
+       Trying implicit prerequisite 'bonus/RCS/window_init.c,v'.
+       Trying pattern rule with stem 'window_init.c'.
+       Trying implicit prerequisite 'bonus/RCS/window_init.c'.
+       Trying pattern rule with stem 'window_init.c'.
+       Trying implicit prerequisite 'bonus/s.window_init.c'.
+       Trying pattern rule with stem 'window_init.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.window_init.c'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.y'.
+       Looking for a rule with intermediate file 'bonus/window_init.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'window_init.y'.
+        Trying implicit prerequisite 'bonus/window_init.y,v'.
+        Trying pattern rule with stem 'window_init.y'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.y,v'.
+        Trying pattern rule with stem 'window_init.y'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.y'.
+        Trying pattern rule with stem 'window_init.y'.
+        Trying implicit prerequisite 'bonus/s.window_init.y'.
+        Trying pattern rule with stem 'window_init.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.window_init.y'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.l'.
+       Looking for a rule with intermediate file 'bonus/window_init.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'window_init.l'.
+        Trying implicit prerequisite 'bonus/window_init.l,v'.
+        Trying pattern rule with stem 'window_init.l'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.l,v'.
+        Trying pattern rule with stem 'window_init.l'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.l'.
+        Trying pattern rule with stem 'window_init.l'.
+        Trying implicit prerequisite 'bonus/s.window_init.l'.
+        Trying pattern rule with stem 'window_init.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.window_init.l'.
+       Trying pattern rule with stem 'window_init'.
+       Trying implicit prerequisite 'bonus/window_init.w'.
+       Looking for a rule with intermediate file 'bonus/window_init.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'window_init.w'.
+        Trying implicit prerequisite 'bonus/window_init.w,v'.
+        Trying pattern rule with stem 'window_init.w'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.w,v'.
+        Trying pattern rule with stem 'window_init.w'.
+        Trying implicit prerequisite 'bonus/RCS/window_init.w'.
+        Trying pattern rule with stem 'window_init.w'.
+        Trying implicit prerequisite 'bonus/s.window_init.w'.
+        Trying pattern rule with stem 'window_init.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.window_init.w'.
+       Trying pattern rule with stem 'window_init'.
+       Rejecting impossible implicit prerequisite 'bonus/window_init.w'.
+       No implicit rule found for 'bonus/window_init.c'.
+       Finished prerequisites of target file 'bonus/window_init.c'.
+      No need to remake target 'bonus/window_init.c'.
+     Finished prerequisites of target file 'bonus/window_init.o'.
+     Prerequisite 'bonus/window_init.c' is older than target 'bonus/window_init.o'.
+    No need to remake target 'bonus/window_init.o'.
+    Considering target file 'bonus/game_loop.o'.
+     Looking for an implicit rule for 'bonus/game_loop.o'.
+     Trying pattern rule with stem 'game_loop'.
+     Trying implicit prerequisite 'bonus/game_loop.c'.
+     Found an implicit rule for 'bonus/game_loop.o'.
+      Considering target file 'bonus/game_loop.c'.
+       Looking for an implicit rule for 'bonus/game_loop.c'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.y'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.l'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.w'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.w'.
+       Trying pattern rule with stem 'game_loop.c'.
+       Trying implicit prerequisite 'bonus/game_loop.c,v'.
+       Trying pattern rule with stem 'game_loop.c'.
+       Trying implicit prerequisite 'bonus/RCS/game_loop.c,v'.
+       Trying pattern rule with stem 'game_loop.c'.
+       Trying implicit prerequisite 'bonus/RCS/game_loop.c'.
+       Trying pattern rule with stem 'game_loop.c'.
+       Trying implicit prerequisite 'bonus/s.game_loop.c'.
+       Trying pattern rule with stem 'game_loop.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.game_loop.c'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.y'.
+       Looking for a rule with intermediate file 'bonus/game_loop.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'game_loop.y'.
+        Trying implicit prerequisite 'bonus/game_loop.y,v'.
+        Trying pattern rule with stem 'game_loop.y'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.y,v'.
+        Trying pattern rule with stem 'game_loop.y'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.y'.
+        Trying pattern rule with stem 'game_loop.y'.
+        Trying implicit prerequisite 'bonus/s.game_loop.y'.
+        Trying pattern rule with stem 'game_loop.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.game_loop.y'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.l'.
+       Looking for a rule with intermediate file 'bonus/game_loop.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'game_loop.l'.
+        Trying implicit prerequisite 'bonus/game_loop.l,v'.
+        Trying pattern rule with stem 'game_loop.l'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.l,v'.
+        Trying pattern rule with stem 'game_loop.l'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.l'.
+        Trying pattern rule with stem 'game_loop.l'.
+        Trying implicit prerequisite 'bonus/s.game_loop.l'.
+        Trying pattern rule with stem 'game_loop.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.game_loop.l'.
+       Trying pattern rule with stem 'game_loop'.
+       Trying implicit prerequisite 'bonus/game_loop.w'.
+       Looking for a rule with intermediate file 'bonus/game_loop.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'game_loop.w'.
+        Trying implicit prerequisite 'bonus/game_loop.w,v'.
+        Trying pattern rule with stem 'game_loop.w'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.w,v'.
+        Trying pattern rule with stem 'game_loop.w'.
+        Trying implicit prerequisite 'bonus/RCS/game_loop.w'.
+        Trying pattern rule with stem 'game_loop.w'.
+        Trying implicit prerequisite 'bonus/s.game_loop.w'.
+        Trying pattern rule with stem 'game_loop.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.game_loop.w'.
+       Trying pattern rule with stem 'game_loop'.
+       Rejecting impossible implicit prerequisite 'bonus/game_loop.w'.
+       No implicit rule found for 'bonus/game_loop.c'.
+       Finished prerequisites of target file 'bonus/game_loop.c'.
+      No need to remake target 'bonus/game_loop.c'.
+     Finished prerequisites of target file 'bonus/game_loop.o'.
+     Prerequisite 'bonus/game_loop.c' is older than target 'bonus/game_loop.o'.
+    No need to remake target 'bonus/game_loop.o'.
+    Considering target file 'bonus/free.o'.
+     Looking for an implicit rule for 'bonus/free.o'.
+     Trying pattern rule with stem 'free'.
+     Trying implicit prerequisite 'bonus/free.c'.
+     Found an implicit rule for 'bonus/free.o'.
+      Considering target file 'bonus/free.c'.
+       Looking for an implicit rule for 'bonus/free.c'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.y'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.l'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.w'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.w'.
+       Trying pattern rule with stem 'free.c'.
+       Trying implicit prerequisite 'bonus/free.c,v'.
+       Trying pattern rule with stem 'free.c'.
+       Trying implicit prerequisite 'bonus/RCS/free.c,v'.
+       Trying pattern rule with stem 'free.c'.
+       Trying implicit prerequisite 'bonus/RCS/free.c'.
+       Trying pattern rule with stem 'free.c'.
+       Trying implicit prerequisite 'bonus/s.free.c'.
+       Trying pattern rule with stem 'free.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.free.c'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.y'.
+       Looking for a rule with intermediate file 'bonus/free.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'free.y'.
+        Trying implicit prerequisite 'bonus/free.y,v'.
+        Trying pattern rule with stem 'free.y'.
+        Trying implicit prerequisite 'bonus/RCS/free.y,v'.
+        Trying pattern rule with stem 'free.y'.
+        Trying implicit prerequisite 'bonus/RCS/free.y'.
+        Trying pattern rule with stem 'free.y'.
+        Trying implicit prerequisite 'bonus/s.free.y'.
+        Trying pattern rule with stem 'free.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.free.y'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.l'.
+       Looking for a rule with intermediate file 'bonus/free.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'free.l'.
+        Trying implicit prerequisite 'bonus/free.l,v'.
+        Trying pattern rule with stem 'free.l'.
+        Trying implicit prerequisite 'bonus/RCS/free.l,v'.
+        Trying pattern rule with stem 'free.l'.
+        Trying implicit prerequisite 'bonus/RCS/free.l'.
+        Trying pattern rule with stem 'free.l'.
+        Trying implicit prerequisite 'bonus/s.free.l'.
+        Trying pattern rule with stem 'free.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.free.l'.
+       Trying pattern rule with stem 'free'.
+       Trying implicit prerequisite 'bonus/free.w'.
+       Looking for a rule with intermediate file 'bonus/free.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'free.w'.
+        Trying implicit prerequisite 'bonus/free.w,v'.
+        Trying pattern rule with stem 'free.w'.
+        Trying implicit prerequisite 'bonus/RCS/free.w,v'.
+        Trying pattern rule with stem 'free.w'.
+        Trying implicit prerequisite 'bonus/RCS/free.w'.
+        Trying pattern rule with stem 'free.w'.
+        Trying implicit prerequisite 'bonus/s.free.w'.
+        Trying pattern rule with stem 'free.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.free.w'.
+       Trying pattern rule with stem 'free'.
+       Rejecting impossible implicit prerequisite 'bonus/free.w'.
+       No implicit rule found for 'bonus/free.c'.
+       Finished prerequisites of target file 'bonus/free.c'.
+      No need to remake target 'bonus/free.c'.
+     Finished prerequisites of target file 'bonus/free.o'.
+     Prerequisite 'bonus/free.c' is older than target 'bonus/free.o'.
+    No need to remake target 'bonus/free.o'.
+    Considering target file 'bonus/draw_player.o'.
+     Looking for an implicit rule for 'bonus/draw_player.o'.
+     Trying pattern rule with stem 'draw_player'.
+     Trying implicit prerequisite 'bonus/draw_player.c'.
+     Found an implicit rule for 'bonus/draw_player.o'.
+      Considering target file 'bonus/draw_player.c'.
+       Looking for an implicit rule for 'bonus/draw_player.c'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.y'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.l'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.w'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.w'.
+       Trying pattern rule with stem 'draw_player.c'.
+       Trying implicit prerequisite 'bonus/draw_player.c,v'.
+       Trying pattern rule with stem 'draw_player.c'.
+       Trying implicit prerequisite 'bonus/RCS/draw_player.c,v'.
+       Trying pattern rule with stem 'draw_player.c'.
+       Trying implicit prerequisite 'bonus/RCS/draw_player.c'.
+       Trying pattern rule with stem 'draw_player.c'.
+       Trying implicit prerequisite 'bonus/s.draw_player.c'.
+       Trying pattern rule with stem 'draw_player.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.draw_player.c'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.y'.
+       Looking for a rule with intermediate file 'bonus/draw_player.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'draw_player.y'.
+        Trying implicit prerequisite 'bonus/draw_player.y,v'.
+        Trying pattern rule with stem 'draw_player.y'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.y,v'.
+        Trying pattern rule with stem 'draw_player.y'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.y'.
+        Trying pattern rule with stem 'draw_player.y'.
+        Trying implicit prerequisite 'bonus/s.draw_player.y'.
+        Trying pattern rule with stem 'draw_player.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.draw_player.y'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.l'.
+       Looking for a rule with intermediate file 'bonus/draw_player.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'draw_player.l'.
+        Trying implicit prerequisite 'bonus/draw_player.l,v'.
+        Trying pattern rule with stem 'draw_player.l'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.l,v'.
+        Trying pattern rule with stem 'draw_player.l'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.l'.
+        Trying pattern rule with stem 'draw_player.l'.
+        Trying implicit prerequisite 'bonus/s.draw_player.l'.
+        Trying pattern rule with stem 'draw_player.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.draw_player.l'.
+       Trying pattern rule with stem 'draw_player'.
+       Trying implicit prerequisite 'bonus/draw_player.w'.
+       Looking for a rule with intermediate file 'bonus/draw_player.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'draw_player.w'.
+        Trying implicit prerequisite 'bonus/draw_player.w,v'.
+        Trying pattern rule with stem 'draw_player.w'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.w,v'.
+        Trying pattern rule with stem 'draw_player.w'.
+        Trying implicit prerequisite 'bonus/RCS/draw_player.w'.
+        Trying pattern rule with stem 'draw_player.w'.
+        Trying implicit prerequisite 'bonus/s.draw_player.w'.
+        Trying pattern rule with stem 'draw_player.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.draw_player.w'.
+       Trying pattern rule with stem 'draw_player'.
+       Rejecting impossible implicit prerequisite 'bonus/draw_player.w'.
+       No implicit rule found for 'bonus/draw_player.c'.
+       Finished prerequisites of target file 'bonus/draw_player.c'.
+      No need to remake target 'bonus/draw_player.c'.
+     Finished prerequisites of target file 'bonus/draw_player.o'.
+     Prerequisite 'bonus/draw_player.c' is older than target 'bonus/draw_player.o'.
+    No need to remake target 'bonus/draw_player.o'.
+    Considering target file 'bonus/raycast_2D.o'.
+     Looking for an implicit rule for 'bonus/raycast_2D.o'.
+     Trying pattern rule with stem 'raycast_2D'.
+     Trying implicit prerequisite 'bonus/raycast_2D.c'.
+     Found an implicit rule for 'bonus/raycast_2D.o'.
+      Considering target file 'bonus/raycast_2D.c'.
+       Looking for an implicit rule for 'bonus/raycast_2D.c'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.y'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.l'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.w'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.w'.
+       Trying pattern rule with stem 'raycast_2D.c'.
+       Trying implicit prerequisite 'bonus/raycast_2D.c,v'.
+       Trying pattern rule with stem 'raycast_2D.c'.
+       Trying implicit prerequisite 'bonus/RCS/raycast_2D.c,v'.
+       Trying pattern rule with stem 'raycast_2D.c'.
+       Trying implicit prerequisite 'bonus/RCS/raycast_2D.c'.
+       Trying pattern rule with stem 'raycast_2D.c'.
+       Trying implicit prerequisite 'bonus/s.raycast_2D.c'.
+       Trying pattern rule with stem 'raycast_2D.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.raycast_2D.c'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.y'.
+       Looking for a rule with intermediate file 'bonus/raycast_2D.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'raycast_2D.y'.
+        Trying implicit prerequisite 'bonus/raycast_2D.y,v'.
+        Trying pattern rule with stem 'raycast_2D.y'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.y,v'.
+        Trying pattern rule with stem 'raycast_2D.y'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.y'.
+        Trying pattern rule with stem 'raycast_2D.y'.
+        Trying implicit prerequisite 'bonus/s.raycast_2D.y'.
+        Trying pattern rule with stem 'raycast_2D.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.raycast_2D.y'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.l'.
+       Looking for a rule with intermediate file 'bonus/raycast_2D.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'raycast_2D.l'.
+        Trying implicit prerequisite 'bonus/raycast_2D.l,v'.
+        Trying pattern rule with stem 'raycast_2D.l'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.l,v'.
+        Trying pattern rule with stem 'raycast_2D.l'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.l'.
+        Trying pattern rule with stem 'raycast_2D.l'.
+        Trying implicit prerequisite 'bonus/s.raycast_2D.l'.
+        Trying pattern rule with stem 'raycast_2D.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.raycast_2D.l'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Trying implicit prerequisite 'bonus/raycast_2D.w'.
+       Looking for a rule with intermediate file 'bonus/raycast_2D.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'raycast_2D.w'.
+        Trying implicit prerequisite 'bonus/raycast_2D.w,v'.
+        Trying pattern rule with stem 'raycast_2D.w'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.w,v'.
+        Trying pattern rule with stem 'raycast_2D.w'.
+        Trying implicit prerequisite 'bonus/RCS/raycast_2D.w'.
+        Trying pattern rule with stem 'raycast_2D.w'.
+        Trying implicit prerequisite 'bonus/s.raycast_2D.w'.
+        Trying pattern rule with stem 'raycast_2D.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.raycast_2D.w'.
+       Trying pattern rule with stem 'raycast_2D'.
+       Rejecting impossible implicit prerequisite 'bonus/raycast_2D.w'.
+       No implicit rule found for 'bonus/raycast_2D.c'.
+       Finished prerequisites of target file 'bonus/raycast_2D.c'.
+      No need to remake target 'bonus/raycast_2D.c'.
+     Finished prerequisites of target file 'bonus/raycast_2D.o'.
+     Prerequisite 'bonus/raycast_2D.c' is older than target 'bonus/raycast_2D.o'.
+    No need to remake target 'bonus/raycast_2D.o'.
+    Considering target file 'bonus/events.o'.
+     Looking for an implicit rule for 'bonus/events.o'.
+     Trying pattern rule with stem 'events'.
+     Trying implicit prerequisite 'bonus/events.c'.
+     Found an implicit rule for 'bonus/events.o'.
+      Considering target file 'bonus/events.c'.
+       Looking for an implicit rule for 'bonus/events.c'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.y'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.l'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.w'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.w'.
+       Trying pattern rule with stem 'events.c'.
+       Trying implicit prerequisite 'bonus/events.c,v'.
+       Trying pattern rule with stem 'events.c'.
+       Trying implicit prerequisite 'bonus/RCS/events.c,v'.
+       Trying pattern rule with stem 'events.c'.
+       Trying implicit prerequisite 'bonus/RCS/events.c'.
+       Trying pattern rule with stem 'events.c'.
+       Trying implicit prerequisite 'bonus/s.events.c'.
+       Trying pattern rule with stem 'events.c'.
+       Trying implicit prerequisite 'bonus/SCCS/s.events.c'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.y'.
+       Looking for a rule with intermediate file 'bonus/events.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'events.y'.
+        Trying implicit prerequisite 'bonus/events.y,v'.
+        Trying pattern rule with stem 'events.y'.
+        Trying implicit prerequisite 'bonus/RCS/events.y,v'.
+        Trying pattern rule with stem 'events.y'.
+        Trying implicit prerequisite 'bonus/RCS/events.y'.
+        Trying pattern rule with stem 'events.y'.
+        Trying implicit prerequisite 'bonus/s.events.y'.
+        Trying pattern rule with stem 'events.y'.
+        Trying implicit prerequisite 'bonus/SCCS/s.events.y'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.l'.
+       Looking for a rule with intermediate file 'bonus/events.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'events.l'.
+        Trying implicit prerequisite 'bonus/events.l,v'.
+        Trying pattern rule with stem 'events.l'.
+        Trying implicit prerequisite 'bonus/RCS/events.l,v'.
+        Trying pattern rule with stem 'events.l'.
+        Trying implicit prerequisite 'bonus/RCS/events.l'.
+        Trying pattern rule with stem 'events.l'.
+        Trying implicit prerequisite 'bonus/s.events.l'.
+        Trying pattern rule with stem 'events.l'.
+        Trying implicit prerequisite 'bonus/SCCS/s.events.l'.
+       Trying pattern rule with stem 'events'.
+       Trying implicit prerequisite 'bonus/events.w'.
+       Looking for a rule with intermediate file 'bonus/events.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'events.w'.
+        Trying implicit prerequisite 'bonus/events.w,v'.
+        Trying pattern rule with stem 'events.w'.
+        Trying implicit prerequisite 'bonus/RCS/events.w,v'.
+        Trying pattern rule with stem 'events.w'.
+        Trying implicit prerequisite 'bonus/RCS/events.w'.
+        Trying pattern rule with stem 'events.w'.
+        Trying implicit prerequisite 'bonus/s.events.w'.
+        Trying pattern rule with stem 'events.w'.
+        Trying implicit prerequisite 'bonus/SCCS/s.events.w'.
+       Trying pattern rule with stem 'events'.
+       Rejecting impossible implicit prerequisite 'bonus/events.w'.
+       No implicit rule found for 'bonus/events.c'.
+       Finished prerequisites of target file 'bonus/events.c'.
+      No need to remake target 'bonus/events.c'.
+     Finished prerequisites of target file 'bonus/events.o'.
+     Prerequisite 'bonus/events.c' is older than target 'bonus/events.o'.
+    No need to remake target 'bonus/events.o'.
+    Considering target file 'bonus/shapes/square.o'.
+     Looking for an implicit rule for 'bonus/shapes/square.o'.
+     Trying pattern rule with stem 'square'.
+     Trying implicit prerequisite 'bonus/shapes/square.c'.
+     Found an implicit rule for 'bonus/shapes/square.o'.
+      Considering target file 'bonus/shapes/square.c'.
+       Looking for an implicit rule for 'bonus/shapes/square.c'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.y'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.l'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.w'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.w'.
+       Trying pattern rule with stem 'square.c'.
+       Trying implicit prerequisite 'bonus/shapes/square.c,v'.
+       Trying pattern rule with stem 'square.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/square.c,v'.
+       Trying pattern rule with stem 'square.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/square.c'.
+       Trying pattern rule with stem 'square.c'.
+       Trying implicit prerequisite 'bonus/shapes/s.square.c'.
+       Trying pattern rule with stem 'square.c'.
+       Trying implicit prerequisite 'bonus/shapes/SCCS/s.square.c'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.y'.
+       Looking for a rule with intermediate file 'bonus/shapes/square.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'square.y'.
+        Trying implicit prerequisite 'bonus/shapes/square.y,v'.
+        Trying pattern rule with stem 'square.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.y,v'.
+        Trying pattern rule with stem 'square.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.y'.
+        Trying pattern rule with stem 'square.y'.
+        Trying implicit prerequisite 'bonus/shapes/s.square.y'.
+        Trying pattern rule with stem 'square.y'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.square.y'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.l'.
+       Looking for a rule with intermediate file 'bonus/shapes/square.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'square.l'.
+        Trying implicit prerequisite 'bonus/shapes/square.l,v'.
+        Trying pattern rule with stem 'square.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.l,v'.
+        Trying pattern rule with stem 'square.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.l'.
+        Trying pattern rule with stem 'square.l'.
+        Trying implicit prerequisite 'bonus/shapes/s.square.l'.
+        Trying pattern rule with stem 'square.l'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.square.l'.
+       Trying pattern rule with stem 'square'.
+       Trying implicit prerequisite 'bonus/shapes/square.w'.
+       Looking for a rule with intermediate file 'bonus/shapes/square.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'square.w'.
+        Trying implicit prerequisite 'bonus/shapes/square.w,v'.
+        Trying pattern rule with stem 'square.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.w,v'.
+        Trying pattern rule with stem 'square.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/square.w'.
+        Trying pattern rule with stem 'square.w'.
+        Trying implicit prerequisite 'bonus/shapes/s.square.w'.
+        Trying pattern rule with stem 'square.w'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.square.w'.
+       Trying pattern rule with stem 'square'.
+       Rejecting impossible implicit prerequisite 'bonus/shapes/square.w'.
+       No implicit rule found for 'bonus/shapes/square.c'.
+       Finished prerequisites of target file 'bonus/shapes/square.c'.
+      No need to remake target 'bonus/shapes/square.c'.
+     Finished prerequisites of target file 'bonus/shapes/square.o'.
+     Prerequisite 'bonus/shapes/square.c' is older than target 'bonus/shapes/square.o'.
+    No need to remake target 'bonus/shapes/square.o'.
+    Considering target file 'bonus/shapes/circle.o'.
+     Looking for an implicit rule for 'bonus/shapes/circle.o'.
+     Trying pattern rule with stem 'circle'.
+     Trying implicit prerequisite 'bonus/shapes/circle.c'.
+     Found an implicit rule for 'bonus/shapes/circle.o'.
+      Considering target file 'bonus/shapes/circle.c'.
+       Looking for an implicit rule for 'bonus/shapes/circle.c'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.y'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.l'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.w'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.w'.
+       Trying pattern rule with stem 'circle.c'.
+       Trying implicit prerequisite 'bonus/shapes/circle.c,v'.
+       Trying pattern rule with stem 'circle.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/circle.c,v'.
+       Trying pattern rule with stem 'circle.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/circle.c'.
+       Trying pattern rule with stem 'circle.c'.
+       Trying implicit prerequisite 'bonus/shapes/s.circle.c'.
+       Trying pattern rule with stem 'circle.c'.
+       Trying implicit prerequisite 'bonus/shapes/SCCS/s.circle.c'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.y'.
+       Looking for a rule with intermediate file 'bonus/shapes/circle.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'circle.y'.
+        Trying implicit prerequisite 'bonus/shapes/circle.y,v'.
+        Trying pattern rule with stem 'circle.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.y,v'.
+        Trying pattern rule with stem 'circle.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.y'.
+        Trying pattern rule with stem 'circle.y'.
+        Trying implicit prerequisite 'bonus/shapes/s.circle.y'.
+        Trying pattern rule with stem 'circle.y'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.circle.y'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.l'.
+       Looking for a rule with intermediate file 'bonus/shapes/circle.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'circle.l'.
+        Trying implicit prerequisite 'bonus/shapes/circle.l,v'.
+        Trying pattern rule with stem 'circle.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.l,v'.
+        Trying pattern rule with stem 'circle.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.l'.
+        Trying pattern rule with stem 'circle.l'.
+        Trying implicit prerequisite 'bonus/shapes/s.circle.l'.
+        Trying pattern rule with stem 'circle.l'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.circle.l'.
+       Trying pattern rule with stem 'circle'.
+       Trying implicit prerequisite 'bonus/shapes/circle.w'.
+       Looking for a rule with intermediate file 'bonus/shapes/circle.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'circle.w'.
+        Trying implicit prerequisite 'bonus/shapes/circle.w,v'.
+        Trying pattern rule with stem 'circle.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.w,v'.
+        Trying pattern rule with stem 'circle.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/circle.w'.
+        Trying pattern rule with stem 'circle.w'.
+        Trying implicit prerequisite 'bonus/shapes/s.circle.w'.
+        Trying pattern rule with stem 'circle.w'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.circle.w'.
+       Trying pattern rule with stem 'circle'.
+       Rejecting impossible implicit prerequisite 'bonus/shapes/circle.w'.
+       No implicit rule found for 'bonus/shapes/circle.c'.
+       Finished prerequisites of target file 'bonus/shapes/circle.c'.
+      No need to remake target 'bonus/shapes/circle.c'.
+     Finished prerequisites of target file 'bonus/shapes/circle.o'.
+     Prerequisite 'bonus/shapes/circle.c' is older than target 'bonus/shapes/circle.o'.
+    No need to remake target 'bonus/shapes/circle.o'.
+    Considering target file 'bonus/shapes/line.o'.
+     Looking for an implicit rule for 'bonus/shapes/line.o'.
+     Trying pattern rule with stem 'line'.
+     Trying implicit prerequisite 'bonus/shapes/line.c'.
+     Found an implicit rule for 'bonus/shapes/line.o'.
+      Considering target file 'bonus/shapes/line.c'.
+       Looking for an implicit rule for 'bonus/shapes/line.c'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.y'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.l'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.w'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.w'.
+       Trying pattern rule with stem 'line.c'.
+       Trying implicit prerequisite 'bonus/shapes/line.c,v'.
+       Trying pattern rule with stem 'line.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/line.c,v'.
+       Trying pattern rule with stem 'line.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/line.c'.
+       Trying pattern rule with stem 'line.c'.
+       Trying implicit prerequisite 'bonus/shapes/s.line.c'.
+       Trying pattern rule with stem 'line.c'.
+       Trying implicit prerequisite 'bonus/shapes/SCCS/s.line.c'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.y'.
+       Looking for a rule with intermediate file 'bonus/shapes/line.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'line.y'.
+        Trying implicit prerequisite 'bonus/shapes/line.y,v'.
+        Trying pattern rule with stem 'line.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.y,v'.
+        Trying pattern rule with stem 'line.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.y'.
+        Trying pattern rule with stem 'line.y'.
+        Trying implicit prerequisite 'bonus/shapes/s.line.y'.
+        Trying pattern rule with stem 'line.y'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.line.y'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.l'.
+       Looking for a rule with intermediate file 'bonus/shapes/line.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'line.l'.
+        Trying implicit prerequisite 'bonus/shapes/line.l,v'.
+        Trying pattern rule with stem 'line.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.l,v'.
+        Trying pattern rule with stem 'line.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.l'.
+        Trying pattern rule with stem 'line.l'.
+        Trying implicit prerequisite 'bonus/shapes/s.line.l'.
+        Trying pattern rule with stem 'line.l'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.line.l'.
+       Trying pattern rule with stem 'line'.
+       Trying implicit prerequisite 'bonus/shapes/line.w'.
+       Looking for a rule with intermediate file 'bonus/shapes/line.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'line.w'.
+        Trying implicit prerequisite 'bonus/shapes/line.w,v'.
+        Trying pattern rule with stem 'line.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.w,v'.
+        Trying pattern rule with stem 'line.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/line.w'.
+        Trying pattern rule with stem 'line.w'.
+        Trying implicit prerequisite 'bonus/shapes/s.line.w'.
+        Trying pattern rule with stem 'line.w'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.line.w'.
+       Trying pattern rule with stem 'line'.
+       Rejecting impossible implicit prerequisite 'bonus/shapes/line.w'.
+       No implicit rule found for 'bonus/shapes/line.c'.
+       Finished prerequisites of target file 'bonus/shapes/line.c'.
+      No need to remake target 'bonus/shapes/line.c'.
+     Finished prerequisites of target file 'bonus/shapes/line.o'.
+     Prerequisite 'bonus/shapes/line.c' is older than target 'bonus/shapes/line.o'.
+    No need to remake target 'bonus/shapes/line.o'.
+    Considering target file 'bonus/shapes/pixel_utils.o'.
+     Looking for an implicit rule for 'bonus/shapes/pixel_utils.o'.
+     Trying pattern rule with stem 'pixel_utils'.
+     Trying implicit prerequisite 'bonus/shapes/pixel_utils.c'.
+     Found an implicit rule for 'bonus/shapes/pixel_utils.o'.
+      Considering target file 'bonus/shapes/pixel_utils.c'.
+       Looking for an implicit rule for 'bonus/shapes/pixel_utils.c'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.y'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.l'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.w'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.w'.
+       Trying pattern rule with stem 'pixel_utils.c'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.c,v'.
+       Trying pattern rule with stem 'pixel_utils.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.c,v'.
+       Trying pattern rule with stem 'pixel_utils.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.c'.
+       Trying pattern rule with stem 'pixel_utils.c'.
+       Trying implicit prerequisite 'bonus/shapes/s.pixel_utils.c'.
+       Trying pattern rule with stem 'pixel_utils.c'.
+       Trying implicit prerequisite 'bonus/shapes/SCCS/s.pixel_utils.c'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.y'.
+       Looking for a rule with intermediate file 'bonus/shapes/pixel_utils.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_utils.y'.
+        Trying implicit prerequisite 'bonus/shapes/pixel_utils.y,v'.
+        Trying pattern rule with stem 'pixel_utils.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.y,v'.
+        Trying pattern rule with stem 'pixel_utils.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.y'.
+        Trying pattern rule with stem 'pixel_utils.y'.
+        Trying implicit prerequisite 'bonus/shapes/s.pixel_utils.y'.
+        Trying pattern rule with stem 'pixel_utils.y'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.pixel_utils.y'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.l'.
+       Looking for a rule with intermediate file 'bonus/shapes/pixel_utils.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_utils.l'.
+        Trying implicit prerequisite 'bonus/shapes/pixel_utils.l,v'.
+        Trying pattern rule with stem 'pixel_utils.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.l,v'.
+        Trying pattern rule with stem 'pixel_utils.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.l'.
+        Trying pattern rule with stem 'pixel_utils.l'.
+        Trying implicit prerequisite 'bonus/shapes/s.pixel_utils.l'.
+        Trying pattern rule with stem 'pixel_utils.l'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.pixel_utils.l'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Trying implicit prerequisite 'bonus/shapes/pixel_utils.w'.
+       Looking for a rule with intermediate file 'bonus/shapes/pixel_utils.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_utils.w'.
+        Trying implicit prerequisite 'bonus/shapes/pixel_utils.w,v'.
+        Trying pattern rule with stem 'pixel_utils.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.w,v'.
+        Trying pattern rule with stem 'pixel_utils.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/pixel_utils.w'.
+        Trying pattern rule with stem 'pixel_utils.w'.
+        Trying implicit prerequisite 'bonus/shapes/s.pixel_utils.w'.
+        Trying pattern rule with stem 'pixel_utils.w'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.pixel_utils.w'.
+       Trying pattern rule with stem 'pixel_utils'.
+       Rejecting impossible implicit prerequisite 'bonus/shapes/pixel_utils.w'.
+       No implicit rule found for 'bonus/shapes/pixel_utils.c'.
+       Finished prerequisites of target file 'bonus/shapes/pixel_utils.c'.
+      No need to remake target 'bonus/shapes/pixel_utils.c'.
+     Finished prerequisites of target file 'bonus/shapes/pixel_utils.o'.
+     Prerequisite 'bonus/shapes/pixel_utils.c' is older than target 'bonus/shapes/pixel_utils.o'.
+    No need to remake target 'bonus/shapes/pixel_utils.o'.
+    Considering target file 'bonus/shapes/rectangle.o'.
+     Looking for an implicit rule for 'bonus/shapes/rectangle.o'.
+     Trying pattern rule with stem 'rectangle'.
+     Trying implicit prerequisite 'bonus/shapes/rectangle.c'.
+     Found an implicit rule for 'bonus/shapes/rectangle.o'.
+      Considering target file 'bonus/shapes/rectangle.c'.
+       Looking for an implicit rule for 'bonus/shapes/rectangle.c'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.y'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.l'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.w'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.w'.
+       Trying pattern rule with stem 'rectangle.c'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.c,v'.
+       Trying pattern rule with stem 'rectangle.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.c,v'.
+       Trying pattern rule with stem 'rectangle.c'.
+       Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.c'.
+       Trying pattern rule with stem 'rectangle.c'.
+       Trying implicit prerequisite 'bonus/shapes/s.rectangle.c'.
+       Trying pattern rule with stem 'rectangle.c'.
+       Trying implicit prerequisite 'bonus/shapes/SCCS/s.rectangle.c'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.y'.
+       Looking for a rule with intermediate file 'bonus/shapes/rectangle.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'rectangle.y'.
+        Trying implicit prerequisite 'bonus/shapes/rectangle.y,v'.
+        Trying pattern rule with stem 'rectangle.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.y,v'.
+        Trying pattern rule with stem 'rectangle.y'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.y'.
+        Trying pattern rule with stem 'rectangle.y'.
+        Trying implicit prerequisite 'bonus/shapes/s.rectangle.y'.
+        Trying pattern rule with stem 'rectangle.y'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.rectangle.y'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.l'.
+       Looking for a rule with intermediate file 'bonus/shapes/rectangle.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'rectangle.l'.
+        Trying implicit prerequisite 'bonus/shapes/rectangle.l,v'.
+        Trying pattern rule with stem 'rectangle.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.l,v'.
+        Trying pattern rule with stem 'rectangle.l'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.l'.
+        Trying pattern rule with stem 'rectangle.l'.
+        Trying implicit prerequisite 'bonus/shapes/s.rectangle.l'.
+        Trying pattern rule with stem 'rectangle.l'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.rectangle.l'.
+       Trying pattern rule with stem 'rectangle'.
+       Trying implicit prerequisite 'bonus/shapes/rectangle.w'.
+       Looking for a rule with intermediate file 'bonus/shapes/rectangle.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'rectangle.w'.
+        Trying implicit prerequisite 'bonus/shapes/rectangle.w,v'.
+        Trying pattern rule with stem 'rectangle.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.w,v'.
+        Trying pattern rule with stem 'rectangle.w'.
+        Trying implicit prerequisite 'bonus/shapes/RCS/rectangle.w'.
+        Trying pattern rule with stem 'rectangle.w'.
+        Trying implicit prerequisite 'bonus/shapes/s.rectangle.w'.
+        Trying pattern rule with stem 'rectangle.w'.
+        Trying implicit prerequisite 'bonus/shapes/SCCS/s.rectangle.w'.
+       Trying pattern rule with stem 'rectangle'.
+       Rejecting impossible implicit prerequisite 'bonus/shapes/rectangle.w'.
+       No implicit rule found for 'bonus/shapes/rectangle.c'.
+       Finished prerequisites of target file 'bonus/shapes/rectangle.c'.
+      No need to remake target 'bonus/shapes/rectangle.c'.
+     Finished prerequisites of target file 'bonus/shapes/rectangle.o'.
+     Prerequisite 'bonus/shapes/rectangle.c' is older than target 'bonus/shapes/rectangle.o'.
+    No need to remake target 'bonus/shapes/rectangle.o'.
+    Considering target file 'bonus/map/get_map.o'.
+     Looking for an implicit rule for 'bonus/map/get_map.o'.
+     Trying pattern rule with stem 'get_map'.
+     Trying implicit prerequisite 'bonus/map/get_map.c'.
+     Found an implicit rule for 'bonus/map/get_map.o'.
+      Considering target file 'bonus/map/get_map.c'.
+       Looking for an implicit rule for 'bonus/map/get_map.c'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.y'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.l'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.w'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.w'.
+       Trying pattern rule with stem 'get_map.c'.
+       Trying implicit prerequisite 'bonus/map/get_map.c,v'.
+       Trying pattern rule with stem 'get_map.c'.
+       Trying implicit prerequisite 'bonus/map/RCS/get_map.c,v'.
+       Trying pattern rule with stem 'get_map.c'.
+       Trying implicit prerequisite 'bonus/map/RCS/get_map.c'.
+       Trying pattern rule with stem 'get_map.c'.
+       Trying implicit prerequisite 'bonus/map/s.get_map.c'.
+       Trying pattern rule with stem 'get_map.c'.
+       Trying implicit prerequisite 'bonus/map/SCCS/s.get_map.c'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.y'.
+       Looking for a rule with intermediate file 'bonus/map/get_map.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'get_map.y'.
+        Trying implicit prerequisite 'bonus/map/get_map.y,v'.
+        Trying pattern rule with stem 'get_map.y'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.y,v'.
+        Trying pattern rule with stem 'get_map.y'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.y'.
+        Trying pattern rule with stem 'get_map.y'.
+        Trying implicit prerequisite 'bonus/map/s.get_map.y'.
+        Trying pattern rule with stem 'get_map.y'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.get_map.y'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.l'.
+       Looking for a rule with intermediate file 'bonus/map/get_map.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'get_map.l'.
+        Trying implicit prerequisite 'bonus/map/get_map.l,v'.
+        Trying pattern rule with stem 'get_map.l'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.l,v'.
+        Trying pattern rule with stem 'get_map.l'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.l'.
+        Trying pattern rule with stem 'get_map.l'.
+        Trying implicit prerequisite 'bonus/map/s.get_map.l'.
+        Trying pattern rule with stem 'get_map.l'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.get_map.l'.
+       Trying pattern rule with stem 'get_map'.
+       Trying implicit prerequisite 'bonus/map/get_map.w'.
+       Looking for a rule with intermediate file 'bonus/map/get_map.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'get_map.w'.
+        Trying implicit prerequisite 'bonus/map/get_map.w,v'.
+        Trying pattern rule with stem 'get_map.w'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.w,v'.
+        Trying pattern rule with stem 'get_map.w'.
+        Trying implicit prerequisite 'bonus/map/RCS/get_map.w'.
+        Trying pattern rule with stem 'get_map.w'.
+        Trying implicit prerequisite 'bonus/map/s.get_map.w'.
+        Trying pattern rule with stem 'get_map.w'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.get_map.w'.
+       Trying pattern rule with stem 'get_map'.
+       Rejecting impossible implicit prerequisite 'bonus/map/get_map.w'.
+       No implicit rule found for 'bonus/map/get_map.c'.
+       Finished prerequisites of target file 'bonus/map/get_map.c'.
+      No need to remake target 'bonus/map/get_map.c'.
+     Finished prerequisites of target file 'bonus/map/get_map.o'.
+     Prerequisite 'bonus/map/get_map.c' is older than target 'bonus/map/get_map.o'.
+    No need to remake target 'bonus/map/get_map.o'.
+    Considering target file 'bonus/map/map_utils.o'.
+     Looking for an implicit rule for 'bonus/map/map_utils.o'.
+     Trying pattern rule with stem 'map_utils'.
+     Trying implicit prerequisite 'bonus/map/map_utils.c'.
+     Found an implicit rule for 'bonus/map/map_utils.o'.
+      Considering target file 'bonus/map/map_utils.c'.
+       Looking for an implicit rule for 'bonus/map/map_utils.c'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.y'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.l'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.w'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.w'.
+       Trying pattern rule with stem 'map_utils.c'.
+       Trying implicit prerequisite 'bonus/map/map_utils.c,v'.
+       Trying pattern rule with stem 'map_utils.c'.
+       Trying implicit prerequisite 'bonus/map/RCS/map_utils.c,v'.
+       Trying pattern rule with stem 'map_utils.c'.
+       Trying implicit prerequisite 'bonus/map/RCS/map_utils.c'.
+       Trying pattern rule with stem 'map_utils.c'.
+       Trying implicit prerequisite 'bonus/map/s.map_utils.c'.
+       Trying pattern rule with stem 'map_utils.c'.
+       Trying implicit prerequisite 'bonus/map/SCCS/s.map_utils.c'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.y'.
+       Looking for a rule with intermediate file 'bonus/map/map_utils.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'map_utils.y'.
+        Trying implicit prerequisite 'bonus/map/map_utils.y,v'.
+        Trying pattern rule with stem 'map_utils.y'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.y,v'.
+        Trying pattern rule with stem 'map_utils.y'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.y'.
+        Trying pattern rule with stem 'map_utils.y'.
+        Trying implicit prerequisite 'bonus/map/s.map_utils.y'.
+        Trying pattern rule with stem 'map_utils.y'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.map_utils.y'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.l'.
+       Looking for a rule with intermediate file 'bonus/map/map_utils.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'map_utils.l'.
+        Trying implicit prerequisite 'bonus/map/map_utils.l,v'.
+        Trying pattern rule with stem 'map_utils.l'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.l,v'.
+        Trying pattern rule with stem 'map_utils.l'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.l'.
+        Trying pattern rule with stem 'map_utils.l'.
+        Trying implicit prerequisite 'bonus/map/s.map_utils.l'.
+        Trying pattern rule with stem 'map_utils.l'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.map_utils.l'.
+       Trying pattern rule with stem 'map_utils'.
+       Trying implicit prerequisite 'bonus/map/map_utils.w'.
+       Looking for a rule with intermediate file 'bonus/map/map_utils.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'map_utils.w'.
+        Trying implicit prerequisite 'bonus/map/map_utils.w,v'.
+        Trying pattern rule with stem 'map_utils.w'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.w,v'.
+        Trying pattern rule with stem 'map_utils.w'.
+        Trying implicit prerequisite 'bonus/map/RCS/map_utils.w'.
+        Trying pattern rule with stem 'map_utils.w'.
+        Trying implicit prerequisite 'bonus/map/s.map_utils.w'.
+        Trying pattern rule with stem 'map_utils.w'.
+        Trying implicit prerequisite 'bonus/map/SCCS/s.map_utils.w'.
+       Trying pattern rule with stem 'map_utils'.
+       Rejecting impossible implicit prerequisite 'bonus/map/map_utils.w'.
+       No implicit rule found for 'bonus/map/map_utils.c'.
+       Finished prerequisites of target file 'bonus/map/map_utils.c'.
+      No need to remake target 'bonus/map/map_utils.c'.
+     Finished prerequisites of target file 'bonus/map/map_utils.o'.
+     Prerequisite 'bonus/map/map_utils.c' is older than target 'bonus/map/map_utils.o'.
+    No need to remake target 'bonus/map/map_utils.o'.
+    Considering target file 'bonus/vector/vec_angle.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_angle.o'.
+     Trying pattern rule with stem 'vec_angle'.
+     Trying implicit prerequisite 'bonus/vector/vec_angle.c'.
+     Found an implicit rule for 'bonus/vector/vec_angle.o'.
+      Considering target file 'bonus/vector/vec_angle.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_angle.c'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.y'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.l'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.w'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.w'.
+       Trying pattern rule with stem 'vec_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.c,v'.
+       Trying pattern rule with stem 'vec_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.c,v'.
+       Trying pattern rule with stem 'vec_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.c'.
+       Trying pattern rule with stem 'vec_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_angle.c'.
+       Trying pattern rule with stem 'vec_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_angle.c'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_angle.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_angle.y,v'.
+        Trying pattern rule with stem 'vec_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.y,v'.
+        Trying pattern rule with stem 'vec_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.y'.
+        Trying pattern rule with stem 'vec_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_angle.y'.
+        Trying pattern rule with stem 'vec_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_angle.y'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_angle.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_angle.l,v'.
+        Trying pattern rule with stem 'vec_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.l,v'.
+        Trying pattern rule with stem 'vec_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.l'.
+        Trying pattern rule with stem 'vec_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_angle.l'.
+        Trying pattern rule with stem 'vec_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_angle.l'.
+       Trying pattern rule with stem 'vec_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_angle.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_angle.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_angle.w,v'.
+        Trying pattern rule with stem 'vec_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.w,v'.
+        Trying pattern rule with stem 'vec_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_angle.w'.
+        Trying pattern rule with stem 'vec_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_angle.w'.
+        Trying pattern rule with stem 'vec_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_angle.w'.
+       Trying pattern rule with stem 'vec_angle'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_angle.w'.
+       No implicit rule found for 'bonus/vector/vec_angle.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_angle.c'.
+      No need to remake target 'bonus/vector/vec_angle.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_angle.o'.
+     Prerequisite 'bonus/vector/vec_angle.c' is older than target 'bonus/vector/vec_angle.o'.
+    No need to remake target 'bonus/vector/vec_angle.o'.
+    Considering target file 'bonus/vector/vec_distance.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_distance.o'.
+     Trying pattern rule with stem 'vec_distance'.
+     Trying implicit prerequisite 'bonus/vector/vec_distance.c'.
+     Found an implicit rule for 'bonus/vector/vec_distance.o'.
+      Considering target file 'bonus/vector/vec_distance.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_distance.c'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.y'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.l'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.w'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.w'.
+       Trying pattern rule with stem 'vec_distance.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.c,v'.
+       Trying pattern rule with stem 'vec_distance.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.c,v'.
+       Trying pattern rule with stem 'vec_distance.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.c'.
+       Trying pattern rule with stem 'vec_distance.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_distance.c'.
+       Trying pattern rule with stem 'vec_distance.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_distance.c'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_distance.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_distance.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_distance.y,v'.
+        Trying pattern rule with stem 'vec_distance.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.y,v'.
+        Trying pattern rule with stem 'vec_distance.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.y'.
+        Trying pattern rule with stem 'vec_distance.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_distance.y'.
+        Trying pattern rule with stem 'vec_distance.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_distance.y'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_distance.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_distance.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_distance.l,v'.
+        Trying pattern rule with stem 'vec_distance.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.l,v'.
+        Trying pattern rule with stem 'vec_distance.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.l'.
+        Trying pattern rule with stem 'vec_distance.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_distance.l'.
+        Trying pattern rule with stem 'vec_distance.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_distance.l'.
+       Trying pattern rule with stem 'vec_distance'.
+       Trying implicit prerequisite 'bonus/vector/vec_distance.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_distance.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_distance.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_distance.w,v'.
+        Trying pattern rule with stem 'vec_distance.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.w,v'.
+        Trying pattern rule with stem 'vec_distance.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_distance.w'.
+        Trying pattern rule with stem 'vec_distance.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_distance.w'.
+        Trying pattern rule with stem 'vec_distance.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_distance.w'.
+       Trying pattern rule with stem 'vec_distance'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_distance.w'.
+       No implicit rule found for 'bonus/vector/vec_distance.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_distance.c'.
+      No need to remake target 'bonus/vector/vec_distance.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_distance.o'.
+     Prerequisite 'bonus/vector/vec_distance.c' is older than target 'bonus/vector/vec_distance.o'.
+    No need to remake target 'bonus/vector/vec_distance.o'.
+    Considering target file 'bonus/vector/vec_mult.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_mult.o'.
+     Trying pattern rule with stem 'vec_mult'.
+     Trying implicit prerequisite 'bonus/vector/vec_mult.c'.
+     Found an implicit rule for 'bonus/vector/vec_mult.o'.
+      Considering target file 'bonus/vector/vec_mult.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_mult.c'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.y'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.l'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.w'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.w'.
+       Trying pattern rule with stem 'vec_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.c,v'.
+       Trying pattern rule with stem 'vec_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.c,v'.
+       Trying pattern rule with stem 'vec_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.c'.
+       Trying pattern rule with stem 'vec_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_mult.c'.
+       Trying pattern rule with stem 'vec_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_mult.c'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_mult.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_mult.y,v'.
+        Trying pattern rule with stem 'vec_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.y,v'.
+        Trying pattern rule with stem 'vec_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.y'.
+        Trying pattern rule with stem 'vec_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_mult.y'.
+        Trying pattern rule with stem 'vec_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_mult.y'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_mult.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_mult.l,v'.
+        Trying pattern rule with stem 'vec_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.l,v'.
+        Trying pattern rule with stem 'vec_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.l'.
+        Trying pattern rule with stem 'vec_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_mult.l'.
+        Trying pattern rule with stem 'vec_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_mult.l'.
+       Trying pattern rule with stem 'vec_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_mult.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_mult.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_mult.w,v'.
+        Trying pattern rule with stem 'vec_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.w,v'.
+        Trying pattern rule with stem 'vec_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_mult.w'.
+        Trying pattern rule with stem 'vec_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_mult.w'.
+        Trying pattern rule with stem 'vec_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_mult.w'.
+       Trying pattern rule with stem 'vec_mult'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_mult.w'.
+       No implicit rule found for 'bonus/vector/vec_mult.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_mult.c'.
+      No need to remake target 'bonus/vector/vec_mult.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_mult.o'.
+     Prerequisite 'bonus/vector/vec_mult.c' is older than target 'bonus/vector/vec_mult.o'.
+    No need to remake target 'bonus/vector/vec_mult.o'.
+    Considering target file 'bonus/vector/vec_normalize.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_normalize.o'.
+     Trying pattern rule with stem 'vec_normalize'.
+     Trying implicit prerequisite 'bonus/vector/vec_normalize.c'.
+     Found an implicit rule for 'bonus/vector/vec_normalize.o'.
+      Considering target file 'bonus/vector/vec_normalize.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_normalize.c'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.y'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.l'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.w'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.w'.
+       Trying pattern rule with stem 'vec_normalize.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.c,v'.
+       Trying pattern rule with stem 'vec_normalize.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.c,v'.
+       Trying pattern rule with stem 'vec_normalize.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.c'.
+       Trying pattern rule with stem 'vec_normalize.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_normalize.c'.
+       Trying pattern rule with stem 'vec_normalize.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_normalize.c'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_normalize.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_normalize.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_normalize.y,v'.
+        Trying pattern rule with stem 'vec_normalize.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.y,v'.
+        Trying pattern rule with stem 'vec_normalize.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.y'.
+        Trying pattern rule with stem 'vec_normalize.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_normalize.y'.
+        Trying pattern rule with stem 'vec_normalize.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_normalize.y'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_normalize.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_normalize.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_normalize.l,v'.
+        Trying pattern rule with stem 'vec_normalize.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.l,v'.
+        Trying pattern rule with stem 'vec_normalize.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.l'.
+        Trying pattern rule with stem 'vec_normalize.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_normalize.l'.
+        Trying pattern rule with stem 'vec_normalize.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_normalize.l'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Trying implicit prerequisite 'bonus/vector/vec_normalize.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_normalize.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_normalize.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_normalize.w,v'.
+        Trying pattern rule with stem 'vec_normalize.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.w,v'.
+        Trying pattern rule with stem 'vec_normalize.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_normalize.w'.
+        Trying pattern rule with stem 'vec_normalize.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_normalize.w'.
+        Trying pattern rule with stem 'vec_normalize.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_normalize.w'.
+       Trying pattern rule with stem 'vec_normalize'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_normalize.w'.
+       No implicit rule found for 'bonus/vector/vec_normalize.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_normalize.c'.
+      No need to remake target 'bonus/vector/vec_normalize.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_normalize.o'.
+     Prerequisite 'bonus/vector/vec_normalize.c' is older than target 'bonus/vector/vec_normalize.o'.
+    No need to remake target 'bonus/vector/vec_normalize.o'.
+    Considering target file 'bonus/vector/vec_print.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_print.o'.
+     Trying pattern rule with stem 'vec_print'.
+     Trying implicit prerequisite 'bonus/vector/vec_print.c'.
+     Found an implicit rule for 'bonus/vector/vec_print.o'.
+      Considering target file 'bonus/vector/vec_print.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_print.c'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.y'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.l'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.w'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.w'.
+       Trying pattern rule with stem 'vec_print.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.c,v'.
+       Trying pattern rule with stem 'vec_print.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_print.c,v'.
+       Trying pattern rule with stem 'vec_print.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_print.c'.
+       Trying pattern rule with stem 'vec_print.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_print.c'.
+       Trying pattern rule with stem 'vec_print.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_print.c'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_print.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_print.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_print.y,v'.
+        Trying pattern rule with stem 'vec_print.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.y,v'.
+        Trying pattern rule with stem 'vec_print.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.y'.
+        Trying pattern rule with stem 'vec_print.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_print.y'.
+        Trying pattern rule with stem 'vec_print.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_print.y'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_print.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_print.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_print.l,v'.
+        Trying pattern rule with stem 'vec_print.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.l,v'.
+        Trying pattern rule with stem 'vec_print.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.l'.
+        Trying pattern rule with stem 'vec_print.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_print.l'.
+        Trying pattern rule with stem 'vec_print.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_print.l'.
+       Trying pattern rule with stem 'vec_print'.
+       Trying implicit prerequisite 'bonus/vector/vec_print.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_print.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_print.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_print.w,v'.
+        Trying pattern rule with stem 'vec_print.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.w,v'.
+        Trying pattern rule with stem 'vec_print.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_print.w'.
+        Trying pattern rule with stem 'vec_print.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_print.w'.
+        Trying pattern rule with stem 'vec_print.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_print.w'.
+       Trying pattern rule with stem 'vec_print'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_print.w'.
+       No implicit rule found for 'bonus/vector/vec_print.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_print.c'.
+      No need to remake target 'bonus/vector/vec_print.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_print.o'.
+     Prerequisite 'bonus/vector/vec_print.c' is older than target 'bonus/vector/vec_print.o'.
+    No need to remake target 'bonus/vector/vec_print.o'.
+    Considering target file 'bonus/vector/vec_scalar_mult.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_scalar_mult.o'.
+     Trying pattern rule with stem 'vec_scalar_mult'.
+     Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.c'.
+     Found an implicit rule for 'bonus/vector/vec_scalar_mult.o'.
+      Considering target file 'bonus/vector/vec_scalar_mult.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_scalar_mult.c'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.y'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.l'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.w'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.w'.
+       Trying pattern rule with stem 'vec_scalar_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.c,v'.
+       Trying pattern rule with stem 'vec_scalar_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.c,v'.
+       Trying pattern rule with stem 'vec_scalar_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.c'.
+       Trying pattern rule with stem 'vec_scalar_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_scalar_mult.c'.
+       Trying pattern rule with stem 'vec_scalar_mult.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_scalar_mult.c'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_scalar_mult.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_scalar_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.y,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.y,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.y'.
+        Trying pattern rule with stem 'vec_scalar_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_scalar_mult.y'.
+        Trying pattern rule with stem 'vec_scalar_mult.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_scalar_mult.y'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_scalar_mult.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_scalar_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.l,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.l,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.l'.
+        Trying pattern rule with stem 'vec_scalar_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_scalar_mult.l'.
+        Trying pattern rule with stem 'vec_scalar_mult.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_scalar_mult.l'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_scalar_mult.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_scalar_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_scalar_mult.w,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.w,v'.
+        Trying pattern rule with stem 'vec_scalar_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_scalar_mult.w'.
+        Trying pattern rule with stem 'vec_scalar_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_scalar_mult.w'.
+        Trying pattern rule with stem 'vec_scalar_mult.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_scalar_mult.w'.
+       Trying pattern rule with stem 'vec_scalar_mult'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_scalar_mult.w'.
+       No implicit rule found for 'bonus/vector/vec_scalar_mult.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_scalar_mult.c'.
+      No need to remake target 'bonus/vector/vec_scalar_mult.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_scalar_mult.o'.
+     Prerequisite 'bonus/vector/vec_scalar_mult.c' is older than target 'bonus/vector/vec_scalar_mult.o'.
+    No need to remake target 'bonus/vector/vec_scalar_mult.o'.
+    Considering target file 'bonus/vector/vec_sum.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_sum.o'.
+     Trying pattern rule with stem 'vec_sum'.
+     Trying implicit prerequisite 'bonus/vector/vec_sum.c'.
+     Found an implicit rule for 'bonus/vector/vec_sum.o'.
+      Considering target file 'bonus/vector/vec_sum.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_sum.c'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.y'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.l'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.w'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.w'.
+       Trying pattern rule with stem 'vec_sum.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.c,v'.
+       Trying pattern rule with stem 'vec_sum.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.c,v'.
+       Trying pattern rule with stem 'vec_sum.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.c'.
+       Trying pattern rule with stem 'vec_sum.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_sum.c'.
+       Trying pattern rule with stem 'vec_sum.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_sum.c'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_sum.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_sum.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_sum.y,v'.
+        Trying pattern rule with stem 'vec_sum.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.y,v'.
+        Trying pattern rule with stem 'vec_sum.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.y'.
+        Trying pattern rule with stem 'vec_sum.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_sum.y'.
+        Trying pattern rule with stem 'vec_sum.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_sum.y'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_sum.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_sum.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_sum.l,v'.
+        Trying pattern rule with stem 'vec_sum.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.l,v'.
+        Trying pattern rule with stem 'vec_sum.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.l'.
+        Trying pattern rule with stem 'vec_sum.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_sum.l'.
+        Trying pattern rule with stem 'vec_sum.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_sum.l'.
+       Trying pattern rule with stem 'vec_sum'.
+       Trying implicit prerequisite 'bonus/vector/vec_sum.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_sum.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_sum.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_sum.w,v'.
+        Trying pattern rule with stem 'vec_sum.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.w,v'.
+        Trying pattern rule with stem 'vec_sum.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_sum.w'.
+        Trying pattern rule with stem 'vec_sum.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_sum.w'.
+        Trying pattern rule with stem 'vec_sum.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_sum.w'.
+       Trying pattern rule with stem 'vec_sum'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_sum.w'.
+       No implicit rule found for 'bonus/vector/vec_sum.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_sum.c'.
+      No need to remake target 'bonus/vector/vec_sum.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_sum.o'.
+     Prerequisite 'bonus/vector/vec_sum.c' is older than target 'bonus/vector/vec_sum.o'.
+    No need to remake target 'bonus/vector/vec_sum.o'.
+    Considering target file 'bonus/vector/vec_to_angle.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_to_angle.o'.
+     Trying pattern rule with stem 'vec_to_angle'.
+     Trying implicit prerequisite 'bonus/vector/vec_to_angle.c'.
+     Found an implicit rule for 'bonus/vector/vec_to_angle.o'.
+      Considering target file 'bonus/vector/vec_to_angle.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_to_angle.c'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.y'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.l'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.w'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.w'.
+       Trying pattern rule with stem 'vec_to_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.c,v'.
+       Trying pattern rule with stem 'vec_to_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.c,v'.
+       Trying pattern rule with stem 'vec_to_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.c'.
+       Trying pattern rule with stem 'vec_to_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_to_angle.c'.
+       Trying pattern rule with stem 'vec_to_angle.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_to_angle.c'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_to_angle.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_to_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_to_angle.y,v'.
+        Trying pattern rule with stem 'vec_to_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.y,v'.
+        Trying pattern rule with stem 'vec_to_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.y'.
+        Trying pattern rule with stem 'vec_to_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_to_angle.y'.
+        Trying pattern rule with stem 'vec_to_angle.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_to_angle.y'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_to_angle.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_to_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_to_angle.l,v'.
+        Trying pattern rule with stem 'vec_to_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.l,v'.
+        Trying pattern rule with stem 'vec_to_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.l'.
+        Trying pattern rule with stem 'vec_to_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_to_angle.l'.
+        Trying pattern rule with stem 'vec_to_angle.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_to_angle.l'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Trying implicit prerequisite 'bonus/vector/vec_to_angle.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_to_angle.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_to_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_to_angle.w,v'.
+        Trying pattern rule with stem 'vec_to_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.w,v'.
+        Trying pattern rule with stem 'vec_to_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_to_angle.w'.
+        Trying pattern rule with stem 'vec_to_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_to_angle.w'.
+        Trying pattern rule with stem 'vec_to_angle.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_to_angle.w'.
+       Trying pattern rule with stem 'vec_to_angle'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_to_angle.w'.
+       No implicit rule found for 'bonus/vector/vec_to_angle.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_to_angle.c'.
+      No need to remake target 'bonus/vector/vec_to_angle.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_to_angle.o'.
+     Prerequisite 'bonus/vector/vec_to_angle.c' is older than target 'bonus/vector/vec_to_angle.o'.
+    No need to remake target 'bonus/vector/vec_to_angle.o'.
+    Considering target file 'bonus/vector/vec_rotate_edit.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_rotate_edit.o'.
+     Trying pattern rule with stem 'vec_rotate_edit'.
+     Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.c'.
+     Found an implicit rule for 'bonus/vector/vec_rotate_edit.o'.
+      Considering target file 'bonus/vector/vec_rotate_edit.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_rotate_edit.c'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.y'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.l'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.w'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.w'.
+       Trying pattern rule with stem 'vec_rotate_edit.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.c,v'.
+       Trying pattern rule with stem 'vec_rotate_edit.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.c,v'.
+       Trying pattern rule with stem 'vec_rotate_edit.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.c'.
+       Trying pattern rule with stem 'vec_rotate_edit.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_rotate_edit.c'.
+       Trying pattern rule with stem 'vec_rotate_edit.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate_edit.c'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate_edit.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate_edit.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.y,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.y,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.y'.
+        Trying pattern rule with stem 'vec_rotate_edit.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate_edit.y'.
+        Trying pattern rule with stem 'vec_rotate_edit.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate_edit.y'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate_edit.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate_edit.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.l,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.l,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.l'.
+        Trying pattern rule with stem 'vec_rotate_edit.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate_edit.l'.
+        Trying pattern rule with stem 'vec_rotate_edit.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate_edit.l'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate_edit.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate_edit.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate_edit.w,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.w,v'.
+        Trying pattern rule with stem 'vec_rotate_edit.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate_edit.w'.
+        Trying pattern rule with stem 'vec_rotate_edit.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate_edit.w'.
+        Trying pattern rule with stem 'vec_rotate_edit.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate_edit.w'.
+       Trying pattern rule with stem 'vec_rotate_edit'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_rotate_edit.w'.
+       No implicit rule found for 'bonus/vector/vec_rotate_edit.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_rotate_edit.c'.
+      No need to remake target 'bonus/vector/vec_rotate_edit.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_rotate_edit.o'.
+     Prerequisite 'bonus/vector/vec_rotate_edit.c' is older than target 'bonus/vector/vec_rotate_edit.o'.
+    No need to remake target 'bonus/vector/vec_rotate_edit.o'.
+    Considering target file 'bonus/vector/vec_rotate.o'.
+     Looking for an implicit rule for 'bonus/vector/vec_rotate.o'.
+     Trying pattern rule with stem 'vec_rotate'.
+     Trying implicit prerequisite 'bonus/vector/vec_rotate.c'.
+     Found an implicit rule for 'bonus/vector/vec_rotate.o'.
+      Considering target file 'bonus/vector/vec_rotate.c'.
+       Looking for an implicit rule for 'bonus/vector/vec_rotate.c'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.y'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.l'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.w'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.w'.
+       Trying pattern rule with stem 'vec_rotate.c'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.c,v'.
+       Trying pattern rule with stem 'vec_rotate.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.c,v'.
+       Trying pattern rule with stem 'vec_rotate.c'.
+       Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.c'.
+       Trying pattern rule with stem 'vec_rotate.c'.
+       Trying implicit prerequisite 'bonus/vector/s.vec_rotate.c'.
+       Trying pattern rule with stem 'vec_rotate.c'.
+       Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate.c'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.y'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate.y'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate.y,v'.
+        Trying pattern rule with stem 'vec_rotate.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.y,v'.
+        Trying pattern rule with stem 'vec_rotate.y'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.y'.
+        Trying pattern rule with stem 'vec_rotate.y'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate.y'.
+        Trying pattern rule with stem 'vec_rotate.y'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate.y'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.l'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate.l'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate.l,v'.
+        Trying pattern rule with stem 'vec_rotate.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.l,v'.
+        Trying pattern rule with stem 'vec_rotate.l'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.l'.
+        Trying pattern rule with stem 'vec_rotate.l'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate.l'.
+        Trying pattern rule with stem 'vec_rotate.l'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate.l'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Trying implicit prerequisite 'bonus/vector/vec_rotate.w'.
+       Looking for a rule with intermediate file 'bonus/vector/vec_rotate.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'vec_rotate.w'.
+        Trying implicit prerequisite 'bonus/vector/vec_rotate.w,v'.
+        Trying pattern rule with stem 'vec_rotate.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.w,v'.
+        Trying pattern rule with stem 'vec_rotate.w'.
+        Trying implicit prerequisite 'bonus/vector/RCS/vec_rotate.w'.
+        Trying pattern rule with stem 'vec_rotate.w'.
+        Trying implicit prerequisite 'bonus/vector/s.vec_rotate.w'.
+        Trying pattern rule with stem 'vec_rotate.w'.
+        Trying implicit prerequisite 'bonus/vector/SCCS/s.vec_rotate.w'.
+       Trying pattern rule with stem 'vec_rotate'.
+       Rejecting impossible implicit prerequisite 'bonus/vector/vec_rotate.w'.
+       No implicit rule found for 'bonus/vector/vec_rotate.c'.
+       Finished prerequisites of target file 'bonus/vector/vec_rotate.c'.
+      No need to remake target 'bonus/vector/vec_rotate.c'.
+     Finished prerequisites of target file 'bonus/vector/vec_rotate.o'.
+     Prerequisite 'bonus/vector/vec_rotate.c' is older than target 'bonus/vector/vec_rotate.o'.
+    No need to remake target 'bonus/vector/vec_rotate.o'.
+    Considering target file 'bonus/sound/sound.o'.
+     Looking for an implicit rule for 'bonus/sound/sound.o'.
+     Trying pattern rule with stem 'sound'.
+     Trying implicit prerequisite 'bonus/sound/sound.c'.
+     Found an implicit rule for 'bonus/sound/sound.o'.
+      Considering target file 'bonus/sound/sound.c'.
+       Looking for an implicit rule for 'bonus/sound/sound.c'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.y'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.l'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.w'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.w'.
+       Trying pattern rule with stem 'sound.c'.
+       Trying implicit prerequisite 'bonus/sound/sound.c,v'.
+       Trying pattern rule with stem 'sound.c'.
+       Trying implicit prerequisite 'bonus/sound/RCS/sound.c,v'.
+       Trying pattern rule with stem 'sound.c'.
+       Trying implicit prerequisite 'bonus/sound/RCS/sound.c'.
+       Trying pattern rule with stem 'sound.c'.
+       Trying implicit prerequisite 'bonus/sound/s.sound.c'.
+       Trying pattern rule with stem 'sound.c'.
+       Trying implicit prerequisite 'bonus/sound/SCCS/s.sound.c'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.y'.
+       Looking for a rule with intermediate file 'bonus/sound/sound.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'sound.y'.
+        Trying implicit prerequisite 'bonus/sound/sound.y,v'.
+        Trying pattern rule with stem 'sound.y'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.y,v'.
+        Trying pattern rule with stem 'sound.y'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.y'.
+        Trying pattern rule with stem 'sound.y'.
+        Trying implicit prerequisite 'bonus/sound/s.sound.y'.
+        Trying pattern rule with stem 'sound.y'.
+        Trying implicit prerequisite 'bonus/sound/SCCS/s.sound.y'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.l'.
+       Looking for a rule with intermediate file 'bonus/sound/sound.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'sound.l'.
+        Trying implicit prerequisite 'bonus/sound/sound.l,v'.
+        Trying pattern rule with stem 'sound.l'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.l,v'.
+        Trying pattern rule with stem 'sound.l'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.l'.
+        Trying pattern rule with stem 'sound.l'.
+        Trying implicit prerequisite 'bonus/sound/s.sound.l'.
+        Trying pattern rule with stem 'sound.l'.
+        Trying implicit prerequisite 'bonus/sound/SCCS/s.sound.l'.
+       Trying pattern rule with stem 'sound'.
+       Trying implicit prerequisite 'bonus/sound/sound.w'.
+       Looking for a rule with intermediate file 'bonus/sound/sound.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'sound.w'.
+        Trying implicit prerequisite 'bonus/sound/sound.w,v'.
+        Trying pattern rule with stem 'sound.w'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.w,v'.
+        Trying pattern rule with stem 'sound.w'.
+        Trying implicit prerequisite 'bonus/sound/RCS/sound.w'.
+        Trying pattern rule with stem 'sound.w'.
+        Trying implicit prerequisite 'bonus/sound/s.sound.w'.
+        Trying pattern rule with stem 'sound.w'.
+        Trying implicit prerequisite 'bonus/sound/SCCS/s.sound.w'.
+       Trying pattern rule with stem 'sound'.
+       Rejecting impossible implicit prerequisite 'bonus/sound/sound.w'.
+       No implicit rule found for 'bonus/sound/sound.c'.
+       Finished prerequisites of target file 'bonus/sound/sound.c'.
+      No need to remake target 'bonus/sound/sound.c'.
+     Finished prerequisites of target file 'bonus/sound/sound.o'.
+     Prerequisite 'bonus/sound/sound.c' is older than target 'bonus/sound/sound.o'.
+    No need to remake target 'bonus/sound/sound.o'.
+    Considering target file 'bonus/render/load.o'.
+     Looking for an implicit rule for 'bonus/render/load.o'.
+     Trying pattern rule with stem 'load'.
+     Trying implicit prerequisite 'bonus/render/load.c'.
+     Found an implicit rule for 'bonus/render/load.o'.
+      Considering target file 'bonus/render/load.c'.
+       Looking for an implicit rule for 'bonus/render/load.c'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.y'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.l'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.w'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.w'.
+       Trying pattern rule with stem 'load.c'.
+       Trying implicit prerequisite 'bonus/render/load.c,v'.
+       Trying pattern rule with stem 'load.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/load.c,v'.
+       Trying pattern rule with stem 'load.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/load.c'.
+       Trying pattern rule with stem 'load.c'.
+       Trying implicit prerequisite 'bonus/render/s.load.c'.
+       Trying pattern rule with stem 'load.c'.
+       Trying implicit prerequisite 'bonus/render/SCCS/s.load.c'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.y'.
+       Looking for a rule with intermediate file 'bonus/render/load.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'load.y'.
+        Trying implicit prerequisite 'bonus/render/load.y,v'.
+        Trying pattern rule with stem 'load.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.y,v'.
+        Trying pattern rule with stem 'load.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.y'.
+        Trying pattern rule with stem 'load.y'.
+        Trying implicit prerequisite 'bonus/render/s.load.y'.
+        Trying pattern rule with stem 'load.y'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.load.y'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.l'.
+       Looking for a rule with intermediate file 'bonus/render/load.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'load.l'.
+        Trying implicit prerequisite 'bonus/render/load.l,v'.
+        Trying pattern rule with stem 'load.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.l,v'.
+        Trying pattern rule with stem 'load.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.l'.
+        Trying pattern rule with stem 'load.l'.
+        Trying implicit prerequisite 'bonus/render/s.load.l'.
+        Trying pattern rule with stem 'load.l'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.load.l'.
+       Trying pattern rule with stem 'load'.
+       Trying implicit prerequisite 'bonus/render/load.w'.
+       Looking for a rule with intermediate file 'bonus/render/load.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'load.w'.
+        Trying implicit prerequisite 'bonus/render/load.w,v'.
+        Trying pattern rule with stem 'load.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.w,v'.
+        Trying pattern rule with stem 'load.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/load.w'.
+        Trying pattern rule with stem 'load.w'.
+        Trying implicit prerequisite 'bonus/render/s.load.w'.
+        Trying pattern rule with stem 'load.w'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.load.w'.
+       Trying pattern rule with stem 'load'.
+       Rejecting impossible implicit prerequisite 'bonus/render/load.w'.
+       No implicit rule found for 'bonus/render/load.c'.
+       Finished prerequisites of target file 'bonus/render/load.c'.
+      No need to remake target 'bonus/render/load.c'.
+     Finished prerequisites of target file 'bonus/render/load.o'.
+     Prerequisite 'bonus/render/load.c' is older than target 'bonus/render/load.o'.
+    No need to remake target 'bonus/render/load.o'.
+    Considering target file 'bonus/render/render_fps.o'.
+     Looking for an implicit rule for 'bonus/render/render_fps.o'.
+     Trying pattern rule with stem 'render_fps'.
+     Trying implicit prerequisite 'bonus/render/render_fps.c'.
+     Found an implicit rule for 'bonus/render/render_fps.o'.
+      Considering target file 'bonus/render/render_fps.c'.
+       Looking for an implicit rule for 'bonus/render/render_fps.c'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.y'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.l'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.w'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.w'.
+       Trying pattern rule with stem 'render_fps.c'.
+       Trying implicit prerequisite 'bonus/render/render_fps.c,v'.
+       Trying pattern rule with stem 'render_fps.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/render_fps.c,v'.
+       Trying pattern rule with stem 'render_fps.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/render_fps.c'.
+       Trying pattern rule with stem 'render_fps.c'.
+       Trying implicit prerequisite 'bonus/render/s.render_fps.c'.
+       Trying pattern rule with stem 'render_fps.c'.
+       Trying implicit prerequisite 'bonus/render/SCCS/s.render_fps.c'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.y'.
+       Looking for a rule with intermediate file 'bonus/render/render_fps.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'render_fps.y'.
+        Trying implicit prerequisite 'bonus/render/render_fps.y,v'.
+        Trying pattern rule with stem 'render_fps.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.y,v'.
+        Trying pattern rule with stem 'render_fps.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.y'.
+        Trying pattern rule with stem 'render_fps.y'.
+        Trying implicit prerequisite 'bonus/render/s.render_fps.y'.
+        Trying pattern rule with stem 'render_fps.y'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.render_fps.y'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.l'.
+       Looking for a rule with intermediate file 'bonus/render/render_fps.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'render_fps.l'.
+        Trying implicit prerequisite 'bonus/render/render_fps.l,v'.
+        Trying pattern rule with stem 'render_fps.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.l,v'.
+        Trying pattern rule with stem 'render_fps.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.l'.
+        Trying pattern rule with stem 'render_fps.l'.
+        Trying implicit prerequisite 'bonus/render/s.render_fps.l'.
+        Trying pattern rule with stem 'render_fps.l'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.render_fps.l'.
+       Trying pattern rule with stem 'render_fps'.
+       Trying implicit prerequisite 'bonus/render/render_fps.w'.
+       Looking for a rule with intermediate file 'bonus/render/render_fps.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'render_fps.w'.
+        Trying implicit prerequisite 'bonus/render/render_fps.w,v'.
+        Trying pattern rule with stem 'render_fps.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.w,v'.
+        Trying pattern rule with stem 'render_fps.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/render_fps.w'.
+        Trying pattern rule with stem 'render_fps.w'.
+        Trying implicit prerequisite 'bonus/render/s.render_fps.w'.
+        Trying pattern rule with stem 'render_fps.w'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.render_fps.w'.
+       Trying pattern rule with stem 'render_fps'.
+       Rejecting impossible implicit prerequisite 'bonus/render/render_fps.w'.
+       No implicit rule found for 'bonus/render/render_fps.c'.
+       Finished prerequisites of target file 'bonus/render/render_fps.c'.
+      No need to remake target 'bonus/render/render_fps.c'.
+     Finished prerequisites of target file 'bonus/render/render_fps.o'.
+     Prerequisite 'bonus/render/render_fps.c' is older than target 'bonus/render/render_fps.o'.
+    No need to remake target 'bonus/render/render_fps.o'.
+    Considering target file 'bonus/render/pixel_ops.o'.
+     Looking for an implicit rule for 'bonus/render/pixel_ops.o'.
+     Trying pattern rule with stem 'pixel_ops'.
+     Trying implicit prerequisite 'bonus/render/pixel_ops.c'.
+     Found an implicit rule for 'bonus/render/pixel_ops.o'.
+      Considering target file 'bonus/render/pixel_ops.c'.
+       Looking for an implicit rule for 'bonus/render/pixel_ops.c'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.y'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.l'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.w'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.w'.
+       Trying pattern rule with stem 'pixel_ops.c'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.c,v'.
+       Trying pattern rule with stem 'pixel_ops.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.c,v'.
+       Trying pattern rule with stem 'pixel_ops.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.c'.
+       Trying pattern rule with stem 'pixel_ops.c'.
+       Trying implicit prerequisite 'bonus/render/s.pixel_ops.c'.
+       Trying pattern rule with stem 'pixel_ops.c'.
+       Trying implicit prerequisite 'bonus/render/SCCS/s.pixel_ops.c'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.y'.
+       Looking for a rule with intermediate file 'bonus/render/pixel_ops.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_ops.y'.
+        Trying implicit prerequisite 'bonus/render/pixel_ops.y,v'.
+        Trying pattern rule with stem 'pixel_ops.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.y,v'.
+        Trying pattern rule with stem 'pixel_ops.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.y'.
+        Trying pattern rule with stem 'pixel_ops.y'.
+        Trying implicit prerequisite 'bonus/render/s.pixel_ops.y'.
+        Trying pattern rule with stem 'pixel_ops.y'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.pixel_ops.y'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.l'.
+       Looking for a rule with intermediate file 'bonus/render/pixel_ops.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_ops.l'.
+        Trying implicit prerequisite 'bonus/render/pixel_ops.l,v'.
+        Trying pattern rule with stem 'pixel_ops.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.l,v'.
+        Trying pattern rule with stem 'pixel_ops.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.l'.
+        Trying pattern rule with stem 'pixel_ops.l'.
+        Trying implicit prerequisite 'bonus/render/s.pixel_ops.l'.
+        Trying pattern rule with stem 'pixel_ops.l'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.pixel_ops.l'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Trying implicit prerequisite 'bonus/render/pixel_ops.w'.
+       Looking for a rule with intermediate file 'bonus/render/pixel_ops.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'pixel_ops.w'.
+        Trying implicit prerequisite 'bonus/render/pixel_ops.w,v'.
+        Trying pattern rule with stem 'pixel_ops.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.w,v'.
+        Trying pattern rule with stem 'pixel_ops.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/pixel_ops.w'.
+        Trying pattern rule with stem 'pixel_ops.w'.
+        Trying implicit prerequisite 'bonus/render/s.pixel_ops.w'.
+        Trying pattern rule with stem 'pixel_ops.w'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.pixel_ops.w'.
+       Trying pattern rule with stem 'pixel_ops'.
+       Rejecting impossible implicit prerequisite 'bonus/render/pixel_ops.w'.
+       No implicit rule found for 'bonus/render/pixel_ops.c'.
+       Finished prerequisites of target file 'bonus/render/pixel_ops.c'.
+      No need to remake target 'bonus/render/pixel_ops.c'.
+     Finished prerequisites of target file 'bonus/render/pixel_ops.o'.
+     Prerequisite 'bonus/render/pixel_ops.c' is older than target 'bonus/render/pixel_ops.o'.
+    No need to remake target 'bonus/render/pixel_ops.o'.
+    Considering target file 'bonus/render/wall.o'.
+     Looking for an implicit rule for 'bonus/render/wall.o'.
+     Trying pattern rule with stem 'wall'.
+     Trying implicit prerequisite 'bonus/render/wall.c'.
+     Found an implicit rule for 'bonus/render/wall.o'.
+      Considering target file 'bonus/render/wall.c'.
+       Looking for an implicit rule for 'bonus/render/wall.c'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.y'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.l'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.w'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.w'.
+       Trying pattern rule with stem 'wall.c'.
+       Trying implicit prerequisite 'bonus/render/wall.c,v'.
+       Trying pattern rule with stem 'wall.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/wall.c,v'.
+       Trying pattern rule with stem 'wall.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/wall.c'.
+       Trying pattern rule with stem 'wall.c'.
+       Trying implicit prerequisite 'bonus/render/s.wall.c'.
+       Trying pattern rule with stem 'wall.c'.
+       Trying implicit prerequisite 'bonus/render/SCCS/s.wall.c'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.y'.
+       Looking for a rule with intermediate file 'bonus/render/wall.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'wall.y'.
+        Trying implicit prerequisite 'bonus/render/wall.y,v'.
+        Trying pattern rule with stem 'wall.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.y,v'.
+        Trying pattern rule with stem 'wall.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.y'.
+        Trying pattern rule with stem 'wall.y'.
+        Trying implicit prerequisite 'bonus/render/s.wall.y'.
+        Trying pattern rule with stem 'wall.y'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.wall.y'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.l'.
+       Looking for a rule with intermediate file 'bonus/render/wall.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'wall.l'.
+        Trying implicit prerequisite 'bonus/render/wall.l,v'.
+        Trying pattern rule with stem 'wall.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.l,v'.
+        Trying pattern rule with stem 'wall.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.l'.
+        Trying pattern rule with stem 'wall.l'.
+        Trying implicit prerequisite 'bonus/render/s.wall.l'.
+        Trying pattern rule with stem 'wall.l'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.wall.l'.
+       Trying pattern rule with stem 'wall'.
+       Trying implicit prerequisite 'bonus/render/wall.w'.
+       Looking for a rule with intermediate file 'bonus/render/wall.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'wall.w'.
+        Trying implicit prerequisite 'bonus/render/wall.w,v'.
+        Trying pattern rule with stem 'wall.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.w,v'.
+        Trying pattern rule with stem 'wall.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/wall.w'.
+        Trying pattern rule with stem 'wall.w'.
+        Trying implicit prerequisite 'bonus/render/s.wall.w'.
+        Trying pattern rule with stem 'wall.w'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.wall.w'.
+       Trying pattern rule with stem 'wall'.
+       Rejecting impossible implicit prerequisite 'bonus/render/wall.w'.
+       No implicit rule found for 'bonus/render/wall.c'.
+       Finished prerequisites of target file 'bonus/render/wall.c'.
+      No need to remake target 'bonus/render/wall.c'.
+     Finished prerequisites of target file 'bonus/render/wall.o'.
+     Prerequisite 'bonus/render/wall.c' is older than target 'bonus/render/wall.o'.
+    No need to remake target 'bonus/render/wall.o'.
+    Considering target file 'bonus/render/put_img_to_img.o'.
+     Looking for an implicit rule for 'bonus/render/put_img_to_img.o'.
+     Trying pattern rule with stem 'put_img_to_img'.
+     Trying implicit prerequisite 'bonus/render/put_img_to_img.c'.
+     Found an implicit rule for 'bonus/render/put_img_to_img.o'.
+      Considering target file 'bonus/render/put_img_to_img.c'.
+       Looking for an implicit rule for 'bonus/render/put_img_to_img.c'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.y'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.l'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.w'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.w'.
+       Trying pattern rule with stem 'put_img_to_img.c'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.c,v'.
+       Trying pattern rule with stem 'put_img_to_img.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.c,v'.
+       Trying pattern rule with stem 'put_img_to_img.c'.
+       Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.c'.
+       Trying pattern rule with stem 'put_img_to_img.c'.
+       Trying implicit prerequisite 'bonus/render/s.put_img_to_img.c'.
+       Trying pattern rule with stem 'put_img_to_img.c'.
+       Trying implicit prerequisite 'bonus/render/SCCS/s.put_img_to_img.c'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.y'.
+       Looking for a rule with intermediate file 'bonus/render/put_img_to_img.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'put_img_to_img.y'.
+        Trying implicit prerequisite 'bonus/render/put_img_to_img.y,v'.
+        Trying pattern rule with stem 'put_img_to_img.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.y,v'.
+        Trying pattern rule with stem 'put_img_to_img.y'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.y'.
+        Trying pattern rule with stem 'put_img_to_img.y'.
+        Trying implicit prerequisite 'bonus/render/s.put_img_to_img.y'.
+        Trying pattern rule with stem 'put_img_to_img.y'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.put_img_to_img.y'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.l'.
+       Looking for a rule with intermediate file 'bonus/render/put_img_to_img.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'put_img_to_img.l'.
+        Trying implicit prerequisite 'bonus/render/put_img_to_img.l,v'.
+        Trying pattern rule with stem 'put_img_to_img.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.l,v'.
+        Trying pattern rule with stem 'put_img_to_img.l'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.l'.
+        Trying pattern rule with stem 'put_img_to_img.l'.
+        Trying implicit prerequisite 'bonus/render/s.put_img_to_img.l'.
+        Trying pattern rule with stem 'put_img_to_img.l'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.put_img_to_img.l'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Trying implicit prerequisite 'bonus/render/put_img_to_img.w'.
+       Looking for a rule with intermediate file 'bonus/render/put_img_to_img.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'put_img_to_img.w'.
+        Trying implicit prerequisite 'bonus/render/put_img_to_img.w,v'.
+        Trying pattern rule with stem 'put_img_to_img.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.w,v'.
+        Trying pattern rule with stem 'put_img_to_img.w'.
+        Trying implicit prerequisite 'bonus/render/RCS/put_img_to_img.w'.
+        Trying pattern rule with stem 'put_img_to_img.w'.
+        Trying implicit prerequisite 'bonus/render/s.put_img_to_img.w'.
+        Trying pattern rule with stem 'put_img_to_img.w'.
+        Trying implicit prerequisite 'bonus/render/SCCS/s.put_img_to_img.w'.
+       Trying pattern rule with stem 'put_img_to_img'.
+       Rejecting impossible implicit prerequisite 'bonus/render/put_img_to_img.w'.
+       No implicit rule found for 'bonus/render/put_img_to_img.c'.
+       Finished prerequisites of target file 'bonus/render/put_img_to_img.c'.
+      No need to remake target 'bonus/render/put_img_to_img.c'.
+     Finished prerequisites of target file 'bonus/render/put_img_to_img.o'.
+     Prerequisite 'bonus/render/put_img_to_img.c' is older than target 'bonus/render/put_img_to_img.o'.
+    No need to remake target 'bonus/render/put_img_to_img.o'.
+    Considering target file 'bonus/inventory/utils.o'.
+     Looking for an implicit rule for 'bonus/inventory/utils.o'.
+     Trying pattern rule with stem 'utils'.
+     Trying implicit prerequisite 'bonus/inventory/utils.c'.
+     Found an implicit rule for 'bonus/inventory/utils.o'.
+      Considering target file 'bonus/inventory/utils.c'.
+       Looking for an implicit rule for 'bonus/inventory/utils.c'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.y'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.l'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.w'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.w'.
+       Trying pattern rule with stem 'utils.c'.
+       Trying implicit prerequisite 'bonus/inventory/utils.c,v'.
+       Trying pattern rule with stem 'utils.c'.
+       Trying implicit prerequisite 'bonus/inventory/RCS/utils.c,v'.
+       Trying pattern rule with stem 'utils.c'.
+       Trying implicit prerequisite 'bonus/inventory/RCS/utils.c'.
+       Trying pattern rule with stem 'utils.c'.
+       Trying implicit prerequisite 'bonus/inventory/s.utils.c'.
+       Trying pattern rule with stem 'utils.c'.
+       Trying implicit prerequisite 'bonus/inventory/SCCS/s.utils.c'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.y'.
+       Looking for a rule with intermediate file 'bonus/inventory/utils.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'utils.y'.
+        Trying implicit prerequisite 'bonus/inventory/utils.y,v'.
+        Trying pattern rule with stem 'utils.y'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.y,v'.
+        Trying pattern rule with stem 'utils.y'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.y'.
+        Trying pattern rule with stem 'utils.y'.
+        Trying implicit prerequisite 'bonus/inventory/s.utils.y'.
+        Trying pattern rule with stem 'utils.y'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.utils.y'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.l'.
+       Looking for a rule with intermediate file 'bonus/inventory/utils.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'utils.l'.
+        Trying implicit prerequisite 'bonus/inventory/utils.l,v'.
+        Trying pattern rule with stem 'utils.l'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.l,v'.
+        Trying pattern rule with stem 'utils.l'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.l'.
+        Trying pattern rule with stem 'utils.l'.
+        Trying implicit prerequisite 'bonus/inventory/s.utils.l'.
+        Trying pattern rule with stem 'utils.l'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.utils.l'.
+       Trying pattern rule with stem 'utils'.
+       Trying implicit prerequisite 'bonus/inventory/utils.w'.
+       Looking for a rule with intermediate file 'bonus/inventory/utils.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'utils.w'.
+        Trying implicit prerequisite 'bonus/inventory/utils.w,v'.
+        Trying pattern rule with stem 'utils.w'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.w,v'.
+        Trying pattern rule with stem 'utils.w'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/utils.w'.
+        Trying pattern rule with stem 'utils.w'.
+        Trying implicit prerequisite 'bonus/inventory/s.utils.w'.
+        Trying pattern rule with stem 'utils.w'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.utils.w'.
+       Trying pattern rule with stem 'utils'.
+       Rejecting impossible implicit prerequisite 'bonus/inventory/utils.w'.
+       No implicit rule found for 'bonus/inventory/utils.c'.
+       Finished prerequisites of target file 'bonus/inventory/utils.c'.
+      No need to remake target 'bonus/inventory/utils.c'.
+     Finished prerequisites of target file 'bonus/inventory/utils.o'.
+     Prerequisite 'bonus/inventory/utils.c' is older than target 'bonus/inventory/utils.o'.
+    No need to remake target 'bonus/inventory/utils.o'.
+    Considering target file 'bonus/inventory/refresh.o'.
+     Looking for an implicit rule for 'bonus/inventory/refresh.o'.
+     Trying pattern rule with stem 'refresh'.
+     Trying implicit prerequisite 'bonus/inventory/refresh.c'.
+     Found an implicit rule for 'bonus/inventory/refresh.o'.
+      Considering target file 'bonus/inventory/refresh.c'.
+       Looking for an implicit rule for 'bonus/inventory/refresh.c'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.y'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.l'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.w'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.w'.
+       Trying pattern rule with stem 'refresh.c'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.c,v'.
+       Trying pattern rule with stem 'refresh.c'.
+       Trying implicit prerequisite 'bonus/inventory/RCS/refresh.c,v'.
+       Trying pattern rule with stem 'refresh.c'.
+       Trying implicit prerequisite 'bonus/inventory/RCS/refresh.c'.
+       Trying pattern rule with stem 'refresh.c'.
+       Trying implicit prerequisite 'bonus/inventory/s.refresh.c'.
+       Trying pattern rule with stem 'refresh.c'.
+       Trying implicit prerequisite 'bonus/inventory/SCCS/s.refresh.c'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.y'.
+       Looking for a rule with intermediate file 'bonus/inventory/refresh.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'refresh.y'.
+        Trying implicit prerequisite 'bonus/inventory/refresh.y,v'.
+        Trying pattern rule with stem 'refresh.y'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.y,v'.
+        Trying pattern rule with stem 'refresh.y'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.y'.
+        Trying pattern rule with stem 'refresh.y'.
+        Trying implicit prerequisite 'bonus/inventory/s.refresh.y'.
+        Trying pattern rule with stem 'refresh.y'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.refresh.y'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.l'.
+       Looking for a rule with intermediate file 'bonus/inventory/refresh.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'refresh.l'.
+        Trying implicit prerequisite 'bonus/inventory/refresh.l,v'.
+        Trying pattern rule with stem 'refresh.l'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.l,v'.
+        Trying pattern rule with stem 'refresh.l'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.l'.
+        Trying pattern rule with stem 'refresh.l'.
+        Trying implicit prerequisite 'bonus/inventory/s.refresh.l'.
+        Trying pattern rule with stem 'refresh.l'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.refresh.l'.
+       Trying pattern rule with stem 'refresh'.
+       Trying implicit prerequisite 'bonus/inventory/refresh.w'.
+       Looking for a rule with intermediate file 'bonus/inventory/refresh.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'refresh.w'.
+        Trying implicit prerequisite 'bonus/inventory/refresh.w,v'.
+        Trying pattern rule with stem 'refresh.w'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.w,v'.
+        Trying pattern rule with stem 'refresh.w'.
+        Trying implicit prerequisite 'bonus/inventory/RCS/refresh.w'.
+        Trying pattern rule with stem 'refresh.w'.
+        Trying implicit prerequisite 'bonus/inventory/s.refresh.w'.
+        Trying pattern rule with stem 'refresh.w'.
+        Trying implicit prerequisite 'bonus/inventory/SCCS/s.refresh.w'.
+       Trying pattern rule with stem 'refresh'.
+       Rejecting impossible implicit prerequisite 'bonus/inventory/refresh.w'.
+       No implicit rule found for 'bonus/inventory/refresh.c'.
+       Finished prerequisites of target file 'bonus/inventory/refresh.c'.
+      No need to remake target 'bonus/inventory/refresh.c'.
+     Finished prerequisites of target file 'bonus/inventory/refresh.o'.
+     Prerequisite 'bonus/inventory/refresh.c' is older than target 'bonus/inventory/refresh.o'.
+    No need to remake target 'bonus/inventory/refresh.o'.
+    Considering target file 'bonus/singletons/singleton.o'.
+     Looking for an implicit rule for 'bonus/singletons/singleton.o'.
+     Trying pattern rule with stem 'singleton'.
+     Trying implicit prerequisite 'bonus/singletons/singleton.c'.
+     Found an implicit rule for 'bonus/singletons/singleton.o'.
+      Considering target file 'bonus/singletons/singleton.c'.
+       Looking for an implicit rule for 'bonus/singletons/singleton.c'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.y'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.l'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.w'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.w'.
+       Trying pattern rule with stem 'singleton.c'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.c,v'.
+       Trying pattern rule with stem 'singleton.c'.
+       Trying implicit prerequisite 'bonus/singletons/RCS/singleton.c,v'.
+       Trying pattern rule with stem 'singleton.c'.
+       Trying implicit prerequisite 'bonus/singletons/RCS/singleton.c'.
+       Trying pattern rule with stem 'singleton.c'.
+       Trying implicit prerequisite 'bonus/singletons/s.singleton.c'.
+       Trying pattern rule with stem 'singleton.c'.
+       Trying implicit prerequisite 'bonus/singletons/SCCS/s.singleton.c'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.y'.
+       Looking for a rule with intermediate file 'bonus/singletons/singleton.y'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'singleton.y'.
+        Trying implicit prerequisite 'bonus/singletons/singleton.y,v'.
+        Trying pattern rule with stem 'singleton.y'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.y,v'.
+        Trying pattern rule with stem 'singleton.y'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.y'.
+        Trying pattern rule with stem 'singleton.y'.
+        Trying implicit prerequisite 'bonus/singletons/s.singleton.y'.
+        Trying pattern rule with stem 'singleton.y'.
+        Trying implicit prerequisite 'bonus/singletons/SCCS/s.singleton.y'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.l'.
+       Looking for a rule with intermediate file 'bonus/singletons/singleton.l'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'singleton.l'.
+        Trying implicit prerequisite 'bonus/singletons/singleton.l,v'.
+        Trying pattern rule with stem 'singleton.l'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.l,v'.
+        Trying pattern rule with stem 'singleton.l'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.l'.
+        Trying pattern rule with stem 'singleton.l'.
+        Trying implicit prerequisite 'bonus/singletons/s.singleton.l'.
+        Trying pattern rule with stem 'singleton.l'.
+        Trying implicit prerequisite 'bonus/singletons/SCCS/s.singleton.l'.
+       Trying pattern rule with stem 'singleton'.
+       Trying implicit prerequisite 'bonus/singletons/singleton.w'.
+       Looking for a rule with intermediate file 'bonus/singletons/singleton.w'.
+        Avoiding implicit rule recursion.
+        Trying pattern rule with stem 'singleton.w'.
+        Trying implicit prerequisite 'bonus/singletons/singleton.w,v'.
+        Trying pattern rule with stem 'singleton.w'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.w,v'.
+        Trying pattern rule with stem 'singleton.w'.
+        Trying implicit prerequisite 'bonus/singletons/RCS/singleton.w'.
+        Trying pattern rule with stem 'singleton.w'.
+        Trying implicit prerequisite 'bonus/singletons/s.singleton.w'.
+        Trying pattern rule with stem 'singleton.w'.
+        Trying implicit prerequisite 'bonus/singletons/SCCS/s.singleton.w'.
+       Trying pattern rule with stem 'singleton'.
+       Rejecting impossible implicit prerequisite 'bonus/singletons/singleton.w'.
+       No implicit rule found for 'bonus/singletons/singleton.c'.
+       Finished prerequisites of target file 'bonus/singletons/singleton.c'.
+      No need to remake target 'bonus/singletons/singleton.c'.
+     Finished prerequisites of target file 'bonus/singletons/singleton.o'.
+     Prerequisite 'bonus/singletons/singleton.c' is older than target 'bonus/singletons/singleton.o'.
+    No need to remake target 'bonus/singletons/singleton.o'.
+   Finished prerequisites of target file 'cub3d_bonus'.
+   Prerequisite 'includes/cub3d_bonus.h' is older than target 'cub3d_bonus'.
+   Prerequisite 'includes/miniaudio.h' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/main.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/window_init.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/game_loop.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/free.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/draw_player.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/raycast_2D.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/events.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/shapes/square.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/shapes/circle.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/shapes/line.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/shapes/pixel_utils.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/shapes/rectangle.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/map/get_map.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/map/map_utils.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_angle.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_distance.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_mult.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_normalize.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_print.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_scalar_mult.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_sum.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_to_angle.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_rotate_edit.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/vector/vec_rotate.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/sound/sound.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/render/load.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/render/render_fps.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/render/pixel_ops.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/render/wall.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/render/put_img_to_img.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/inventory/utils.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/inventory/refresh.o' is older than target 'cub3d_bonus'.
+   Prerequisite 'bonus/singletons/singleton.o' is older than target 'cub3d_bonus'.
+  No need to remake target 'cub3d_bonus'.
+ Finished prerequisites of target file 'bonus'.
+ Prerequisite 'cub3d_bonus' is newer than target 'bonus'.
+No recipe for 'bonus' and no prerequisites actually changed.
+No need to remake target 'bonus'.
+make: Nothing to be done for 'bonus'.

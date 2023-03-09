@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/06 16:40:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/09 13:09:49 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ void    render_fps(t_game *game)
         // printf("distance : %d \n", distance);
         float ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * cosf(ca);
-        line_height = ( 64/ collision.distance ) * game->camera.proj_plane_distance  ;
+        line_height = ( 64 / collision.distance ) * game->camera.proj_plane_distance  ;
         line_pos.y = RES_Y / 2 + line_height / 2;
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector(1000, 400), line_height, PALE_BLUE);

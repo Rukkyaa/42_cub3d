@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 20:12:46 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:07:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ int	mouse_hook(int x, int y, void *param)
 
 	game = (t_game *)param;
 	(void)y;
-	diff_x = x - game->mouse.x;
-	// if (game->mouse.x > x)
-	// 	vec_rotate_edit(&(game->player.direction), diff_x / 50);
-	// else if (game->mouse.x < x)
-	// 	vec_rotate_edit(&(game->player.direction), diff_x / 50);
+	diff_x = x - game->mouse.x;		
+	rotate_player(game, diff_x / 50);
 	game->mouse.x = RES_X / 2;
 	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
 	return (0);

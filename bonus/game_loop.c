@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 19:51:06 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/09 13:10:58 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,25 +123,24 @@ void	edit_player_pos(t_game *game)
 	game->player.speed.y = 0;
 }
 
+void	rotate_player(t_game *game, float angle)
+{
+	vec_rotate_edit(&(game->player.direction), angle);
+	vec_rotate_edit(&(game->camera.plane), angle);
+	game->player.angle += angle;
+}
+
 void	edit_player_rotate(t_game *game)
 {
 	if (game->key_states[0])
-	{
-		vec_rotate_edit(&(game->player.direction), -3);
-		vec_rotate_edit(&(game->camera.plane), -3);
-		game->player.angle -= 3;
-	}
+		rotate_player(game, -3);
 	if (game->key_states[1])
-	{
-		vec_rotate_edit(&(game->player.direction), 3);
-		vec_rotate_edit(&(game->camera.plane), 3);
-		game->player.angle += 3;
-	}
+		rotate_player(game, 3);
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
-		game->player.direction_adjust += 0.01;
+		game->player.pos3d.z += 1;
 	if (game->key_states['f'])
-		game->player.direction_adjust -= 0.01;
+		game->player.pos3d.z -= 1;
 }
 
 void	render_map(t_game *game)

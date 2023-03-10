@@ -3,21 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 19:37:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:31:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
+void	ft_xpm_to_img(t_game *game, t_img *img, char *path)
 {
-	texture->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
-		&texture->width, &texture->heigth);
-	texture->addr = mlx_get_data_addr(texture->mlx_img, &texture->bpp,
-			&texture->line_len, &texture->endian);
+	printf("%s\n", path);
+	img->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
+		&img->width, &img->heigth);
+	img->addr = mlx_get_data_addr(img->mlx_img, &img->bpp,
+			&img->line_len, &img->endian);
 }
 
 void	load_img(t_game *game)
@@ -56,18 +57,23 @@ void	init_basic_vectors(t_game *game)
 
 void init_sprites(t_game *game)
 {
-	int i = 10;
-	while(--i)
+	int i = 0;
+	t_animation zombie_animation;
+	zombie_animation.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
+	while(i < 1)
 	{
-		ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
-		printf("bpp : %d\n", game->sprites[i].texture.bpp);
+		// ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
+		// printf("bpp : %d\n", game->sprites[i].texture.bpp);
 		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
 		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
 		vec_print(&game->sprites[i].pos, "sprite pos");
-		game->sprites[i].img_run = fill_sprite_animation(game, "images/FPS_pixel_zombie/fps_zombie_RUN");
+		game->sprites[i].img_run = zombie_animation.imgs;
+		game->sprites[i].current_img = malloc(sizeof(t_img));
+		ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
 		game->sprites[i].pos.z = 0;
 		game->sprites[i].height = 40;
-		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].texture.width) / (game->sprites[i].texture.heigth);
+		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].img_run[i]->width) / (game->sprites[i].img_run[i]->heigth);
+		i++;
 	}
 }
 
@@ -92,7 +98,7 @@ void	var_init(t_game *game)
 	while(i--)
 		game->key_release_states[i] = 1;
 	game->mlx = _mlx()->mlx;
-	game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
+	// game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;
@@ -106,7 +112,7 @@ void	var_init(t_game *game)
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
-	game->time_inc = 150;
+	game->frame_count = 0;
 	game->time.delta_frame_ms = 1;
 	game->time.fps = 0;
 	// angle_to_vector( M_PI / 4, &game->player.direction);

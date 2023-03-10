@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/09 18:05:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:32:19 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
         {
             // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
             // printf("y_pos : %f\n", start_pos.y - j);
-            pixel_color = sample_img(&sprite->texture, (i - (sprite->screen_pos.x - (line_width / 2))) / line_width, (j - (sprite->screen_pos.y - line_height)) / line_width);
+            pixel_color = sample_img(sprite->current_img, (i - (sprite->screen_pos.x - (line_width / 2))) / line_width, (j - (sprite->screen_pos.y - line_height)) / line_width);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
                 img_pix_put(&game->fps_img,  i,  j, pixel_color);
@@ -70,7 +70,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
     // close_window(game);
 }
 
-void    render_sprite(t_game *game, t_sprite *sprite)
+void    compute_sprite(t_game *game, t_sprite *sprite)
 {
     t_vector player_to_sprite;
     t_vector screen_pos;
@@ -81,6 +81,11 @@ void    render_sprite(t_game *game, t_sprite *sprite)
     
     // X AXIS ON SCREEN
     angle = vec_angle(game->player.direction, player_to_sprite);
+    if(fabs(angle) > M_PI / 2)
+    {
+        sprite->visible = 0;
+        return ;
+    }
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
     float x_dist = (player_to_sprite.y / player_to_sprite.x);
     x_dist = x_dist * ( (float) RES_X / 2);
@@ -96,11 +101,7 @@ void    render_sprite(t_game *game, t_sprite *sprite)
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  - y_dist + (RES_Y / 2);
 
-    if(fabs(angle) > M_PI / 2)
-    {
-        sprite->visible = 0;
-        return ;
-    }
+
 
     sprite->visible = 1;
     sprite->distance = xy_distance;
@@ -112,15 +113,28 @@ void    render_sprite(t_game *game, t_sprite *sprite)
 void    render_sprites(t_game *game)
 {
     int i = 10;
-
+    int sprite_index;
     while(i--)
-        render_sprite(game, &game->sprites[i]);
+        compute_sprite(game, &game->sprites[i]);
     sort_sprites(game->sprites, 10);
-    i = 10; 
+    i = 0; 
     
-    while(i--)
-        if(game->sprites[i].visible)
-            draw_sprite(game, &game->sprites[i]);
+    while(i < 10 && game->sprites[i].visible)
+    { 
+        sprite_index = game->frame_count % 47;
+        //game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
+        draw_sprite(game, &game->sprites[i]);
+        draw_filled_circle(game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
+        i++;
+    }
+
+    // i = 48;
+    // while(--i)
+    // {
+       
+    //     printf("sprite index : %d\n", sprite_index);
+    //     mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].img_run[sprite_index]->mlx_img, 0, 0);
+    // }
 }
 
 t_vector vec_3d_to_2D(t_vector3d input) 

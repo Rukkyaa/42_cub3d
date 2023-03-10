@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 19:27:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:07:24 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 
+#include "structs.h"
 
 // Color conversions
 int					get_t(int trgb);
@@ -84,172 +85,14 @@ int					get_b(int trgb);
 
 // Color operations
 int					add_shade(int trgb, int shade);
-/***************************************************************
-**  $$$$$$\ $$$$$$$$\ $$$$$$$\  $$\   $$\  $$$$$$\ $$$$$$$$\  **
-** $$  __$$\\__$$  __|$$  __$$\ $$ |  $$ |$$  __$$\\__$$  __| **
-** $$ /  \__|  $$ |   $$ |  $$ |$$ |  $$ |$$ /  \__|  $$ |    **
-** \$$$$$$\    $$ |   $$$$$$$  |$$ |  $$ |$$ |        $$ |    **
-**  \____$$\   $$ |   $$  __$$  $$ |  $$ |$$ |        $$ |    **
-** $$\   $$ |  $$ |   $$ |  $$ |$$ |  $$ |$$ |  $$\   $$ |    **
-** \$$$$$$  |  $$ |   $$ |  $$ |\$$$$$$  |\$$$$$$  |  $$ |    **
-**  \______/   \__|   \__|  \__| \______/  \______/   \__|    **
-***************************************************************/
-
-typedef struct s_sound
-{
-	ma_decoder			decoder;
-	ma_device_config	device_config;
-	ma_device			device;
-}				t_sound;
-
-typedef struct s_sounds
-{
-	t_sound	footstep;
-	t_sound	dejavu;
-}				t_sounds;
-
-typedef struct t_vector
-{
-	double			x;
-	double			y;
-}					t_vector;
-
-typedef struct s_vector3d
-{
-	double			x;
-	double			y;
-	double			z;
-}					t_vector3d;
-
-typedef struct s_time
-{
-	struct timeval	last_frame;
-	struct timeval	frame;
-	long			delta_frame_ms;
-	int				fps;
-}					t_time;
-
-typedef struct s_camera
-{
-	float	proj_plane_distance;
-	float	proj_plane_height;
-	float	proj_plane_width;
-	t_vector			plane;
-}					t_camera;
-
-typedef struct s_player
-{
-	t_vector	pos;
-	t_vector	speed;
-	t_vector3d	pos3d;
-	t_vector	collision_pos;
-	t_vector	direction;
-	float		angle;
-	float		direction_adjust;
-	t_vector	current_tile;
-}				t_player;
-
-typedef struct s_img
-{
-	void	*mlx_img;
-	char	*addr;
-	int		bpp;
-	int		line_len;
-	int		endian;
-	int		width;
-	int		heigth;
-}	t_img;
-
-// TEXTURE
-typedef struct s_texture
-{
-	t_img	wall1;
-	t_img	wall2;
-	t_img	wall3;
-	t_img	wall4;
-	t_img	ground;
-	t_img	roof;
-	int		text_heigth;
-	int		text_width;
-}				t_texture;
-
-typedef struct s_sprite
-{
-	int		type;
-	int 	state;
-	float	height;
-	float	width;
-	float	distance;
-	float	screen_width;
-	float	screen_height;
-	int		visible;
-	t_vector	screen_pos;
-	t_img	texture;
-	t_img	**img_run;
-	t_vector3d	pos;
-}				t_sprite;
-
-
-typedef struct s_collision
-{
-	t_vector		point;
-	t_img			wall;
-	char			orientation;
-	float			distance;
-	float			x_pos_tex;
-}					t_collision;
-
-typedef struct s_weapon
-{
-	t_img	sword;
-}				t_weapon;
-
-typedef struct s_inventory
-{
-	t_img	img;
-	char	*items[36];
-}				t_inventory;
-
-typedef struct s_mlx
-{
-	void		*mlx;
-	void		*win;
-	t_img		img;
-}				t_mlx;
-
-typedef struct s_game
-{
-	void 		*mlx;
-	int			time_inc;
-	char		**map;
-	int			key_states[256];
-	int			key_release_states[256];
-	t_inventory	inventory;
-	t_weapon	weapon;
-	t_time		time;
-	t_vector	mouse;
-	t_player	player;
-	t_sprite	sprites[10];
-	float			z_buffer[RES_X];
-	float			ray_offset[RES_X];
-	t_texture	texture;
-	t_sounds	sounds;
-	t_camera	camera;
-	t_vector	v_up;
-	t_vector	v_down;
-	t_vector	v_left;
-	t_vector	v_right;
-	void		*fps_win;
-	t_img		fps_img;
-	void		*debug_win;
-	t_img		debug_img;
-}				t_game;
 
 // Ray casting
 t_collision		cast_2D_ray(t_game *game, t_vector direction);
 
 
 t_img	**fill_sprite_animation(t_game *game, char *dir_path);
+void    sort_imgs(t_img **array);
+void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **

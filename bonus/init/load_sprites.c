@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_animation_sprites.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/09 19:35:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 12:46:29 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <dirent.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 /*
 ** Load an XPM image file from the given path using the game's mlx instance.
 ** Returns a pointer to the resulting t_img struct, or NULL on error.
@@ -43,6 +44,7 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 {
 	DIR				*dir;
 	struct dirent	*entry;
+	struct stat		file_stat;
 	t_img			**imgs;
 	size_t			count;
 	size_t			i;
@@ -53,7 +55,11 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	count = 0;
 	while ((entry = readdir(dir)))
 	{
-		if (entry->d_type == DT_REG && !ft_strchr(entry->d_name, ".xpm"))
+		if (entry->d_name[0] == '.')
+			continue;
+		if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
+			continue;
+		if (S_ISREG(file_stat.st_mode) && ft_str_ends_with(entry->d_name, ".xpm"))
 			count++;
 	}
 	if (count == 0)
@@ -71,9 +77,14 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	rewinddir(dir);
 	while ((entry = readdir(dir)))
 	{
-		if (entry->d_type == DT_REG && !ft_strchr(entry->d_name, ".xpm"))
+		if (entry->d_name[0] == '.')
+			continue;
+		if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
+			continue;
+		if (S_ISREG(file_stat.st_mode) && ft_str_ends_with(entry->d_name, ".xpm"))
 		{
-			imgs[i] = ft_xpm_to_img(game, ft_strjoin(dir_path, entry->d_name));
+			printf(entry->d_name);
+			imgs[i] = ft_xpm_to_img_wrapper(game, ft_strjoin(dir_path, entry->d_name));
 			if (!imgs[i])
 			{
 				while (i > 0)

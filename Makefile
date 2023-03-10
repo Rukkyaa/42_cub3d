@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/09 19:36:52 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/10 15:08:50 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 		bonus/free.c \
-		bonus/raycast_2D.c  \
+		bonus/raycast_2D.c   \
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
@@ -85,7 +85,7 @@ SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
 RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites put_img_to_img debug_map color_ops color_converts \
-	psychedelic_view render draw_player fill_animation_sprites))
+	psychedelic_view render draw_player load_sprites sort_imgs))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

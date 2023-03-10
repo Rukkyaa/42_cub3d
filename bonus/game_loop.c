@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 13:59:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	game_loop(void *g)
 	edit_player_pos(game);
 	render_map(game);
 	render(game);
-	game->time_inc++;
+	game->frame_count++;
 	handle_sync(game);
 	render_sprites(game);
 	render_ui(game);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 14:38:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/10 12:09:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,6 @@ void	refresh_inventory(t_game *game)
 		j = -1;
 		while (++j < 12)
 			if (strcmp(game->inventory.items[i * 12 + j], "empty"))
-				put_img_to_img(game->weapon.sword, _mlx()->img, 329 + j * 80, 471 + 59 + i * 70);
+				put_img_to_img(game->weapon.sword, _mlx()->img, 329 + j * 80, 530 + i * 70);
 	}
 }

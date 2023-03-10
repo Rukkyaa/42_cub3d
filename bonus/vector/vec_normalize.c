@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   vec_normalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:29:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/27 15:00:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_vector	vec_normalize(t_vector vec)
+t_vector3d	vec_normalize(t_vector3d vec)
 {
 	float		magnitude;
-	t_vector	norm_vec;
+	t_vector3d	norm_vec;
 
 	magnitude = sqrt(vec.x * vec.x + vec.y * vec.y);
 	if (magnitude == 0)

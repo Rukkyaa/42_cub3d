@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:32:16 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 12:28:26 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int sign(double x)
         return 0;
 }
 
-double	vec_angle(t_vector v1, t_vector v2)
+double	vec_angle(t_vector3d v1, t_vector3d v2)
 {
 	double	dot_product;
 	double	magnitude1;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:55:08 by theo              #+#    #+#             */
-/*   Updated: 2023/03/09 16:20:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:15:50 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	load_grid(t_game *game)
 {
 	int			i;
 	int			j;
-	t_vector	pos;
+	t_vector3d	pos;
 
 	i = -1;
 	while (++i < map_heigth(game->map))
@@ -57,10 +57,10 @@ void	clear_img(t_img *img)
 	int	j;
 
 	i = -1;
-	while (++i < RES_X)
+	while (++i < img->width)
 	{
 		j = -1;
-		while (++j < RES_Y)
+		while (++j < img->heigth)
 		{
 			img_pix_put(img, i, j, BLACK_PIXEL);
 		}
@@ -71,7 +71,7 @@ void	load_map_debug(t_game *game)
 {
 	int			i;
 	int			j;
-	t_vector	pos;
+	t_vector3d	pos;
 
 	i = -1;
 	while (++i < map_heigth(game->map))

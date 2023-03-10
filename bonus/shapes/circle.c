@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:20:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/07 15:22:52 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 ** @param radius: radius of the circle
 ** @param color: color of the circle
 */
-void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color)
+void	draw_filled_circle(t_img *img, t_vector3d mid, int radius, int color)
 {
 	int	x;
 	int	y;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 15:37:41 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	edit_player_pos(t_game *game)
 {
-	t_vector right = vec_rotate(game->player.direction, 90);
-	t_vector left = vec_rotate(game->player.direction, 270);
+	t_vector3d right = vec_rotate(game->player.direction, 90);
+	t_vector3d left = vec_rotate(game->player.direction, 270);
 
 	if (player_moving(game) && game->key_states[2] == 1)
 	{
@@ -56,11 +56,11 @@ void	edit_player_pos(t_game *game)
 	game->player.speed.y = 0;
 }
 
-void		player_collides(t_game *game, t_vector speed)
+void		player_collides(t_game *game, t_vector3d speed)
 {
-	t_vector	v_offset;
-	t_vector	vi_pos;
-	t_vector	vi_pos_add_offset;
+	t_vector3d	v_offset;
+	t_vector3d	vi_pos;
+	t_vector3d	vi_pos_add_offset;
 	
 	v_offset.x = 0;
 	v_offset.y = 0;

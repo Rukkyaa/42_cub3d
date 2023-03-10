@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 15:23:34 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 15:35:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,19 +49,19 @@ typedef struct s_camera
 	float	proj_plane_distance;
 	float	proj_plane_height;
 	float	proj_plane_width;
-	t_vector			plane;
+	t_vector3d			plane;
 }					t_camera;
 
 typedef struct s_player
 {
-	t_vector	pos;
-	t_vector	speed;
+	t_vector3d	pos;
+	t_vector3d	speed;
 	t_vector3d	pos3d;
-	t_vector	collision_pos;
-	t_vector	direction;
+	t_vector3d	collision_pos;
+	t_vector3d	direction;
 	float		angle;
 	float		direction_adjust;
-	t_vector	current_tile;
+	t_vector3d	current_tile;
 }				t_player;
 
 typedef struct s_img
@@ -114,7 +114,7 @@ typedef struct s_sprite
 	float	screen_width;
 	float	screen_height;
 	int		visible;
-	t_vector	screen_pos;
+	t_vector3d	screen_pos;
 	t_img	*current_img;
 	t_img	**img_run;
 	t_vector3d	pos;
@@ -125,7 +125,7 @@ typedef struct s_sprite
 
 typedef struct s_collision
 {
-	t_vector		point;
+	t_vector3d		point;
 	t_img			wall;
 	char			orientation;
 	float			distance;
@@ -160,7 +160,7 @@ typedef struct s_game
 	t_inventory	inventory;
 	t_weapon	weapon;
 	t_time		time;
-	t_vector	mouse;
+	t_vector3d	mouse;
 	t_player	player;
 	t_sprite	sprites[10];
 	float			z_buffer[RES_X];
@@ -168,10 +168,10 @@ typedef struct s_game
 	t_texture	texture;
 	t_sounds	sounds;
 	t_camera	camera;
-	t_vector	v_up;
-	t_vector	v_down;
-	t_vector	v_left;
-	t_vector	v_right;
+	t_vector3d	v_up;
+	t_vector3d	v_down;
+	t_vector3d	v_left;
+	t_vector3d	v_right;
 	void		*fps_win;
 	t_img		fps_img;
 	void		*debug_win;

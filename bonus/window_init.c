@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:31:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 16:22:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,12 +60,14 @@ void init_sprites(t_game *game)
 	int i = 0;
 	t_animation zombie_animation;
 	zombie_animation.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
-	while(i < 1)
+	while(i < 10)
 	{
 		// ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
 		// printf("bpp : %d\n", game->sprites[i].texture.bpp);
-		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
-		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
+		// game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
+		// game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
+		game->sprites[i].pos.x = 2 * 64;
+		game->sprites[i].pos.y = (i + 2) * 64;
 		vec_print(&game->sprites[i].pos, "sprite pos");
 		game->sprites[i].img_run = zombie_animation.imgs;
 		game->sprites[i].current_img = malloc(sizeof(t_img));
@@ -98,7 +100,7 @@ void	var_init(t_game *game)
 	while(i--)
 		game->key_release_states[i] = 1;
 	game->mlx = _mlx()->mlx;
-	// game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
+	game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;

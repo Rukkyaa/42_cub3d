@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 13:59:22 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 16:34:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int	game_loop(void *g)
 
 	game = (t_game *) g;
 	clear_z_buffer(game);
+	clear_img(&game->debug_img);
 	handle_time(game);
 	if (!player_moving(game))
 		ma_device_stop(&game->sounds.footstep.device);
@@ -40,11 +41,12 @@ int	game_loop(void *g)
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	render_map(game);
-	render(game);
-	game->frame_count++;
-	handle_sync(game);
 	render_sprites(game);
 	render_ui(game);
+	render(game);
+	mlx_string_put(game->mlx, game->fps_win, 100 , RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
+	handle_sync(game);
+	game->frame_count++;
 	//usleep(16000);
 	return (0);
 }

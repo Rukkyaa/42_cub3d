@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   square.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 13:58:16 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 15:48:24 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_filled_square(t_img *img, t_vector vec, int width, int color)
+void	draw_filled_square(t_img *img, t_vector3d vec, int width, int color)
 {
 	int			i;
-	t_vector	pos;
+	t_vector3d	pos;
 
 	i = -1;
 	while (++i < width)
@@ -44,10 +44,10 @@ void	draw_filled_square(t_img *img, t_vector vec, int width, int color)
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_square(t_img *img, t_vector pos, int width, int color)
+void	draw_square(t_img *img, t_vector3d pos, int width, int color)
 {
 	int			i;
-	t_vector	vec;
+	t_vector3d	vec;
 
 	vec.x = pos.x;
 	vec.y = pos.y;

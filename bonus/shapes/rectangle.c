@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rectangle.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/03 10:12:31 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/09 16:17:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 ** @param width: width of the square
 ** @param color: color of the square
 */
-void	draw_filled_rectangle(t_img *img, t_vector vec, t_vector size, int color)
+void	draw_filled_rectangle(t_img *img, t_vector3d vec, t_vector3d size, int color)
 {
 	int			i;
-	t_vector	pos;
+	t_vector3d	pos;
 
 	i = -1;
 	while (++i < size.y)
@@ -44,10 +44,10 @@ void	draw_filled_rectangle(t_img *img, t_vector vec, t_vector size, int color)
 ** @param width: width of the square
 ** @param color: color of the square
 */
-// void	draw_square(t_game *game, t_vector pos, int width, int color)
+// void	draw_square(t_game *game, t_vector3d pos, int width, int color)
 // {
 // 	int			i;
-// 	t_vector	vec;
+// 	t_vector3d	vec;
 
 // 	vec.x = pos.x;
 // 	vec.y = pos.y;

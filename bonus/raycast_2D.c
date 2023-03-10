@@ -3,22 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/08 11:47:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-void    print_circle_relative_tile_pos(t_game *game, t_vector point)
+void    print_circle_relative_tile_pos(t_game *game, t_vector3d point)
 {
     point = vec_scalar_mult(point, 64);
     point = vec_sum(point, game->player.pos);
 }
 
-char get_collision_orientation(char last_step, t_vector v_step)
+char get_collision_orientation(char last_step, t_vector3d v_step)
 {
     if(last_step == 'x')
     {
@@ -36,7 +36,7 @@ char get_collision_orientation(char last_step, t_vector v_step)
     }
 }
 
-double get_texture_x(char last_step, t_vector v_collision_point, t_vector v_map_check)
+double get_texture_x(char last_step, t_vector3d v_collision_point, t_vector3d v_map_check)
 {
     if(last_step == 'x')
         return (v_collision_point.y - v_map_check.y * 64);
@@ -45,18 +45,18 @@ double get_texture_x(char last_step, t_vector v_collision_point, t_vector v_map_
 }
 
 
-t_collision	cast_2D_ray(t_game *game, t_vector direction)
+t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
 {
-	t_vector v_ray_dir = direction;
-	t_vector v_step;
-	t_vector v_ray_length_1D;
-	t_vector v_map_check = pixel_to_tile(game->player.pos);
-    t_vector collision_point;
+	t_vector3d v_ray_dir = direction;
+	t_vector3d v_step;
+	t_vector3d v_ray_length_1D;
+	t_vector3d v_map_check = pixel_to_tile(game->player.pos);
+    t_vector3d collision_point;
     t_collision collision;
     char last_step;
     int i = 0; 
 
-	t_vector v_ray_unit_step;
+	t_vector3d v_ray_unit_step;
 	v_ray_unit_step.x = sqrt(1 + (v_ray_dir.y / v_ray_dir.x) * (v_ray_dir.y / v_ray_dir.x) );
 	v_ray_unit_step.y = sqrt(1 + (v_ray_dir.x / v_ray_dir.y) * (v_ray_dir.x / v_ray_dir.y)) ;
 

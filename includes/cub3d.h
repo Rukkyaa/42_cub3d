@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/01 16:43:56 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:34:55 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ typedef struct vector
 {
 	double			x;
 	double			y;
-}					t_vector;
+}					t_vector3d;
 
 typedef struct s_vector3d
 {
@@ -73,7 +73,7 @@ typedef struct s_vector3d
 
 typedef struct s_collision
 {
-	t_vector		point;
+	t_vector3d		point;
 	char			orientation;
 	float			distance;
 	float			x_pos_tex;
@@ -81,13 +81,13 @@ typedef struct s_collision
 
 typedef struct s_player
 {
-	t_vector	pos;
-	t_vector	speed;
+	t_vector3d	pos;
+	t_vector3d	speed;
 	t_vector3d	pos3d;
-	t_vector	collision_pos;
-	t_vector	direction;
+	t_vector3d	collision_pos;
+	t_vector3d	direction;
 	float		direction_adjust;
-	t_vector	current_tile;
+	t_vector3d	current_tile;
 }				t_player;
 
 typedef struct s_img
@@ -136,7 +136,7 @@ typedef struct s_game
 }				t_game;
 
 // Ray casting
-t_collision	cast_2D_ray(t_game *game, t_vector direction);
+t_collision	cast_2D_ray(t_game *game, t_vector3d direction);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);
@@ -146,16 +146,16 @@ void	clear_img(t_img *img);
 int		get_color(t_img *img, int x, int y);
 
 // Shapes
-void	draw_square(t_game *game, t_vector pos, int width, int color);
-void	draw_filled_square(t_game *game, t_vector pos, int width, int color);
+void	draw_square(t_game *game, t_vector3d pos, int width, int color);
+void	draw_filled_square(t_game *game, t_vector3d pos, int width, int color);
 
-void 	draw_circle(t_game *game, t_vector center, int radius, int color);
-void	draw_filled_circle(t_img *img, t_vector mid, int radius, int color);
+void 	draw_circle(t_game *game, t_vector3d center, int radius, int color);
+void	draw_filled_circle(t_img *img, t_vector3d mid, int radius, int color);
 
-void	draw_vertical_line(t_game *game, t_vector pos, int len, int color);
-void	draw_vertical_line_2(t_img *img, t_vector pos, int len, int color);
+void	draw_vertical_line(t_game *game, t_vector3d pos, int len, int color);
+void	draw_vertical_line_2(t_img *img, t_vector3d pos, int len, int color);
 void	draw_non_filled_line(t_game *game, int x, int y, int len, int color);
-void 	draw_line_dda(t_img *img, t_vector vec1, t_vector vec2, int color);
+void 	draw_line_dda(t_img *img, t_vector3d vec1, t_vector3d vec2, int color);
 
 void	load_grid(t_game *game);
 void	load_map(t_game *game);
@@ -166,9 +166,9 @@ int		handle_keyrelease(int keycode, t_game *game);
 int		handle_keypress(int keycode, t_game *game);
 int 	game_loop(void *g);
 
-t_vector pixel_to_tile(t_vector vector);
-t_vector tile_to_pixel(t_vector tile_coord);
-int tile_out_of_bound(t_vector tile_coord, t_game *game);
+t_vector3d pixel_to_tile(t_vector3d vector);
+t_vector3d tile_to_pixel(t_vector3d tile_coord);
+int tile_out_of_bound(t_vector3d tile_coord, t_game *game);
 int pixel_out_of_bound(float x, float y, t_img *image);
 void	draw_player(t_game *game, int color);
 void	var_init(t_game *game);
@@ -205,18 +205,18 @@ char	**get_map(char *arg);
 **     \_/    \________| \______/   \__|    \______/ \__|  \__| **
 *****************************************************************/
 
-t_vector	vec_sum(t_vector vec1, t_vector vec2);
-t_vector	vec_mult(t_vector vec1, t_vector vec2);
-t_vector	vec_scalar_mult(t_vector vec1, double i);
-t_vector	vec_normalize(t_vector vec);
-t_vector	vec_rotate(t_vector vector, float angle);
-void		vec_to_angle(double angle, t_vector *vector);
-void		vec_print(t_vector *vector, char *name);
-void		vec_rotate_rad(t_vector *vector, float angle);
-void		vec_rotate_edit(t_vector *vector, float angle);
-double		vec_distance(t_vector vec1, t_vector vec2);
-double		vec_angle(t_vector v1, t_vector v2);
+t_vector3d	vec_sum(t_vector3d vec1, t_vector3d vec2);
+t_vector3d	vec_mult(t_vector3d vec1, t_vector3d vec2);
+t_vector3d	vec_scalar_mult(t_vector3d vec1, double i);
+t_vector3d	vec_normalize(t_vector3d vec);
+t_vector3d	vec_rotate(t_vector3d vector, float angle);
+void		vec_to_angle(double angle, t_vector3d *vector);
+void		vec_print(t_vector3d *vector, char *name);
+void		vec_rotate_rad(t_vector3d *vector, float angle);
+void		vec_rotate_edit(t_vector3d *vector, float angle);
+double		vec_distance(t_vector3d vec1, t_vector3d vec2);
+double		vec_angle(t_vector3d v1, t_vector3d v2);
 void		vec3_print(t_vector3d vector, char *name);
-t_vector	vec_resize(t_vector vec1, double i);
+t_vector3d	vec_resize(t_vector3d vec1, double i);
 
 #endif

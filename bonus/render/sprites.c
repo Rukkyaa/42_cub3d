@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 15:32:19 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 16:38:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int     sample_img(t_img *img, float x, float y)
 
 void   draw_sprite(t_game *game, t_sprite *sprite)
 {
-    t_vector start_pos;
+    t_vector3d start_pos;
     float line_height =   (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.proj_plane_distance;
     float line_width = (RES_X / game->camera.proj_plane_width ) * (sprite->width / sprite->distance ) * game->camera.proj_plane_distance;
     int pixel_color;
@@ -72,8 +72,8 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
 
 void    compute_sprite(t_game *game, t_sprite *sprite)
 {
-    t_vector player_to_sprite;
-    t_vector screen_pos;
+    t_vector3d player_to_sprite;
+    t_vector3d screen_pos;
     float angle;
     
     player_to_sprite.x = sprite->pos.x - game->player.pos.x;
@@ -81,18 +81,14 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     
     // X AXIS ON SCREEN
     angle = vec_angle(game->player.direction, player_to_sprite);
-    if(fabs(angle) > M_PI / 2)
-    {
-        sprite->visible = 0;
-        return ;
-    }
+
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
     float x_dist = (player_to_sprite.y / player_to_sprite.x);
     x_dist = x_dist * ( (float) RES_X / 2);
 
     // Y AXIS ON SCREEN
     float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
-    t_vector z_vector;
+    t_vector3d z_vector;
     z_vector.x = xy_distance;
     z_vector.y = sprite->pos.z - 32;
     float y_dist = (z_vector.y / z_vector.x);
@@ -100,7 +96,12 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
 
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  - y_dist + (RES_Y / 2);
-
+    
+    if(fabs(angle) > M_PI / 2)
+    {
+        sprite->visible = 0;
+        return ;
+    }
 
 
     sprite->visible = 1;
@@ -112,22 +113,30 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
 
 void    render_sprites(t_game *game)
 {
-    int i = 10;
+    int i = 0;
     int sprite_index;
-    while(i--)
+    while(i < 10)
+    {
         compute_sprite(game, &game->sprites[i]);
-    sort_sprites(game->sprites, 10);
-    i = 0; 
+        draw_filled_circle(&game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
+        printf("%f\n-----------\n\n",game->sprites[i].distance);
+        i++;
+    }
+    // draw_filled_circle(&game->debug_img, game->player.pos, 10, RED_PIXEL);
+    // sort_sprites(game->sprites, 10);
+    i = 10; 
     
-    while(i < 10 && game->sprites[i].visible)
+    while( i-- && game->sprites[i].visible)
     { 
+        printf("%f\n",game->sprites[i].distance);
         sprite_index = game->frame_count % 47;
         //game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
         draw_sprite(game, &game->sprites[i]);
-        draw_filled_circle(game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
-        i++;
+        t_vector3d test;
+        test.x = 100;
+        test.y = 100;
     }
-
+    // close_window(game);
     // i = 48;
     // while(--i)
     // {
@@ -137,9 +146,9 @@ void    render_sprites(t_game *game)
     // }
 }
 
-t_vector vec_3d_to_2D(t_vector3d input) 
+t_vector3d vec_3d_to_2D(t_vector3d input) 
 {
-    t_vector output;
+    t_vector3d output;
 
     output.x = input.x;
     output.y = input.y;

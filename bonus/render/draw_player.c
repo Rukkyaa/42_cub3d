@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	draw_player_direction(t_game *game, int color)
 {
-	t_vector point;
+	t_vector3d point;
 	point.x = (int) (game->player.pos.x + game->player.direction.x *  game->camera.proj_plane_distance);
 	point.y = (int) (game->player.pos.y + game->player.direction.y * game->camera.proj_plane_distance);
 	
@@ -25,7 +25,7 @@ void	draw_player_direction(t_game *game, int color)
 
 void	draw_player(t_game *game, int color)
 {
-	t_vector	pos;
+	t_vector3d	pos;
 
 	if ((int)(game->player.pos.y / 64) < 3)
 		pos.y = game->player.pos.y;

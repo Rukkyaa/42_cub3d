@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:07:24 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 15:34:55 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int					get_b(int trgb);
 int					add_shade(int trgb, int shade);
 
 // Ray casting
-t_collision		cast_2D_ray(t_game *game, t_vector direction);
+t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
 
 
 t_img	**fill_sprite_animation(t_game *game, char *dir_path);
@@ -111,7 +111,7 @@ bool			is_walkable(t_game *game, int x, int y);
 bool			is_collectible(t_game *game);
 
 bool			player_moving(t_game *game);
-void			player_collides(t_game *game, t_vector speed);
+void			player_collides(t_game *game, t_vector3d speed);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
 
@@ -139,7 +139,7 @@ void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
 void			get_wall(t_game *game, t_collision *collision, char c);
-void 			wall_render(t_game *game, t_collision collision, t_vector line_pos, double line_height);
+void 			wall_render(t_game *game, t_collision collision, t_vector3d line_pos, double line_height);
 void    		render_sprites(t_game *game);
 void 			sort_sprites(t_sprite sprites[], int size);
 
@@ -159,19 +159,19 @@ void			psychedelic_view(t_game *game, t_img *img);
 ** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$ |      $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|  \__|\__|  \__|\__|      \________| \______/  **
 *****************************************************************/
-void			draw_filled_square(t_img *img, t_vector pos,
+void			draw_filled_square(t_img *img, t_vector3d pos,
 					int width, int color);
-void			draw_circle(t_game *game, t_vector center,
+void			draw_circle(t_game *game, t_vector3d center,
 					int radius, int color);
-void			draw_filled_circle(t_img *img, t_vector mid,
+void			draw_filled_circle(t_img *img, t_vector3d mid,
 					int radius, int color);
-void			draw_vertical_line(t_img *img, t_vector pos, int len, int color);
-void			draw_vertical_line_2(t_img *img, t_vector pos,
+void			draw_vertical_line(t_img *img, t_vector3d pos, int len, int color);
+void			draw_vertical_line_2(t_img *img, t_vector3d pos,
 					int len, int color);
-void			draw_line_dda(t_img *img, t_vector vec1,
-					t_vector vec2, int color);
-void			draw_filled_rectangle(t_img *img, t_vector vec,
-					t_vector size, int color);
+void			draw_line_dda(t_img *img, t_vector3d vec1,
+					t_vector3d vec2, int color);
+void			draw_filled_rectangle(t_img *img, t_vector3d vec,
+					t_vector3d size, int color);
 void			load_grid(t_game *game);
 void			load_map(t_game *game);
 
@@ -185,9 +185,9 @@ int				game_loop(void *g);
 void	rotate_player(t_game *game, float angle);
 
 
-t_vector		get_next_tile(t_game *game, t_vector direction);
-t_vector		pixel_to_tile(t_vector vector);
-t_vector		tile_to_pixel(t_vector tile_coord);
+t_vector3d		get_next_tile(t_game *game, t_vector3d direction);
+t_vector3d		pixel_to_tile(t_vector3d vector);
+t_vector3d		tile_to_pixel(t_vector3d tile_coord);
 int				pixel_out_of_bound(float x, float y, t_img *image);
 void			var_init(t_game *game);
 char			**get_map(char *arg);
@@ -223,19 +223,19 @@ char			**get_map(char *arg);
 **     \_/    \________| \______/   \__|    \______/ \__|  \__| **
 *****************************************************************/
 
-t_vector		vec_sum(t_vector vec1, t_vector vec2);
-t_vector		vec_mult(t_vector vec1, t_vector vec2);
-t_vector		vec_scalar_mult(t_vector vec1, double i);
-t_vector		vec_normalize(t_vector vec);
-t_vector		vec_rotate(t_vector vector, float angle);
-void			vec_to_angle(double angle, t_vector *vector);
-void			vec_print(t_vector *vector, char *name);
-void			vec_rotate_rad(t_vector *vector, float angle);
-void			vec_rotate_edit(t_vector *vector, float angle);
-double			vec_distance(t_vector vec1, t_vector vec2);
+t_vector3d		vec_sum(t_vector3d vec1, t_vector3d vec2);
+t_vector3d		vec_mult(t_vector3d vec1, t_vector3d vec2);
+t_vector3d		vec_scalar_mult(t_vector3d vec1, double i);
+t_vector3d		vec_normalize(t_vector3d vec);
+t_vector3d		vec_rotate(t_vector3d vector, float angle);
+void			vec_to_angle(double angle, t_vector3d *vector);
+void			vec_print(t_vector3d *vector, char *name);
+void			vec_rotate_rad(t_vector3d *vector, float angle);
+void			vec_rotate_edit(t_vector3d *vector, float angle);
+double			vec_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);
-double			vec_angle(t_vector v1, t_vector v2);
-t_vector		vec_copy(t_vector vec1);
+double			vec_angle(t_vector3d v1, t_vector3d v2);
+t_vector3d		vec_copy(t_vector3d vec1);
 
 /*******************************************************
 **  $$$$$$\   $$$$$$\  $$\   $$\ $$\   $$\ $$$$$$$\   **

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:04:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:29:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,7 @@ void wall_render(t_game *game, t_collision collision, t_vector line_pos, double 
 
     game->z_buffer[(int) line_pos.x] = collision.distance * 64;
     // Sky
-    i = 0;
-	while (i < min_i)
-    {
-		//img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
-        i++;
-    }
+    i = min_i;
     while(i < max_i)
     {
         x_text = (int) ((collision.x_pos_tex / 64.0f) * collision.wall.width);

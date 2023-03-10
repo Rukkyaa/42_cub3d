@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 16:38:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/10 16:55:38 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,15 +126,18 @@ void    render_sprites(t_game *game)
     // sort_sprites(game->sprites, 10);
     i = 10; 
     
-    while( i-- && game->sprites[i].visible)
+    while(i--)
     { 
-        printf("%f\n",game->sprites[i].distance);
-        sprite_index = game->frame_count % 47;
-        //game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
-        draw_sprite(game, &game->sprites[i]);
-        t_vector3d test;
-        test.x = 100;
-        test.y = 100;
+        if(game->sprites[i].visible)
+        {
+            printf("%f\n",game->sprites[i].distance);
+            sprite_index = game->frame_count % 47;
+            game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
+            draw_sprite(game, &game->sprites[i]);
+            t_vector3d test;
+            test.x = 100;
+            test.y = 100;
+        }
     }
     // close_window(game);
     // i = 48;

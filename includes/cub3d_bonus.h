@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 12:51:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:21:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,6 +201,7 @@ typedef struct s_collision
 typedef struct s_weapon
 {
 	t_img	sword;
+	t_img	axe;
 }				t_weapon;
 
 typedef struct s_inventory
@@ -416,7 +417,7 @@ void			clear_sounds(t_sounds *sounds);
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
 void			refresh_inventory(t_game *game);
-void			add_item(t_game *game, char *str);
+void			add_item(t_game *game, char c);
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 18:12:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/10 16:21:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,8 @@ int	game_loop(void *g)
 		ma_device_stop(&game->sounds.footstep.device);
 	if (is_collectible(game))
 	{
-		add_item(game, "sword");
+		add_item(game, game->map[(int)game->player.pos.y / 64]
+			[(int)game->player.pos.x / 64]);
 		game->map[(int)game->player.pos.y / 64]
 			[(int)game->player.pos.x / 64] = '0';
 	}

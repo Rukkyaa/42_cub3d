@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 13:27:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:22:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_inventory(t_game *game)
 		game->inventory.items[i] = "empty";
 }
 
-void	add_item(t_game *game, char *str)
+void	add_item(t_game *game, char c)
 {
 	int	i;
 
@@ -31,7 +31,10 @@ void	add_item(t_game *game, char *str)
 	{
 		if (!strcmp(game->inventory.items[i], "empty"))
 		{
-			game->inventory.items[i] = str;
+			if (c == 'A')
+				game->inventory.items[i] = "axe";
+			else if (c == 'S')
+				game->inventory.items[i] = "sword";
 			return ;
 		}
 	}

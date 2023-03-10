@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:56:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/10 16:18:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ bool	player_moving(t_game *game)
 
 bool	is_collectible(t_game *game)
 {
-	return (game->map[(int)game->player.pos.y / 64]
-		[(int)game->player.pos.x / 64] == 'W');
+	char	c = game->map[(int)game->player.pos.y / 64]
+		[(int)game->player.pos.x / 64];
+		
+	return (c == 'S' || c == 'A');
 }

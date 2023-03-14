@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 23:15:03 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 23:50:05 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ void    render_sprites(t_game *game)
     while(i < 10)
     {
         compute_sprite(game, &game->sprites[i]);
-        draw_filled_circle(&game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
+        // draw_filled_circle(&game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
         // printf("%f\n-----------\n\n",game->sprites[i].distance);
         i++;
     }
@@ -133,7 +133,7 @@ void    render_sprites(t_game *game)
         {
             // printf("%f\n",game->sprites[i].distance);
             sprite_index = game->frame_count % 47;
-            //game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
+            game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
             draw_sprite(game, &game->sprites[i]);
             t_vector3d test;
             test.x = 100;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/13 17:45:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 23:49:56 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	game_loop(void *g)
 	clear_z_buffer(game);
 	clear_img(&game->debug_img);
 	handle_time(game);
-	load_map_debug(game);
-	load_grid(game);
+	// load_map_debug(game);
+	// load_grid(game);
 	if (!player_moving(game))
 		ma_device_stop(&game->sounds.footstep.device);
 	if (is_collectible(game))

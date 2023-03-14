@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 23:14:00 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 23:45:50 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,8 @@ void init_sprites(t_game *game)
 		game->sprites[i].img_run = zombie_animation.imgs;
 		game->sprites[i].current_img = malloc(sizeof(t_img));
 		ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
-		game->sprites[i].pos.z = 32;
-		game->sprites[i].height = 10;
+		game->sprites[i].pos.z = 0;
+		game->sprites[i].height = 70;
 		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].img_run[i]->width) / (game->sprites[i].img_run[i]->heigth);
 		game->sprites[i].distance = 100;
 		i++;

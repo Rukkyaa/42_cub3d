@@ -3,29 +3,32 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 53.30     14.28    14.28                             img_pix_read
- 10.27     17.03     2.75                             img_pix_put
-  7.73     19.10     2.07                             render_floor
-  7.58     21.13     2.03                             render_roof
-  4.82     22.42     1.29                             wall_render
-  3.51     23.36     0.94                             sample_img
-  3.28     24.24     0.88                             draw_sprite
-  2.50     24.91     0.67                             vec_sum
-  1.68     25.36     0.45                             mlx_int_parse_xpm
-  1.38     25.73     0.37                             vec_scalar_mult
-  1.31     26.08     0.35                             draw_vertical_line
-  0.90     26.32     0.24                             mlx_int_str_str_cote
-  0.52     26.46     0.14                             _init
-  0.30     26.54     0.08                             cast_2D_ray
-  0.26     26.61     0.07                             render_fps
-  0.19     26.66     0.05                             get_t
-  0.19     26.71     0.05                             mlx_int_get_line
-  0.11     26.74     0.03                             mlx_int_str_str
-  0.04     26.75     0.01                             draw_filled_square
-  0.04     26.76     0.01                             drmp3d_synth
-  0.04     26.77     0.01                             load_grid
-  0.04     26.78     0.01                             vec_angle
-  0.04     26.79     0.01                             vec_normalize
+ 44.47     11.71    11.71                             img_pix_read
+  9.08     14.10     2.39                             render_roof
+  8.20     16.26     2.16                             vec_sum
+  7.71     18.29     2.03                             vec_scalar_mult
+  7.37     20.23     1.94                             render_floor
+  7.10     22.10     1.87                             img_pix_put
+  3.08     22.91     0.81                             sample_img
+  2.92     23.68     0.77                             mlx_int_parse_xpm
+  2.89     24.44     0.76                             wall_render
+  2.70     25.15     0.71                             draw_vertical_line
+  1.03     25.42     0.27                             mlx_int_str_str_cote
+  0.76     25.62     0.20                             _init
+  0.76     25.82     0.20                             mlx_int_str_str
+  0.34     25.91     0.09                             draw_sprite
+  0.34     26.00     0.09                             mlx_int_get_line
+  0.27     26.07     0.07                             vec_normalize
+  0.23     26.13     0.06                             cast_2D_ray
+  0.23     26.19     0.06                             render_fps
+  0.11     26.22     0.03                             tile_to_pixel
+  0.08     26.24     0.02                             draw_filled_square
+  0.08     26.26     0.02                             is_wall
+  0.08     26.28     0.02                             ma_linear_resampler_process_pcm_frames_s16
+  0.08     26.30     0.02                             vec_angle
+  0.04     26.31     0.01                             drmp3d_synth
+  0.04     26.32     0.01                             get_t
+  0.04     26.33     0.01                             mlx_string_put
 
  %         the percentage of the total running time of the
 time       program used by this function.

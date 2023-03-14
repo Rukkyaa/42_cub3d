@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 16:40:24 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 23:15:03 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int     sample_img(t_img *img, float x, float y)
 void   draw_sprite(t_game *game, t_sprite *sprite)
 {
     t_vector3d start_pos;
-    float line_height =   (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.proj_plane_distance;
+    //printf("sprite distance : %f\n", sprite->distance);
+    float line_height =  (sprite->height / sprite->distance  ) * game->camera.proj_plane_distance; // (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.proj_plane_distance;
     float line_width = (RES_X / game->camera.proj_plane_width ) * (sprite->width / sprite->distance ) * game->camera.proj_plane_distance;
     int pixel_color;
 
@@ -87,12 +88,12 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     x_dist = x_dist * ( (float) RES_X / 2);
 
     // Y AXIS ON SCREEN
-    float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
+    float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y) * cosf(angle);
     t_vector3d z_vector;
     z_vector.x = xy_distance;
     z_vector.y = sprite->pos.z - game->player.pos3d.z;
-    float y_dist = (z_vector.y / z_vector.x);
-    y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
+    float y_dist = (z_vector.y / z_vector.x) * game->camera.proj_plane_distance;
+    y_dist = y_dist; //* ( (float) RES_Y / 2.0f) ; 
 
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  (RES_Y / 2) - y_dist;
@@ -132,7 +133,7 @@ void    render_sprites(t_game *game)
         {
             // printf("%f\n",game->sprites[i].distance);
             sprite_index = game->frame_count % 47;
-            game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
+            //game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
             draw_sprite(game, &game->sprites[i]);
             t_vector3d test;
             test.x = 100;

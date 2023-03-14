@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 18:39:58 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 22:46:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,9 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	game->mouse.x = x;
 	game->mouse.y = y;
 	// printf("%d\n", (int)game->mouse.x);
-	if (!game->key_states['e'])
+	if (0)
 	{
+		printf("%d\n", (int)game->mouse.x);
 		if (!hide)
 		{
 			mlx_mouse_hide(game->mlx, _mlx()->win);

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 16:01:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 17:11:27 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,10 +112,6 @@ void	edit_player_rotate(t_game *game)
 		vec_rotate_edit(&(game->player.direction), 3);
 		vec_rotate_edit(&(game->camera.plane), 3);
 	}
-	if (game->key_states['r'])
-		game->player.direction_adjust += 0.01;
-	if (game->key_states['f'])
-		game->player.direction_adjust -= 0.01;
 }
 
 void	render_map(t_game *game)

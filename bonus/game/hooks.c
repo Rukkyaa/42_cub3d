@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 14:56:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:39:58 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,15 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 {
 	static int	hide = 0;
 	int			diff_x;
+	int			diff_y;
 	int const	tmp = game->mouse.x;
+	int	const   last_mouse_y = game->mouse.y;
 
-	(void)y;
 	diff_x = x - tmp;
+	diff_y = y - last_mouse_y;
 	game->mouse.x = x;
-	printf("%d\n", (int)game->mouse.x);
+	game->mouse.y = y;
+	// printf("%d\n", (int)game->mouse.x);
 	if (!game->key_states['e'])
 	{
 		if (!hide)
@@ -46,6 +49,8 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 		}
 		rotate_player(game, diff_x / 50);
 		game->mouse.x = RES_X / 2;
+		game->mouse.y = RES_Y / 2;
+		game->camera.plane_center.y -= diff_y / 4;
 		mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
 	}
 	else if (hide)

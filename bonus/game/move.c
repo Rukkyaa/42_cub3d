@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/13 16:15:00 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:16:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,14 +96,21 @@ void	edit_player_rotate(t_game *game)
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 	{
-		// game->player.pos3d.z += 1;
-		game->player.tilt += 1;
-		printf("tilt");
+		if( game->player.pos3d.z < game->wall_height - 3)
+		{
+			game->player.pos3d.z += 1;
+						//game->player.tilt += 1;
+			printf("tilt");
+		}
 	}
 	if (game->key_states['f'])
 	{
-		// game->player.pos3d.z -= 1;
-		game->player.tilt -= 1;
-		printf("tilt");
+		if( game->player.pos3d.z > 3)
+		{
+			game->player.pos3d.z -= 1;
+			//game->camera.plane_center.y = game->player.pos3d.z + game->camera.proj_plane_distance * cosf(M_PI/2) ;
+			//game->player.tilt -= 1;
+			printf("tilt");
+		}
 	}
 }

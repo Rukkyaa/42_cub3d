@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 17:03:53 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:16:13 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,7 +120,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
 
     while(i < line_pos.y - line_height)
     {
-        floor_dist = (game->player.pos3d.z  * game->camera.proj_plane_distance) / (float) (game->camera.plane_center.y - i);
+        floor_dist = ( (game->wall_height - game->player.pos3d.z ) * game->camera.proj_plane_distance) / (float) (game->camera.plane_center.y - i);
         floor_dist /= resize;
         //vec3_print(v3d_ray_dir, "v3d_ray_dir");
         // vec3_print(game->player.pos3d, "game->player.pos3d");
@@ -170,8 +170,9 @@ void    render_fps(t_game *game)
         // printf("distance : %f \n", collision.distance);
         ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * 64.0f * cosf(ca);
-        line_height = 64 /  (collision.distance  ) * game->camera.proj_plane_distance;
-        line_pos.y = game->camera.plane_center.y - 0  + line_height / 2;
+        line_height = game->wall_height /  (collision.distance  ) * game->camera.proj_plane_distance;
+        //game->camera.plane_center.y = game->camera.half_res.y * ( 1 + ( game->wall_height - game->player.pos3d.z) / game->wall_height);
+        line_pos.y = (game->camera.plane_center.y) + line_height / 2;
         line_pos.x = i;
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector3d(1000, 400), line_height, PALE_BLUE);

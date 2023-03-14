@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 16:44:23 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 18:32:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +90,7 @@ void init_sprites(t_game *game)
 		game->sprites[i].pos.z = 0;
 		game->sprites[i].height = 40;
 		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].img_run[i]->width) / (game->sprites[i].img_run[i]->heigth);
+		game->sprites[i].distance = 100;
 		i++;
 	}
 }
@@ -133,6 +134,7 @@ void	var_init(t_game *game)
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 1;
 	game->time.fps = 0;
+	game->wall_height = 64;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

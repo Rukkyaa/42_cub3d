@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 16:55:43 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 16:44:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_xpm_to_img(t_game *game, t_img *img, char *path)
 {
-	printf("%s\n", path);
+	//printf("%s\n", path);
 	img->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
 		&img->width, &img->heigth);
 	img->addr = mlx_get_data_addr(img->mlx_img, &img->bpp,
@@ -24,23 +24,38 @@ void	ft_xpm_to_img(t_game *game, t_img *img, char *path)
 void	load_img(t_game *game)
 {
 	// ft_xpm_to_img(&game->texture.wall1, "images/pjay2.xpm");
-	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
-	ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
-	ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
-	ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
-	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/FLOOR_1C.xpm");
-	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/SUPPORT_3A.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall1, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall2, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall3, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall4, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
+	ft_xpm_to_img(game, &game->texture.wall1, "images/pjay2.xpm");
+	ft_xpm_to_img(game, &game->texture.wall2,  "images/pjay2.xpm");
+	ft_xpm_to_img(game, &game->texture.wall3,  "images/pjay2.xpm");
+	ft_xpm_to_img(game, &game->texture.wall4,  "images/pjay2.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
+	// ft_xpm_to_img(game, &game->texture.ground, "images/pdtextures_XPM/461223109.xpm");
+	ft_xpm_to_img(game, &game->texture.ground, "images/SBS_tiny_XPM/Tile/Tile_09-512x512.xpm");
+	
+	ft_xpm_to_img(game, &game->texture.roof, "images/SBS_tiny_XPM/Stone/Stone_06-512x512.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
 	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 }
 
 void	init_camera(t_camera *camera)
 {
-	camera->proj_plane_height =  10;
-	camera->proj_plane_width =  camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
+	camera->proj_plane_height =  RES_Y;
+	camera->proj_plane_width =  RES_X ; //camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
+	camera->half_res.x = RES_X / 2;
+	camera->half_res.y = RES_Y / 2;
 	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
+	//camera->proj_plane_distance = 277;
 	camera->plane.x = 0;
 	camera->plane.y = camera->proj_plane_width / 2;
+	camera->plane_center.x = camera->half_res.x;
+	camera->plane_center.y = camera->half_res.y;
 }
 
 void	init_basic_vectors(t_game *game)
@@ -107,9 +122,10 @@ void	var_init(t_game *game)
 	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.pos3d.x = 3*64 + 32;
 	game->player.pos3d.y = 3*64 + 32; 
-	game->player.pos3d.z = 64;
+	game->player.pos3d.z = 32;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
+	game->player.tilt = 0; 
 	game->player.angle = 0; 
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 

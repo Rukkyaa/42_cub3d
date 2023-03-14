@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/13 16:15:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,15 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, 3);
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
-		game->player.pos3d.z += 1;
+	{
+		// game->player.pos3d.z += 1;
+		game->player.tilt += 1;
+		printf("tilt");
+	}
 	if (game->key_states['f'])
-		game->player.pos3d.z -= 1;
+	{
+		// game->player.pos3d.z -= 1;
+		game->player.tilt -= 1;
+		printf("tilt");
+	}
 }

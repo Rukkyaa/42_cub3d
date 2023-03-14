@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 17:11:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/14 14:56:11 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 
 int	handle_keypress(int keycode, t_game *game)
 {
-	 printf("%d\n", keycode);
+	// printf("%d\n", keycode);
 	if (keycode == ESC)
 		close_window(game);
 	if (is_key(keycode))

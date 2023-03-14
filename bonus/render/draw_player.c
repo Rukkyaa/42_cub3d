@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   draw_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:23:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 12:53:22 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@ void	draw_player_direction(t_game *game, int color)
 	point.x = (int) (game->player.pos.x + game->player.direction.x *  game->camera.proj_plane_distance);
 	point.y = (int) (game->player.pos.y + game->player.direction.y * game->camera.proj_plane_distance);
 	
-	draw_filled_circle(&game->debug_img, game->player.pos, 5, color);
-	draw_line_dda(&game->debug_img, game->player.pos, point, color);	
-    draw_line_dda(&game->debug_img, vec_sum(point, game->camera.plane), point, BLUE_PIXEL);
+	draw_filled_circle(&game->debug_img, game->player.pos, 1, color);
+	// draw_line_dda(&game->debug_img, game->player.pos, point, color);	
+    // draw_line_dda(&game->debug_img, vec_sum(point, game->camera.plane), point, BLUE_PIXEL);
 }
 
 void	draw_player(t_game *game, int color)

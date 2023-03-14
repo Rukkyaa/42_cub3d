@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:56:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/13 16:19:38 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 bool	is_key(int keycode)
 {
-	return (keycode == 'w' || keycode == 'a' || keycode == 'd'
-		|| keycode == 's');
+	return ('a' <= keycode && keycode <= 'z');
 }
 
 bool	is_walkable(t_game *game, int x, int y)

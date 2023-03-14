@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:34:55 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 16:18:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,8 @@
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
-# define RES_X  1600
-# define RES_Y  900
-# define HALF_RES_X  800
-# define HALF_RES_Y  450
+# define RES_X  1280
+# define RES_Y  720
 
 # define MAX_DISTANCE 10
 
@@ -90,6 +88,7 @@ int					add_shade(int trgb, int shade);
 t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
 
 
+int     sample_img(t_img *img, float x, float y);
 t_img	**fill_sprite_animation(t_game *game, char *dir_path);
 void    sort_imgs(t_img **array);
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);

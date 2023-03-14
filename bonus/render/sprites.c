@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 16:55:38 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 16:40:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,12 +90,12 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y);
     t_vector3d z_vector;
     z_vector.x = xy_distance;
-    z_vector.y = sprite->pos.z - 32;
+    z_vector.y = sprite->pos.z - game->player.pos3d.z;
     float y_dist = (z_vector.y / z_vector.x);
     y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
 
     screen_pos.x =  x_dist + RES_X / 2;
-    screen_pos.y =  - y_dist + (RES_Y / 2);
+    screen_pos.y =  (RES_Y / 2) - y_dist;
     
     if(fabs(angle) > M_PI / 2)
     {
@@ -119,18 +119,18 @@ void    render_sprites(t_game *game)
     {
         compute_sprite(game, &game->sprites[i]);
         draw_filled_circle(&game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
-        printf("%f\n-----------\n\n",game->sprites[i].distance);
+        // printf("%f\n-----------\n\n",game->sprites[i].distance);
         i++;
     }
     // draw_filled_circle(&game->debug_img, game->player.pos, 10, RED_PIXEL);
-    // sort_sprites(game->sprites, 10);
+    sort_sprites(game->sprites, 10);
     i = 10; 
     
     while(i--)
     { 
         if(game->sprites[i].visible)
         {
-            printf("%f\n",game->sprites[i].distance);
+            // printf("%f\n",game->sprites[i].distance);
             sprite_index = game->frame_count % 47;
             game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
             draw_sprite(game, &game->sprites[i]);

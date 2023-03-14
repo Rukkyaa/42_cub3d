@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 16:22:13 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,12 @@ void wall_render(t_game *game, t_collision collision, t_vector3d line_pos, doubl
     max_i = (int) fmin(RES_Y - 1, line_pos.y );
     int offset = min_i - (line_pos.y - line_height);
 
-    game->z_buffer[(int) line_pos.x] = collision.distance * 64;
+    game->z_buffer[(int) line_pos.x] = collision.distance;
     // Sky
     i = 0;
 	while (i < min_i)
     {
-		//img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
+		img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
         i++;
     }
     while(i < max_i)

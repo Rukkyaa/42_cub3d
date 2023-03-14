@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 15:35:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/14 13:41:33 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ typedef struct s_camera
 	float	proj_plane_distance;
 	float	proj_plane_height;
 	float	proj_plane_width;
+	t_vector3d			half_res;
 	t_vector3d			plane;
+	t_vector3d			plane_center;
 }					t_camera;
 
 typedef struct s_player
@@ -59,6 +61,7 @@ typedef struct s_player
 	t_vector3d	pos3d;
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
+	int 		tilt;
 	float		angle;
 	float		direction_adjust;
 	t_vector3d	current_tile;

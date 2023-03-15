@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 12:45:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 14:11:41 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,8 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 			mlx_mouse_hide(game->mlx, _mlx()->win);
 			hide = 1;
 		}
-		rotate_player(game, diff_x / 50);
-		game->camera.plane_center.y -= diff_y / 4;
+		rotate_player(game, diff_x * game->time.delta_frame_ms / 4500.0f);
+		game->camera.plane_center.y -= diff_y * game->time.delta_frame_ms  / 400.0f;
 		if(game->camera.plane_center.y >750)
 			game->camera.plane_center.y= 750;
 		if(game->camera.plane_center.y < 150)

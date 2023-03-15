@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 12:49:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 14:14:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
+	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/shotgun.xpm");
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }
 
@@ -121,8 +122,8 @@ void	var_init(t_game *game)
 	i = 256;
 	while(i--)
 		game->key_release_states[i] = 1;
+	game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->mlx = _mlx()->mlx;
-	game->debug_win = mlx_new_window(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;
@@ -140,7 +141,7 @@ void	var_init(t_game *game)
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 1;
 	game->time.fps = 0;
-	game->wall_height = 150;
+	game->wall_height = 64;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

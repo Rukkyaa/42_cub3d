@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 11:06:30 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 22:36:25 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,6 +151,7 @@ void    render_fps(t_game *game)
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
     t_vector3d v_ray_dir2;
+    t_vector3d player_to_midwall;
     t_vector3d v_player_to_camera_plane;
     float ca;
     //printf("half_width : %f\n", halfWidth);
@@ -169,11 +170,21 @@ void    render_fps(t_game *game)
         // print_vector3d2D(&v_ray_dir, "raycast dir");
         collision = cast_2D_ray(game, v_ray_dir);
         // printf("distance : %f \n", collision.distance);
+
         ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * 64.0f * cosf(ca);
+
+        float y_dist = (game->wall_height / 2.0f) - game->player.pos3d.z;
+        float height_ratio = y_dist / game->camera.proj_plane_distance;
+
         line_height = game->wall_height /  (collision.distance  ) * game->camera.proj_plane_distance;
+        printf("distance : %f \n", collision.distance);
         //game->camera.plane_center.y = game->camera.half_res.y * ( 1 + ( game->wall_height - game->player.pos3d.z) / game->wall_height);
-        line_pos.y = (game->camera.plane_center.y) + line_height / 2;
+        player_to_midwall.x =  collision.distance; 
+        player_to_midwall.y = game->wall_height / 2 - game->player.pos3d.z;
+        player_to_midwall = vec_normalize(player_to_midwall);
+        printf("offset : %f \n", player_to_midwall.y * game->camera.proj_plane_distance);
+        line_pos.y = (game->camera.plane_center.y) - player_to_midwall.y * game->camera.proj_plane_distance + line_height / 2;
         line_pos.x = i;
         // printf("orientation : %c\n", collision.orientation);
             //draw_filled_circle(&game->fps_img, get_vector3d(1000, 400), line_height, PALE_BLUE);

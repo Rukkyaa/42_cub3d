@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 15:13:11 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:35:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	refresh_inventory(t_game *game)
 	}
 	if (game->inventory.selected != -1)
 	{
+		if (item_out_of_bound(game->mouse, game->fps_img,
+			*game->inventory.selected_img))
+			return ;
 		put_img_to_img(game->inventory.selected_img, &game->fps_img,
 			game->mouse.x - game->inventory.selected_img->width / 2,
 				game->mouse.y - game->inventory.selected_img->heigth / 2);

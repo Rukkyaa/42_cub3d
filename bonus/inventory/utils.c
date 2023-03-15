@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 15:10:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:34:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,4 +51,11 @@ void	select_item(t_game *game, int x, int y)
 		game->inventory.selected_img = &game->weapon.sword;
 	else if (!strcmp(get_item(x, y, game->inventory.items), "axe"))
 		game->inventory.selected_img = &game->weapon.axe;
+}
+
+bool	item_out_of_bound(t_vector3d mouse, t_img img, t_img selected)
+{
+	return (mouse.x < selected.width / 2 || mouse.x > img.width -
+		selected.width / 2 || mouse.y < selected.heigth / 2 || mouse.y
+			> img.heigth - selected.heigth / 2);
 }

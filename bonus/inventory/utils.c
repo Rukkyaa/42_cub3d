@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 16:22:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/15 15:10:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,17 @@ void	add_item(t_game *game, char c)
 			return ;
 		}
 	}
+}
+
+char	*get_item(int x, int y, char *items[36])
+{
+	return (items[(y - 530) / 70 * 12 + (x - 321) / 80]);
+}
+
+void	select_item(t_game *game, int x, int y)
+{
+	if (!strcmp(get_item(x, y, game->inventory.items), "sword"))
+		game->inventory.selected_img = &game->weapon.sword;
+	else if (!strcmp(get_item(x, y, game->inventory.items), "axe"))
+		game->inventory.selected_img = &game->weapon.axe;
 }

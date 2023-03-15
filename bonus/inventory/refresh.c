@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   refresh.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 12:05:05 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 15:13:11 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,18 @@ void	refresh_inventory(t_game *game)
 		j = -1;
 		while (++j < 12)
 		{
+			if (game->inventory.selected == i * 12 + j)
+				continue ;
 			if (!strcmp(game->inventory.items[i * 12 + j], "sword"))
 				put_img_to_img(&game->weapon.sword, &_mlx()->img, 329 + j * 80, 530 + i * 70);
 			if (!strcmp(game->inventory.items[i * 12 + j], "axe"))
 				put_img_to_img(&game->weapon.axe, &_mlx()->img, 329 + j * 80, 530 + i * 70);
 		}
+	}
+	if (game->inventory.selected != -1)
+	{
+		put_img_to_img(game->inventory.selected_img, &game->fps_img,
+			game->mouse.x - game->inventory.selected_img->width / 2,
+				game->mouse.y - game->inventory.selected_img->heigth / 2);
 	}
 }

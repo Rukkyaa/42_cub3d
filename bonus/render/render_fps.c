@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 17:49:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 18:04:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,6 @@ void pre_compute_resize(t_game *game)
     line_pos.y = game->camera.half_res.y;
     while(i < RES_X)
     {
-        printf("pre_compute %d\n", i);
         v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[i]));
         ca = vec_angle(v_ray_dir, game->player.direction);
         game->fisheye_resize[i] = cosf(ca);
@@ -124,49 +123,32 @@ void pre_compute_resize(t_game *game)
 
 void    render_fps(t_game *game)
 {
-    int i = 0;
     float line_height;
     t_collision collision;
     t_vector3d v_right;
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
-    t_vector3d v_ray_dir2;
     t_vector3d v_player_to_camera_plane;
-    float ca;
-    float angle_resize;;
-    //printf("half_width : %f\n", halfWidth);
+    
     v_right  = vec_normalize(game->camera.plane) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
     line_pos.y = game->camera.half_res.y;
-    while(i < RES_X)
+    line_pos.x = 0;
+    while(line_pos.x < RES_X)
     {
-        // offset = ((2.0f * (float) line_pos.x / (RES_X - 1.0f)) - 1.0f) * halfWidth;
-        // // printf("offset : %f\n", offset);
-        v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[i]));
+        v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
         v_ray_dir = vec_normalize(v_ray_dir);
-        // printf("angle : %f\n", angle_between_vectors(v_ray_dir, game->player.direction));
-        // printf("%d : ", line_pos.x);
-        // print_vector3d2D(&v_ray_dir, "raycast dir");
+        
         collision = cast_2D_ray(game, v_ray_dir);
-        // printf("distance : %f \n", collision.distance);
-        // ca = vec_angle(v_ray_dir, game->player.direction);
-        // angle_resize = cosf(ca);
-        // collision.distance  = collision.distance * 64 * angle_resize;
-        collision.distance  = collision.distance * game->fisheye_resize_wall[i];
+        
+        collision.distance  = collision.distance * game->fisheye_resize_wall[  (int) line_pos.x];
         line_height = game->wall_height  * game->camera.proj_plane_distance / (collision.distance);
-        //game->camera.plane_center.y = game->camera.half_res.y * ( 1 + ( game->wall_height - game->player.pos3d.z) / game->wall_height);
         line_pos.y = (game->camera.plane_center.y) + line_height / 2;
-        line_pos.x = i;
-        // printf("orientation : %c\n", collision.orientation);
-            //draw_filled_circle(&game->fps_img, get_vector3d(1000, 400), line_height, PALE_BLUE);
-        // if ((int) collision.point.x % 64 < 2  || (int) collision.point.y % 64 < 2) // 64 - (int) collision.point.x % 64 < 2 || 64 - (int) collision.point.y % 64 < 2
-        //basic_render(game, collision, line_pos, line_height);
-		
+        
         wall_render(game, collision, line_pos, line_height);
-        pre_compute_rows_dist(game, v_ray_dir2, line_pos, line_height, game->fisheye_resize[i]);
+        pre_compute_rows_dist(game, v_ray_dir, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
         render_floor(game, v_ray_dir, line_pos);
         render_roof(game, v_ray_dir, line_pos, line_height);
-        i++;
+        line_pos.x++;
     }
-    //draw_line_dda(&game->debug_img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLACK_PIXEL);
 }

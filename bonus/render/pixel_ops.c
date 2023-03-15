@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:36:02 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 10:55:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 11:21:38 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,22 @@ unsigned int img_pix_read(t_img *img, int x, int y)
 	return(*(unsigned int *)pixel);
 }
 
-unsigned int img_pix_read_funky(t_img *img, int x, int y)
-{
-	char *pixel;
+// unsigned int img_pix_read(t_img *img, int x, int y)
+// {
+// 	char *pixel;
 
-	// if(pixel_out_of_bound(x, y, img))
-	// 	return (0);
-    pixel = ( img->addr + (y * img->line_len + x * 4));
-	return(pixel);
-}
+// 	// if(pixel_out_of_bound(x, y, img))
+// 	// 	return (0);
+//     pixel = ( img->addr + (y * img->line_len + x * 4));
+// 	return(pixel);
+// }
+
+// unsigned int img_pix_read(t_img *img, int x, int y)
+// {
+// 	char *pixel;
+
+// 	// if(pixel_out_of_bound(x, y, img))
+// 	// 	return (0);
+//     pixel = ( img->addr + (y * img->line_len + x * 4));
+// 	return(*pixel);
+// }

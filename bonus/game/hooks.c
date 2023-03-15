@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 11:11:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 11:27:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	// printf("%d\n", (int)game->mouse.x);
 	if (!game->key_states['e'])
 	{
-		printf("%d\n", (int)game->mouse.x);
+		// printf("%d\n", (int)game->mouse.x);
 		if (!hide)
 		{
 			mlx_mouse_hide(game->mlx, _mlx()->win);
@@ -52,8 +52,8 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 		game->camera.plane_center.y -= diff_y / 4;
 		if(game->camera.plane_center.y >750)
 			game->camera.plane_center.y= 750;
-		if(game->camera.plane_center.y < 270)
-			game->camera.plane_center.y= 270;
+		if(game->camera.plane_center.y < 150)
+			game->camera.plane_center.y= 150;
 		game->mouse.x = RES_X / 2;
 		game->mouse.y = RES_Y / 2;
 		// printf("plane center : %d\n", (int)game->camera.plane_center.y);

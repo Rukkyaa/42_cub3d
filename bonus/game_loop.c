@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 10:31:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 11:24:11 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	game_loop(void *g)
 	render_map(game);
 	render_ui(game);
 	render(game);
-	//render_sprites(game);
+	// render_sprites(game);
 	mlx_string_put(game->mlx, game->fps_win, 100 , RES_Y - 20, WHITE_PIXEL, ft_itoa(game->time.fps));
 	handle_sync(game);
 	game->frame_count++;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 16:18:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 12:07:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,8 @@
 # define FOV_RADIANS ( M_PI / 2 )
 # define FOV 60
 
-# define RES_X  1280
-# define RES_Y  720
+# define RES_X  1600
+# define RES_Y  900
 
 # define MAX_DISTANCE 10
 
@@ -144,7 +144,7 @@ void 			sort_sprites(t_sprite sprites[], int size);
 
 // Shapes
 void			draw_player(t_game *game, int color);
-void			put_img_to_img(t_img img, t_img fill, int start_x, int start_y);
+void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
 void			psychedelic_view(t_game *game, t_img *img);
 
 
@@ -261,7 +261,7 @@ void			clear_sounds(t_sounds *sounds);
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
 void			refresh_inventory(t_game *game);
-void			add_item(t_game *game, char *str);
+void			add_item(t_game *game, char c);
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 11:21:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 12:49:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,9 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game,  &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
 	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
+	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");
+	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
+	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }
 
 void	init_camera(t_camera *camera)
@@ -137,7 +140,7 @@ void	var_init(t_game *game)
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 1;
 	game->time.fps = 0;
-	game->wall_height = 64;
+	game->wall_height = 150;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

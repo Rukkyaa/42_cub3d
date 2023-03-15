@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 17:18:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 11:47:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,13 +138,21 @@ typedef struct s_collision
 typedef struct s_weapon
 {
 	t_img	sword;
+	t_img	axe;
 }				t_weapon;
 
 typedef struct s_inventory
 {
 	t_img	img;
+	int		selected;
 	char	*items[36];
 }				t_inventory;
+
+typedef struct s_hud
+{
+	t_img	aim;
+	t_img	weapon;
+}				t_hud;
 
 typedef struct s_mlx
 {
@@ -161,6 +169,7 @@ typedef struct s_game
 	int			key_states[256];
 	int			key_release_states[256];
 	t_inventory	inventory;
+	t_hud		hud;
 	t_weapon	weapon;
 	t_time		time;
 	t_vector3d	mouse;

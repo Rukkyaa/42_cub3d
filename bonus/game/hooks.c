@@ -6,24 +6,54 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 11:27:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 12:45:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
+char	*get_item(int x, int y, char *items[36])
+{
+	return (items[(y - 530) / 70 * 12 + (x - 321) / 80]);
+}
+
+void	swap_items(int first, int second, char *items[36])
+{
+	char	*tmp;
+
+	tmp = items[first];
+	items[first] = items[second];
+	items[second] = tmp;
+}
+
 int	mouse_press(int button, int x, int y, t_game *game)
 {
-	// printf("%s\n", game->inventory)	
-	printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
+	if (button == 1 && game->key_states['e'] && x > 320 && x < 1280 && y > 530
+		&& y < 736)
+	{
+		if (strcmp(get_item(x, y, game->inventory.items), "empty"))
+		{
+			game->inventory.selected = (y - 530) / 70 * 12 + (x - 321) / 80;
+			printf("Selected %d\n", game->inventory.selected);
+		}
+	}
+	// printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
 	return (0);
 }
 
 int	mouse_release(int button, int x, int y, t_game *game)
 {
-	(void)game;
-
-	printf("Release with button : %d in x:%dy:%d\n", button, x, y);
+	if (button == 1 && game->key_states['e'] && x > 320 && x < 1280 && y > 530
+		&& y < 736)
+	{
+		if (game->inventory.selected != -1)
+		{
+			printf("Dropped %d\n", game->inventory.selected);
+			swap_items((y - 530) / 70 * 12 + (x - 321) / 80,
+				game->inventory.selected, game->inventory.items);
+		}
+	}
+	// printf("Release with button : %d in x:%dy:%d\n", button, x, y);
 	return (0);
 }
 

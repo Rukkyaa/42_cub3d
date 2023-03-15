@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 23:50:05 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/15 12:45:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     y_dist = y_dist; //* ( (float) RES_Y / 2.0f) ; 
 
     screen_pos.x =  x_dist + RES_X / 2;
-    screen_pos.y =  (RES_Y / 2) - y_dist;
+    screen_pos.y =  game->camera.plane_center.y - y_dist;
     
     if(fabs(angle) > M_PI / 2)
     {

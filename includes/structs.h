@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 11:47:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:35:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -176,7 +176,10 @@ typedef struct s_game
 	t_player	player;
 	t_sprite	sprites[10];
 	float			z_buffer[RES_X];
+	float			row_dist[RES_Y];
 	float			ray_offset[RES_X];
+	float			fisheye_resize[RES_X];
+	float			fisheye_resize_wall[RES_X];
 	int			wall_height;
 	t_texture	texture;
 	t_sounds	sounds;

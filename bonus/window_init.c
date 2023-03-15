@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 14:14:05 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:34:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void init_sprites(t_game *game)
 void	precompute_raycast(t_game *game)
 {
 	int i = 0;
+	float angle;
+	
 	while(i < RES_X)
 	{
         game->ray_offset[i] = ((2.0f * (float) i / (RES_X - 1.0f)) - 1.0f) * (game->camera.proj_plane_width / 2);
@@ -156,6 +158,7 @@ void	var_init(t_game *game)
 	game->mouse.x = 0;
 	game->mouse.y = 0;
 	precompute_raycast(game);
+	pre_compute_resize(game);
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 22:46:18 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/15 10:37:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	game->mouse.x = x;
 	game->mouse.y = y;
 	// printf("%d\n", (int)game->mouse.x);
-	if (0)
+	if (!game->key_states['e'])
 	{
 		printf("%d\n", (int)game->mouse.x);
 		if (!hide)
@@ -51,7 +51,9 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 		rotate_player(game, diff_x / 50);
 		game->mouse.x = RES_X / 2;
 		game->mouse.y = RES_Y / 2;
-		game->camera.plane_center.y -= diff_y / 4;
+		// game->camera.plane_center.y -= diff_y / 4;
+		game->camera.plane_center.y = fmin(game->camera.plane_center.y, 860);
+		// printf("plane center : %d\n", (int)game->camera.plane_center.y);
 		mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
 	}
 	else if (hide)

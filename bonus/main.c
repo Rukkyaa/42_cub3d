@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 17:12:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 17:05:51 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "cub3d_bonus.h"
 #define MINIAUDIO_IMPLEMENTATION
 
 int	main(int argc, char **argv)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel_ops.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 16:36:02 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 23:16:51 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/15 10:55:36 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	get_color(t_img *img, int x, int y)
 	return (rgb);
 }
 
-// ! we replaced (img.bpp / 8) with 4, but all image used in the game needs to be in this bpp 
+// ! we replaced (img.bpp / 8) with 4, but all image used in the game must be in 32 bitsperpixels
 void	img_pix_put(t_img *img, int x, int y, int color)
 {
 	char	*dst;
@@ -40,6 +40,16 @@ unsigned int img_pix_read(t_img *img, int x, int y)
 
 	// if(pixel_out_of_bound(x, y, img))
 	// 	return (0);
-    pixel = ( img->addr + (y * img->line_len + x * 4));
+    pixel = img->addr + (y * img->line_len + x * 4);
 	return(*(unsigned int *)pixel);
+}
+
+unsigned int img_pix_read_funky(t_img *img, int x, int y)
+{
+	char *pixel;
+
+	// if(pixel_out_of_bound(x, y, img))
+	// 	return (0);
+    pixel = ( img->addr + (y * img->line_len + x * 4));
+	return(pixel);
 }

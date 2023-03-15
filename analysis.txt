@@ -2,28 +2,71 @@ Flat profile:
 
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 43.87      7.80     7.80                             img_pix_read
-  9.45      9.48     1.68                             render_roof
-  7.93     10.89     1.41                             render_floor
-  7.31     12.19     1.30                             vec_scalar_mult
-  7.26     13.48     1.29                             vec_sum
-  5.12     14.39     0.91                             img_pix_put
-  4.33     15.16     0.77                             draw_sprite
-  3.49     15.78     0.62                             mlx_int_parse_xpm
-  3.09     16.33     0.55                             sample_img
-  2.98     16.86     0.53                             wall_render
-  1.74     17.17     0.31                             mlx_int_str_str_cote
-  1.07     17.36     0.19                             mlx_int_str_str
-  0.67     17.48     0.12                             mlx_int_get_line
-  0.45     17.56     0.08                             _init
-  0.45     17.64     0.08                             get_t
-  0.28     17.69     0.05                             cast_2D_ray
-  0.17     17.72     0.03                             draw_vertical_line
-  0.17     17.75     0.03                             vec_normalize
-  0.06     17.76     0.01                             pixel_to_tile
-  0.06     17.77     0.01                             render_fps
-  0.06     17.78     0.01                             tile_to_pixel
+ time   seconds   seconds    calls  ms/call  ms/call  name    
+ 21.45      2.34     2.34 1025506825     0.00     0.00  img_pix_put
+ 14.12      3.88     1.54 785078574     0.00     0.00  img_pix_read
+ 11.64      5.15     1.27  1089266     0.00     0.00  render_roof
+ 11.00      6.35     1.20  1089266     0.00     0.00  render_floor
+  9.17      7.35     1.00 399876642     0.00     0.00  sample_img
+  7.70      8.19     0.84                             _init
+  7.24      8.98     0.79  1089267     0.00     0.00  wall_render
+  5.22      9.55     0.57 405226302     0.00     0.00  vec_sum
+  4.12     10.00     0.45 405226313     0.00     0.00  vec_scalar_mult
+  3.48     10.38     0.38                             mlx_int_parse_xpm
+  2.02     10.60     0.22                             mlx_int_str_str_cote
+  0.64     10.67     0.07                             drmp3dec_decode_frame
+  0.55     10.73     0.06                             mlx_int_get_line
+  0.55     10.79     0.06                             mlx_int_str_str
+  0.37     10.83     0.04  1308142     0.00     0.00  draw_vertical_line
+  0.37     10.87     0.04  1089267     0.00     0.00  cast_2D_ray
+  0.18     10.89     0.02      851     0.02    10.73  render_fps
+  0.09     10.90     0.01  1089272     0.00     0.00  vec_angle
+  0.09     10.91     0.01                             drmp3d_synth
+  0.00     10.91     0.00  4300607     0.00     0.00  is_wall
+  0.00     10.91     0.00  2179975     0.00     0.00  vec_normalize
+  0.00     10.91     0.00  2178538     0.00     0.00  tile_to_pixel
+  0.00     10.91     0.00  1090969     0.00     0.00  pixel_to_tile
+  0.00     10.91     0.00  1089273     0.00     0.00  get_wall
+  0.00     10.91     0.00    59915     0.00     0.00  map_width
+  0.00     10.91     0.00    39885     0.00     0.00  draw_filled_square
+  0.00     10.91     0.00     8834     0.00     0.00  map_heigth
+  0.00     10.91     0.00     2381     0.00     0.00  player_moving
+  0.00     10.91     0.00     2340     0.00     0.00  data_callback
+  0.00     10.91     0.00     1702     0.00     0.00  draw_filled_circle
+  0.00     10.91     0.00     1702     0.00     0.00  is_walkable
+  0.00     10.91     0.00     1702     0.00     0.00  vec_rotate
+  0.00     10.91     0.00     1576     0.00     0.00  is_key
+  0.00     10.91     0.00     1458     0.00     0.00  vec_rotate_edit
+  0.00     10.91     0.00      994     0.00     0.00  draw_filled_rectangle
+  0.00     10.91     0.00      852     0.00     0.16  load_map
+  0.00     10.91     0.00      851     0.00     0.00  clear_img
+  0.00     10.91     0.00      851     0.00     0.00  draw_player
+  0.00     10.91     0.00      851     0.00     0.00  edit_player_pos
+  0.00     10.91     0.00      851     0.00     0.00  edit_player_rotate
+  0.00     10.91     0.00      851     0.00    10.89  game_loop
+  0.00     10.91     0.00      851     0.00     0.00  handle_sync
+  0.00     10.91     0.00      851     0.00     0.00  handle_time
+  0.00     10.91     0.00      851     0.00     0.00  is_collectible
+  0.00     10.91     0.00      851     0.00     0.00  player_collides
+  0.00     10.91     0.00      851     0.00     0.00  render
+  0.00     10.91     0.00      851     0.00    10.89  render_map
+  0.00     10.91     0.00      851     0.00     0.00  render_ui
+  0.00     10.91     0.00      789     0.00     0.00  handle_keypress
+  0.00     10.91     0.00      788     0.00     0.00  handle_keyrelease
+  0.00     10.91     0.00       48     0.00     0.00  ft_xpm_to_img
+  0.00     10.91     0.00       13     0.00     0.00  _mlx
+  0.00     10.91     0.00       11     0.00     0.00  vec_print
+  0.00     10.91     0.00        1     0.00     0.00  close_window
+  0.00     10.91     0.00        1     0.00     0.00  fill_sprite_animation
+  0.00     10.91     0.00        1     0.00     0.00  free_array
+  0.00     10.91     0.00        1     0.00     0.00  get_map
+  0.00     10.91     0.00        1     0.00     0.00  hooks
+  0.00     10.91     0.00        1     0.00     0.00  init_inventory
+  0.00     10.91     0.00        1     0.00     0.00  init_sprites
+  0.00     10.91     0.00        1     0.00     0.00  load_img
+  0.00     10.91     0.00        1     0.00     0.00  load_sounds
+  0.00     10.91     0.00        1     0.00     0.00  sort_imgs
+  0.00     10.91     0.00        1     0.00     0.16  var_init
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -57,3 +100,447 @@ Copyright (C) 2012-2022 Free Software Foundation, Inc.
 Copying and distribution of this file, with or without modification,
 are permitted in any medium without royalty provided the copyright
 notice and this notice are preserved.
+
+		     Call graph (explanation follows)
+
+
+granularity: each sample hit covers 4 byte(s) for 0.09% of 10.91 seconds
+
+index % time    self  children    called     name
+                0.00    9.27     851/851         mlx_loop [2]
+[1]     85.0    0.00    9.27     851         game_loop [1]
+                0.00    9.27     851/851         render_map [3]
+                0.00    0.00     851/851         draw_player [29]
+                0.00    0.00     851/851         clear_img [30]
+                0.00    0.00     851/851         edit_player_pos [31]
+                0.00    0.00     851/851         handle_time [48]
+                0.00    0.00     851/2381        player_moving [40]
+                0.00    0.00     851/851         is_collectible [49]
+                0.00    0.00     851/851         edit_player_rotate [46]
+                0.00    0.00     851/851         render [50]
+                0.00    0.00     851/851         render_ui [51]
+                0.00    0.00     851/851         handle_sync [47]
+-----------------------------------------------
+                                                 <spontaneous>
+[2]     85.0    0.00    9.27                 mlx_loop [2]
+                0.00    9.27     851/851         game_loop [1]
+                0.00    0.00     789/789         handle_keypress [52]
+                0.00    0.00     788/788         handle_keyrelease [53]
+-----------------------------------------------
+                0.00    9.27     851/851         game_loop [1]
+[3]     85.0    0.00    9.27     851         render_map [3]
+                0.02    9.12     851/851         render_fps [4]
+                0.00    0.13     851/852         load_map [17]
+-----------------------------------------------
+                0.02    9.12     851/851         render_map [3]
+[4]     83.7    0.02    9.12     851         render_fps [4]
+                1.27    1.85 1089266/1089266     render_roof [5]
+                1.20    1.85 1089266/1089266     render_floor [6]
+                0.79    2.09 1089267/1089267     wall_render [7]
+                0.04    0.01 1089267/1089267     cast_2D_ray [22]
+                0.01    0.00 1089272/1089272     vec_angle [23]
+                0.00    0.00 1089265/405226302     vec_sum [12]
+                0.00    0.00 1090116/405226313     vec_scalar_mult [13]
+                0.00    0.00 2179383/2179975     vec_normalize [34]
+-----------------------------------------------
+                1.27    1.85 1089266/1089266     render_fps [4]
+[5]     28.6    1.27    1.85 1089266         render_roof [5]
+                0.50    0.00 199938273/399876642     sample_img [10]
+                0.46    0.00 199938308/1025506825     img_pix_put [8]
+                0.39    0.00 199938286/785078574     img_pix_read [9]
+                0.28    0.00 199938325/405226302     vec_sum [12]
+                0.22    0.00 199938289/405226313     vec_scalar_mult [13]
+-----------------------------------------------
+                1.20    1.85 1089266/1089266     render_fps [4]
+[6]     28.0    1.20    1.85 1089266         render_floor [6]
+                0.50    0.00 199938369/399876642     sample_img [10]
+                0.46    0.00 199938390/1025506825     img_pix_put [8]
+                0.39    0.00 199938389/785078574     img_pix_read [9]
+                0.28    0.00 199938393/405226302     vec_sum [12]
+                0.22    0.00 199938394/405226313     vec_scalar_mult [13]
+-----------------------------------------------
+                0.79    2.09 1089267/1089267     render_fps [4]
+[7]     26.4    0.79    2.09 1089267         wall_render [7]
+                1.33    0.00 584191637/1025506825     img_pix_put [8]
+                0.76    0.00 385201899/785078574     img_pix_read [9]
+-----------------------------------------------
+                0.00    0.00   54464/1025506825     clear_img [30]
+                0.00    0.00   68543/1025506825     draw_filled_circle [28]
+                0.09    0.00 41315483/1025506825     draw_vertical_line [16]
+                0.46    0.00 199938308/1025506825     render_roof [5]
+                0.46    0.00 199938390/1025506825     render_floor [6]
+                1.33    0.00 584191637/1025506825     wall_render [7]
+[8]     21.4    2.34    0.00 1025506825         img_pix_put [8]
+-----------------------------------------------
+                0.39    0.00 199938286/785078574     render_roof [5]
+                0.39    0.00 199938389/785078574     render_floor [6]
+                0.76    0.00 385201899/785078574     wall_render [7]
+[9]     14.1    1.54    0.00 785078574         img_pix_read [9]
+-----------------------------------------------
+                0.50    0.00 199938273/399876642     render_roof [5]
+                0.50    0.00 199938369/399876642     render_floor [6]
+[10]     9.2    1.00    0.00 399876642         sample_img [10]
+-----------------------------------------------
+                                                 <spontaneous>
+[11]     7.7    0.84    0.00                 _init [11]
+-----------------------------------------------
+                0.00    0.00     851/405226302     player_collides [32]
+                0.00    0.00    1443/405226302     edit_player_pos [31]
+                0.00    0.00 1089265/405226302     render_fps [4]
+                0.01    0.00 4258025/405226302     cast_2D_ray [22]
+                0.28    0.00 199938325/405226302     render_roof [5]
+                0.28    0.00 199938393/405226302     render_floor [6]
+[12]     5.2    0.57    0.00 405226302         vec_sum [12]
+-----------------------------------------------
+                0.00    0.00    1491/405226313     edit_player_pos [31]
+                0.00    0.00 1090116/405226313     render_fps [4]
+                0.00    0.00 4258023/405226313     cast_2D_ray [22]
+                0.22    0.00 199938289/405226313     render_roof [5]
+                0.22    0.00 199938394/405226313     render_floor [6]
+[13]     4.1    0.45    0.00 405226313         vec_scalar_mult [13]
+-----------------------------------------------
+                                                 <spontaneous>
+[14]     3.5    0.38    0.00                 mlx_int_parse_xpm [14]
+-----------------------------------------------
+                                                 <spontaneous>
+[15]     2.0    0.22    0.00                 mlx_int_str_str_cote [15]
+-----------------------------------------------
+                0.00    0.00   31805/1308142     draw_filled_rectangle [25]
+                0.04    0.09 1276337/1308142     draw_filled_square [18]
+[16]     1.2    0.04    0.09 1308142         draw_vertical_line [16]
+                0.09    0.00 41315483/1025506825     img_pix_put [8]
+-----------------------------------------------
+                0.00    0.00       1/852         var_init [26]
+                0.00    0.13     851/852         render_map [3]
+[17]     1.2    0.00    0.13     852         load_map [17]
+                0.00    0.13   39885/39885       draw_filled_square [18]
+                0.00    0.00     994/994         draw_filled_rectangle [25]
+                0.00    0.00   59093/59915       map_width [38]
+                0.00    0.00   40879/4300607     is_wall [33]
+                0.00    0.00    7975/8834        map_heigth [39]
+-----------------------------------------------
+                0.00    0.13   39885/39885       load_map [17]
+[18]     1.2    0.00    0.13   39885         draw_filled_square [18]
+                0.04    0.09 1276337/1308142     draw_vertical_line [16]
+-----------------------------------------------
+                                                 <spontaneous>
+[19]     0.6    0.07    0.00                 drmp3dec_decode_frame [19]
+-----------------------------------------------
+                                                 <spontaneous>
+[20]     0.5    0.06    0.00                 mlx_int_get_line [20]
+-----------------------------------------------
+                                                 <spontaneous>
+[21]     0.5    0.06    0.00                 mlx_int_str_str [21]
+-----------------------------------------------
+                0.04    0.01 1089267/1089267     render_fps [4]
+[22]     0.5    0.04    0.01 1089267         cast_2D_ray [22]
+                0.01    0.00 4258025/405226302     vec_sum [12]
+                0.00    0.00 4258023/405226313     vec_scalar_mult [13]
+                0.00    0.00 4258026/4300607     is_wall [33]
+                0.00    0.00 2178538/2178538     tile_to_pixel [35]
+                0.00    0.00 1089273/1089273     get_wall [37]
+                0.00    0.00 1089267/1090969     pixel_to_tile [36]
+-----------------------------------------------
+                0.01    0.00 1089272/1089272     render_fps [4]
+[23]     0.1    0.01    0.00 1089272         vec_angle [23]
+-----------------------------------------------
+                                                 <spontaneous>
+[24]     0.1    0.01    0.00                 drmp3d_synth [24]
+-----------------------------------------------
+                0.00    0.00     994/994         load_map [17]
+[25]     0.0    0.00    0.00     994         draw_filled_rectangle [25]
+                0.00    0.00   31805/1308142     draw_vertical_line [16]
+-----------------------------------------------
+                0.00    0.00       1/1           main [27]
+[26]     0.0    0.00    0.00       1         var_init [26]
+                0.00    0.00       1/852         load_map [17]
+                0.00    0.00       5/13          _mlx [1675]
+                0.00    0.00       3/59915       map_width [38]
+                0.00    0.00       3/8834        map_heigth [39]
+                0.00    0.00       1/11          vec_print [55]
+                0.00    0.00       1/1           load_img [63]
+                0.00    0.00       1/1           load_sounds [64]
+                0.00    0.00       1/1           init_inventory [61]
+-----------------------------------------------
+                                                 <spontaneous>
+[27]     0.0    0.00    0.00                 main [27]
+                0.00    0.00       1/1           var_init [26]
+                0.00    0.00       1/1           get_map [59]
+                0.00    0.00       1/1           init_sprites [62]
+                0.00    0.00       1/1           hooks [60]
+-----------------------------------------------
+                0.00    0.00    1702/1702        draw_player [29]
+[28]     0.0    0.00    0.00    1702         draw_filled_circle [28]
+                0.00    0.00   68543/1025506825     img_pix_put [8]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[29]     0.0    0.00    0.00     851         draw_player [29]
+                0.00    0.00    1702/1702        draw_filled_circle [28]
+                0.00    0.00     846/8834        map_heigth [39]
+                0.00    0.00     809/59915       map_width [38]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[30]     0.0    0.00    0.00     851         clear_img [30]
+                0.00    0.00   54464/1025506825     img_pix_put [8]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[31]     0.0    0.00    0.00     851         edit_player_pos [31]
+                0.00    0.00    1443/405226302     vec_sum [12]
+                0.00    0.00    1491/405226313     vec_scalar_mult [13]
+                0.00    0.00     851/851         player_collides [32]
+                0.00    0.00    1702/1702        vec_rotate [43]
+                0.00    0.00    1530/2381        player_moving [40]
+                0.00    0.00     592/2179975     vec_normalize [34]
+-----------------------------------------------
+                0.00    0.00     851/851         edit_player_pos [31]
+[32]     0.0    0.00    0.00     851         player_collides [32]
+                0.00    0.00     851/405226302     vec_sum [12]
+                0.00    0.00    1702/1090969     pixel_to_tile [36]
+                0.00    0.00    1702/1702        is_walkable [42]
+-----------------------------------------------
+                0.00    0.00    1702/4300607     is_walkable [42]
+                0.00    0.00   40879/4300607     load_map [17]
+                0.00    0.00 4258026/4300607     cast_2D_ray [22]
+[33]     0.0    0.00    0.00 4300607         is_wall [33]
+-----------------------------------------------
+                0.00    0.00     592/2179975     edit_player_pos [31]
+                0.00    0.00 2179383/2179975     render_fps [4]
+[34]     0.0    0.00    0.00 2179975         vec_normalize [34]
+-----------------------------------------------
+                0.00    0.00 2178538/2178538     cast_2D_ray [22]
+[35]     0.0    0.00    0.00 2178538         tile_to_pixel [35]
+-----------------------------------------------
+                0.00    0.00    1702/1090969     player_collides [32]
+                0.00    0.00 1089267/1090969     cast_2D_ray [22]
+[36]     0.0    0.00    0.00 1090969         pixel_to_tile [36]
+-----------------------------------------------
+                0.00    0.00 1089273/1089273     cast_2D_ray [22]
+[37]     0.0    0.00    0.00 1089273         get_wall [37]
+-----------------------------------------------
+                0.00    0.00       3/59915       var_init [26]
+                0.00    0.00      10/59915       init_sprites [62]
+                0.00    0.00     809/59915       draw_player [29]
+                0.00    0.00   59093/59915       load_map [17]
+[38]     0.0    0.00    0.00   59915         map_width [38]
+-----------------------------------------------
+                0.00    0.00       3/8834        var_init [26]
+                0.00    0.00      10/8834        init_sprites [62]
+                0.00    0.00     846/8834        draw_player [29]
+                0.00    0.00    7975/8834        load_map [17]
+[39]     0.0    0.00    0.00    8834         map_heigth [39]
+-----------------------------------------------
+                0.00    0.00     851/2381        game_loop [1]
+                0.00    0.00    1530/2381        edit_player_pos [31]
+[40]     0.0    0.00    0.00    2381         player_moving [40]
+-----------------------------------------------
+                0.00    0.00    2340/2340        ma_device__on_data [682]
+[41]     0.0    0.00    0.00    2340         data_callback [41]
+-----------------------------------------------
+                0.00    0.00    1702/1702        player_collides [32]
+[42]     0.0    0.00    0.00    1702         is_walkable [42]
+                0.00    0.00    1702/4300607     is_wall [33]
+-----------------------------------------------
+                0.00    0.00    1702/1702        edit_player_pos [31]
+[43]     0.0    0.00    0.00    1702         vec_rotate [43]
+-----------------------------------------------
+                0.00    0.00     788/1576        handle_keypress [52]
+                0.00    0.00     788/1576        handle_keyrelease [53]
+[44]     0.0    0.00    0.00    1576         is_key [44]
+-----------------------------------------------
+                0.00    0.00    1458/1458        edit_player_rotate [46]
+[45]     0.0    0.00    0.00    1458         vec_rotate_edit [45]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[46]     0.0    0.00    0.00     851         edit_player_rotate [46]
+                0.00    0.00    1458/1458        vec_rotate_edit [45]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[47]     0.0    0.00    0.00     851         handle_sync [47]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[48]     0.0    0.00    0.00     851         handle_time [48]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[49]     0.0    0.00    0.00     851         is_collectible [49]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[50]     0.0    0.00    0.00     851         render [50]
+-----------------------------------------------
+                0.00    0.00     851/851         game_loop [1]
+[51]     0.0    0.00    0.00     851         render_ui [51]
+-----------------------------------------------
+                0.00    0.00     789/789         mlx_loop [2]
+[52]     0.0    0.00    0.00     789         handle_keypress [52]
+                0.00    0.00     788/1576        is_key [44]
+                0.00    0.00       1/1           close_window [56]
+-----------------------------------------------
+                0.00    0.00     788/788         mlx_loop [2]
+[53]     0.0    0.00    0.00     788         handle_keyrelease [53]
+                0.00    0.00     788/1576        is_key [44]
+-----------------------------------------------
+                0.00    0.00      48/48          fill_sprite_animation [57]
+[54]     0.0    0.00    0.00      48         ft_xpm_to_img [54]
+-----------------------------------------------
+                0.00    0.00       1/11          var_init [26]
+                0.00    0.00      10/11          init_sprites [62]
+[55]     0.0    0.00    0.00      11         vec_print [55]
+-----------------------------------------------
+                0.00    0.00       1/1           handle_keypress [52]
+[56]     0.0    0.00    0.00       1         close_window [56]
+                0.00    0.00       2/13          _mlx [1675]
+                0.00    0.00       1/1           free_array [58]
+-----------------------------------------------
+                0.00    0.00       1/1           init_sprites [62]
+[57]     0.0    0.00    0.00       1         fill_sprite_animation [57]
+                0.00    0.00      48/48          ft_xpm_to_img [54]
+                0.00    0.00       1/1           sort_imgs [65]
+-----------------------------------------------
+                0.00    0.00       1/1           close_window [56]
+[58]     0.0    0.00    0.00       1         free_array [58]
+-----------------------------------------------
+                0.00    0.00       1/1           main [27]
+[59]     0.0    0.00    0.00       1         get_map [59]
+-----------------------------------------------
+                0.00    0.00       1/1           main [27]
+[60]     0.0    0.00    0.00       1         hooks [60]
+                0.00    0.00       6/13          _mlx [1675]
+-----------------------------------------------
+                0.00    0.00       1/1           var_init [26]
+[61]     0.0    0.00    0.00       1         init_inventory [61]
+-----------------------------------------------
+                0.00    0.00       1/1           main [27]
+[62]     0.0    0.00    0.00       1         init_sprites [62]
+                0.00    0.00      10/59915       map_width [38]
+                0.00    0.00      10/8834        map_heigth [39]
+                0.00    0.00      10/11          vec_print [55]
+                0.00    0.00       1/1           fill_sprite_animation [57]
+-----------------------------------------------
+                0.00    0.00       1/1           var_init [26]
+[63]     0.0    0.00    0.00       1         load_img [63]
+-----------------------------------------------
+                0.00    0.00       1/1           var_init [26]
+[64]     0.0    0.00    0.00       1         load_sounds [64]
+-----------------------------------------------
+                0.00    0.00       1/1           fill_sprite_animation [57]
+[65]     0.0    0.00    0.00       1         sort_imgs [65]
+-----------------------------------------------
+                                   4             _mlx [1675]
+                0.00    0.00       2/13          close_window [56]
+                0.00    0.00       5/13          var_init [26]
+                0.00    0.00       6/13          hooks [60]
+[1675]   0.0    0.00    0.00      13+4       _mlx [1675]
+                                   4             _mlx [1675]
+-----------------------------------------------
+
+ This table describes the call tree of the program, and was sorted by
+ the total amount of time spent in each function and its children.
+
+ Each entry in this table consists of several lines.  The line with the
+ index number at the left hand margin lists the current function.
+ The lines above it list the functions that called this function,
+ and the lines below it list the functions this one called.
+ This line lists:
+     index	A unique number given to each element of the table.
+		Index numbers are sorted numerically.
+		The index number is printed next to every function name so
+		it is easier to look up where the function is in the table.
+
+     % time	This is the percentage of the `total' time that was spent
+		in this function and its children.  Note that due to
+		different viewpoints, functions excluded by options, etc,
+		these numbers will NOT add up to 100%.
+
+     self	This is the total amount of time spent in this function.
+
+     children	This is the total amount of time propagated into this
+		function by its children.
+
+     called	This is the number of times the function was called.
+		If the function called itself recursively, the number
+		only includes non-recursive calls, and is followed by
+		a `+' and the number of recursive calls.
+
+     name	The name of the current function.  The index number is
+		printed after it.  If the function is a member of a
+		cycle, the cycle number is printed between the
+		function's name and the index number.
+
+
+ For the function's parents, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the function into this parent.
+
+     children	This is the amount of time that was propagated from
+		the function's children into this parent.
+
+     called	This is the number of times this parent called the
+		function `/' the total number of times the function
+		was called.  Recursive calls to the function are not
+		included in the number after the `/'.
+
+     name	This is the name of the parent.  The parent's index
+		number is printed after it.  If the parent is a
+		member of a cycle, the cycle number is printed between
+		the name and the index number.
+
+ If the parents of the function cannot be determined, the word
+ `<spontaneous>' is printed in the `name' field, and all the other
+ fields are blank.
+
+ For the function's children, the fields have the following meanings:
+
+     self	This is the amount of time that was propagated directly
+		from the child into the function.
+
+     children	This is the amount of time that was propagated from the
+		child's children to the function.
+
+     called	This is the number of times the function called
+		this child `/' the total number of times the child
+		was called.  Recursive calls by the child are not
+		listed in the number after the `/'.
+
+     name	This is the name of the child.  The child's index
+		number is printed after it.  If the child is a
+		member of a cycle, the cycle number is printed
+		between the name and the index number.
+
+ If there are any cycles (circles) in the call graph, there is an
+ entry for the cycle-as-a-whole.  This entry shows who called the
+ cycle (as parents) and the members of the cycle (as children.)
+ The `+' recursive calls entry shows the number of function calls that
+ were internal to the cycle, and the calls entry for each member shows,
+ for that member, how many times it was called from other members of
+ the cycle.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.
+
+Index by function name
+
+  [11] _init                  [53] handle_keyrelease      [32] player_collides
+ [1675] _mlx                  [47] handle_sync            [40] player_moving
+  [22] cast_2D_ray            [48] handle_time            [50] render
+  [30] clear_img              [60] hooks                   [6] render_floor
+  [56] close_window            [8] img_pix_put             [4] render_fps
+  [41] data_callback           [9] img_pix_read            [3] render_map
+  [28] draw_filled_circle     [61] init_inventory          [5] render_roof
+  [25] draw_filled_rectangle  [62] init_sprites           [51] render_ui
+  [18] draw_filled_square     [49] is_collectible         [10] sample_img
+  [29] draw_player            [44] is_key                 [65] sort_imgs
+  [16] draw_vertical_line     [42] is_walkable            [35] tile_to_pixel
+  [24] drmp3d_synth (miniaudio.c) [33] is_wall            [26] var_init
+  [19] drmp3dec_decode_frame  [63] load_img               [23] vec_angle
+  [31] edit_player_pos        [17] load_map               [34] vec_normalize
+  [46] edit_player_rotate     [64] load_sounds            [55] vec_print
+  [57] fill_sprite_animation  [39] map_heigth             [43] vec_rotate
+  [58] free_array             [38] map_width              [45] vec_rotate_edit
+  [54] ft_xpm_to_img          [20] mlx_int_get_line       [13] vec_scalar_mult
+   [1] game_loop              [14] mlx_int_parse_xpm      [12] vec_sum
+  [59] get_map                [21] mlx_int_str_str         [7] wall_render
+  [37] get_wall               [15] mlx_int_str_str_cote
+  [52] handle_keypress        [36] pixel_to_tile

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/14 18:16:13 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 11:06:30 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,11 @@ int get_floor_color(t_game *game, t_vector3d intersection, t_img *img)
     // v_tile.y = (int) intersection.y / 64;
 
     // to do : get texture of the specific tile hit
-    v_texture_pos.x = fmod(intersection.x, 64) / 64;
-    v_texture_pos.y = fmod(intersection.y,  64) / 64;
+    v_texture_pos.x = fmod(intersection.x, 64); /// 64;
+    v_texture_pos.y = fmod(intersection.y,  64); // / 64;
     // vec_print(&v_texture_pos, "v_texture_pos");
-    return(sample_img(img, v_texture_pos.x, v_texture_pos.y));
+    //return(sample_img(img, v_texture_pos.x, v_texture_pos.y));
+    return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
 }
 
 

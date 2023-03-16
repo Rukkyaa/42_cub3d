@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 17:35:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/15 19:04:26 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -144,6 +144,7 @@ typedef struct s_weapon
 typedef struct s_inventory
 {
 	t_img	img;
+	t_img	*selected_img;
 	int		selected;
 	char	*items[36];
 }				t_inventory;

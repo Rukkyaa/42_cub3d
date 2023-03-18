@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 15:45:47 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/18 16:06:17 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,10 +115,10 @@ void init_weapons(t_game *game)
 {
 	int i = 0;
 	t_animation grap_gun;
-	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized");
+	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
 	grap_gun.current_img = grap_gun.imgs[0];
 		printf("anim\n");
-	grap_gun.frame_duration_ms = 50;
+	grap_gun.frame_duration_ms = 100;
 	grap_gun.nb_imgs = 16;
 	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	game->hud.weapon_anim = grap_gun;

@@ -23,3 +23,5 @@ for file in "./$folder_name"/*.xpm; do
     filename=$(basename "$file" .xpm)
     convert "$file" -resize 500x300 -transparent black "$folder_name/$filename.xpm"
 done
+
+resize 500x300 -fuzz 1% -transparent black

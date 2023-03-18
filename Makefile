@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/15 11:02:50 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/18 13:21:26 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
 RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites put_img_to_img debug_map color_ops color_converts \
-	psychedelic_view render draw_player load_sprites sort_imgs))
+	psychedelic_view render draw_player load_sprites sort_imgs animation))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

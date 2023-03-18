@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 12:45:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/18 13:43:27 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
         {
             // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
             // printf("y_pos : %f\n", start_pos.y - j);
-            pixel_color = sample_img(sprite->current_img, (i - (sprite->screen_pos.x - (line_width / 2))) / line_width, (j - (sprite->screen_pos.y - line_height)) / line_width);
+            pixel_color = sample_img(sprite->animation.current_img, (i - (sprite->screen_pos.x - (line_width / 2))) / line_width, (j - (sprite->screen_pos.y - line_height)) / line_width);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
                 img_pix_put(&game->fps_img,  i,  j, pixel_color);
@@ -132,12 +132,8 @@ void    render_sprites(t_game *game)
         if(game->sprites[i].visible)
         {
             // printf("%f\n",game->sprites[i].distance);
-            sprite_index = game->frame_count % 47;
-            game->sprites[i].current_img = game->sprites[0].img_run[sprite_index];
+            update_animation(game, &game->sprites[i].animation);
             draw_sprite(game, &game->sprites[i]);
-            t_vector3d test;
-            test.x = 100;
-            test.y = 100;
         }
     }
     // close_window(game);

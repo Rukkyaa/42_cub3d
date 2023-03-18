@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 15:02:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/18 14:04:12 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,16 +96,20 @@ typedef struct s_texture
 
 typedef struct s_animation
 {
-	t_img	**imgs;
+	t_img		 **imgs;
+	t_img		 *current_img;
+	int          frame_duration_ms;
 	int          nb_imgs;
+	int          frame_offset;
+	long		start_time_ms;
 }				t_animation;
 
-typedef struct s_animated_sprite
+typedef struct s_animated_mob
 {
 	t_animation idle;
 	t_animation walk;
 	t_animation run;
-}				t_animated_sprite;
+}				t_animated_mob;
 
 typedef struct s_sprite
 {
@@ -118,6 +122,7 @@ typedef struct s_sprite
 	float	screen_height;
 	int		visible;
 	t_vector3d	screen_pos;
+	t_animation	animation;
 	t_img	*current_img;
 	t_img	**img_run;
 	t_vector3d	pos;
@@ -151,8 +156,9 @@ typedef struct s_inventory
 
 typedef struct s_hud
 {
-	t_img	aim;
-	t_img	weapon;
+	t_img		aim;
+	t_img		weapon;
+	t_animation	weapon_anim;
 }				t_hud;
 
 typedef struct s_mlx

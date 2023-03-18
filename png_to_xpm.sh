@@ -23,3 +23,7 @@ for file in "./$folder_name"/*.png; do
     filename=$(basename "$file" .png)
     convert "$file" "$folder_name/$filename.xpm"
 done
+
+mkdir "./$folder_name"_xpm
+
+mv $folder_name*.xpm "./$folder_name"_xpm

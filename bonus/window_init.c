@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 12:41:22 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/18 15:45:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
-	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/shotgun.xpm");
+	// ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/shotgun.xpm");
+	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }
 
@@ -82,6 +83,10 @@ void init_sprites(t_game *game)
 	int i = 0;
 	t_animation zombie_animation;
 	zombie_animation.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
+	zombie_animation.current_img = zombie_animation.imgs[0];
+	zombie_animation.frame_duration_ms = 30;
+	zombie_animation.nb_imgs = 48;
+	zombie_animation.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	while(i < 10)
 	{
 		// ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
@@ -91,15 +96,32 @@ void init_sprites(t_game *game)
 		// game->sprites[i].pos.x = 10 * 64;
 		// game->sprites[i].pos.y = (i + 10) * 64;
 		vec_print(&game->sprites[i].pos, "sprite pos");
-		game->sprites[i].img_run = zombie_animation.imgs;
-		game->sprites[i].current_img = malloc(sizeof(t_img));
-		ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
+		// game->sprites[i].img_run = zombie_animation.imgs;
+		// game->sprites[i].current_img = malloc(sizeof(t_img));
+		game->sprites[i].animation = zombie_animation;
+		game->sprites[i].animation.frame_offset = ((double)rand() / (double)RAND_MAX) * zombie_animation.nb_imgs;
+		//ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
 		game->sprites[i].pos.z = -5;
 		game->sprites[i].height = 70;
-		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].img_run[i]->width) / (game->sprites[i].img_run[i]->heigth);
+		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].animation.current_img->width) / (game->sprites[i].animation.current_img->heigth);
+		
+		vec_print(&game->sprites[i].pos, "sprite pos");
 		game->sprites[i].distance = 100;
 		i++;
 	}
+}
+
+void init_weapons(t_game *game)
+{
+	int i = 0;
+	t_animation grap_gun;
+	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized");
+	grap_gun.current_img = grap_gun.imgs[0];
+		printf("anim\n");
+	grap_gun.frame_duration_ms = 50;
+	grap_gun.nb_imgs = 16;
+	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	game->hud.weapon_anim = grap_gun;
 }
 
 
@@ -162,5 +184,7 @@ void	var_init(t_game *game)
 	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
+	handle_time(game);
 	init_sprites(game);
+	init_weapons(game);
 }

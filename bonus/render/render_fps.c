@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 22:36:25 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/18 12:38:49 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -174,16 +174,11 @@ void    render_fps(t_game *game)
         ca = vec_angle(v_ray_dir, game->player.direction);
         collision.distance  = collision.distance * 64.0f * cosf(ca);
 
-        float y_dist = (game->wall_height / 2.0f) - game->player.pos3d.z;
-        float height_ratio = y_dist / game->camera.proj_plane_distance;
-
         line_height = game->wall_height /  (collision.distance  ) * game->camera.proj_plane_distance;
-        printf("distance : %f \n", collision.distance);
         //game->camera.plane_center.y = game->camera.half_res.y * ( 1 + ( game->wall_height - game->player.pos3d.z) / game->wall_height);
         player_to_midwall.x =  collision.distance; 
         player_to_midwall.y = game->wall_height / 2 - game->player.pos3d.z;
         player_to_midwall = vec_normalize(player_to_midwall);
-        printf("offset : %f \n", player_to_midwall.y * game->camera.proj_plane_distance);
         line_pos.y = (game->camera.plane_center.y) - player_to_midwall.y * game->camera.proj_plane_distance + line_height / 2;
         line_pos.x = i;
         // printf("orientation : %c\n", collision.orientation);
@@ -193,7 +188,7 @@ void    render_fps(t_game *game)
 		
         wall_render(game, collision, line_pos, line_height);
         render_floor(game, v_ray_dir2, line_pos, cosf(ca));
-        render_roof(game, v_ray_dir2, line_pos, cosf(ca), line_height);
+        // render_roof(game, v_ray_dir2, line_pos, cosf(ca), line_height);
         i++;
     }
     //draw_line_dda(&game->debug_img, vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, halfWidth))),  vec_sum(game->player.pos, vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, -halfWidth))), BLACK_PIXEL);

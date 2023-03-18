@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 22:33:11 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/18 12:41:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ void init_sprites(t_game *game)
 		game->sprites[i].img_run = zombie_animation.imgs;
 		game->sprites[i].current_img = malloc(sizeof(t_img));
 		ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
-		game->sprites[i].pos.z = 0;
+		game->sprites[i].pos.z = -5;
 		game->sprites[i].height = 70;
 		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].img_run[i]->width) / (game->sprites[i].img_run[i]->heigth);
 		game->sprites[i].distance = 100;
@@ -141,7 +141,7 @@ void	var_init(t_game *game)
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 1;
 	game->time.fps = 0;
-	game->wall_height = 500;
+	game->wall_height = 64;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     vec_print(&game->player.direction, "player dir");
 	// close_window(game);

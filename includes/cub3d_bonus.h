@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 13:22:34 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/20 12:08:21 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path);
 void    sort_imgs(t_img **array);
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
+void 	pre_compute_resize(t_game *game);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **

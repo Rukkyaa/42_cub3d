@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/18 13:43:27 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/20 13:35:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
     t_vector3d start_pos;
     //printf("sprite distance : %f\n", sprite->distance);
     float line_height =  (sprite->height / sprite->distance  ) * game->camera.proj_plane_distance; // (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.proj_plane_distance;
-    float line_width = (RES_X / game->camera.proj_plane_width ) * (sprite->width / sprite->distance ) * game->camera.proj_plane_distance;
+    float line_width =  (sprite->width / sprite->distance ) * game->camera.proj_plane_distance;
     int pixel_color;
 
     // Start
@@ -46,6 +46,8 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
     // printf("line_width : %f\n", line_width);
     float i = start_pos.x;
     float j = start_pos.y;
+    float i_offset = sprite->screen_pos.x - (line_width / 2);
+    float j_offset = sprite->screen_pos.y - line_height;
     while(i < max_i)
     {
         j = start_pos.y;
@@ -55,11 +57,12 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
             i++;
             continue;
         }
+        float x_text = (i - i_offset) / line_width;
         while(j < max_j)
         {
             // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
             // printf("y_pos : %f\n", start_pos.y - j);
-            pixel_color = sample_img(sprite->animation.current_img, (i - (sprite->screen_pos.x - (line_width / 2))) / line_width, (j - (sprite->screen_pos.y - line_height)) / line_width);
+            pixel_color = sample_img(sprite->animation.current_img, x_text, (j - j_offset) / line_width);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
                 img_pix_put(&game->fps_img,  i,  j, pixel_color);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 16:06:17 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/20 13:11:12 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,8 @@ void init_weapons(t_game *game)
 void	precompute_raycast(t_game *game)
 {
 	int i = 0;
+	float angle;
+	
 	while(i < RES_X)
 	{
         game->ray_offset[i] = ((2.0f * (float) i / (RES_X - 1.0f)) - 1.0f) * (game->camera.proj_plane_width / 2);
@@ -178,6 +180,7 @@ void	var_init(t_game *game)
 	game->mouse.x = 0;
 	game->mouse.y = 0;
 	precompute_raycast(game);
+	pre_compute_resize(game);
 	load_img(game);
 	load_map(game);
 	load_sounds(&game->sounds);

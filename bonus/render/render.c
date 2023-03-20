@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 15:46:15 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/20 13:25:01 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	render_map(t_game *game)
 	render_fps(game);
 	// if (game->key_states[2])
 	// 	psychedelic_view(game, &game->fps_img);
-	load_map(game);
+	//load_map(game);
 	draw_player(game, RED_PIXEL);
 }
 

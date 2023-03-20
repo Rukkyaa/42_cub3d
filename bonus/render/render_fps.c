@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/20 13:12:06 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:52:53 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -158,7 +158,7 @@ void    render_fps(t_game *game)
         wall_render(game, collision, line_pos, line_height);
         pre_compute_rows_dist(game, v_ray_dir, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
         render_floor(game, v_ray_dir, line_pos);
-        //render_roof(game, v_ray_dir, line_pos, line_height);
+        render_roof(game, v_ray_dir, line_pos, line_height);
         line_pos.x++;
     }
 }

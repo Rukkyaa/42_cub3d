@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/20 13:25:01 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:06:53 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,19 @@ void	render_map(t_game *game)
 	render_fps(game);
 	// if (game->key_states[2])
 	// 	psychedelic_view(game, &game->fps_img);
-	//load_map(game);
-	draw_player(game, RED_PIXEL);
+	// load_map(game);
+
+	sample_img_to_img(&game->minimap, &game->debug_img, game->player.pos.x - 122, game->player.pos.y - 122 );
+	draw_filled_circle(&game->minimap, game->minimap_center, 5, RED_PIXEL);
+	// draw_player(game, RED_PIXEL);
 }
 
 void	render(t_game *game)
 {
-	mlx_put_image_to_window(game->mlx, game->debug_win,
-		game->debug_img.mlx_img, 0, 0);
+	// mlx_put_image_to_window(game->mlx, game->debug_win,
+	// 	game->debug_img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->fps_win,
+		game->minimap.mlx_img, 0, 0);
 }

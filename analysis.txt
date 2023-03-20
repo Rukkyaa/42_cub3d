@@ -3,26 +3,27 @@ Flat profile:
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
  time   seconds   seconds    calls  Ts/call  Ts/call  name    
- 31.09      6.29     6.29                             img_pix_put
- 25.21     11.39     5.10                             render_fps
- 15.42     14.51     3.12                             img_pix_read
-  8.30     16.19     1.68                             render_floor
-  7.07     17.62     1.43                             wall_render
-  6.77     18.99     1.37                             draw_sprite
-  1.73     19.34     0.35                             vec_scalar_mult
-  1.58     19.66     0.32                             vec_sum
-  1.04     19.87     0.21                             get_t
-  0.35     19.94     0.07                             cast_2D_ray
-  0.35     20.01     0.07                             put_img_to_img
-  0.30     20.07     0.06                             mlx_int_parse_xpm
-  0.20     20.11     0.04                             _init
-  0.20     20.15     0.04                             vec_normalize
-  0.15     20.18     0.03                             mlx_int_str_str_cote
-  0.05     20.19     0.01                             is_wall
-  0.05     20.20     0.01                             mlx_int_get_line
-  0.05     20.21     0.01                             mlx_int_str_str
-  0.05     20.22     0.01                             tile_to_pixel
-  0.05     20.23     0.01                             vec_rotate_edit
+ 33.13      4.87     4.87                             img_pix_put
+ 19.93      7.80     2.93                             render_fps
+ 14.90      9.99     2.19                             img_pix_read
+  9.52     11.39     1.40                             wall_render
+  6.33     12.32     0.93                             render_floor
+  5.71     13.16     0.84                             render_roof
+  3.13     13.62     0.46                             draw_sprite
+  2.38     13.97     0.35                             vec_sum
+  1.77     14.23     0.26                             vec_scalar_mult
+  0.68     14.33     0.10                             sample_img_to_img
+  0.61     14.42     0.09                             _init
+  0.54     14.50     0.08                             cast_2D_ray
+  0.41     14.56     0.06                             put_img_to_img
+  0.27     14.60     0.04                             mlx_int_parse_xpm
+  0.20     14.63     0.03                             mlx_int_str_str_cote
+  0.14     14.65     0.02                             vec_normalize
+  0.07     14.66     0.01                             drmp3_L3_imdct36
+  0.07     14.67     0.01                             drmp3dec_decode_frame
+  0.07     14.68     0.01                             get_t
+  0.07     14.69     0.01                             mlx_int_str_str
+  0.07     14.70     0.01                             mlx_put_image_to_window
 
  %         the percentage of the total running time of the
 time       program used by this function.

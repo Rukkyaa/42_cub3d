@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/14 17:18:32 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 16:48:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,8 @@ void	var_init(t_game *game)
 			&game->img.line_len, &game->img.endian);
 	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img, &game->fps_img.bpp,
 			&game->fps_img.line_len, &game->fps_img.endian);
-	game->img.width = map_width(game->map);
-	game->img.heigth = map_heigth(game->map);
+	game->img.width = map_width(game->map) * 64;
+	game->img.heigth = map_heigth(game->map) * 64;
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
 	init_camera(&game->camera);

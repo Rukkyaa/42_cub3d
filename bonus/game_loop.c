@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 12:35:22 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 16:51:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	game_loop(void *g)
 
 	game = (t_game *) g;
 	clear_z_buffer(game);
-	clear_img(&game->debug_img);
 	handle_time(game);
 	// load_map_debug(game);
 	// load_grid(game);

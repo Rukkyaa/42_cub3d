@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/20 12:08:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:00:55 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,8 +195,10 @@ typedef struct s_game
 	t_vector3d	v_down;
 	t_vector3d	v_left;
 	t_vector3d	v_right;
+	t_vector3d	minimap_center;
 	void		*fps_win;
 	t_img		fps_img;
 	void		*debug_win;
 	t_img		debug_img;
+	t_img		minimap;
 }				t_game;

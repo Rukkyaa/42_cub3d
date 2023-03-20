@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/20 12:08:21 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/20 15:42:36 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void    sort_imgs(t_img **array);
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
 void 	pre_compute_resize(t_game *game);
+void	sample_img_to_img(t_img *dest, t_img *src, int start_x, int start_y);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **
@@ -132,6 +133,7 @@ void			handle_time(t_game *game);
 ** \__|  \__|\________|\__|  \__|\_______/ \________|\__|  \__| **
 *****************************************************************/
 void			img_pix_put(t_img *img, int x, int y, int color);
+char 			*img_get_addr(t_img *img, int x, int y);
 void			render_fps(t_game *game);
 void			render_map(t_game *game);
 void			render(t_game *game);

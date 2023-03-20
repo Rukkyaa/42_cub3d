@@ -9,6 +9,8 @@
         "string.h": "c",
         "stdlib.h": "c",
         "dirent.h": "c",
-        "mlx.h": "c"
+        "mlx.h": "c",
+        "algorithm": "c",
+        "array": "c"
     }
 }

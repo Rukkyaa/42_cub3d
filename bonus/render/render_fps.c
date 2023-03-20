@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/15 18:04:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/16 13:34:04 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,6 +103,7 @@ void pre_compute_resize(t_game *game)
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
     t_vector3d v_ray_dir2;
+    t_vector3d player_to_midwall;
     t_vector3d v_player_to_camera_plane;
     float ca;
     float angle_resize;;
@@ -129,6 +130,7 @@ void    render_fps(t_game *game)
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
     t_vector3d v_player_to_camera_plane;
+    t_vector3d player_to_midwall;
     
     v_right  = vec_normalize(game->camera.plane) ;
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
@@ -145,6 +147,14 @@ void    render_fps(t_game *game)
         line_height = game->wall_height  * game->camera.proj_plane_distance / (collision.distance);
         line_pos.y = (game->camera.plane_center.y) + line_height / 2;
         
+        player_to_midwall.x =  collision.distance; 
+        player_to_midwall.y = game->wall_height / 2 - game->player.pos3d.z;
+        player_to_midwall = vec_normalize(player_to_midwall);
+
+       // printf("offset : %f \n", player_to_midwall.y * game->camera.proj_plane_distance);
+        line_pos.y = (game->camera.plane_center.y) - player_to_midwall.y * game->camera.proj_plane_distance + line_height / 2;
+
+
         wall_render(game, collision, line_pos, line_height);
         pre_compute_rows_dist(game, v_ray_dir, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
         render_floor(game, v_ray_dir, line_pos);

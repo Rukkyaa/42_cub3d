@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   vec_rotate_rad.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:45:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/21 16:47:10 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	vec_rotate_rad(t_vector3d *vector, float angle)
+t_vector3d	vec_rotate_rad(t_vector3d vector, float angle)
 {
 	float	cosine;
 	float	sine;
@@ -21,8 +21,9 @@ void	vec_rotate_rad(t_vector3d *vector, float angle)
 
 	cosine = cosf(angle);
 	sine = sinf(angle);
-	x = vector->x * cosine - vector->y * sine;
-	y = vector->x * sine + vector->y * cosine;
-	vector->x = x;
-	vector->y = y;
+	x = vector.x * cosine - vector.y * sine;
+	y = vector.x * sine + vector.y * cosine;
+	vector.x = x;
+	vector.y = y;
+	return(vector);
 }

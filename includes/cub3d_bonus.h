@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 16:13:19 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:45:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,7 +238,7 @@ t_vector3d		vec_normalize(t_vector3d vec);
 t_vector3d		vec_rotate(t_vector3d vector, float angle);
 void			vec_to_angle(double angle, t_vector3d *vector);
 void			vec_print(t_vector3d *vector, char *name);
-void			vec_rotate_rad(t_vector3d *vector, float angle);
+t_vector3d			vec_rotate_rad(t_vector3d vector, float angle);
 void			vec_rotate_edit(t_vector3d *vector, float angle);
 double			vec_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);

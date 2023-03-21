@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 15:10:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:41:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -188,6 +188,7 @@ typedef struct s_game
 	float			z_buffer[RES_X];
 	float			row_dist[RES_Y];
 	float			ray_offset[RES_X];
+	float			ray_angle[RES_X];
 	float			fisheye_resize[RES_X];
 	float			fisheye_resize_wall[RES_X];
 	int			wall_height;

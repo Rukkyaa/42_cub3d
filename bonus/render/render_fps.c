@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 16:17:35 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:58:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,8 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
         }
         
 
-        *img_addr = pixel_color;  //img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
+        *img_addr = pixel_color;  
+        //img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         img_addr += RES_X;
         i++;
     }
@@ -180,23 +181,19 @@ void pre_compute_resize(t_game *game)
 
 void    render_fps(t_game *game)
 {
-    float line_height;
+    int line_height;
     t_collision collision;
-    t_vector3d v_right;
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
-    t_vector3d v_player_to_camera_plane;
     t_vector3d player_to_midwall;
     
-    v_right  = vec_normalize(game->camera.plane) ;
-    v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
     line_pos.y = game->camera.half_res.y;
     line_pos.x = 0;
-    int i = 0;
     while(line_pos.x < RES_X)
     {
-        v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
-        v_ray_dir = vec_normalize(v_ray_dir);
+        // v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
+        // v_ray_dir = vec_normalize(v_ray_dir);
+        v_ray_dir = vec_rotate_rad(game->player.direction, game->ray_angle[(int)line_pos.x]);
         // v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
         // v_ray_dir = vec_normalize(v_ray_dir);
         // v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
@@ -214,7 +211,7 @@ void    render_fps(t_game *game)
         // player_to_midwall = vec_normalize(player_to_midwall);
         // line_pos.y = (game->camera.plane_center.y) - player_to_midwall.y * game->camera.proj_plane_distance + line_height / 2;
         // printf("offset : %f \n", player_to_midwall.y * game->camera.proj_plane_distance);
-        line_pos.y = (game->camera.plane_center.y) + line_height / 2;
+        line_pos.y = (game->camera.plane_center.y) + ((int) line_height >> 1);
 
 
         wall_render(game, collision, line_pos, line_height);

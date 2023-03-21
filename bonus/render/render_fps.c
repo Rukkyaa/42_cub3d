@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 11:11:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 12:16:26 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,34 +45,62 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
     t_vector3d v3d_intersect_point;
     int i = line_pos.y;
     int pixel_color;
+    int shade = 1;
 
     while(i < RES_Y)
     {
         pixel_color =  get_floor_color(game, v3d_intersect_point, &game->texture.ground);
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[i]));
-        pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
+            // pixel_color = add_shade(pixel_color, 0.5  * 255); 
+        if(check_tile_shading(game, v3d_intersect_point) && shade)
+            pixel_color = add_shade(pixel_color, fmin(fmax(1 - (vec_distance(game->player.pos, v3d_intersect_point)  - 320 ) / 512, 0), 1) * 255); 
+        else
+            shade = 0;
+           
         img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         i++;
     }
 }
 
+int my_abs(int n)
+{
+    if(n<0)
+        n = -n;
+    return n;
+}
+
+int     check_tile_shading(t_game *game, t_vector3d   pos)
+{
+    t_vector3d tile_pos = pixel_to_tile(pos);
+    // vec_print(&tile_pos, "tile_pos");
+    // vec_print(&game->player->tile_pos, "game->player");
+    int distance = my_abs(tile_pos.x - game->player.tile_pos.x) + my_abs(tile_pos.y - game->player.tile_pos.y);
+    //printf("distance : %d\n",distance);
+    return ( distance > 5 );
+}
+
 void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height)
 {
     t_vector3d v3d_intersect_point;
-    int i = 0;
+    int i = line_pos.y - line_height - 1;
     int pixel_color;
+    int shade = 1;
+    int min = 0;
 
     if(line_pos.x < 224)
-        i = 224;
+        min = 224;
 
-    while(i < line_pos.y - line_height)
+    while(i > min)
     {
         pixel_color = get_floor_color(game, v3d_intersect_point, &game->texture.roof);
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));
-        pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
+        if(check_tile_shading(game, v3d_intersect_point) && shade)
+            pixel_color = add_shade(pixel_color, fmin(fmax(1 - (vec_distance(game->player.pos, v3d_intersect_point)  - 320 ) / 512, 0), 1) * 255); 
+        else
+            shade = 0;
         // pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
         img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
-        i++;
+        i--;
     }
 }
 

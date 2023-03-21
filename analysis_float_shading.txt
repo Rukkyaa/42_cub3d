@@ -1,0 +1,62 @@
+Flat profile:
+
+Each sample counts as 0.01 seconds.
+  %   cumulative   self              self     total           
+ time   seconds   seconds    calls  Ts/call  Ts/call  name    
+ 17.30      2.61     2.61                             add_shade
+ 17.03      5.18     2.57                             vec_distance
+ 14.12      7.31     2.13                             render_floor
+  9.15      8.69     1.38                             render_fps
+  9.01     10.05     1.36                             img_pix_read
+  8.61     11.35     1.30                             render_roof
+  7.42     12.47     1.12                             wall_render
+  4.51     13.15     0.68                             img_pix_put
+  2.52     13.53     0.38                             vec_sum
+  2.32     13.88     0.35                             draw_sprite
+  1.79     14.15     0.27                             create_trgb
+  1.19     14.33     0.18                             get_b
+  0.99     14.48     0.15                             get_r
+  0.93     14.62     0.14                             get_g
+  0.80     14.74     0.12                             vec_scalar_mult
+  0.66     14.84     0.10                             _init
+  0.46     14.91     0.07                             put_img_to_img
+  0.33     14.96     0.05                             mlx_int_str_str_cote
+  0.20     14.99     0.03                             get_t
+  0.20     15.02     0.03                             mlx_int_parse_xpm
+  0.20     15.05     0.03                             sample_img_to_img
+  0.13     15.07     0.02                             cast_2D_ray
+  0.07     15.08     0.01                             ma_device_on_write__pulse
+  0.07     15.09     0.01                             mlx_int_str_str
+
+ %         the percentage of the total running time of the
+time       program used by this function.
+
+cumulative a running sum of the number of seconds accounted
+ seconds   for by this function and those listed above it.
+
+ self      the number of seconds accounted for by this
+seconds    function alone.  This is the major sort for this
+           listing.
+
+calls      the number of times this function was invoked, if
+           this function is profiled, else blank.
+
+ self      the average number of milliseconds spent in this
+ms/call    function per call, if this function is profiled,
+	   else blank.
+
+ total     the average number of milliseconds spent in this
+ms/call    function and its descendents per call, if this
+	   function is profiled, else blank.
+
+name       the name of the function.  This is the minor sort
+           for this listing. The index shows the location of
+	   the function in the gprof listing. If the index is
+	   in parenthesis it shows where it would appear in
+	   the gprof listing if it were to be printed.
+
+Copyright (C) 2012-2022 Free Software Foundation, Inc.
+
+Copying and distribution of this file, with or without modification,
+are permitted in any medium without royalty provided the copyright
+notice and this notice are preserved.

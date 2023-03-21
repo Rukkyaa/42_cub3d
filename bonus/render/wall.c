@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 11:15:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:29:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void wall_render(t_game *game, t_collision collision, t_vector3d line_pos, doubl
         y_text = (int) (((i + offset - min_i) / line_height) * collision.wall.heigth);
         pixel_color =  img_pix_read(&collision.wall, x_text, y_text);
         
-        pixel_color = add_shade(pixel_color, 1 -  collision.distance / 1000); 
+        pixel_color = add_shade(pixel_color, (1 -  collision.distance / 1000 )  * 255) ; 
         // printf("pixel %d %d : %ld\n", x_text, y_text, pixel_color);
         img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         i++;

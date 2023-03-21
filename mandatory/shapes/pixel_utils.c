@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/08 15:26:08 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:24:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,19 @@ t_vector	pixel_to_tile(t_vector vector)
 
 	tile_coord.x = (int)(vector.x / 64.0f);
 	tile_coord.y = (int)(vector.y / 64.0f);
+	return (tile_coord);
+}
+
+static inline int divide_by_64(int value) {
+    return value >> 6; // equivalent to value / 64
+}
+
+t_vector	pixel_to_tile(t_vector vector)
+{
+	t_vector	tile_coord;
+
+    tile_coord.x = divide_by_64(vector.x);
+    tile_coord.y = divide_by_64(vector.y);
+
 	return (tile_coord);
 }

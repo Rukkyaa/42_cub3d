@@ -12,7 +12,7 @@ git clone https://github.com/votre_nom/cub3d.git
 3. Exécutez la commande `make bonus` à la racine du projet pour compiler le programme avec les fonctionnalités bonus.
 
 4. Exécutez le programme en utilisant la commande suivante:
-`./cub3d`
+`./cub3d <map>` (Remplacer <map> par une map valide)
 
 
 ## Utilisation

@@ -21,4 +21,4 @@ Le jeu peut être contrôlé avec les touches fléchées pour se déplacer. Vous
 
 ## Auteur
 
-Ce projet a été créé par Axel & Theo.
+Ce projet a été créé par @Rukkyaa & @theo-time

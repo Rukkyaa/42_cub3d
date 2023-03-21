@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 15:09:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:05:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,16 +65,17 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	diff_y = y - last_mouse_y;
 	game->mouse.x = x;
 	game->mouse.y = y;
+	game->mouse_diff.x = diff_x;
+	game->mouse_diff.y = diff_y;
 	// printf("%d\n", (int)game->mouse.x);
 	if (!game->key_states['e'])
 	{
+		game->mouse_move = 1;
 		if (!hide)
 		{
 			mlx_mouse_hide(game->mlx, _mlx()->win);
 			hide = 1;
 		}
-		rotate_player(game, diff_x * game->time.delta_frame_ms / 4500.0f);
-		game->camera.plane_center.y -= diff_y * game->time.delta_frame_ms  / 400.0f;
 		if(game->camera.plane_center.y >750)
 			game->camera.plane_center.y= 750;
 		if(game->camera.plane_center.y < 150)

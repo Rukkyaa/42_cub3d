@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/18 12:48:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/21 10:11:54 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,7 @@ void		player_collides(t_game *game, t_vector3d speed)
 
 void	rotate_player(t_game *game, float angle)
 {
+
 	vec_rotate_edit(&(game->player.direction), angle);
 	vec_rotate_edit(&(game->camera.plane), angle);
 	game->player.angle += angle;
@@ -93,6 +94,12 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, -3);
 	if (game->key_states[1])
 		rotate_player(game, 3);
+	if(game->mouse_move)
+	{
+		rotate_player(game, game->mouse_diff.x * game->time.delta_frame_ms / 2000.0f);
+		game->camera.plane_center.y -=  game->mouse_diff.y * game->time.delta_frame_ms  / 150.0f;
+		game->mouse_move = 0;
+	}
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 	{

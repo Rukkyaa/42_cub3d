@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/20 17:00:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 10:05:50 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,8 @@ typedef struct s_game
 	t_weapon	weapon;
 	t_time		time;
 	t_vector3d	mouse;
+	t_vector3d	mouse_diff;
+	float		mouse_move;
 	t_player	player;
 	t_sprite	sprites[10];
 	float			z_buffer[RES_X];

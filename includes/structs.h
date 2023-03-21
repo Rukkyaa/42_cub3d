@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 11:15:45 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 15:10:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -191,6 +191,7 @@ typedef struct s_game
 	float			fisheye_resize[RES_X];
 	float			fisheye_resize_wall[RES_X];
 	int			wall_height;
+	int			wall_height_x_proj_dist;
 	t_texture	texture;
 	t_sounds	sounds;
 	t_camera	camera;

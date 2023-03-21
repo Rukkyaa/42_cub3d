@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/21 15:21:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
 			get_wall(game, &collision, game->map[(int)v_map_check.y][(int)v_map_check.x]);
         }
     }
-    collision.distance = distance;
+    collision.distance = distance * 64;
     collision.orientation = get_collision_orientation(last_step, v_step);
     collision.point = collision_point;
     collision.x_pos_tex = get_texture_x(last_step, collision_point ,v_map_check);

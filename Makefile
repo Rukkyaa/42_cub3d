@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/20 13:14:03 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/21 16:08:35 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -151,7 +151,7 @@ perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS
 	@printf "|            PERF FINISHED !           |\n"
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
-	@./cub3d_bonus maps/map.cub
+	@./cub3d_bonus maps/chichi.cub
 	@gprof cub3d_bonus gmon.out > analysis.txt
 	@rm gmon.out
 

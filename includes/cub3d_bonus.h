@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 11:29:32 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 16:13:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@
 # define RES_X  1600
 # define RES_Y  900
 
+# define HD 1
+
 # define MAX_DISTANCE 10
 
 /****************************************************************
@@ -96,6 +98,7 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
 void 	pre_compute_resize(t_game *game);
 void	sample_img_to_img(t_img *dest, t_img *src, int start_x, int start_y);
+int divide_by_64(int value);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **

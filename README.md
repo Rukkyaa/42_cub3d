@@ -10,10 +10,9 @@ git clone https://github.com/votre_nom/cub3d.git
 2. Assurez-vous d'avoir `gcc` installé sur votre système.
 
 3. Exécutez la commande `make bonus` à la racine du projet pour compiler le programme avec les fonctionnalités bonus.
-make bonus
 
 4. Exécutez le programme en utilisant la commande suivante:
-./cub3d
+`./cub3d`
 
 
 ## Utilisation

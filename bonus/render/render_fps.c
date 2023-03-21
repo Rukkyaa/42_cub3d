@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/20 15:52:53 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:11:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,14 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
 {
     t_vector3d v3d_intersect_point;
     int i = line_pos.y;
+    int pixel_color;
 
     while(i < RES_Y)
     {
+        pixel_color =  get_floor_color(game, v3d_intersect_point, &game->texture.ground);
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[i]));
-        img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.ground));
+        pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
+        img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         i++;
     }
 }
@@ -57,14 +60,18 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
 {
     t_vector3d v3d_intersect_point;
     int i = 0;
+    int pixel_color;
 
     if(line_pos.x < 224)
         i = 224;
 
     while(i < line_pos.y - line_height)
     {
+        pixel_color = get_floor_color(game, v3d_intersect_point, &game->texture.roof);
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));
-        img_pix_put(&game->fps_img, line_pos.x, i, get_floor_color(game, v3d_intersect_point, &game->texture.roof));
+        pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
+        // pixel_color = add_shade(pixel_color, fmax(1 -  vec_distance(game->player.pos, v3d_intersect_point) / 1000, 0)); 
+        img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         i++;
     }
 }

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/20 17:12:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:18:15 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,9 +80,10 @@ int					get_t(int trgb);
 int					get_r(int trgb);
 int					get_g(int trgb);
 int					get_b(int trgb);
+int					create_trgb(int t, int r, int g, int b);
 
 // Color operations
-int					add_shade(int trgb, int shade);
+int				add_shade(int trgb, float shade);
 
 // Ray casting
 t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
@@ -116,6 +117,7 @@ bool			player_moving(t_game *game);
 void			player_collides(t_game *game, t_vector3d speed);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
+void			update_player_tile_pos(t_player	*player);
 
 //Fps
 void			handle_sync(t_game *game);

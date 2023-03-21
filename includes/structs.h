@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 10:05:50 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:15:45 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ typedef struct s_player
 	t_vector3d	pos;
 	t_vector3d	speed;
 	t_vector3d	pos3d;
+	t_vector3d	tile_pos;
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
 	int 		tilt;

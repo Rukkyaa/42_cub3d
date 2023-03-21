@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/20 17:02:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:08:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,10 @@ void	load_img(t_game *game)
 	// ft_xpm_to_img(game, &game->texture.wall4,  "images/pjay2.xpm");
 
 	ft_xpm_to_img(game,  &game->texture.ground, "images/retro_texture_pack/TILE_3E.xpm");
-	// ft_xpm_to_img(game, &game->texture.ground, "images/pdtextures_XPM/461223109.xpm");
+	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/WARN_1.xpm");
 	// ft_xpm_to_img(game, &game->texture.ground, "images/SBS_tiny_XPM/Tile/Tile_09-512x512.xpm");
 	
-	ft_xpm_to_img(game,  &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
+	// ft_xpm_to_img(game,  &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
 	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
 	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");

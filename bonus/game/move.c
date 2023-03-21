@@ -6,11 +6,18 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 10:11:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/21 11:18:41 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+
+void	update_player_tile_pos(t_player	*player)
+{
+	player->tile_pos.x = (int) ( player->pos.x / 64 );
+	player->tile_pos.y = (int) ( player->pos.y / 64 );
+}
 
 void	edit_player_pos(t_game *game)
 {
@@ -54,6 +61,7 @@ void	edit_player_pos(t_game *game)
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
+	update_player_tile_pos(&game->player);
 }
 
 void		player_collides(t_game *game, t_vector3d speed)

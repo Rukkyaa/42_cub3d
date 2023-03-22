@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 16:41:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/22 14:02:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_texture
 	t_img	wall4;
 	t_img	ground;
 	t_img	roof;
+	t_img	projectile;
 	int		text_heigth;
 	int		text_width;
 }				t_texture;
@@ -184,7 +185,7 @@ typedef struct s_game
 	t_vector3d	mouse_diff;
 	float		mouse_move;
 	t_player	player;
-	t_sprite	sprites[10];
+	t_sprite	sprites[11];
 	float			z_buffer[RES_X];
 	float			row_dist[RES_Y];
 	float			ray_offset[RES_X];

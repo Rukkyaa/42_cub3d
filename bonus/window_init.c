@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 16:50:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/22 13:54:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	// ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/shotgun.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
+	ft_xpm_to_img(game, &game->texture.projectile, "images/projectile/ball_energy.xpm");
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }
 

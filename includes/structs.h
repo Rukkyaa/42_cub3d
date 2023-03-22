@@ -6,9 +6,16 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 15:50:43 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:23:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#ifndef STRUCT_H
+# define STRUCT_H
+
+# define MOB 0
+# define ITEM 1
+# define PROJ 2
 
 typedef struct s_sound
 {
@@ -215,3 +222,5 @@ typedef struct s_game
 	t_img			debug_img;
 	t_img			minimap;
 }				t_game;
+
+#endif

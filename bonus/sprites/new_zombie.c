@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 18:19:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:24:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 			(new_zombie->animation.current_img->heigth);
 	// new_zombie->speed.x = 0.1;
 	// new_zombie->speed.y = 0.1;
-	// new_zombie->type = "zombie";
+	new_zombie->type = MOB;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);
 	return (new_zombie);

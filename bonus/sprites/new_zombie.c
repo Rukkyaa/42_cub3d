@@ -6,13 +6,24 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:04:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:51:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_sprite	*spawn_zombie(t_game *game, t_animation anim, t_vector pos)
+t_animation	get_zombie_anim(t_game *game)
+{
+	t_animation	anim;
+
+	anim.nb_imgs = 48;
+	anim.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
+	anim.current_img = anim.imgs[0];
+	anim.frame_duration_ms = 30;
+	return (anim);
+}
+
+t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 {
 	t_sprite	*new_zombie;
 
@@ -21,8 +32,10 @@ t_sprite	*spawn_zombie(t_game *game, t_animation anim, t_vector pos)
 		return (NULL);
 	new_zombie->pos.x = pos.x;
 	new_zombie->pos.y = pos.y;
-	new_zombie->animation = anim;
-	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * anim.nb_imgs;
+	new_zombie->animation = game->animations.zombie_run;
+	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
+		game->time.frame.tv_usec / 1000;
+	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
 	new_zombie->pos.z = -5;
 	new_zombie->height = 70;
 	new_zombie->width = new_zombie->height *

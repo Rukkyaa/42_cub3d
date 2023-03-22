@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:09:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:46:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -297,8 +297,9 @@ t_mlx			*_mlx(void);
 ** \$$$$$$  |$$ |      $$ |  $$ |$$$$$$\    $$ |   $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|      \__|  \__|\______|   \__|   \________| \______/  **
 *************************************************************************/
-t_sprite	*spawn_zombie(t_game *game, t_animation anim, t_vector pos);
+t_sprite	*spawn_zombie(t_game *game, t_vector pos);
 t_sprite	*sprite_last(t_sprite *lst);
 void		sprite_add_back(t_sprite **lst, t_sprite *new);
+t_animation	get_zombie_anim(t_game *game);
 
 #endif

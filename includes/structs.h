@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 15:18:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:50:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,11 @@ typedef struct s_animation
 	long		start_time_ms;
 }				t_animation;
 
+typedef struct s_animations
+{
+	t_animation	zombie_run;
+}				t_animations;
+
 typedef struct s_animated_mob
 {
 	t_animation idle;
@@ -173,39 +178,40 @@ typedef struct s_mlx
 
 typedef struct s_game
 {
-	void 		*mlx;
-	int			frame_count;
-	char		**map;
-	int			key_states[256];
-	int			key_release_states[256];
-	t_inventory	inventory;
-	t_hud		hud;
-	t_weapon	weapon;
-	t_time		time;
-	t_vector3d	mouse;
-	t_vector3d	mouse_diff;
-	float		mouse_move;
-	t_player	player;
-	t_sprite	*sprites;
+	void 			*mlx;
+	int				frame_count;
+	char			**map;
+	int				key_states[256];
+	int				key_release_states[256];
+	t_inventory		inventory;
+	t_hud			hud;
+	t_weapon		weapon;
+	t_time			time;
+	t_vector3d		mouse;
+	t_vector3d		mouse_diff;
+	t_animations	animations;
+	float			mouse_move;
+	t_player		player;
+	t_sprite		*sprites;
 	float			z_buffer[RES_X];
 	float			row_dist[RES_Y];
 	float			ray_offset[RES_X];
 	float			ray_angle[RES_X];
 	float			fisheye_resize[RES_X];
 	float			fisheye_resize_wall[RES_X];
-	int			wall_height;
-	int			wall_height_x_proj_dist;
-	t_texture	texture;
-	t_sounds	sounds;
-	t_camera	camera;
-	t_vector3d	v_up;
-	t_vector3d	v_down;
-	t_vector3d	v_left;
-	t_vector3d	v_right;
-	t_vector3d	minimap_center;
-	void		*fps_win;
-	t_img		fps_img;
-	void		*debug_win;
-	t_img		debug_img;
-	t_img		minimap;
+	int				wall_height;
+	int				wall_height_x_proj_dist;
+	t_texture		texture;
+	t_sounds		sounds;
+	t_camera		camera;
+	t_vector3d		v_up;
+	t_vector3d		v_down;
+	t_vector3d		v_left;
+	t_vector3d		v_right;
+	t_vector3d		minimap_center;
+	void			*fps_win;
+	t_img			fps_img;
+	void			*debug_win;
+	t_img			debug_img;
+	t_img			minimap;
 }				t_game;

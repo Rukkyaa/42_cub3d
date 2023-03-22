@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:20:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:52:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d_bonus.h"
+#include "cub3d_bonus.h"
 
 void	ft_xpm_to_img(t_game *game, t_img *img, char *path)
 {
@@ -53,6 +53,11 @@ void	load_img(t_game *game)
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }
 
+void	init_animations(t_game *game)
+{
+	game->animations.zombie_run = get_zombie_anim(game);
+}
+
 void	init_camera(t_camera *camera)
 {
 	camera->proj_plane_height =  RES_Y;
@@ -83,17 +88,13 @@ void	init_basic_vectors(t_game *game)
 void init_sprites(t_game *game)
 {
 	int i = 0;
-	t_animation zombie_animation;
 	t_sprite	*tmp;
-	zombie_animation.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
-	zombie_animation.current_img = zombie_animation.imgs[0];
-	zombie_animation.frame_duration_ms = 30;
-	zombie_animation.nb_imgs = 48;
-	zombie_animation.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+
+	init_animations(game);
 	game->sprites = NULL;
-	while(i < 10000)
+	while(i < 10)
 	{
-		tmp = spawn_zombie(game, zombie_animation, (t_vector){(double)rand() / (double)RAND_MAX * map_width(game->map) * 64, (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64});
+		tmp = spawn_zombie(game, (t_vector){(double)rand() / (double)RAND_MAX * map_width(game->map) * 64, (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64});
 		if (!tmp)
 			printf("error spawn zombie\n");
 		i++;

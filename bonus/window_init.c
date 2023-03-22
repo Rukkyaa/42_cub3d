@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 18:09:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:56:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	load_img(t_game *game)
 void	init_animations(t_game *game)
 {
 	game->animations.zombie_run = get_zombie_anim(game);
+	game->animations.sword = get_item_anim(game);
 }
 
 void	init_camera(t_camera *camera)
@@ -99,6 +100,9 @@ void init_sprites(t_game *game)
 			printf("error spawn zombie\n");
 		i++;
 	}
+	tmp = spawn_item(game, (t_vector){3.0 * 64, 3.0 * 64});
+	if (!tmp)
+		printf("error spawn zombie\n");
 }
 
 void init_weapons(t_game *game)
@@ -109,6 +113,7 @@ void init_weapons(t_game *game)
 	grap_gun.current_img = grap_gun.imgs[0];
 		printf("anim\n");
 	grap_gun.frame_duration_ms = 100;
+	grap_gun.frame_offset = 0;
 	grap_gun.nb_imgs = 16;
 	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	game->hud.weapon_anim = grap_gun;

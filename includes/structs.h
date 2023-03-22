@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 18:23:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:25:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,6 +116,7 @@ typedef struct s_animation
 typedef struct s_animations
 {
 	t_animation	zombie_run;
+	t_animation	sword;
 }				t_animations;
 
 typedef struct s_animated_mob

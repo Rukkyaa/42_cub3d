@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/22 15:14:38 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/22 18:34:36 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #
-SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, new_zombie sprite_add_back sprite_last))
+SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, new_zombie sprite_add_back sprite_last new_item))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
@@ -122,7 +122,7 @@ flag:= 1
 	fi
 	@printf "\033[1;32m|\033[32m                                       \033[m\r"
 	@printf "\033[1;35m|\033[0;32m Compiling $@... \033[m\r"
-	@cc -Wall -Wextra -Ofast -I $(INCLUDE) -I/usr/include -Imlx_linux -O3 -c $< -o ${<:.c=.o}
+	@cc -Wall -Wextra -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -c $< -o ${<:.c=.o}
 	$(eval flag=$(shell echo $$(($(flag)+1))))
 
 all: $(NAME)

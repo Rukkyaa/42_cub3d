@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 18:25:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:56:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,35 +16,35 @@ t_animation	get_item_anim(t_game *game)
 {
 	t_animation	anim;
 
-	anim.nb_imgs = 48;
-	anim.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
-	anim.current_img = anim.imgs[0];
+	anim.nb_imgs = 1;
+	anim.imgs = NULL;
+	anim.current_img = &game->weapon.sword;
 	anim.frame_duration_ms = 30;
 	return (anim);
 }
 
-t_sprite	*spawn_zombie(t_game *game, t_vector pos)
+t_sprite	*spawn_item(t_game *game, t_vector pos)
 {
-	t_sprite	*new_zombie;
+	t_sprite	*new_item;
 
-	new_zombie = malloc(sizeof(t_sprite));
-	if (!new_zombie)
+	new_item = malloc(sizeof(t_sprite));
+	if (!new_item)
 		return (NULL);
-	new_zombie->pos.x = pos.x;
-	new_zombie->pos.y = pos.y;
-	new_zombie->animation = game->animations.zombie_run;
-	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
+	new_item->pos.x = pos.x;
+	new_item->pos.y = pos.y;
+	new_item->animation = game->animations.sword;
+	new_item->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
 		game->time.frame.tv_usec / 1000;
-	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
-	new_zombie->pos.z = -5;
-	new_zombie->height = 70;
-	new_zombie->width = new_zombie->height *
-		(new_zombie->animation.current_img->width) /
-			(new_zombie->animation.current_img->heigth);
-	// new_zombie->speed.x = 0.1;
-	// new_zombie->speed.y = 0.1;
-	// new_zombie->type = "zombie";
-	new_zombie->next = NULL;
-	sprite_add_back(&game->sprites, new_zombie);
-	return (new_zombie);
+	new_item->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_item->animation.nb_imgs;
+	new_item->pos.z = 0;
+	new_item->height = 20;
+	new_item->width = new_item->height *
+		(new_item->animation.current_img->width) /
+			(new_item->animation.current_img->heigth);
+	// new_item->speed.x = 0.1;
+	// new_item->speed.y = 0.1;
+	// new_item->type = "item";
+	new_item->next = NULL;
+	sprite_add_back(&game->sprites, new_item);
+	return (new_item);
 }

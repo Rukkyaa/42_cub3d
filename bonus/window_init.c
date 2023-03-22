@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:52:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:53:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ void init_sprites(t_game *game)
 
 	init_animations(game);
 	game->sprites = NULL;
-	while(i < 10)
+	while(i < 200)
 	{
 		tmp = spawn_zombie(game, (t_vector){(double)rand() / (double)RAND_MAX * map_width(game->map) * 64, (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64});
 		if (!tmp)

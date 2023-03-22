@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_list_push_front.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:45:36 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/05 21:20:08 by teliet           ###   ########.fr       */
+/*   Created: 2022/10/04 21:45:50 by teliet            #+#    #+#             */
+/*   Updated: 2023/03/22 14:35:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "cub3d_bonus.h"
 #include <stdlib.h>
 
-t_list	*ft_create_elem(void *data)
+void	ft_list_push_front(t_list **begin_list, void *data)
 {
 	t_list	*elem;
 
-	elem = malloc(sizeof(t_list));
-	if (!elem)
-		return (0);
-	elem->next = NULL;
-	elem->data = data;
-	return (elem);
+	if (!begin_list)
+		*begin_list = ft_create_elem(data);
+	else
+	{
+		elem = ft_create_elem(data);
+		elem->next = *begin_list;
+		*begin_list = elem;
+	}
 }

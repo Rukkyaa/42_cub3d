@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/21 12:02:13 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:08:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,27 +117,25 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
 
 void    render_sprites(t_game *game)
 {
-    int i = 0;
-    int sprite_index;
-    while(i < 10)
+	t_sprite	*sprite;
+
+	sprite = game->sprites;
+    while(sprite)
     {
-        compute_sprite(game, &game->sprites[i]);
-        // draw_filled_circle(&game->debug_img, game->sprites[i].pos, 10, BLUE_PIXEL);
-        // printf("%f\n-----------\n\n",game->sprites[i].distance);
-        i++;
+        compute_sprite(game, sprite);
+        sprite = sprite->next;
     }
-    // draw_filled_circle(&game->debug_img, game->player.pos, 10, RED_PIXEL);
-    sort_sprites(game->sprites, 10);
-    i = 10; 
-    
-    while(i--)
+    // sort_sprites(game->sprites, 10);
+	sprite = game->sprites;
+    while(sprite)
     { 
-        if(game->sprites[i].visible)
+        if(sprite->visible)
         {
             // printf("%f\n",game->sprites[i].distance);
-            update_animation(game, &game->sprites[i].animation);
-            draw_sprite(game, &game->sprites[i]);
+            update_animation(game, &sprite->animation);
+            draw_sprite(game, sprite);
         }
+		sprite = sprite->next;
     }
     // close_window(game);
     // i = 48;

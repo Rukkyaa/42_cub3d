@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach.c                                  :+:      :+:    :+:   */
+/*   sprite_add_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:54:58 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/04 21:55:00 by teliet           ###   ########.fr       */
+/*   Created: 2023/03/22 14:57:33 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/22 14:59:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
-#include <stdlib.h>
+#include "cub3d_bonus.h"
 
-void	ft_list_foreach(t_list *begin_list, void (*f)(void *))
+void	sprite_add_back(t_sprite **lst, t_sprite *new)
 {
-	if (!begin_list)
-		return ;
-	while (begin_list)
+	t_sprite  *tmp;
+
+	if (*lst)
 	{
-		(*f)(begin_list->data);
-		begin_list = begin_list->next;
+		tmp = sprite_last(*lst);
+		tmp->next = new;
 	}
+	else
+		*lst = new;
 }

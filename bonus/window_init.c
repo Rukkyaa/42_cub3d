@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 14:15:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 15:20:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,31 +84,18 @@ void init_sprites(t_game *game)
 {
 	int i = 0;
 	t_animation zombie_animation;
+	t_sprite	*tmp;
 	zombie_animation.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_SLICED_XPM");
 	zombie_animation.current_img = zombie_animation.imgs[0];
 	zombie_animation.frame_duration_ms = 30;
 	zombie_animation.nb_imgs = 48;
 	zombie_animation.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-	while(i < 10)
+	game->sprites = NULL;
+	while(i < 10000)
 	{
-		// ft_xpm_to_img(game, &game->sprites[i].texture, "images/monster1.xpm");
-		// printf("bpp : %d\n", game->sprites[i].texture.bpp);
-		game->sprites[i].pos.x = ((double)rand() / (double)RAND_MAX) * map_width(game->map) * 64;
-		game->sprites[i].pos.y = ((double)rand() / (double)RAND_MAX) * map_heigth(game->map) * 64;
-		// game->sprites[i].pos.x = 10 * 64;
-		// game->sprites[i].pos.y = (i + 10) * 64;
-		vec_print(&game->sprites[i].pos, "sprite pos");
-		// game->sprites[i].img_run = zombie_animation.imgs;
-		// game->sprites[i].current_img = malloc(sizeof(t_img));
-		game->sprites[i].animation = zombie_animation;
-		game->sprites[i].animation.frame_offset = ((double)rand() / (double)RAND_MAX) * zombie_animation.nb_imgs;
-		//ft_xpm_to_img(game, game->sprites[i].current_img, "images/monster1.xpm");
-		game->sprites[i].pos.z = -5;
-		game->sprites[i].height = 70;
-		game->sprites[i].width = game->sprites[i].height * (game->sprites[i].animation.current_img->width) / (game->sprites[i].animation.current_img->heigth);
-		
-		vec_print(&game->sprites[i].pos, "sprite pos");
-		game->sprites[i].distance = 100;
+		tmp = spawn_zombie(game, zombie_animation, (t_vector){(double)rand() / (double)RAND_MAX * map_width(game->map) * 64, (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64});
+		if (!tmp)
+			printf("error spawn zombie\n");
 		i++;
 	}
 }

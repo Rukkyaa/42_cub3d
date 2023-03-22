@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 14:02:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/22 15:18:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,6 +128,7 @@ typedef struct s_sprite
 	t_img	*current_img;
 	t_img	**img_run;
 	t_vector3d	pos;
+	struct s_sprite	*next;
 }				t_sprite;
 
 
@@ -185,7 +186,7 @@ typedef struct s_game
 	t_vector3d	mouse_diff;
 	float		mouse_move;
 	t_player	player;
-	t_sprite	sprites[11];
+	t_sprite	*sprites;
 	float			z_buffer[RES_X];
 	float			row_dist[RES_Y];
 	float			ray_offset[RES_X];

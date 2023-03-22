@@ -1,25 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   sprite_last.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <marvin@42.fr>                     +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/22 11:57:55 by rukkyaa           #+#    #+#             */
-/*   Updated: 2022/11/07 10:51:00 by axlamber         ###   ########.fr       */
+/*   Created: 2023/03/22 14:59:00 by axlamber          #+#    #+#             */
+/*   Updated: 2023/03/22 14:59:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "cub3d_bonus.h"
 
-t_list	*ft_lstnew(void *content)
+t_sprite	*sprite_last(t_sprite *lst)
 {
-	t_list	*list;
-
-	list = malloc(sizeof(t_list));
-	if (!list)
+	if (!lst)
 		return (NULL);
-	list->content = content;
-	list->next = NULL;
-	return (list);
+	while (lst->next)
+		lst = lst->next;
+	return (lst);
 }

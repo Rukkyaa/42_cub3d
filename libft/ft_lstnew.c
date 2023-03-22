@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_size.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:46:26 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/06 15:30:19 by teliet           ###   ########.fr       */
+/*   Created: 2022/10/22 11:57:55 by rukkyaa           #+#    #+#             */
+/*   Updated: 2023/03/22 14:46:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "cub3d_bonus.h"
 
-int	ft_list_size(t_list *begin_list)
+t_sprite	*ft_lstnew(char *type)
 {
-	int	i;
+	t_list	*list;
 
-	i = 0;
-	while (begin_list)
-	{
-		begin_list = begin_list->next;
-		i++;
-	}
-	return (i);
+	list = malloc(sizeof(t_list));
+	if (!list)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

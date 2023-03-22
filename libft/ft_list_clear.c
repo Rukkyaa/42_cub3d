@@ -1,26 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_foreach_if.c                               :+:      :+:    :+:   */
+/*   ft_list_clear.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:55:07 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/04 21:55:09 by teliet           ###   ########.fr       */
+/*   Created: 2022/10/04 22:02:51 by teliet            #+#    #+#             */
+/*   Updated: 2023/03/22 14:36:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "cub3d_bonus.h"
 
-void	ft_list_foreach_if(t_list *begin_list, void (*f)(void *),
-		void *data_ref, int (*cmp)())
+void	ft_list_clear(t_sprite *begin_list, void (*free_fct)(void *))
 {
+	t_sprite	*temp;
+
 	if (!begin_list)
 		return ;
 	while (begin_list)
 	{
-		if (!(*cmp)(begin_list->data, data_ref))
-			(*f)(begin_list->data);
+		temp = begin_list;
 		begin_list = begin_list->next;
+		free_fct(temp);
+		free(temp);
 	}
 }

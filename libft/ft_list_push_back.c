@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_merge.c                                    :+:      :+:    :+:   */
+/*   ft_list_push_back.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/04 21:55:34 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/04 21:55:35 by teliet           ###   ########.fr       */
+/*   Created: 2022/10/04 21:50:25 by teliet            #+#    #+#             */
+/*   Updated: 2023/03/22 14:35:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "cub3d_bonus.h"
+#include <stdlib.h>
 
 t_list	*my_list_last(t_list *begin_list)
 {
@@ -23,21 +24,20 @@ t_list	*my_list_last(t_list *begin_list)
 	return (begin_list);
 }
 
-void	ft_list_merge(t_list **begin_list1, t_list *begin_list2)
+void	ft_list_push_back(t_list **begin_list, void *data)
 {
+	t_list	*elem;
 	t_list	*last;
 
-	if (!*begin_list1)
+	if (!*begin_list)
 	{
-		*begin_list1 = begin_list2;
-		return ;
+		elem = ft_create_elem(data);
+		*begin_list = elem;
 	}
-	if (!begin_list2)
+	else
 	{
-		if (begin_list1)
-			begin_list2 = *begin_list1;
-		return ;
+		last = my_list_last(*begin_list);
+		elem = ft_create_elem(data);
+		last->next = elem;
 	}
-	last = my_list_last(*begin_list1);
-	last->next = begin_list2;
 }

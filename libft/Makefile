@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by rukkyaa           #+#    #+#              #
-#    Updated: 2023/02/17 15:08:54 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/22 15:12:45 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,8 @@ PRINT = $(addprefix ft_, $(addsuffix .c, \
 			putnbr_fd putchar_fd putstr_fd putendl_fd))
 PRINT_OBJS = $(PRINT:%.c=.build/%.o)
 
-# UTILS
+SPRITE_OBJS = $(SPRITE:%.c=.build/%.o)
+
 AR = ar -rcs
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

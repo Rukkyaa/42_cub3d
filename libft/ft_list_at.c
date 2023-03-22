@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_list_at.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 21:52:29 by teliet            #+#    #+#             */
-/*   Updated: 2022/10/04 21:52:32 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/22 14:35:34 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "cub3d_bonus.h"
 
-t_list	*ft_list_at(t_list *begin_list, unsigned int nbr)
+t_sprite	*ft_list_at(t_sprite *begin_list, unsigned int nbr)
 {
 	unsigned int	i;
 

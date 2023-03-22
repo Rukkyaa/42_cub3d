@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 15:08:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:17:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,7 +132,8 @@ void    render_sprites(t_game *game)
         if(sprite->visible)
         {
             // printf("%f\n",game->sprites[i].distance);
-            update_animation(game, &sprite->animation);
+			if (sprite->animation.imgs)
+            	update_animation(game, &sprite->animation);
             draw_sprite(game, sprite);
         }
 		sprite = sprite->next;

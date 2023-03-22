@@ -6,13 +6,14 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 15:53:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:14:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_animation	get_zombie_anim(t_game *game)
+t_animation	get_zombie
+_anim(t_game *game)
 {
 	t_animation	anim;
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 18:17:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:00:04 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void    render_sprites(t_game *game)
         compute_sprite(game, sprite);
         sprite = sprite->next;
     }
-    // sort_sprites(game->sprites, 10);
+    sort_sprites(&game->sprites);
 	sprite = game->sprites;
     while(sprite)
     { 

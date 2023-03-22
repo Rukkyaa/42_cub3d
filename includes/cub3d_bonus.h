@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 18:27:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:01:00 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,7 @@ int				is_wall(char c);
 void			get_wall(t_game *game, t_collision *collision, char c);
 void 			wall_render(t_game *game, t_collision collision, t_vector3d line_pos, double line_height);
 void    		render_sprites(t_game *game);
-void 			sort_sprites(t_sprite sprites[], int size);
+void 			sort_sprites(t_sprite** headRef);
 
 // Shapes
 void			draw_player(t_game *game, int color);

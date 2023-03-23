@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 16:24:39 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 12:56:19 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,21 +24,21 @@ void	edit_player_pos(t_game *game)
 	t_vector3d right = vec_rotate(game->player.direction, 90);
 	t_vector3d left = vec_rotate(game->player.direction, 270);
 
-	if (player_moving(game) && game->key_states[2] == 1)
-	{
-		ma_device_stop(&game->sounds.footstep.device);
-		ma_device_start(&game->sounds.dejavu.device);
-	}
-	else if (player_moving(game))
-	{
-		ma_device_start(&game->sounds.footstep.device);
-		ma_device_stop(&game->sounds.dejavu.device);
-	}
-	else
-	{
-		ma_device_stop(&game->sounds.footstep.device);
-		ma_device_stop(&game->sounds.dejavu.device);
-	}
+	// if (player_moving(game) && game->key_states[2] == 1)
+	// {
+	// 	ma_device_stop(&game->sounds.footstep.device);
+	// 	ma_device_start(&game->sounds.dejavu.device);
+	// }
+	// else if (player_moving(game))
+	// {
+	// 	ma_device_start(&game->sounds.footstep.device);
+	// 	ma_device_stop(&game->sounds.dejavu.device);
+	// }
+	// else
+	// {
+	// 	ma_device_stop(&game->sounds.footstep.device);
+	// 	ma_device_stop(&game->sounds.dejavu.device);
+	// }
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )

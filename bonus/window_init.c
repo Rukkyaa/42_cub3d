@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 12:38:53 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 14:31:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,17 +49,24 @@ void init_sprites(t_game *game)
 {
 	int i = 0;
 	t_sprite	*tmp;
+	t_vector zombie_pos;
 
 	init_animations(game);
 	game->sprites = NULL;
-	while(i < 50)
+	while(i < 0)
 	{
-		tmp = spawn_zombie(game, (t_vector){(double)rand() / (double)RAND_MAX * map_width(game->map) * 64, (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64});
+		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
+		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
+		
+		tmp = spawn_zombie(game, zombie_pos);
 		if (!tmp)
 			printf("error spawn zombie\n");
 		i++;
 	}
-	tmp = spawn_item(game, (t_vector){3.0 * 64, 3.0 * 64});
+	t_vector item_pos;
+	item_pos.x = 3.0 * 64;
+	item_pos.y = 3.0 * 64;
+	tmp = spawn_item(game, item_pos);
 	if (!tmp)
 		printf("error spawn zombie\n");
 }
@@ -124,7 +131,7 @@ void	var_init(t_game *game)
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
 	game->frame_count = 0;
-	game->time.delta_frame_ms = 1;
+	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;
 	game->wall_height = 64;
 	game->mouse_move = 0;
@@ -153,7 +160,7 @@ void	var_init(t_game *game)
 	pre_compute_resize(game);
 	load_img(game);
 	load_map(game);
-	load_sounds(&game->sounds);
+	// load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);

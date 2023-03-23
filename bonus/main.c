@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 17:05:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/23 12:57:02 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	game.map = get_map(argv[1]);
 	var_init(&game);
-	ma_device_start(&game.sounds.footstep.device);
+	// ma_device_start(&game.sounds.footstep.device);
 	hooks(&game);
 	mlx_loop(game.mlx);
-	ma_device_uninit(&game.sounds.footstep.device);
-	clear_sounds(&game.sounds);
+	// ma_device_uninit(&game.sounds.footstep.device);
+	// clear_sounds(&game.sounds);
 	return (EXIT_SUCCESS);
 }
 

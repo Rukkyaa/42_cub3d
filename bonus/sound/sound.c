@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sound.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/28 16:22:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/23 12:54:08 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,7 @@ void	load_sounds(t_sounds *sounds)
 void	clear_sounds(t_sounds *sounds)
 {
 	ma_decoder_uninit(&sounds->footstep.decoder);
+	ma_decoder_uninit(&sounds->dejavu.decoder);
+	ma_device_uninit(&sounds->footstep.device);
+	ma_device_uninit(&sounds->dejavu.device);
 }

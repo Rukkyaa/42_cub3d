@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
+#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/22 18:34:36 by axlamber         ###   ########.fr        #
+#    Updated: 2023/03/23 09:12:44 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound miniaudio))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -101,11 +101,11 @@ GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #
-SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, new_zombie sprite_add_back sprite_last new_item))
+SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie sprite_add_back sprite_last new_item))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
-MINIAUDIO = bonus/sound/miniaudio.o
+# MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 

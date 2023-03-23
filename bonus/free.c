@@ -49,6 +49,7 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->weapon.axe.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.aim.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.weapon.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);
 }
 
 int	close_window(t_game *game)

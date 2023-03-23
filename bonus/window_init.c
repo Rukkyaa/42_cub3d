@@ -6,52 +6,11 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 09:16:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 11:10:12 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-void	ft_xpm_to_img(t_game *game, t_img *img, char *path)
-{
-	//printf("%s\n", path);
-	img->mlx_img = mlx_xpm_file_to_image(game->mlx, path,
-		&img->width, &img->heigth);
-	img->addr = mlx_get_data_addr(img->mlx_img, &img->bpp,
-			&img->line_len, &img->endian);
-}
-
-void	load_img(t_game *game)
-{
-	// ft_xpm_to_img(&game->texture.wall1, "images/pjay2.xpm");
-	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
-	ft_xpm_to_img(game, &game->texture.wall2, "images/retro_texture_pack/CRATE_1M.xpm");
-	ft_xpm_to_img(game, &game->texture.wall3, "images/retro_texture_pack/DOOR_2A.xpm");
-	ft_xpm_to_img(game, &game->texture.wall4, "images/retro_texture_pack/CRATE_1J.xpm");
-	
-	// ft_xpm_to_img(game, &game->texture.wall1, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall2, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall3, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall4, "images/SBS_tiny_XPM/Tile/Tile_11-512x512.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall1, "images/pjay2.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall2,  "images/pjay2.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall3,  "images/pjay2.xpm");
-	// ft_xpm_to_img(game, &game->texture.wall4,  "images/pjay2.xpm");
-
-	ft_xpm_to_img(game,  &game->texture.ground, "images/retro_texture_pack/TILE_3E.xpm");
-	//ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/WARN_1.xpm");
-	// ft_xpm_to_img(game, &game->texture.ground, "images/SBS_tiny_XPM/Tile/Tile_09-512x512.xpm");
-	
-	ft_xpm_to_img(game,  &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
-	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
-	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
-	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");
-	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
-	// ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/shotgun.xpm");
-	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
-	// ft_xpm_to_img(game, &game->texture.projectile, "images/projectile/ball_energy.xpm");
-	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
-}
 
 void	init_animations(t_game *game)
 {
@@ -107,11 +66,10 @@ void init_sprites(t_game *game)
 
 void init_weapons(t_game *game)
 {
-	int i = 0;
 	t_animation grap_gun;
 	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
 	grap_gun.current_img = grap_gun.imgs[0];
-		printf("anim\n");
+	// printf("anim\n");
 	grap_gun.frame_duration_ms = 100;
 	grap_gun.frame_offset = 0;
 	grap_gun.nb_imgs = 16;
@@ -122,8 +80,7 @@ void init_weapons(t_game *game)
 
 void	precompute_raycast(t_game *game)
 {
-	int i = 0;
-	float angle;
+	int	i = 0;
     t_vector3d v_ray_dir;
     t_vector3d v_right;
     t_vector3d v_player_to_camera_plane;

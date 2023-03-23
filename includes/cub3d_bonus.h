@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 20:01:00 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/23 11:11:17 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -303,5 +303,9 @@ void		sprite_add_back(t_sprite **lst, t_sprite *new);
 t_animation	get_zombie_anim(t_game *game);
 t_sprite	*spawn_item(t_game *game, t_vector pos);
 t_animation	get_item_anim(t_game *game);
+
+//INIT
+void		load_img(t_game *game);
+void		load_map_debug(t_game *game);
 
 #endif

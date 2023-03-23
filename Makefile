@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/23 11:05:16 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/03/23 11:11:35 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound miniaudio))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -105,7 +105,7 @@ SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spr
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #
-INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, load_sprites))
+INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, load_sprites load_images))
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #

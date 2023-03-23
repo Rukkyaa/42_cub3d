@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 09:02:15 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 10:44:56 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,7 @@ void    render_sprites(t_game *game)
         compute_sprite(game, sprite);
         sprite = sprite->next;
     }
-    // sort_sprites(&game->sprites);
+    sort_sprites(&game->sprites);
 	sprite = game->sprites;
     while(sprite)
     { 

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 11:23:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 12:00:51 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	var_init(t_game *game)
 	game->wall_height = 64;
 	game->mouse_move = 0;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
-    vec_print(&game->player.direction, "player dir");
+    // vec_print(&game->player.direction, "player dir");
 	// close_window(game);
 	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
 	game->debug_img.addr = mlx_get_data_addr(game->debug_img.mlx_img, &game->debug_img.bpp,

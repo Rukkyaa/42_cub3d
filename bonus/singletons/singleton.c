@@ -32,3 +32,16 @@ t_mlx	*_mlx(void)
 	return (mlx);
 }
 
+t_garbage	*_gc(void)
+{
+	static t_garbage	*gc = NULL;
+
+	if (!gc)
+	{
+		gc = malloc(sizeof(t_garbage));
+		if (!gc)
+			return (NULL);
+		memset(gc, 0, sizeof(t_garbage));
+	}
+	return (gc);
+}

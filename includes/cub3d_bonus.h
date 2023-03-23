@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 13:11:00 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 21:39:13 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,7 @@ bool			item_out_of_bound(t_vector3d mouse, t_img img, t_img selected);
 **  \______/ \______|\__|  \__| \______/ \________|\________|   \__|    \______/ \__|  \__| **
 *********************************************************************************************/
 t_mlx			*_mlx(void);
+t_garbage		*_gc(void);
 
 /*************************************************************************
 **  $$$$$$\  $$$$$$$\  $$$$$$$\  $$$$$$\ $$$$$$$$\ $$$$$$$$\  $$$$$$\   **
@@ -298,16 +299,30 @@ t_mlx			*_mlx(void);
 ** \$$$$$$  |$$ |      $$ |  $$ |$$$$$$\    $$ |   $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|      \__|  \__|\______|   \__|   \________| \______/  **
 *************************************************************************/
-t_sprite	*spawn_zombie(t_game *game, t_vector pos);
-t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed);
-t_sprite	*sprite_last(t_sprite *lst);
-void		sprite_add_back(t_sprite **lst, t_sprite *new);
-t_animation	get_zombie_anim(t_game *game);
-t_sprite	*spawn_item(t_game *game, t_vector pos);
-t_animation	get_item_anim(t_game *game);
+t_sprite		*spawn_zombie(t_game *game, t_vector pos);
+t_sprite		*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed);
+t_sprite		*sprite_last(t_sprite *lst);
+void			sprite_add_back(t_sprite **lst, t_sprite *new);
+t_animation		get_zombie_anim(t_game *game);
+t_sprite		*spawn_item(t_game *game, t_vector pos);
+t_animation		get_item_anim(t_game *game);
 
 //INIT
-void		load_img(t_game *game);
-void		load_map_debug(t_game *game);
+void			load_img(t_game *game);
+void			load_map_debug(t_game *game);
+
+/***************************************************************************
+**  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
+** $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$  __$$\ $$  _____| **
+** $$ /  \__|$$ /  $$ |$$ |  $$ |$$ |  $$ |$$ /  $$ |$$ /  \__|$$ |       **
+** $$ |$$$$\ $$$$$$$$ |$$$$$$$  |$$$$$$$\ |$$$$$$$$ |$$ |$$$$\ $$$$$\     **
+** $$ |\_$$ |$$  __$$ |$$  __$$< $$  __$$\ $$  __$$ |$$ |\_$$ |$$  __|    **
+** $$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |  $$ |$$ |       **
+** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$$$$$$  |$$ |  $$ |\$$$$$$  |$$$$$$$$\  **
+**  \______/ \__|  \__|\__|  \__|\_______/ \__|  \__| \______/ \________| **
+***************************************************************************/
+void			*my_alloc(int size);
+void			free_garbage(void);
+void			free_array(char **map);
 
 #endif

@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/23 12:38:19 by teliet           ###   ########.fr        #
+#    Updated: 2023/03/23 14:46:06 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -126,7 +126,7 @@ flag:= 1
 	fi
 	@printf "\033[1;32m|\033[32m                                       \033[m\r"
 	@printf "\033[1;35m|\033[0;32m Compiling $@... \033[m\r"
-	@cc -Wall -Wextra -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -c $< -o ${<:.c=.o}
+	@cc -Wall -Wextra -Ofast -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -c $< -o ${<:.c=.o}
 	$(eval flag=$(shell echo $$(($(flag)+1))))
 
 all: $(NAME)

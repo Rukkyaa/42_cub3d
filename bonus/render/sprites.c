@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 13:15:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 14:37:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,7 +123,7 @@ void    render_sprites(t_game *game)
 	sprite = game->sprites;
     while(sprite)
     {
-	    if(sprite->type = PROJ)
+	    if(sprite->type == PROJ)
             update_position(sprite);
         compute_sprite(game, sprite);
         sprite = sprite->next;

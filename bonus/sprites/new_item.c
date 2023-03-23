@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_item.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 18:56:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/23 14:38:13 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_sprite	*spawn_item(t_game *game, t_vector pos)
 	// new_item->speed.y = 0.1;
 	// new_item->type = "item";
 	new_item->next = NULL;
+	new_item->type = ITEM;
 	sprite_add_back(&game->sprites, new_item);
 	return (new_item);
 }

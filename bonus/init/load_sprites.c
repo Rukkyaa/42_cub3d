@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/23 13:07:42 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 14:43:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 		// if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
 		// 	continue;
 		// if (S_ISREG(file_stat.st_mode) && !ft_strncmp(get_filename_ext(entry->d_name), ".xpm", ft_strlen(".xpm")))
-			count++;
+		count++;
 	}
 	// printf("%ld\n", count);
 	if (count == 0)

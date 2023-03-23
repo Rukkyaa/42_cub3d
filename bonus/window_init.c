@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 11:10:12 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 11:23:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,8 @@ void	var_init(t_game *game)
 	i = 256;
 	while(i--)
 		game->key_release_states[i] = 1;
-	game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->mlx = _mlx()->mlx;
+	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 3*64 + 32;
 	game->player.pos.y = 3*64 + 32; 
 	game->player.collision_pos.x = game->player.pos.x + 32;

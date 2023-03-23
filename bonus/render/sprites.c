@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 14:37:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:21:11 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,12 +95,12 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     t_vector3d z_vector;
     z_vector.x = xy_distance;
     z_vector.y = sprite->pos.z - game->player.pos3d.z;
-    float y_dist = (z_vector.y / z_vector.x) * game->camera.proj_plane_distance;
-    y_dist = y_dist; //* ( (float) RES_Y / 2.0f) ; 
+    float y_dist = (z_vector.y / z_vector.x) * game->camera.proj_plane_distance;\
+    //y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
 
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  game->camera.plane_center.y - y_dist;
-    
+
     sprite->distance = xy_distance;
     sprite->screen_pos = screen_pos;
     if(fabs(angle) > M_PI / 2)

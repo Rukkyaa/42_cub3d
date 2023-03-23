@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 14:39:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:21:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,16 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, game->mouse_diff.x * game->time.delta_frame_ms / 2000.0f);
 		game->camera.plane_center.y -=  game->mouse_diff.y * game->time.delta_frame_ms  / 150.0f;
 		game->mouse_move = 0;
+		if(game->camera.plane_center.y > 750)
+			game->camera.plane_center.y = 750;
+		if(game->camera.plane_center.y < 150)
+			game->camera.plane_center.y = 150;
 	}
+	// printf("%d\n", (int)game->mouse.y);
+	// printf("%d\n", (int)game->mouse_diff.x);
+	// printf("%d\n", (int)game->mouse_diff.y);
+
+	
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 	{

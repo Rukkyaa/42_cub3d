@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_mult.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:27:27 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/23 16:18:39 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ t_vector3d	vec_mult(t_vector3d vec1, t_vector3d vec2)
 
 	mult.x = vec1.x * vec2.x;
 	mult.y = vec1.y * vec2.y;
+	mult.z = vec1.z * vec2.z;
 	return (mult);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_sum.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:25:33 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/23 16:19:48 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ t_vector3d	vec_sum(t_vector3d vec1, t_vector3d vec2)
 
 	sum.x = vec1.x + vec2.x;
 	sum.y = vec1.y + vec2.y;
+	sum.z = vec1.z + vec2.z;
 	return (sum);
 }

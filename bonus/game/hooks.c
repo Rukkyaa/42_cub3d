@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 13:17:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:21:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	mouse_press(int button, int x, int y, t_game *game)
 	}
 	if(!game->key_states['e'])
 	{
-		printf("shoot\n");
+		//printf("shoot\n");
 		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
 	}
 	// printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
@@ -73,6 +73,9 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	game->mouse_diff.x = diff_x;
 	game->mouse_diff.y = diff_y;
 	// printf("%d\n", (int)game->mouse.x);
+	// printf("%d\n", (int)game->mouse.y);
+	// printf("%d\n", (int)game->mouse_diff.x);
+	// printf("%d\n", (int)game->mouse_diff.y);
 	if (!game->key_states['e'])
 	{
 		game->mouse_move = 1;
@@ -81,10 +84,6 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 			mlx_mouse_hide(game->mlx, _mlx()->win);
 			hide = 1;
 		}
-		if(game->camera.plane_center.y >750)
-			game->camera.plane_center.y= 750;
-		if(game->camera.plane_center.y < 150)
-			game->camera.plane_center.y= 150;
 		game->mouse.x = RES_X / 2;
 		game->mouse.y = RES_Y / 2;
 		mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);

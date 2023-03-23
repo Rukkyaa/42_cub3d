@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 14:52:09 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 15:58:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
         
 
         *img_addr = pixel_color;  
-        //img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
+        img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
         img_addr += RES_X;
         i++;
     }

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 14:31:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 16:19:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void init_sprites(t_game *game)
 
 	init_animations(game);
 	game->sprites = NULL;
-	while(i < 0)
+	while(i < 10)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
 		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
@@ -125,6 +125,7 @@ void	var_init(t_game *game)
 	game->player.pos3d.z = 32;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
+	game->player.direction.z = 0; 
 	game->player.tilt = 0; 
 	game->player.angle = 0; 
 	game->player.speed.x = 0;
@@ -154,8 +155,8 @@ void	var_init(t_game *game)
 	game->fps_img = _mlx()->img;
 	init_camera(&game->camera);
 	game->wall_height_x_proj_dist = game->wall_height * game->camera.proj_plane_distance;
-	game->mouse.x = 0;
-	game->mouse.y = 0;
+	game->mouse.x = RES_X / 2;
+	game->mouse.y = RES_Y / 2;
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);

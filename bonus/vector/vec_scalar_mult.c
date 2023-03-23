@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_scalar_mult.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:28:41 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/23 16:18:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,5 +18,6 @@ t_vector3d	vec_scalar_mult(t_vector3d vec1, double i)
 
 	mult.x = vec1.x * i;
 	mult.y = vec1.y * i;
+	mult.z = vec1.z * i;
 	return (mult);
 }

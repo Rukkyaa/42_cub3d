@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 14:29:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 22:05:33 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 {
 	t_sprite	*new_zombie;
 
-	new_zombie = malloc(sizeof(t_sprite));
+	new_zombie = my_alloc(sizeof(t_sprite));
 	if (!new_zombie)
 		return (NULL);
 	new_zombie->pos.x = pos.x;

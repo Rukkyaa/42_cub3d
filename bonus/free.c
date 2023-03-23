@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 21:52:37 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 22:06:56 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ int	close_window(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->debug_img.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->minimap.mlx_img);
 	i = -1;
-	free_sprites(game->sprites);
 	while (game->animations.zombie_run.imgs[++i])
 	{
 		mlx_destroy_image(_mlx()->mlx, game->animations.zombie_run.imgs[i]->mlx_img);
@@ -78,7 +77,6 @@ int	close_window(t_game *game)
 	free_imgs(game);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-	free(_mlx());
 	free_array(game->map);
 	free_garbage();
 	exit(0);

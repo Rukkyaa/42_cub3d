@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_projectile.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 17:26:53 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 22:05:10 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed)
 {
 	t_sprite	*new_projectile;
 
-	new_projectile = malloc(sizeof(t_sprite));
+	new_projectile = my_alloc(sizeof(t_sprite));
 	if (!new_projectile)
 		return (NULL);
 	new_projectile->pos.x = pos.x + game->player.direction.x * 30;

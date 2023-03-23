@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 16:19:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 17:29:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,6 +153,7 @@ void	var_init(t_game *game)
 	game->debug_img.heigth = map_heigth(game->map) * 64;
 	game->fps_win = _mlx()->win;
 	game->fps_img = _mlx()->img;
+	game->mouse_clicked  = 0;
 	init_camera(&game->camera);
 	game->wall_height_x_proj_dist = game->wall_height * game->camera.proj_plane_distance;
 	game->mouse.x = RES_X / 2;

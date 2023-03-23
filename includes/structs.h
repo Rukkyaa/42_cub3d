@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 13:13:43 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 17:29:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -223,6 +223,7 @@ typedef struct s_game
 	void			*debug_win;
 	t_img			debug_img;
 	t_img			minimap;
+	int				mouse_clicked;
 }				t_game;
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 13:38:34 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 17:29:54 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ int	game_loop(void *g)
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	render_map(game);
+	if(game->mouse_clicked)
+		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
 	render_sprites(game);
 	render_ui(game);
 	render(game);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fill_animation_sprites.c                           :+:      :+:    :+:   */
+/*   load_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/10 12:46:29 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/23 11:03:23 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,12 @@
 // 	return (img);
 // }
 
+const char *get_filename_ext(const char *filename) {
+    const char *dot = strrchr(filename, '.');
+    if(!dot || dot == filename) return "";
+    return dot + 1;
+}
+
 /*
 ** Load all XPM files in the given directory and return an array of t_img pointers.
 ** Returns NULL on error or if the directory is empty.
@@ -57,11 +63,12 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	{
 		if (entry->d_name[0] == '.')
 			continue;
-		if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
-			continue;
-		if (S_ISREG(file_stat.st_mode) && ft_str_ends_with(entry->d_name, ".xpm"))
+		// if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
+		// 	continue;
+		// if (S_ISREG(file_stat.st_mode) && !ft_strncmp(get_filename_ext(entry->d_name), ".xpm", ft_strlen(".xpm")))
 			count++;
 	}
+	printf("%d\n", count);
 	if (count == 0)
 	{
 		closedir(dir);
@@ -79,24 +86,22 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	{
 		if (entry->d_name[0] == '.')
 			continue;
-		if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
-			continue;
-		if (S_ISREG(file_stat.st_mode) && ft_str_ends_with(entry->d_name, ".xpm"))
+		printf("%s\n",entry->d_name);
+		imgs[i] = malloc( sizeof(t_img ));
+		if (!imgs[i])
 		{
-			printf(entry->d_name);
-			imgs[i] = ft_xpm_to_img_wrapper(game, ft_strjoin(dir_path, entry->d_name));
-			if (!imgs[i])
-			{
-				while (i > 0)
-					mlx_destroy_image(game->mlx, imgs[--i]);
-				free(imgs);
-				closedir(dir);
-				return (NULL);
-			}
-			i++;
+			while (i > 0)
+				mlx_destroy_image(game->mlx, imgs[--i]);
+			free(imgs);
+			closedir(dir);
+			return (NULL);
 		}
+		ft_xpm_to_img(game, imgs[i], ft_strjoin(dir_path, ft_strjoin("/", entry->d_name))); // ft_strjoin(dir_path, entry->d_name)
+		imgs[i]->name = entry->d_name;
+		i++;
 	}
 	imgs[count] = NULL;
+	sort_imgs(imgs);
 	closedir(dir);
 	return (imgs);
 }

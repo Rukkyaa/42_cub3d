@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 14:04:34 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 13:17:28 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,8 @@ int	mouse_press(int button, int x, int y, t_game *game)
 	}
 	if(!game->key_states['e'])
 	{
-		//printf("shoot\n");
+		printf("shoot\n");
+		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
 	}
 	// printf("Clicked with button : %d in x:%dy:%d\n", button, x, y);
 	return (0);

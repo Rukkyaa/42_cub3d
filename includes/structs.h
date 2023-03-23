@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/22 18:25:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/23 13:13:43 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -141,6 +141,7 @@ typedef struct s_sprite
 	t_img	*current_img;
 	t_img	**img_run;
 	t_vector3d	pos;
+	t_vector3d	speed;
 	struct s_sprite	*next;
 }				t_sprite;
 

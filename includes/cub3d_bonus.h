@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 11:18:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 13:11:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,6 +299,7 @@ t_mlx			*_mlx(void);
 **  \______/ \__|      \__|  \__|\______|   \__|   \________| \______/  **
 *************************************************************************/
 t_sprite	*spawn_zombie(t_game *game, t_vector pos);
+t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed);
 t_sprite	*sprite_last(t_sprite *lst);
 void		sprite_add_back(t_sprite **lst, t_sprite *new);
 t_animation	get_zombie_anim(t_game *game);

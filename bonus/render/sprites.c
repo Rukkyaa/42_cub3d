@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 12:12:01 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 13:15:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,6 +111,11 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     //         screen_pos.y - game->sprites[0].texture.heigth/2);
 }
 
+void update_position(t_sprite *sprite)
+{
+    sprite->pos = vec_sum(sprite->pos,  sprite->speed);
+}
+
 void    render_sprites(t_game *game)
 {
 	t_sprite	*sprite;
@@ -118,6 +123,8 @@ void    render_sprites(t_game *game)
 	sprite = game->sprites;
     while(sprite)
     {
+	    if(sprite->type = PROJ)
+            update_position(sprite);
         compute_sprite(game, sprite);
         sprite = sprite->next;
     }

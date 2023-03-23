@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/23 11:11:35 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/03/23 11:12:27 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -109,7 +109,7 @@ INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, load_sprites load_imag
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
-# MINIAUDIO = bonus/sound/miniaudio.o
+MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 

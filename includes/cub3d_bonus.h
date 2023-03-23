@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 11:11:17 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 11:18:14 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -180,6 +180,7 @@ void			draw_line_dda(t_img *img, t_vector3d vec1,
 					t_vector3d vec2, int color);
 void			draw_filled_rectangle(t_img *img, t_vector3d vec,
 					t_vector3d size, int color);
+void			draw_square(t_img *img, t_vector3d pos, int width, int color);
 void			load_grid(t_game *game);
 void			load_map(t_game *game);
 

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 09:04:56 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 11:17:08 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,9 @@ t_vector3d get_floor_intersection(t_vector3d position, t_vector3d direction) {
 }
 
 
-int get_floor_color(t_game *game, t_vector3d intersection, t_img *img)
+int get_floor_color(t_vector3d intersection, t_img *img)
 {
-    t_vector3d v_tile;
-    t_vector3d v_texture_pos;
+	t_vector3d v_texture_pos;
 
     // v_tile.x = (int) intersection.x / 64;
     // v_tile.y = (int) intersection.y / 64;
@@ -53,7 +52,7 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
     while(i < RES_Y)
     {
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[i]));
-        pixel_color =  get_floor_color(game, v3d_intersect_point, &game->texture.ground);
+        pixel_color =  get_floor_color(v3d_intersect_point, &game->texture.ground);
             // pixel_color = add_shade(pixel_color, 0.5  * 255); 
         if(HD && shade)
         {
@@ -109,7 +108,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
     {
         
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));
-        pixel_color = get_floor_color(game, v3d_intersect_point, &game->texture.roof);
+        pixel_color = get_floor_color(v3d_intersect_point, &game->texture.roof);
         if(HD && shade)
         {
             distance = vec_distance(game->player.pos, v3d_intersect_point);
@@ -127,7 +126,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
 }
 
 
-void    pre_compute_rows_dist(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height, float resize)
+void    pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_height, float resize)
 {
     int i = 0;
     float dist;
@@ -154,20 +153,13 @@ void    pre_compute_rows_dist(t_game *game, t_vector3d v_ray_dir, t_vector3d lin
 void pre_compute_resize(t_game *game)
 {
     int i = 0;
-    float line_height;
-    t_collision collision;
     t_vector3d v_right;
-    t_vector3d line_pos;
     t_vector3d v_ray_dir;
-    t_vector3d v_ray_dir2;
-    t_vector3d player_to_midwall;
     t_vector3d v_player_to_camera_plane;
     float ca;
-    float angle_resize;;
     //printf("half_width : %f\n", halfWidth);
     v_right  = vec_normalize(game->camera.plane);
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
-    line_pos.y = game->camera.half_res.y;
     while(i < RES_X)
     {
         v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[i]));
@@ -185,7 +177,6 @@ void    render_fps(t_game *game)
     t_collision collision;
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
-    t_vector3d player_to_midwall;
     
     line_pos.y = game->camera.half_res.y;
     line_pos.x = 0;
@@ -215,7 +206,7 @@ void    render_fps(t_game *game)
 
 
         wall_render(game, collision, line_pos, line_height);
-        pre_compute_rows_dist(game, v_ray_dir, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
+        pre_compute_rows_dist(game, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
         render_floor(game, v_ray_dir, line_pos);
         render_roof(game, v_ray_dir, line_pos, line_height);
         line_pos.x++;

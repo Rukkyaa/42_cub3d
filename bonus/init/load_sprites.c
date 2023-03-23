@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/23 11:03:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 11:19:46 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 {
 	DIR				*dir;
 	struct dirent	*entry;
-	struct stat		file_stat;
 	t_img			**imgs;
 	size_t			count;
 	size_t			i;
@@ -68,7 +67,7 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 		// if (S_ISREG(file_stat.st_mode) && !ft_strncmp(get_filename_ext(entry->d_name), ".xpm", ft_strlen(".xpm")))
 			count++;
 	}
-	printf("%d\n", count);
+	printf("%ld\n", count);
 	if (count == 0)
 	{
 		closedir(dir);

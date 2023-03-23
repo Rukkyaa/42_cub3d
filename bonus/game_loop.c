@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/20 16:51:51 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/23 12:56:42 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@ int	game_loop(void *g)
 	handle_time(game);
 	// load_map_debug(game);
 	// load_grid(game);
-	if (!player_moving(game))
-		ma_device_stop(&game->sounds.footstep.device);
+	// if (!player_moving(game))
+	// 	ma_device_stop(&game->sounds.footstep.device);
 	if (is_collectible(game))
 	{
 		add_item(game, game->map[(int)game->player.pos.y / 64]

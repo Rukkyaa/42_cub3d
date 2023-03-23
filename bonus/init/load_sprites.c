@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/23 12:00:25 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 13:07:42 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,8 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	}
 	i = 0;
 	rewinddir(dir);
+	char	*name;
+	char	*tmp;
 	while ((entry = readdir(dir)))
 	{
 		if (entry->d_name[0] == '.')
@@ -95,7 +97,11 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 			closedir(dir);
 			return (NULL);
 		}
-		ft_xpm_to_img(game, imgs[i], ft_strjoin(dir_path, ft_strjoin("/", entry->d_name))); // ft_strjoin(dir_path, entry->d_name)
+		tmp = ft_strjoin("/", entry->d_name);
+		name = ft_strjoin(dir_path, tmp);
+		ft_xpm_to_img(game, imgs[i], name); // ft_strjoin(dir_path, entry->d_name)
+		free(tmp);
+		free(name);
 		imgs[i]->name = entry->d_name;
 		i++;
 	}

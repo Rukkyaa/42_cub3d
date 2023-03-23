@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 10:44:56 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/23 12:12:01 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,16 +101,12 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     screen_pos.x =  x_dist + RES_X / 2;
     screen_pos.y =  game->camera.plane_center.y - y_dist;
     
-    if(fabs(angle) > M_PI / 2)
-    {
-        sprite->visible = 0;
-        return ;
-    }
-
-
-    sprite->visible = 1;
     sprite->distance = xy_distance;
     sprite->screen_pos = screen_pos;
+    if(fabs(angle) > M_PI / 2)
+        sprite->visible = 0;
+	else
+		sprite->visible = 1;
     // mlx_put_image_to_window(game->mlx, game->fps_win, game->sprites[0].texture.mlx_img, screen_pos.x - game->sprites[0].texture.width/2, 
     //         screen_pos.y - game->sprites[0].texture.heigth/2);
 }

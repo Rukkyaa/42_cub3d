@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/26 21:05:53 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/26 23:46:56 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,18 +127,23 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
             }
             else 
             {
-                door_intersection.x = fmod(collision_point.y , 64) + 32 * (v_ray_dir.y / v_ray_dir.x )  ;
-                if(door_intersection.x > 0 && door_intersection.x < 10)
-                {
-                    printf("dx/dy : %f\n", fmod(collision_point.y , 64));
-                    printf("collision : %f\n", fmod(collision_point.y , 64));
-                    printf("door intersection : %f\n", door_intersection.x);
-                }
+                door_intersection.y = collision_point.y + 32 * v_ray_dir.y / fabs(v_ray_dir.x);// vec_sum(collision_point, vec_scalar_mult(v_ray_dir, 32));
+                // if(door_intersection.x > 0 && door_intersection.x < 10)
+                // {
+                //     printf("dx/dy : %f\n", fmod(collision_point.y , 64));
+                //     printf("collision : %f\n", fmod(collision_point.y , 64));
+                //     printf("door intersection : %f\n", door_intersection.x);
+                // }
+                // vec_print(&v_ray_dir, "v_ray_dir");
+                // vec_print(&collision_point, "collision_point");
+                // vec_print(&door_intersection, "door intersection");
+                // vec_print(&v_map_check, "v_map_check");
+                // printf("fmod(door_intersection.y): %d\n",((int) door_intersection.y ) / 64);
             }
-            if( 0 < door_intersection.x && door_intersection.x < 64 )
+            if( ((int) door_intersection.y ) / 64 ==  v_map_check.y)
             {
-                collision.x_pos_tex = door_intersection.x;
-                collision.distance = distance * 64 + sqrtf(32 * 32 + pow(fabs(v_ray_dir.y / v_ray_dir.x ) * 32, 2));
+                collision.x_pos_tex = ((int) door_intersection.y ) % 64;
+                collision.distance = distance * 64 + sqrtf(32 * 32 + pow(v_ray_dir.y / v_ray_dir.x * 32, 2));
                 collision.orientation = get_collision_orientation(last_step, v_step);
                 collision.point = collision_point;
                 tile_found = 1;

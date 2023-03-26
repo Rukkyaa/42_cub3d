@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/21 15:21:14 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/26 21:05:53 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,10 @@ double get_texture_x(char last_step, t_vector3d v_collision_point, t_vector3d v_
         return (v_collision_point.x - v_map_check.x * 64);
 }
 
+int	is_door(char c)
+{
+	return (c == 'D');
+}
 
 t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
 {
@@ -59,6 +63,9 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
 	t_vector3d v_ray_unit_step;
 	v_ray_unit_step.x = sqrt(1 + (v_ray_dir.y / v_ray_dir.x) * (v_ray_dir.y / v_ray_dir.x) );
 	v_ray_unit_step.y = sqrt(1 + (v_ray_dir.x / v_ray_dir.y) * (v_ray_dir.x / v_ray_dir.y)) ;
+
+    // Door handling
+    t_vector3d door_intersection;
 
 	// Starting Conditions
 	if (v_ray_dir.x < 0)
@@ -111,11 +118,42 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
             tile_found = 1;
 			get_wall(game, &collision, game->map[(int)v_map_check.y][(int)v_map_check.x]);
         }
+        else if(is_door(game->map[(int)v_map_check.y][(int)v_map_check.x]))
+        {
+            if(last_step == 'y')
+            {
+                door_intersection.x = fmod(collision_point.x , 64) + 32 * (v_ray_dir.y / v_ray_dir.x);
+                printf("ystep\n");
+            }
+            else 
+            {
+                door_intersection.x = fmod(collision_point.y , 64) + 32 * (v_ray_dir.y / v_ray_dir.x )  ;
+                if(door_intersection.x > 0 && door_intersection.x < 10)
+                {
+                    printf("dx/dy : %f\n", fmod(collision_point.y , 64));
+                    printf("collision : %f\n", fmod(collision_point.y , 64));
+                    printf("door intersection : %f\n", door_intersection.x);
+                }
+            }
+            if( 0 < door_intersection.x && door_intersection.x < 64 )
+            {
+                collision.x_pos_tex = door_intersection.x;
+                collision.distance = distance * 64 + sqrtf(32 * 32 + pow(fabs(v_ray_dir.y / v_ray_dir.x ) * 32, 2));
+                collision.orientation = get_collision_orientation(last_step, v_step);
+                collision.point = collision_point;
+                tile_found = 1;
+                get_wall(game, &collision, game->map[(int)v_map_check.y][(int)v_map_check.x]);
+                return (collision);
+            }
+        }
     }
     collision.distance = distance * 64;
     collision.orientation = get_collision_orientation(last_step, v_step);
     collision.point = collision_point;
     collision.x_pos_tex = get_texture_x(last_step, collision_point ,v_map_check);
-
+    // if(game->map[(int)v_map_check.y][(int)v_map_check.x] == "D")
+    //     collision.is_door = 1;
+    // else 
+    //     collision.is_door = 0;
     return ((collision));
 }

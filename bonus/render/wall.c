@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 16:04:34 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/26 20:07:48 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	get_wall(t_game *game, t_collision *collision, char c)
 		collision->wall = game->texture.wall3;
 	else if (c == '4')
 		collision->wall = game->texture.wall4;
+	else if (c == 'D')
+		collision->wall = game->texture.door;
 }
 
 // void wall_render(t_game *game, t_collision collision, t_vector3d line_pos, double line_height)

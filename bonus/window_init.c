@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 21:42:08 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/26 19:21:54 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,12 +116,12 @@ void	var_init(t_game *game)
 		game->key_release_states[i] = 1;
 	game->mlx = _mlx()->mlx;
 	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
-	game->player.pos.x = 3*64 + 32;
-	game->player.pos.y = 3*64 + 32; 
+	game->player.pos.x = 20*64 + 32;
+	game->player.pos.y = 5*64 + 32;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
-	game->player.pos3d.x = 3*64 + 32;
-	game->player.pos3d.y = 3*64 + 32; 
+	game->player.pos3d.x = 30*64 + 32;
+	game->player.pos3d.y = 30*64 + 32; 
 	game->player.pos3d.z = 32;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 

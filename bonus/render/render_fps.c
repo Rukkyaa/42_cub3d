@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 15:58:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/26 19:54:23 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,23 @@ int     check_tile_shading(t_game *game, t_vector3d   pos)
     return ( distance > 5 );
 }
 
+int get_roof_color(t_game *game, t_vector3d intersection, t_img *img)
+{
+	t_vector3d v_texture_pos;
+	t_vector3d v_tile;
+
+    v_tile.x = (int) intersection.x / 64;
+    v_tile.y = (int) intersection.y / 64;
+    if(game->map[(int)v_tile.y][(int)v_tile.x] == 'E')
+        return(0xff001010);
+    // to do : get texture of the specific tile hit
+    v_texture_pos.x = fmod(intersection.x, 64); /// 64;
+    v_texture_pos.y = fmod(intersection.y,  64); // / 64;
+    // vec_print(&v_texture_pos, "v_texture_pos");
+    //return(sample_img(img, v_texture_pos.x, v_texture_pos.y));
+    return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
+}
+
 void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height)
 {
     t_vector3d v3d_intersect_point;
@@ -108,7 +125,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
     {
         
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));
-        pixel_color = get_floor_color(v3d_intersect_point, &game->texture.roof);
+        pixel_color = get_roof_color(game, v3d_intersect_point, &game->texture.roof);
         if(HD && shade)
         {
             distance = vec_distance(game->player.pos, v3d_intersect_point);

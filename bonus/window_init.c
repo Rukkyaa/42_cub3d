@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/26 19:21:54 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/31 00:16:22 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 void	init_animations(t_game *game)
 {
 	game->animations.zombie_run = get_zombie_anim(game);
-	game->animations.sword = get_item_anim(game);
+	game->animations.sword = load_item_anim(game, "sword");
+	game->animations.axe = load_item_anim(game, "axe");
 }
 
 void	init_camera(t_camera *camera)
@@ -66,7 +67,11 @@ void init_sprites(t_game *game)
 	t_vector item_pos;
 	item_pos.x = 3.0 * 64;
 	item_pos.y = 3.0 * 64;
-	tmp = spawn_item(game, item_pos);
+	tmp = spawn_item(game, (t_vector){7.0 * 64, 8.0 * 64}, "sword");
+	tmp = spawn_item(game, (t_vector){3.0 * 64, 4.0 * 64}, "axe");
+	tmp = spawn_item(game, (t_vector){3.0 * 64, 1.0 * 64}, "axe");
+	tmp = spawn_item(game, (t_vector){6.0 * 64, 8.0 * 64}, "axe");
+	tmp = spawn_item(game, item_pos, "sword");
 	if (!tmp)
 		printf("error spawn zombie\n");
 }

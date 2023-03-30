@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/30 23:47:22 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:09:25 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ typedef struct s_animations
 {
 	t_animation	zombie_run;
 	t_animation	sword;
+	t_animation	axe;
 }				t_animations;
 
 typedef struct s_animated_mob

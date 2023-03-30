@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 17:30:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/03/31 00:27:02 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ int	mouse_press(int button, int x, int y, t_game *game)
 		{
 			game->inventory.selected = (y - 530) / 70 * 12 + (x - 321) / 80;
 			select_item(game, x, y);
-			printf("Selected %d\n", game->inventory.selected);
 		}
 	}
 	if(!game->key_states['e'])
@@ -56,7 +55,6 @@ int	mouse_release(int button, int x, int y, t_game *game)
 	{
 		if (game->inventory.selected != -1)
 		{
-			printf("Dropped %d\n", game->inventory.selected);
 			swap_items((y - 530) / 70 * 12 + (x - 321) / 80,
 				game->inventory.selected, game->inventory.items);
 		}

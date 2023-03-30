@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/30 23:57:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:01:05 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ int		is_colliding(t_game *game, t_sprite *entity)
 		distance = vec_distance(player_pos, entity_pos);
 		if (distance < 50)
 		{
+			remove_entity(game, entity);
 			return (1);
 		}
 		entity = entity->next;

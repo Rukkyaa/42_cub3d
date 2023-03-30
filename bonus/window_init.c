@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 00:16:22 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 01:07:22 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,14 @@ void init_sprites(t_game *game)
 	while(i < 10)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		
-		tmp = spawn_zombie(game, zombie_pos);
-		if (!tmp)
-			printf("error spawn zombie\n");
-		i++;
+		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		{
+			tmp = spawn_zombie(game, zombie_pos);
+			if (!tmp)
+				printf("error spawn zombie\n");
+			i++;
+		}
 	}
 	t_vector item_pos;
 	item_pos.x = 3.0 * 64;

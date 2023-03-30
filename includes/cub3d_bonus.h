@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 00:15:29 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:19:17 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -271,7 +271,7 @@ void			clear_sounds(t_sounds *sounds);
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
 void			refresh_inventory(t_game *game);
-void			add_item(t_game *game, char c);
+void			add_item(t_game *game, char *type);
 void			select_item(t_game *game, int x, int y);
 char			*get_item(int x, int y, char *items[36]);
 bool			item_out_of_bound(t_vector3d mouse, t_img img, t_img selected);

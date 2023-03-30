@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 00:16:38 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:23:43 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ t_sprite	*spawn_item(t_game *game, t_vector pos, char *type)
 	new_item->width = new_item->height *
 		(new_item->animation.current_img->width) /
 			(new_item->animation.current_img->heigth);
+	new_item->name = type;
 	// new_item->speed.x = 0.1;
 	// new_item->speed.y = 0.1;
 	// new_item->type = "item";

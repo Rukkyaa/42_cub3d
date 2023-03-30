@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 15:34:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/31 00:22:42 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_inventory(t_game *game)
 		game->inventory.items[i] = "empty";
 }
 
-void	add_item(t_game *game, char c)
+void	add_item(t_game *game, char *type)
 {
 	int	i;
 
@@ -31,10 +31,7 @@ void	add_item(t_game *game, char c)
 	{
 		if (!strcmp(game->inventory.items[i], "empty"))
 		{
-			if (c == 'A')
-				game->inventory.items[i] = "axe";
-			else if (c == 'S')
-				game->inventory.items[i] = "sword";
+			game->inventory.items[i] = type;
 			return ;
 		}
 	}

@@ -10,5 +10,6 @@
 		"utility": "c",
 		"istream": "c",
 		"ostream": "c"
-	}
+	},
+	"C_Cpp.errorSquiggles": "disabled"
 }

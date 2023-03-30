@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/30 23:51:20 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:18:32 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,6 @@ int	game_loop(void *g)
 	// load_grid(game);
 	// if (!player_moving(game))
 	// 	ma_device_stop(&game->sounds.footstep.device);
-	if (is_collectible(game))
-	{
-		add_item(game, game->map[(int)game->player.pos.y / 64]
-			[(int)game->player.pos.x / 64]);
-		game->map[(int)game->player.pos.y / 64]
-			[(int)game->player.pos.x / 64] = '0';
-	}
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	if (is_colliding(game, game->sprites))

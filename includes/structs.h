@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/31 00:09:25 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:23:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # define MOB 0
 # define ITEM 1
 # define PROJ 2
+
+# define SWORD 0
+# define AXE 1
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -148,6 +151,7 @@ typedef struct s_animated_mob
 typedef struct s_sprite
 {
 	int		type;
+	char	*name;
 	int 	state;
 	float	height;
 	float	width;

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/31 00:07:41 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:23:30 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		is_colliding(t_game *game, t_sprite *entity)
 		{
 			if (entity->type == 1)
 			{
-				
+				add_item(game, entity->name);
 				remove_entity(game, entity);
 			}
 			return (1);

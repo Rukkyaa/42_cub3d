@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/31 00:25:34 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 01:00:57 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ void	is_colliding(t_game *game, t_sprite *entity)
 	t_vector3d		entity_pos;
 	double			distance;
 
-	//loop on all entities
 	while (entity)
 	{
 		player_pos = game->player.pos;

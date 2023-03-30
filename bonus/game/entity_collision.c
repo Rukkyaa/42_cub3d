@@ -6,14 +6,14 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/31 00:23:30 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:25:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
 // Function to check if the player is colliding with an entity by checking with the entity's hitbox (a circle)
-int		is_colliding(t_game *game, t_sprite *entity)
+void	is_colliding(t_game *game, t_sprite *entity)
 {
 	t_vector3d		player_pos;
 	t_vector3d		entity_pos;
@@ -32,9 +32,8 @@ int		is_colliding(t_game *game, t_sprite *entity)
 				add_item(game, entity->name);
 				remove_entity(game, entity);
 			}
-			return (1);
+			return ;
 		}
 		entity = entity->next;
 	}
-	return (0);
 }

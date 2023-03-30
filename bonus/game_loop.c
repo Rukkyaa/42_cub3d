@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 00:18:32 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 00:25:46 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,7 @@ int	game_loop(void *g)
 	// 	ma_device_stop(&game->sounds.footstep.device);
 	edit_player_rotate(game);		
 	edit_player_pos(game);
-	if (is_colliding(game, game->sprites))
-	{
-		printf("ON RENTRE EN COLLISION !\n");
-	}
+	is_colliding(game, game->sprites);
 	render_map(game);
 	if(game->mouse_clicked)
 		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));

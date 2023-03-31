@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:35:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/09 13:38:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/31 15:32:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	handle_sync(t_game *game)
 {
 	struct timeval frame_end;
 	long frame_duration;
-	
+
 	gettimeofday(&frame_end, NULL);
 	frame_duration = time_elapsed_ms(game->time.frame, frame_end);
 	if(frame_duration < 17)

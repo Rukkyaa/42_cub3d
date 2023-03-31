@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 13:42:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/03/31 14:53:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,12 @@ void	print_fps(int fps)
 }
 
 // Move every sprites to the left
-void	move_sprites(char **map, t_sprite *sprites)
+void	move_sprites(char **map, t_sprite *sprites, t_player *player)
 {
 	int	x;
 	int	y;
+	t_vector	start_pos;
+	t_vector	map_pos;
 
 	while (sprites)
 	{
@@ -44,11 +46,23 @@ void	move_sprites(char **map, t_sprite *sprites)
 			sprites = sprites->next;
 			continue;
 		}
-		sprites->pos.x -= 1;
+		start_pos = (t_vector){sprites->pos.x, sprites->pos.y};
+		map_pos = (t_vector){(int)(sprites->pos.x) / 64, (int)(sprites->pos.y) / 64};
+		if (sprites->pos.x + 30 < player->pos.x)
+			sprites->pos.x += 1;
+		else if (sprites->pos.x - 30 > player->pos.x)
+			sprites->pos.x -= 1;
+		if (sprites->pos.y + 30 < player->pos.y)
+			sprites->pos.y += 1;
+		else if (sprites->pos.y - 30 > player->pos.y)
+			sprites->pos.y -= 1;
 		x = (int)(sprites->pos.x - sprites->width / 2) / 64;
 		y = (int)(sprites->pos.y - sprites->width / 2) / 64;
 		if (is_wall(map[y][x]))
-			sprites->pos.x += 1;
+		{
+			sprites->pos.x = start_pos.x;
+			sprites->pos.y = start_pos.y;
+		}
 		sprites = sprites->next;
 	}
 }
@@ -67,7 +81,7 @@ int	game_loop(void *g)
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	is_colliding(game, game->sprites);
-	move_sprites(game->map, game->sprites);
+	move_sprites(game->map, game->sprites, &game->player);
 	render_map(game);
 	if(game->mouse_clicked)
 		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));

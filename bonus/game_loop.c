@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 00:25:46 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/03/31 13:42:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,28 @@ void	print_fps(int fps)
 	free(tmp);
 }
 
+// Move every sprites to the left
+void	move_sprites(char **map, t_sprite *sprites)
+{
+	int	x;
+	int	y;
+
+	while (sprites)
+	{
+		if (sprites->type != MOB)
+		{
+			sprites = sprites->next;
+			continue;
+		}
+		sprites->pos.x -= 1;
+		x = (int)(sprites->pos.x - sprites->width / 2) / 64;
+		y = (int)(sprites->pos.y - sprites->width / 2) / 64;
+		if (is_wall(map[y][x]))
+			sprites->pos.x += 1;
+		sprites = sprites->next;
+	}
+}
+
 int	game_loop(void *g)
 {
 	t_game	*game;
@@ -45,6 +67,7 @@ int	game_loop(void *g)
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	is_colliding(game, game->sprites);
+	move_sprites(game->map, game->sprites);
 	render_map(game);
 	if(game->mouse_clicked)
 		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));

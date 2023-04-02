@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/03/26 20:07:04 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/02 19:18:04 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -203,6 +203,20 @@ typedef struct s_mlx
 	t_img		img;
 }				t_mlx;
 
+
+// ---------------- MULTI-THREADING --------------
+
+typedef struct s_wall_task
+{
+	t_collision		collision;
+	t_vector3d		v_ray_dir;
+	t_vector3d		line_pos;
+	int				line_height;
+}				t_wall_task;
+
+
+// -----------------------------------------------
+
 typedef struct s_game
 {
 	void 			*mlx;
@@ -242,6 +256,17 @@ typedef struct s_game
 	t_img			debug_img;
 	t_img			minimap;
 	int				mouse_clicked;
+	pthread_t 		wall_threads[NB_THREADS];
+	t_wall_task 	wall_tasks[RES_X];
+	pthread_mutex_t	print_rights;
+	pthread_mutex_t	img_read_rights;
+	pthread_mutex_t	img_put_rights;
+	pthread_mutex_t	render_finished_rights;
+	pthread_mutex_t	queue_rights;
+	int				task_count;
+	int				task_done;
+	int				render_finished;
 }				t_game;
+
 
 #endif

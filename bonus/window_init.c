@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/26 19:21:54 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/02 19:05:41 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,33 @@ void	precompute_raycast(t_game *game)
 	}
 }
 
+void	init_mutex(t_game *game, pthread_mutex_t *mutex)
+{
+		if (pthread_mutex_init(mutex, NULL) != 0)
+		{
+			printf("pthread_mutex_init error");
+			close_window(game);
+		}	
+}
+
+void	init_threads(t_game *game)
+{
+	int i;
+
+	i = 0;
+	while(i < NB_THREADS)
+	{
+		pthread_create(&game->wall_threads[i], NULL, start_thread, (void*) game);
+		i++;
+	}	
+	init_mutex(game, &game->print_rights);
+	init_mutex(game, &game->img_read_rights);
+	init_mutex(game, &game->img_put_rights);
+	init_mutex(game, &game->queue_rights);
+	init_mutex(game, &game->render_finished_rights);
+	game->render_finished = 0;
+}
+
 
 void	var_init(t_game *game)
 {
@@ -171,4 +198,6 @@ void	var_init(t_game *game)
 	init_weapons(game);
 	load_grid(game);
 	load_map_debug(game);
+	clear_z_buffer(game);
+	init_threads(game);
 }

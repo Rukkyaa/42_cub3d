@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 21:39:13 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/02 19:20:42 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@
 
 # define RES_X  1600
 # define RES_Y  900
+
+# define NB_THREADS 4
 
 # define HD 1
 
@@ -98,7 +100,7 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
 void 	pre_compute_resize(t_game *game);
 void	sample_img_to_img(t_img *dest, t_img *src, int start_x, int start_y);
-int divide_by_64(int value);
+int 	divide_by_64(int value);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **
@@ -121,6 +123,7 @@ void			player_collides(t_game *game, t_vector3d speed);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
 void			update_player_tile_pos(t_player	*player);
+void			clear_z_buffer(t_game *game);
 
 //Fps
 void			handle_sync(t_game *game);
@@ -150,12 +153,20 @@ void			get_wall(t_game *game, t_collision *collision, char c);
 void 			wall_render(t_game *game, t_collision collision, t_vector3d line_pos, double line_height);
 void    		render_sprites(t_game *game);
 void 			sort_sprites(t_sprite** headRef);
+void    		render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height);
+void    		pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_height, float resize);
+void    		render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos);
 
 // Shapes
 void			draw_player(t_game *game, int color);
 void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
 void			psychedelic_view(t_game *game, t_img *img);
 
+
+// Multithreading 
+void    		wall_thread(t_game *game, t_wall_task d);
+void    		*start_thread(void *void_data);
+void    		submit_task_wall(t_game *game, t_wall_task task);
 
 /*****************************************************************
 **  $$$$$$\  $$\   $$\  $$$$$$\  $$$$$$$\  $$$$$$$$\  $$$$$$\   **

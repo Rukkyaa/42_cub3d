@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/02 19:29:09 by theo             ###   ########.fr       */
+/*   Updated: 2023/03/26 19:54:23 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -194,17 +194,9 @@ void    render_fps(t_game *game)
     t_collision collision;
     t_vector3d line_pos;
     t_vector3d v_ray_dir;
-    t_wall_task     wall_task;
     
     line_pos.y = game->camera.half_res.y;
     line_pos.x = 0;
-    int i = 0;
-    // printf("Rendering frame #%d\n", game->frame_count);
-    pthread_mutex_lock(&game->queue_rights);
-    game->task_count = 0;
-    game->task_done = 0;
-    game->render_finished = 0;
-    pthread_mutex_unlock(&game->queue_rights); 
     while(line_pos.x < RES_X)
     {
         // v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));
@@ -229,30 +221,13 @@ void    render_fps(t_game *game)
         // printf("offset : %f \n", player_to_midwall.y * game->camera.proj_plane_distance);
         line_pos.y = (game->camera.plane_center.y) + ((int) line_height >> 1);
 
-        wall_task.collision = collision;
-        wall_task.line_height = line_height;  
-        wall_task.line_pos = line_pos; 
-        wall_task.v_ray_dir = v_ray_dir;           
-        submit_task_wall(game, wall_task);
-        // wall_render(game, collision, line_pos, line_height);
-        // pre_compute_rows_dist(game, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
-        // render_floor(game, v_ray_dir, line_pos);
-        // render_roof(game, v_ray_dir, line_pos, line_height);
+
+        wall_render(game, collision, line_pos, line_height);
+        pre_compute_rows_dist(game, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);
+        render_floor(game, v_ray_dir, line_pos);
+        render_roof(game, v_ray_dir, line_pos, line_height);
         line_pos.x++;
-        i++;
     }
-    int all_tasks_ended = 0;
-    while(1)
-    {
-        pthread_mutex_lock(&game->render_finished_rights);
-        if(game->task_done >= RES_X - 1)
-            all_tasks_ended = 1;
-        pthread_mutex_unlock(&game->render_finished_rights);      
-        if(all_tasks_ended)
-            break;
-    }
-    // printf("out of loop\n");
-    //close_window(game);
     // if(game->frame_count > 5)
     //     exit(0);
 }

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/02 19:20:42 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/02 20:04:30 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@
 # define RES_X  1600
 # define RES_Y  900
 
-# define NB_THREADS 4
+# define NB_THREADS 3
 
 # define HD 1
 

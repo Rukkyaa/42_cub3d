@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/02 19:29:09 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/02 19:59:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
     while(i < RES_Y)
     {
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[i]));
+        // printf("read dist\n");
         pixel_color =  get_floor_color(v3d_intersect_point, &game->texture.ground);
             // pixel_color = add_shade(pixel_color, 0.5  * 255); 
         if(HD && shade)
@@ -65,7 +66,8 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
         
 
         *img_addr = pixel_color;  
-        img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
+        // img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
+        // printf("pix_put\n");
         img_addr += RES_X;
         i++;
     }

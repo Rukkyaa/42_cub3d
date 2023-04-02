@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/02 19:05:41 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/02 19:34:41 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,6 +130,8 @@ void	init_threads(t_game *game)
 	init_mutex(game, &game->queue_rights);
 	init_mutex(game, &game->render_finished_rights);
 	game->render_finished = 0;
+	game->task_count = 0;
+	game->task_done = 0;
 }
 
 

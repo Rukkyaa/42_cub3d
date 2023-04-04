@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/04 13:58:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:05:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,6 +154,7 @@ typedef struct s_sprite
 	int				type;
 	int 			state;
 	int				visible;
+	int				hp;
 	float			height;
 	float			width;
 	float			distance;

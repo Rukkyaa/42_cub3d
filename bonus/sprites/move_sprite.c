@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 13:12:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:55:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,8 @@ void	move_sprites(char **map, t_sprite *sprites, t_player *player, long delta_fr
 			continue;
 		}
 		sprites->speed = vec_sum(player->pos, vec_scalar_mult(sprites->pos, -1));
-		printf("%ld\n", delta_frame);
-		sprites->pos = vec_sum(vec_scalar_mult(sprites->speed, (float)delta_frame / 30.0f), sprites->pos);
-		printf("2%ld\n", delta_frame);
+		sprites->speed = vec_normalize(sprites->speed);
+		sprites->pos = vec_sum(vec_scalar_mult(sprites->speed, sprites->velocity), sprites->pos);
 		sprites->pos.z = -5;
 		sprites = sprites->next;
 	}

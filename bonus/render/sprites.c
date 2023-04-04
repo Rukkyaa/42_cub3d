@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/04 14:50:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:19:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void    render_sprites(t_game *game)
 	t_sprite	*sprite;
 
 	sprite = game->sprites;
-	move_sprites(&game->sprites, &game->player);
+	move_sprites(game->map, &game->sprites, &game->player);
     while(sprite)
     {
         compute_sprite(game, sprite);

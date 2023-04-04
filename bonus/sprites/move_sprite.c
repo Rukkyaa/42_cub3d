@@ -6,11 +6,23 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 15:08:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:23:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+static bool	can_move(char **map, t_vector3d pos)
+{
+	int x;
+	int y;
+
+	x = (int)(pos.x) / 64;
+	y = (int)(pos.y) / 64;
+	if (is_wall(map[y][x]))
+		return (false);
+	return (true);
+}
 
 static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 {
@@ -20,14 +32,18 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	return (false);
 }
 
-static void	move_mob(t_sprite *sprite, t_player *player)
+static void	move_mob(char **map, t_sprite *sprite, t_player *player)
 {
+	t_vector3d	tmp;
+
 	if (vec_distance(sprite->pos, player->pos) < 30
 		|| vec_distance(sprite->pos, player->pos) > 400)
 		return ;
 	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 	sprite->speed = vec_normalize(sprite->speed);
-	sprite->pos = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
+	tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
+	if (can_move(map, tmp))
+		sprite->pos = tmp;
 	sprite->pos.z = -5;
 }
 
@@ -56,7 +72,7 @@ static void	move_proj(t_sprite *proj, t_sprite **sprites)
     proj->pos = vec_sum(proj->pos, proj->speed);
 }
 
-void	move_sprites(t_sprite **sprites, t_player *player)
+void	move_sprites(char **map, t_sprite **sprites, t_player *player)
 {
 	t_sprite	*tmp;
 
@@ -64,7 +80,7 @@ void	move_sprites(t_sprite **sprites, t_player *player)
 	while (tmp)
 	{
 		if (tmp->type == MOB)
-			move_mob(tmp, player);
+			move_mob(map, tmp, player);
 		else if (tmp->type == PROJ)
 			move_proj(tmp, sprites);
 		tmp = tmp->next;

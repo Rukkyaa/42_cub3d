@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 15:23:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:25:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	move_mob(char **map, t_sprite *sprite, t_player *player)
 	sprite->pos.z = -5;
 }
 
-static void	move_proj(t_sprite *proj, t_sprite **sprites)
+static void	move_proj(char **map, t_sprite *proj, t_sprite **sprites)
 {
 	t_sprite *tmp;
 
@@ -69,7 +69,10 @@ static void	move_proj(t_sprite *proj, t_sprite **sprites)
 		}
 		tmp = tmp->next;
 	}
-    proj->pos = vec_sum(proj->pos, proj->speed);
+	if (can_move(map, vec_sum(proj->pos, proj->speed)))
+    	proj->pos = vec_sum(proj->pos, proj->speed);
+	else
+		remove_entity(sprites, proj);
 }
 
 void	move_sprites(char **map, t_sprite **sprites, t_player *player)
@@ -82,7 +85,7 @@ void	move_sprites(char **map, t_sprite **sprites, t_player *player)
 		if (tmp->type == MOB)
 			move_mob(map, tmp, player);
 		else if (tmp->type == PROJ)
-			move_proj(tmp, sprites);
+			move_proj(map, tmp, sprites);
 		tmp = tmp->next;
 	}
 }

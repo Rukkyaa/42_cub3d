@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 15:25:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 16:41:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	can_move(char **map, t_vector3d pos)
 
 	x = (int)(pos.x) / 64;
 	y = (int)(pos.y) / 64;
-	if (is_wall(map[y][x]))
+	if (is_wall(map[y][x]) || pos.z < 0 || 64 < pos.z)
 		return (false);
 	return (true);
 }

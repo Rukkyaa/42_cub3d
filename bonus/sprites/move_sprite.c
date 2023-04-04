@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 14:56:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:01:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	move_proj(t_sprite *proj, t_sprite **sprites)
 			continue ;
 		}
 		if (vec_distance(proj->pos, tmp->pos) < 
-			(proj->width / 2 + tmp->width / 2))
+			(proj->width / 2 + tmp->width / 2) && tmp->type == MOB)
 		{
 			remove_entity(sprites, proj);
 			remove_entity(sprites, tmp);

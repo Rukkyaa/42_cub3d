@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 16:41:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/04 22:18:30 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ static bool	can_move(char **map, t_vector3d pos)
 
 	x = (int)(pos.x) / 64;
 	y = (int)(pos.y) / 64;
-	if (is_wall(map[y][x]) || pos.z < 0 || 64 < pos.z)
+	if (is_wall(map[y][x]) || ((pos.z < 0 || 64 < pos.z) && pos.z != -5))
 		return (false);
 	return (true);
 }
@@ -59,8 +59,9 @@ static void	move_proj(char **map, t_sprite *proj, t_sprite **sprites)
 			tmp = tmp->next;
 			continue ;
 		}
-		if (vec_distance(proj->pos, tmp->pos) < 
-			(proj->width / 2 + tmp->width / 2) && tmp->type == MOB)
+		// printf("Proj z: %f, Mob z: %f\n", proj->pos.z, tmp->pos.z + tmp->height);
+		if (vec_distance(proj->pos, tmp->pos) < (proj->width / 2 + tmp->width
+			/ 2) && tmp->type == MOB)
 		{
 			if (do_damage(proj, tmp))
 				remove_entity(sprites, tmp);

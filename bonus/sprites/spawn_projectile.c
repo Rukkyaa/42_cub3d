@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_projectile.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 22:05:10 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/04 16:29:10 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ t_animation	get_energy_ball_anim(t_game *game)
 	return (anim);
 }
 
-t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed)
+t_sprite	*spawn_projectile(t_game *game, t_vector3d pos)
 {
 	t_sprite	*new_projectile;
 
@@ -35,12 +35,21 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed)
 	new_projectile->pos.y = pos.y + game->player.direction.y * 30;
 	new_projectile->animation = get_energy_ball_anim(game);
 	new_projectile->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_projectile->animation.nb_imgs;
-	new_projectile->pos.z = 3;
+	new_projectile->pos.z = 16;
 	new_projectile->height = 32;
 	new_projectile->width = new_projectile->height *
 		(new_projectile->animation.current_img->width) /
 			(new_projectile->animation.current_img->heigth);
-	new_projectile->speed = speed;
+	new_projectile->speed =	vec_scalar_mult(game->player.direction, 1);
+	new_projectile->speed.z = (float) 1.25 * (game->camera.plane_center.y -  game->camera.half_res.y) / (float) game->camera.proj_plane_distance;
+	// printf("new_projectile->speed.z %f\n", new_projectile->speed.z);
+	// printf("half_res %f\n", game->camera.half_res.y);
+	// printf("plane_center %f\n",game->camera.plane_center.y);
+	// printf("proj_plane_distance %f\n", game->camera.proj_plane_distance);
+	// printf("z %f\n", ( game->camera.half_res.y - game->camera.plane_center.y) / game->camera.proj_plane_distance);
+	// vec3_print(new_projectile->speed, "proj speed");
+	new_projectile->speed = vec_scalar_mult(new_projectile->speed, 25);
+	// vec3_print(new_projectile->speed, "proj speed");
 	// new_projectile->type = "zombie";
 	new_projectile->next = NULL;
 	new_projectile->type = PROJ;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 14:08:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:16:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	game_loop(void *g)
 	is_colliding(game, game->sprites);
 	render_map(game);
 	if(game->mouse_clicked)
-		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
+		spawn_projectile(game, game->player.pos);
 	render_sprites(game);
 	render_ui(game);
 	render(game);

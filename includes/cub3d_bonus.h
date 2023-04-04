@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 13:59:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:44:10 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,6 +239,7 @@ t_vector3d		vec_normalize(t_vector3d vec);
 t_vector3d		vec_rotate(t_vector3d vector, float angle);
 void			vec_to_angle(double angle, t_vector3d *vector);
 void			vec_print(t_vector3d *vector, char *name);
+void			vec3_print(t_vector3d vector, char *name);
 t_vector3d			vec_rotate_rad(t_vector3d vector, float angle);
 void			vec_rotate_edit(t_vector3d *vector, float angle);
 double			vec_distance(t_vector3d vec1, t_vector3d vec2);
@@ -300,7 +301,7 @@ t_garbage		*_gc(void);
 **  \______/ \__|      \__|  \__|\______|   \__|   \________| \______/  **
 *************************************************************************/
 t_sprite		*spawn_zombie(t_game *game, t_vector pos);
-t_sprite		*spawn_projectile(t_game *game, t_vector3d pos, t_vector3d speed);
+t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
 t_animation		get_zombie_anim(t_game *game);

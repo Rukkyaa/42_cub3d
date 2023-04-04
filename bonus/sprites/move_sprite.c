@@ -6,26 +6,13 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 13:55:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:01:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static bool	can_move(char **map, float p_x, float p_y)
-{
-	int x;
-	int y;
-
-	x = (int)(p_x) / 64;
-	y = (int)(p_y) / 64;
-	if (is_wall(map[y][x]))
-		return (false);
-	return (true);
-}
-
-// Move every sprites to the left
-void	move_sprites(char **map, t_sprite *sprites, t_player *player, long delta_frame)
+void	move_sprites(t_sprite *sprites, t_player *player)
 {
 	t_sprite	*begin;
 

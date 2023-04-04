@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/04 13:55:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:58:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,22 +150,22 @@ typedef struct s_animated_mob
 
 typedef struct s_sprite
 {
-	int		type;
-	char	*name;
-	int 	state;
-	float	height;
-	float	width;
-	float	distance;
-	float	screen_width;
-	float	screen_height;
-	float	velocity;
-	int		visible;
-	t_vector3d	screen_pos;
-	t_animation	animation;
-	t_img	*current_img;
-	t_img	**img_run;
-	t_vector3d	pos;
-	t_vector3d	speed;
+	char			*name;
+	int				type;
+	int 			state;
+	int				visible;
+	float			height;
+	float			width;
+	float			distance;
+	float			screen_width;
+	float			screen_height;
+	float			velocity;
+	t_vector3d		screen_pos;
+	t_animation		animation;
+	t_img			*current_img;
+	t_img			**img_run;
+	t_vector3d		pos;
+	t_vector3d		speed;
 	struct s_sprite	*next;
 }				t_sprite;
 

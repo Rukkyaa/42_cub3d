@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 22:05:33 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/04 13:05:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,9 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->width = new_zombie->height *
 		(new_zombie->animation.current_img->width) /
 			(new_zombie->animation.current_img->heigth);
-	// new_zombie->speed.x = 0.1;
-	// new_zombie->speed.y = 0.1;
+	new_zombie->speed.x = 0;
+	new_zombie->speed.y = 0;
+	new_zombie->speed.z = 0;
 	new_zombie->type = MOB;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);

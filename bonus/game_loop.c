@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/31 15:36:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 13:03:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	game_loop(void *g)
 	edit_player_rotate(game);		
 	edit_player_pos(game);
 	is_colliding(game, game->sprites);
-	move_sprites(game->map, game->sprites, &game->player);
+	move_sprites(game->map, game->sprites, &game->player, game->time.delta_frame_ms);
 	render_map(game);
 	if(game->mouse_clicked)
 		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));

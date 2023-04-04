@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 14:05:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:08:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ void	move_sprites(t_sprite *sprites, t_player *player)
 	{
 		if (sprites->type == MOB)
 			move_mob(sprites, player);
+		else if (sprites->type == PROJ)
+    		sprites->pos = vec_sum(sprites->pos,  sprites->speed);
 		sprites = sprites->next;
 	}
 }

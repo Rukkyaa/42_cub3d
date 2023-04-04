@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 14:08:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:56:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,17 +23,41 @@ static void	move_mob(t_sprite *sprite, t_player *player)
 	sprite->pos.z = -5;
 }
 
-void	move_sprites(t_sprite *sprites, t_player *player)
+static void	move_proj(t_sprite *proj, t_sprite **sprites)
 {
-	t_sprite	*begin;
+	t_sprite *tmp;
 
-	begin = sprites;
-	while (sprites)
+	tmp = *sprites;
+	while (tmp)
 	{
-		if (sprites->type == MOB)
-			move_mob(sprites, player);
-		else if (sprites->type == PROJ)
-    		sprites->pos = vec_sum(sprites->pos,  sprites->speed);
-		sprites = sprites->next;
+		if (tmp->type == PROJ)
+		{
+			tmp = tmp->next;
+			continue ;
+		}
+		if (vec_distance(proj->pos, tmp->pos) < 
+			(proj->width / 2 + tmp->width / 2))
+		{
+			remove_entity(sprites, proj);
+			remove_entity(sprites, tmp);
+			return ;
+		}
+		tmp = tmp->next;
+	}
+    proj->pos = vec_sum(proj->pos, proj->speed);
+}
+
+void	move_sprites(t_sprite **sprites, t_player *player)
+{
+	t_sprite	*tmp;
+
+	tmp = *sprites;
+	while (tmp)
+	{
+		if (tmp->type == MOB)
+			move_mob(tmp, player);
+		else if (tmp->type == PROJ)
+			move_proj(tmp, sprites);
+		tmp = tmp->next;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/31 16:08:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:45:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	is_colliding(t_game *game, t_sprite *entity)
 			if (entity->type == 1)
 			{
 				add_item(game, entity->name);
-				remove_entity(game, entity);
+				remove_entity(&game->sprites, entity);
 			}
 			return ;
 		}

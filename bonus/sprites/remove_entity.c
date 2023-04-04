@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   remove_entity.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:57:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/03/31 00:03:05 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/04 14:44:44 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,22 @@
 ** @param game the game struct
 ** @param entity the entity to remove
 */
-void	remove_entity(t_game *game, t_sprite *entity)
+void remove_entity(t_sprite **sprites, t_sprite *entity)
 {
 	t_sprite	*tmp;
 
-	tmp = game->sprites;
-	if (tmp == entity)
+	if (*sprites == entity)
 	{
-		game->sprites = tmp->next;
-		return ;
+		*sprites = (*sprites)->next;
+		return;
 	}
-	while (tmp->next != entity)
+	tmp = *sprites;
+	while (tmp && tmp->next != entity)
 		tmp = tmp->next;
-	tmp->next = entity->next;
+	if (tmp)
+		tmp->next = entity->next;
 }
+
 
 
 // void	remove_entity(t_game *game, int id)

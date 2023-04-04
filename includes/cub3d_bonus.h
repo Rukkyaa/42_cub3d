@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 13:59:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/04 14:49:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -307,8 +307,8 @@ t_animation		get_zombie_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector pos, char *type);
 t_animation		load_item_anim(t_game *game, char *type);
 void			is_colliding(t_game *game, t_sprite *entity);
-void			remove_entity(t_game *game, t_sprite *entity);
-void			move_sprites(t_sprite *sprites, t_player *player);
+void			remove_entity(t_sprite **sprites, t_sprite *entity);
+void			move_sprites(t_sprite **sprites, t_player *player);
 bool			is_colliding_entity(t_sprite *sprites, t_sprite *entity);
 bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity, char dir);
 

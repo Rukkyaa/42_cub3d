@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 18:46:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:03:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void init_sprites(t_game *game)
 
 	init_animations(game);
 	game->sprites = NULL;
-	while(i < 1)
+	while(i < 10)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
 		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;

@@ -70,36 +70,49 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	static int	hide = 0;
 	int			diff_x;
 	int			diff_y;
-	int const	tmp = game->mouse.x;
-	int	const   last_mouse_y = game->mouse.y;
 
-	diff_x = x - tmp;
-	diff_y = y - last_mouse_y;
-	game->mouse.x = x;
-	game->mouse.y = y;
-	game->mouse_diff.x = diff_x;
-	game->mouse_diff.y = diff_y;
+	diff_x = x - RES_X / 2;
+	diff_y = y - RES_Y / 2;
+	// printf("%d - %d\n", x, y);
+	// printf("%d - %d\n", diff_x, diff_y);
+	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
+	// game->mouse.x = x;
+	// game->mouse.y = y;
+	// game->mouse_diff.x = diff_x;
+	// game->mouse_diff.y = diff_y;
 	// printf("%d\n", (int)game->mouse.x);
 	// printf("%d\n", (int)game->mouse.y);
 	// printf("%d\n", (int)game->mouse_diff.x);
 	// printf("%d\n", (int)game->mouse_diff.y);
-	if (!game->key_states['e'])
+	if(diff_x != 0 || diff_y != 0)
 	{
 		game->mouse_move = 1;
+		game->mouse_diff.x = diff_x;
+		game->mouse_diff.y = diff_y;
+		// mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
+	}
+
+	// 	game->mouse.x = RES_X / 2;
+	// 	game->mouse.y = RES_Y / 2;
+	// 	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
+	// }		
+
+	if (!game->key_states['e'])
+	{
+		// printf("move\n");
 		if (!hide)
 		{
 			mlx_mouse_hide(game->mlx, _mlx()->win);
 			hide = 1;
 		}
-		game->mouse.x = RES_X / 2;
-		game->mouse.y = RES_Y / 2;
-		mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
+
 	}
 	else if (hide)
 	{
 		mlx_mouse_show(game->mlx, _mlx()->win);
 		hide = 0;
 	}
+
 	return (0);
 }
 

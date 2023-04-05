@@ -97,14 +97,20 @@ void	rotate_player(t_game *game, float angle)
 
 void	edit_player_rotate(t_game *game)
 {
+	
 	if (game->key_states[0])
 		rotate_player(game, -3);
 	if (game->key_states[1])
 		rotate_player(game, 3);
 	if(game->mouse_move)
 	{
-		rotate_player(game, game->mouse_diff.x * game->time.delta_frame_ms / 2000.0f);
-		game->camera.plane_center.y -=  game->mouse_diff.y * game->time.delta_frame_ms  / 150.0f;
+		rotate_player(game, game->mouse_diff.x / 20);
+		game->camera.plane_center.y -=  game->mouse_diff.y / 2;
+		// vec_print(&game->mouse_diff, "mouse diff");
+		game->mouse_diff.x = 0;
+		game->mouse_diff.y = 0;
+		// rotate_player(game, game->mouse_diff.x * game->time.delta_frame_ms / 2000.0f);
+		// game->camera.plane_center.y -=  game->mouse_diff.y * game->time.delta_frame_ms  / 150.0f;
 		game->mouse_move = 0;
 		if(game->camera.plane_center.y > 750)
 			game->camera.plane_center.y = 750;

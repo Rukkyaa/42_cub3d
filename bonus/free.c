@@ -52,6 +52,24 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);
 }
 
+void	kill_threads(t_game *game)
+{
+	int i;
+
+	i = 0;
+	while(i < NB_THREADS)
+	{
+		pthread_cancel(game->wall_threads[i]);
+		pthread_join(game->wall_threads[i], NULL);
+		i++;
+	}	
+	pthread_mutex_destroy(&game->print_rights);
+	pthread_mutex_destroy(&game->img_read_rights);
+	pthread_mutex_destroy(&game->img_put_rights);
+	pthread_mutex_destroy(&game->queue_rights);
+	pthread_mutex_destroy(&game->render_finished_rights);
+}
+
 int	close_window(t_game *game)
 {
 	int	i;

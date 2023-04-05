@@ -143,12 +143,12 @@ void    *start_thread(void *void_game)
             // }
             found_task = 1;
             game->task_done++;
-            if(game->task_done == RES_X - 1)
-            {
-                pthread_mutex_lock(&game->render_finished_rights);
-                game->render_finished = 1;
-                pthread_mutex_unlock(&game->render_finished_rights);
-            }
+            // if(game->task_done == RES_X - 1)
+            // {
+            //     pthread_mutex_lock(&game->render_finished_rights);
+            //     game->render_finished = 1;
+            //     pthread_mutex_unlock(&game->render_finished_rights);
+            // }
         }
         pthread_mutex_unlock(&game->queue_rights);
         if(found_task)

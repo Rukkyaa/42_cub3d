@@ -51,7 +51,7 @@ void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
     img_addr = ( unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
     while(i < RES_Y)
     {
-        v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[i]));
+        v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[(int)line_pos.x][i]));
         // printf("read dist\n");
         pixel_color =  get_floor_color(v3d_intersect_point, &game->texture.ground);
             // pixel_color = add_shade(pixel_color, 0.5  * 255); 
@@ -123,10 +123,10 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
 
     img_addr = ( unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
 
-    while(i > min)
+    while(i >= min)
     {
         
-        v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));
+        v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[(int)line_pos.x][i]));
         pixel_color = get_roof_color(game, v3d_intersect_point, &game->texture.roof);
         if(HD && shade)
         {
@@ -142,6 +142,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
         img_addr -= RES_X;
         i--;
     }
+
 }
 
 
@@ -155,7 +156,7 @@ void    pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_heig
     {
         dist = ((game->wall_height - game->player.pos3d.z ) * game->camera.proj_plane_distance) / (float) (game->camera.plane_center.y - i);
         dist /= resize;
-        game->row_dist[i] = dist;
+        game->row_dist[(int)line_pos.x][i] = dist;
         i++;
     }   
     // floor
@@ -164,7 +165,7 @@ void    pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_heig
     {
         dist = (game->player.pos3d.z  * game->camera.proj_plane_distance) / (float) (i - game->camera.plane_center.y);
         dist /= resize;
-        game->row_dist[i] = dist;
+        game->row_dist[(int)line_pos.x][i] = dist;
         i++;
     }
 }
@@ -187,7 +188,6 @@ void pre_compute_resize(t_game *game)
         game->fisheye_resize_wall[i] = cosf(ca);
         i++;
     }
-    
 }
 
 void    render_fps(t_game *game)
@@ -234,7 +234,9 @@ void    render_fps(t_game *game)
         wall_task.collision = collision;
         wall_task.line_height = line_height;  
         wall_task.line_pos = line_pos; 
-        wall_task.v_ray_dir = v_ray_dir;           
+        wall_task.v_ray_dir = v_ray_dir;
+            
+                
         submit_task_wall(game, wall_task);
         // wall_render(game, collision, line_pos, line_height);
         // pre_compute_rows_dist(game, line_pos, line_height, game->fisheye_resize[(int)  line_pos.x]);

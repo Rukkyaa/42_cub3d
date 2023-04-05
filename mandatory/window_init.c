@@ -81,4 +81,5 @@ void	var_init(t_game *game)
 	mlx_put_image_to_window(game->mlx, game->win, game->img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
 	init_sprites();
+	close_window(game);
 }

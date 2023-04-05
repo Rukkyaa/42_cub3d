@@ -15,7 +15,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	game;
+	t_game	*game;
 
 	if (argc != 2)
 		return (EXIT_FAILURE);
@@ -24,10 +24,11 @@ int	main(int argc, char **argv)
 		printf("\033[1;31m[Error]\033[0;31m Creation of the gc's singleton failed\n\033[0m");
 		exit(0);
 	}
-	game.map = get_map(argv[1]);
-	var_init(&game);
-	hooks(&game);
-	mlx_loop(game.mlx);
+	game = my_alloc(sizeof(t_game));
+	game->map = get_map(argv[1]);
+	var_init(game);
+	hooks(game);
+	mlx_loop(game->mlx);
 	// clear_sounds(&game.sounds);
 	return (EXIT_SUCCESS);
 }

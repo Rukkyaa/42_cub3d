@@ -231,11 +231,11 @@ typedef struct s_game
 	t_vector3d		mouse;
 	t_vector3d		mouse_diff;
 	t_animations	animations;
-	float			mouse_move;
+	int				mouse_move;
 	t_player		player;
 	t_sprite		*sprites;
 	float			z_buffer[RES_X];
-	float			row_dist[RES_Y];
+	float			row_dist[RES_X][RES_Y];
 	float			ray_offset[RES_X];
 	float			ray_angle[RES_X];
 	float			fisheye_resize[RES_X];

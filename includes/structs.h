@@ -175,6 +175,15 @@ typedef struct s_sprite
 
 // ---------------------------------------
 
+
+typedef struct s_weapon
+{
+	t_img		idle_img;
+	t_animation fire_anim;
+	float		attack_speed;
+	float		damage;
+}				t_weapon;
+
 typedef struct s_collision
 {
 	t_vector3d		point;

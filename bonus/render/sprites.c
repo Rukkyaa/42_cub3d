@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 10:49:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:46:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ float   deg_to_rad(float angle)
 
 int     sample_img(t_img *img, float x, float y)
 {
+	if (x < 0 || x > 1 || y < 0 || y > 1)
+		printf("%f %f\n", x, y);
     return (img_pix_read(img, x * img->width, y * img->heigth));
 }
 
@@ -62,7 +64,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
         {
             // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
             // printf("y_pos : %f\n", start_pos.y - j);
-            pixel_color = sample_img(sprite->animation.current_img, x_text, (j - j_offset) / line_width);
+            pixel_color = sample_img(sprite->animation.current_img, x_text, (j - j_offset) / line_height);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
                 img_pix_put(&game->fps_img,  i,  j, pixel_color);

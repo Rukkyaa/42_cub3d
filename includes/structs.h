@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/04 15:05:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 09:37:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,6 +118,7 @@ typedef struct s_texture
 	t_img	ground;
 	t_img	roof;
 	t_img	projectile;
+	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
 }				t_texture;

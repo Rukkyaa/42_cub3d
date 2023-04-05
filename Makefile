@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/03/31 15:37:34 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/05 10:39:01 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -85,7 +85,7 @@ SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o)
 
 # RENDER #
 RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load render_fps pixel_ops wall sprites put_img_to_img debug_map color_ops color_converts \
-	psychedelic_view render draw_player sort_imgs animation))
+	psychedelic_view render draw_player sort_imgs animation kill_counter))
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #

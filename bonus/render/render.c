@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 13:36:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/05 18:48:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 void	render_ui(t_game *game)
 {
 	put_img_to_img( &game->hud.aim, &game->fps_img, game->camera.half_res.x - game->hud.aim.width / 2, game->camera.half_res.y - game->hud.aim.width / 2);
-	update_animation(game , &game->hud.weapon_anim);
+	// update_animation(game , &game->hud.weapon_anim);
 	//put_img_to_img( &game->hud.weapon, &game->fps_img, RES_X -  game->hud.weapon.width - RES_X / 2  , RES_Y -  game->hud.weapon.heigth);
-	put_img_to_img( game->hud.weapon_anim.current_img, &game->fps_img, RES_X/2 -  game->hud.weapon_anim.current_img->width/2  , RES_Y -  game->hud.weapon_anim.current_img->heigth);
+	// put_img_to_img( game->hud.weapon_anim.current_img, &game->fps_img, RES_X/2 -  game->hud.weapon_anim.current_img->width/2  , RES_Y -  game->hud.weapon_anim.current_img->heigth);
 	if (game->key_states['e'])
 	{
 		put_img_to_img(&game->inventory.img, &game->fps_img, 300, 159);

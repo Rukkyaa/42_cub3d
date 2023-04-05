@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 15:48:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 18:45:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,8 @@ t_animation	get_zombie_anim(t_game *game)
 {
 	t_animation	anim;
 
-	anim.nb_imgs = 48;
-	anim.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_CROPPED_XPM");
+	anim.nb_imgs = 123;
+	anim.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/ATTACK_CROPPED_XPM");
 	anim.current_img = anim.imgs[0];
 	anim.frame_duration_ms = 30;
 	return (anim);

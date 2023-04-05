@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 15:56:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 16:00:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,7 @@ static void	move_mob(char **map, t_sprite *sprite, t_player *player)
 	t_vector3d	tmp;
 	t_vector3d	start;
 
-	if (vec_distance(sprite->pos, player->pos) < 30
-		|| vec_distance(sprite->pos, player->pos) > 400)
+	if (vec_distance(sprite->pos, player->pos) < 30)
 		return ;
 	start = sprite->speed;
 	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));

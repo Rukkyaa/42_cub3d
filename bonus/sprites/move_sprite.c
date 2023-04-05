@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 13:04:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:56:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 			tmp = tmp->next;
 			continue ;
 		}
-		if (vec_distance(proj->pos, tmp->pos) < (proj->width / 2 + tmp->width
-			/ 2) && tmp->type == MOB)
+		if (vec_distance(proj->pos, tmp->pos) < (proj->width / 2)
+			&& tmp->type == MOB && proj->pos.z < tmp->pos.z + tmp->height)
 		{
 			if (do_damage(proj, tmp))
 			{

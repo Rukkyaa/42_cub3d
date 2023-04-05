@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 10:44:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:46:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	game_loop(void *g)
 	render(game);
 	print_fps(game->time.fps);
 	handle_sync(game);
-	print_kill(game, 932324, RES_X - 55);
+	print_kill(game, game->player.kills, RES_X - 55);
 	game->frame_count++;
 	//usleep(16000);
 	return (0);

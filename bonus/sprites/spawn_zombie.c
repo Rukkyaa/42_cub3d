@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 22:04:44 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:08:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,11 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 		return (NULL);
 	new_zombie->pos.x = pos.x;
 	new_zombie->pos.y = pos.y;
+	new_zombie->pos.z = -5;
 	new_zombie->animation = game->animations.zombie_run;
 	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
 		game->time.frame.tv_usec / 1000;
 	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
-	new_zombie->pos.z = -5;
 	new_zombie->height = 70;
 	new_zombie->width = new_zombie->height *
 		(new_zombie->animation.current_img->width) /
@@ -46,7 +46,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->speed.z = 0;
 	new_zombie->type = MOB;
 	new_zombie->velocity = 3;
-	new_zombie->hp = 1000;
+	new_zombie->hp = 200;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);
 	return (new_zombie);

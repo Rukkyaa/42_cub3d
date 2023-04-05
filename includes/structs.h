@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 09:37:43 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:45:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ typedef struct s_player
 	t_vector3d	tile_pos;
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
+	int			kills;
 	int 		tilt;
 	float		angle;
 	float		direction_adjust;

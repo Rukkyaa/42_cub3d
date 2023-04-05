@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/04 22:18:30 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/05 11:11:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,12 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 static void	move_mob(char **map, t_sprite *sprite, t_player *player)
 {
 	t_vector3d	tmp;
+	t_vector3d	start;
 
 	if (vec_distance(sprite->pos, player->pos) < 30
 		|| vec_distance(sprite->pos, player->pos) > 400)
 		return ;
+	start = sprite->speed;
 	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 	sprite->speed = vec_normalize(sprite->speed);
 	tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
@@ -47,7 +49,7 @@ static void	move_mob(char **map, t_sprite *sprite, t_player *player)
 	sprite->pos.z = -5;
 }
 
-static void	move_proj(char **map, t_sprite *proj, t_sprite **sprites)
+static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 {
 	t_sprite *tmp;
 
@@ -59,24 +61,26 @@ static void	move_proj(char **map, t_sprite *proj, t_sprite **sprites)
 			tmp = tmp->next;
 			continue ;
 		}
-		// printf("Proj z: %f, Mob z: %f\n", proj->pos.z, tmp->pos.z + tmp->height);
 		if (vec_distance(proj->pos, tmp->pos) < (proj->width / 2 + tmp->width
 			/ 2) && tmp->type == MOB)
 		{
 			if (do_damage(proj, tmp))
+			{
 				remove_entity(sprites, tmp);
+				game->player.kills++;
+			}
 			remove_entity(sprites, proj);
 			return ;
 		}
 		tmp = tmp->next;
 	}
-	if (can_move(map, vec_sum(proj->pos, proj->speed)))
+	if (can_move(game->map, vec_sum(proj->pos, proj->speed)))
     	proj->pos = vec_sum(proj->pos, proj->speed);
 	else
 		remove_entity(sprites, proj);
 }
 
-void	move_sprites(char **map, t_sprite **sprites, t_player *player)
+void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 {
 	t_sprite	*tmp;
 
@@ -84,9 +88,9 @@ void	move_sprites(char **map, t_sprite **sprites, t_player *player)
 	while (tmp)
 	{
 		if (tmp->type == MOB)
-			move_mob(map, tmp, player);
+			move_mob(game->map, tmp, player);
 		else if (tmp->type == PROJ)
-			move_proj(map, tmp, sprites);
+			move_proj(game, tmp, sprites);
 		tmp = tmp->next;
 	}
 }

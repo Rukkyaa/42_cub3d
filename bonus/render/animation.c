@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:59:39 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 18:47:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 19:02:57 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,5 @@ void    update_animation(t_game *game, t_animation *animation)
     // printf("animation_start : %ld\n", animation->start_time_ms);
     // printf("time_elapsed_ms : %d\n", time_elapsed_ms);
     // printf("img_index : %d\n", img_index);
-	printf("%d\n", img_index);
     animation->current_img = animation->imgs[img_index];
 }

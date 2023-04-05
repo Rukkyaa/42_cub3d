@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 11:11:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:04:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 			if (do_damage(proj, tmp))
 			{
 				remove_entity(sprites, tmp);
+				spawn_item(game, tmp->pos, "sword");
 				game->player.kills++;
 			}
 			remove_entity(sprites, proj);

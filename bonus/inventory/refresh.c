@@ -26,9 +26,9 @@ void	refresh_inventory(t_game *game)
 			if (game->inventory.selected == i * 12 + j)
 				continue ;
 			if (!strcmp(game->inventory.items[i * 12 + j], "sword"))
-				put_img_to_img(&game->weapon.sword, &_mlx()->img, 329 + j * 80, 530 + i * 70);
+				put_img_to_img(&game->weapon_icons.sword, &_mlx()->img, 329 + j * 80, 530 + i * 70);
 			if (!strcmp(game->inventory.items[i * 12 + j], "axe"))
-				put_img_to_img(&game->weapon.axe, &_mlx()->img, 329 + j * 80, 530 + i * 70);
+				put_img_to_img(&game->weapon_icons.axe, &_mlx()->img, 329 + j * 80, 530 + i * 70);
 		}
 	}
 	if (game->inventory.selected != -1)

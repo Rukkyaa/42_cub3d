@@ -15,9 +15,7 @@
 void	render_ui(t_game *game)
 {
 	put_img_to_img( &game->hud.aim, &game->fps_img, game->camera.half_res.x - game->hud.aim.width / 2, game->camera.half_res.y - game->hud.aim.width / 2);
-	update_animation(game , &game->hud.weapon_anim);
-	//put_img_to_img( &game->hud.weapon, &game->fps_img, RES_X -  game->hud.weapon.width - RES_X / 2  , RES_Y -  game->hud.weapon.heigth);
-	put_img_to_img( game->hud.weapon_anim.current_img, &game->fps_img, RES_X/2 -  game->hud.weapon_anim.current_img->width/2  , RES_Y -  game->hud.weapon_anim.current_img->heigth);
+	put_img_to_img( game->player.weapon.current_img, &game->fps_img, RES_X/2 -  game->hud.weapon_anim.current_img->width/2  , RES_Y -  game->hud.weapon_anim.current_img->heigth);
 	if (game->key_states['e'])
 	{
 		put_img_to_img(&game->inventory.img, &game->fps_img, 300, 159);

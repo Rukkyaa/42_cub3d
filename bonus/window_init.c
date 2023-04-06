@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 12:59:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:47:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,46 @@ void init_sprites(t_game *game)
 
 void init_weapons(t_game *game)
 {
-	t_animation grap_gun;
-	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
-	grap_gun.current_img = grap_gun.imgs[0];
-	// printf("anim\n");
-	grap_gun.frame_duration_ms = 100;
-	grap_gun.frame_offset = 0;
-	grap_gun.nb_imgs = 16;
-	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-	game->hud.weapon_anim = grap_gun;
+	// Grapp gun anim
+	t_weapon grap_gun;
+	t_animation grap_gun_anim;
+	grap_gun_anim.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
+	grap_gun_anim.current_img = grap_gun_anim.imgs[0];
+	grap_gun_anim.frame_duration_ms = 100;
+	grap_gun_anim.frame_offset = 0;
+	grap_gun_anim.nb_imgs = 16;
+	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	game->hud.weapon_anim = grap_gun_anim;
+
+	// Grapp gun
+	grap_gun.fire_anim = grap_gun_anim;
+	grap_gun.idle_img = *grap_gun_anim.imgs;
+	grap_gun.cool_down_ms = 500;
+	grap_gun.attack_speed = 2;
+	grap_gun.damage = 10;
+
+	// Axe anim
+	t_weapon axe;
+	t_animation axe_anim;
+	axe_anim.imgs = fill_sprite_animation(game, "images/weapons/axe");
+	axe_anim.current_img = axe_anim.imgs[0];
+	axe_anim.frame_duration_ms = 30;
+	axe_anim.frame_offset = 0;
+	axe_anim.nb_imgs = 5;
+	axe_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	game->hud.weapon_anim = axe_anim;
+	axe.current_img = axe_anim.imgs[1];
+	axe.idle_img = axe_anim.imgs[1];
+	axe.state = IDLE;
+
+	// Grapp gun
+	axe.fire_anim = axe_anim;
+	axe.idle_img = *axe_anim.imgs;
+	axe.cool_down_ms = 500;
+	axe.attack_speed = 2;
+	axe.damage = 10;
+
+	game->player.weapon = axe;
 }
 
 

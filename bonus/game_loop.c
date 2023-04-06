@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 10:46:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:41:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,9 @@ int	game_loop(void *g)
 	// 	ma_device_stop(&game->sounds.footstep.device);
 	edit_player_rotate(game);		
 	edit_player_pos(game);
+	handle_weapon(game, &game->player.weapon);
 	is_colliding(game, game->sprites);
 	render_map(game);
-	if(game->mouse_clicked)
-		spawn_projectile(game, game->player.pos);
 	render_sprites(game);
 	render_ui(game);
 	render(game);

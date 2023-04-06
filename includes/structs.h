@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 10:45:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:51:28 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@
 
 # define SWORD 0
 # define AXE 1
+
+# define IDLE 0
+# define FIRE 1
+# define RELOAD 2
+
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -81,20 +86,6 @@ typedef struct s_camera
 	t_vector3d			plane_center;
 }					t_camera;
 
-typedef struct s_player
-{
-	t_vector3d	pos;
-	t_vector3d	speed;
-	t_vector3d	pos3d;
-	t_vector3d	tile_pos;
-	t_vector3d	collision_pos;
-	t_vector3d	direction;
-	int			kills;
-	int 		tilt;
-	float		angle;
-	float		direction_adjust;
-	t_vector3d	current_tile;
-}				t_player;
 
 typedef struct s_img
 {
@@ -160,6 +151,7 @@ typedef struct s_sprite
 	float			height;
 	float			width;
 	float			distance;
+	float			angle_to_player;
 	float			screen_width;
 	float			screen_height;
 	float			velocity;
@@ -175,14 +167,40 @@ typedef struct s_sprite
 
 // ---------------------------------------
 
+typedef struct s_weapon_icons
+{
+	t_img		sword;
+	t_img		axe;
+}				t_weapon_icons;
 
 typedef struct s_weapon
 {
-	t_img		idle_img;
+	int			state;
+	t_img		*idle_img;
+	t_img		*current_img;
 	t_animation fire_anim;
+	float		auto_attack;
+	float		cool_down_ms;
 	float		attack_speed;
 	float		damage;
+	float		ammo;
 }				t_weapon;
+
+typedef struct s_player
+{
+	t_vector3d	pos;
+	t_vector3d	speed;
+	t_vector3d	pos3d;
+	t_vector3d	tile_pos;
+	t_vector3d	collision_pos;
+	t_vector3d	direction;
+	t_weapon	weapon;
+	int			kills;
+	int 		tilt;
+	float		angle;
+	float		direction_adjust;
+	t_vector3d	current_tile;
+}				t_player;
 
 typedef struct s_collision
 {
@@ -192,12 +210,6 @@ typedef struct s_collision
 	float			distance;
 	float			x_pos_tex;
 }					t_collision;
-
-typedef struct s_weapon
-{
-	t_img	sword;
-	t_img	axe;
-}				t_weapon;
 
 typedef struct s_inventory
 {
@@ -230,7 +242,7 @@ typedef struct s_game
 	int				key_release_states[256];
 	t_inventory		inventory;
 	t_hud			hud;
-	t_weapon		weapon;
+	t_weapon_icons	weapon_icons;
 	t_time			time;
 	t_vector3d		mouse;
 	t_vector3d		mouse_diff;

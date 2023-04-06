@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 15:46:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:52:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,7 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     
     // X AXIS ON SCREEN
     angle = vec_angle(game->player.direction, player_to_sprite);
+    sprite->angle_to_player = angle;
 
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
     float x_dist = (player_to_sprite.y / player_to_sprite.x);

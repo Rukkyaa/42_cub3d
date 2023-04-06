@@ -45,8 +45,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game,  &game->texture.ground, "images/retro_texture_pack/TILE_3E.xpm");
 	ft_xpm_to_img(game,  &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
-	ft_xpm_to_img(game, &game->weapon.sword, "images/weapons/longsword.xpm");
-	ft_xpm_to_img(game, &game->weapon.axe, "images/weapons/axe.xpm");
+	ft_xpm_to_img(game, &game->weapon_icons.sword, "images/weapons/longsword.xpm");
+	ft_xpm_to_img(game, &game->weapon_icons.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
 	ft_xpm_to_img(game, &game->texture.projectile, "images/projectiles/green_energy_ball.xpm");

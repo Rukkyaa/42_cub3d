@@ -19,9 +19,9 @@ t_animation	load_item_anim(t_game *game, char *type)
 	anim.nb_imgs = 1;
 	anim.imgs = NULL;
 	if (!strcmp(type, "sword"))
-		anim.current_img = &game->weapon.sword;
+		anim.current_img = &game->weapon_icons.sword;
 	else if (!strcmp(type, "axe"))
-		anim.current_img = &game->weapon.axe;
+		anim.current_img = &game->weapon_icons.axe;
 	anim.frame_duration_ms = 30;
 	return (anim);
 }

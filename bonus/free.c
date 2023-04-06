@@ -45,8 +45,8 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->texture.ground.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->texture.roof.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->inventory.img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon.sword.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon.axe.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.sword.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.axe.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.aim.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.weapon.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);

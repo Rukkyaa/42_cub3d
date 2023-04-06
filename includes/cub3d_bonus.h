@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 13:00:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 17:34:45 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,6 +121,7 @@ void			player_collides(t_game *game, t_vector3d speed);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
 void			update_player_tile_pos(t_player	*player);
+void    		handle_weapon(t_game *game, t_weapon *weapon);
 
 //Fps
 void			handle_sync(t_game *game);

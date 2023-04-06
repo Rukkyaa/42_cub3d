@@ -97,7 +97,7 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #

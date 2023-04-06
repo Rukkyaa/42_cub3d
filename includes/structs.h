@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 13:43:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:25:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 
 # define RUN 0
 # define ATTACK 1
+# define DEATH 2
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -144,6 +145,7 @@ typedef struct s_animations
 {
 	t_animation	zombie_run;
 	t_animation	zombie_hit;
+	t_animation	zombie_death;
 	t_animation	sword;
 	t_animation	axe;
 }				t_animations;

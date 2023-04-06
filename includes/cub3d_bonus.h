@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 12:54:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:37:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -317,6 +317,9 @@ void			remove_entity(t_sprite **sprites, t_sprite *entity);
 void			move_sprites(t_game *game, t_sprite **sprites, t_player *player);
 bool			is_colliding_entity(t_sprite *sprites, t_sprite *entity);
 bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity, char dir);
+bool			can_attack(t_sprite *sprite, t_player *player);
+void			update_width(t_sprite *sprite);
+void			attack(t_game *game, t_sprite *sprite, t_player *player);
 
 
 //INIT

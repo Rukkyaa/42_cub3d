@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/05 10:39:01 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/06 14:37:34 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,7 +102,7 @@ GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #
 SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie sprite_add_back sprite_last new_item spawn_projectile\
-	remove_entity move_sprite))
+	remove_entity move_sprite sprite_attack))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #

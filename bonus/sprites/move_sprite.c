@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:35:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:36:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,43 +30,6 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	if (sprite->hp <= 0)
 		return (true);
 	return (false);
-}
-
-static bool	can_attack(t_sprite *sprite, t_player *player)
-{
-	return (sprite->animation.current_frame > 60
-		&& sprite->animation.current_frame < 70 && sprite->attacked == false
-			&& vec_distance(sprite->pos, player->pos) < 30);
-}
-
-static void	update_width(t_sprite *sprite)
-{
-	sprite->width = sprite->height * (sprite->animation.current_img->width)
-		/ (sprite->animation.current_img->heigth);
-}
-
-static void	attack(t_game *game, t_sprite *sprite, t_player *player)
-{
-	if ((!sprite->state) == ATTACK)
-	{
-		sprite->state = ATTACK;
-		sprite->animation = game->animations.zombie_hit;
-		sprite->animation.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-		update_width(sprite);
-	}
-	if (can_attack(sprite, player))
-	{
-		sprite->attacked = true;
-		printf("Aie !\n");
-	}
-	else if (sprite->animation.current_frame > 70)
-		sprite->attacked = false;
-	if (sprite->animation.current_frame > 110 && vec_distance(sprite->pos, player->pos) > 30)
-	{
-		sprite->state = RUN;
-		sprite->animation = game->animations.zombie_run;
-		update_width(sprite);
-	}
 }
 
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)

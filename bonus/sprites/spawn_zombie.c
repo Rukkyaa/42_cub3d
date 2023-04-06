@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 13:17:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:42:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->velocity = 3;
 	new_zombie->hp = 200;
 	new_zombie->attacked = false;
+	new_zombie->state = RUN;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);
 	return (new_zombie);

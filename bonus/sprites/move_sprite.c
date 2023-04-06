@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 13:21:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:10:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,34 +32,47 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	return (false);
 }
 
+static void	attack(t_game *game, t_sprite *sprite, t_player *player)
+{
+	if ((!sprite->state) == ATTACK)
+	{
+		sprite->state = ATTACK;
+		sprite->animation = game->animations.zombie_hit;
+	}
+	if (sprite->animation.current_frame > 60 && sprite->animation.current_frame < 70 && sprite->attacked == false)
+	{
+		sprite->attacked = true;
+		printf("Aie !\n");
+	}
+	else if (sprite->animation.current_frame > 70)
+		sprite->attacked = false;
+	if (sprite->animation.current_frame > 110)
+	{
+		sprite->state = RUN;
+		sprite->animation = game->animations.zombie_run;
+	}
+}
+
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 {
 	t_vector3d	tmp;
 	t_vector3d	start;
 
-	if (vec_distance(sprite->pos, player->pos) < 30)
+	if (vec_distance(sprite->pos, player->pos) < 30 || sprite->state == ATTACK)
 	{
-		if (sprite->animation.current_frame > 60 && sprite->animation.current_frame < 70 && sprite->attacked == false)
-		{
-			sprite->attacked = true;
-			printf("Aie !\n");
-		}
-		else if (sprite->animation.current_frame > 70)
-			sprite->attacked = false;
-		sprite->animation = game->animations.zombie_hit;
+		attack(game, sprite, player);
 		return ;
 	}
 	else
 	{
-		sprite->animation = game->animations.zombie_run;
+		start = sprite->speed;
+		sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
+		sprite->speed = vec_normalize(sprite->speed);
+		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
+		if (can_move(game->map, tmp))
+			sprite->pos = tmp;
+		sprite->pos.z = -5;
 	}
-	start = sprite->speed;
-	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
-	sprite->speed = vec_normalize(sprite->speed);
-	tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
-	if (can_move(game->map, tmp))
-		sprite->pos = tmp;
-	sprite->pos.z = -5;
 }
 
 static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)

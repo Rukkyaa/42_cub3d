@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 13:17:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:43:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,9 @@
 
 # define SWORD 0
 # define AXE 1
+
+# define RUN 0
+# define ATTACK 1
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -156,9 +159,9 @@ typedef struct s_sprite
 {
 	char			*name;
 	int				type;
-	int 			state;
 	int				visible;
 	int				hp;
+	int				state;
 	float			height;
 	float			width;
 	float			distance;

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/05 10:45:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:42:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,17 +128,18 @@ typedef struct s_texture
 
 typedef struct s_animation
 {
-	t_img		 **imgs;
-	t_img		 *current_img;
-	int          frame_duration_ms;
-	int          nb_imgs;
-	int          frame_offset;
-	long		start_time_ms;
+	t_img	**imgs;
+	t_img	*current_img;
+	int		frame_duration_ms;
+	int		nb_imgs;
+	int		frame_offset;
+	long	start_time_ms;
 }				t_animation;
 
 typedef struct s_animations
 {
 	t_animation	zombie_run;
+	t_animation	zombie_hit;
 	t_animation	sword;
 	t_animation	axe;
 }				t_animations;

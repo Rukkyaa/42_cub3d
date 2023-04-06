@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 13:00:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:53:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,7 +92,7 @@ t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
 
 
 int     sample_img(t_img *img, float x, float y);
-t_img	**fill_sprite_animation(t_game *game, char *dir_path);
+void	fill_sprite_animation(t_game *game, char *dir_path, t_animation *animation);
 void    sort_imgs(t_img **array);
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
@@ -305,7 +305,8 @@ t_sprite		*spawn_zombie(t_game *game, t_vector pos);
 t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
-t_animation		get_zombie_anim(t_game *game);
+void			get_zombie_run_anim(t_game *game);
+void			get_zombie_hit_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector3d pos, char *type);
 t_animation		load_item_anim(t_game *game, char *type);
 void			is_colliding(t_game *game, t_sprite *entity);

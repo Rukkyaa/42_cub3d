@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 19:06:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:41:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,18 +32,26 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	return (false);
 }
 
-static void	move_mob(char **map, t_sprite *sprite, t_player *player)
+static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 {
 	t_vector3d	tmp;
 	t_vector3d	start;
 
 	if (vec_distance(sprite->pos, player->pos) < 30)
+	{
+		sprite->animation = game->animations.zombie_hit;
+		sprite->animation.current_img = sprite->animation.imgs[0];
 		return ;
+	}
+	else
+	{
+		sprite->animation = game->animations.zombie_run;
+	}
 	start = sprite->speed;
 	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 	sprite->speed = vec_normalize(sprite->speed);
 	tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
-	if (can_move(map, tmp))
+	if (can_move(game->map, tmp))
 		sprite->pos = tmp;
 	sprite->pos.z = -5;
 }
@@ -88,7 +96,7 @@ void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 	while (tmp)
 	{
 		if (tmp->type == MOB)
-			move_mob(game->map, tmp, player);
+			move_mob(game, tmp, player);
 		else if (tmp->type == PROJ)
 			move_proj(game, tmp, sprites);
 		tmp = tmp->next;

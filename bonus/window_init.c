@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 19:03:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 11:56:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	init_animations(t_game *game)
 {
-	game->animations.zombie_run = get_zombie_anim(game);
+	get_zombie_hit_anim(game);
+	get_zombie_run_anim(game);
 	game->animations.sword = load_item_anim(game, "sword");
 	game->animations.axe = load_item_anim(game, "axe");
 }
@@ -80,15 +81,12 @@ void init_sprites(t_game *game)
 
 void init_weapons(t_game *game)
 {
-	t_animation grap_gun;
-	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
-	grap_gun.current_img = grap_gun.imgs[0];
-	// printf("anim\n");
-	grap_gun.frame_duration_ms = 100;
-	grap_gun.frame_offset = 0;
-	grap_gun.nb_imgs = 16;
-	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-	game->hud.weapon_anim = grap_gun;
+	fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz", &game->hud.weapon_anim);
+	game->hud.weapon_anim.current_img = game->hud.weapon_anim.imgs[0];
+	game->hud.weapon_anim.frame_duration_ms = 100;
+	game->hud.weapon_anim.frame_offset = 0;
+	game->hud.weapon_anim.nb_imgs = 16;
+	game->hud.weapon_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 }
 
 

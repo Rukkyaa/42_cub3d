@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/04 14:31:13 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/06 18:28:47 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,7 +121,7 @@ void    render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, flo
 
     img_addr = ( unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
 
-    while(i > min)
+    while(i >= min)
     {
         
         v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,game->row_dist[i]));

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 17:34:45 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/06 18:20:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,10 @@
 # define GREEN_PIXEL 0x00FF00
 # define BLUE_PIXEL  0x0000FF
 # define BLACK_PIXEL 0x000000
+# define GRAY_PIXEL  0xD9DADB
 # define WHITE_PIXEL 0xFFFFFF
+# define VIOLET_PIXEL 0x610627
+# define DARK_VIOLET_PIXEL 0x2B0211
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 

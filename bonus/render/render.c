@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 13:36:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/06 18:27:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@ void	render_map(t_game *game)
 	// 	psychedelic_view(game, &game->fps_img);
 	// load_map(game);
 
-	sample_img_to_img(&game->minimap, &game->debug_img, game->player.pos.x - 122, game->player.pos.y - 122 );
-	draw_filled_circle(&game->minimap, game->minimap_center, 5, RED_PIXEL);
+	sample_img_to_img(&game->minimap, &game->debug_img, game->player.pos.x / 4 - game->minimap_center.x, game->player.pos.y / 4 - game->minimap_center.y );
+	draw_filled_circle(&game->minimap, game->minimap_center, 3, RED_PIXEL);
+	draw_line_dda(&game->minimap, game->minimap_center, vec_sum(game->minimap_center, vec_scalar_mult(game->player.direction, 10)), RED_PIXEL);	
 	// draw_player(game, RED_PIXEL);
 }
 

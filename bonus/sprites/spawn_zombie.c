@@ -6,26 +6,18 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 11:57:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:45:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	get_zombie_run_anim(t_game *game)
-{
-	fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_CROPPED_XPM", &game->animations.zombie_run);
-	game->animations.zombie_run.nb_imgs = 48;
-	game->animations.zombie_run.current_img = game->animations.zombie_run.imgs[0];
-	game->animations.zombie_run.frame_duration_ms = 30;
-}
-
-void	get_zombie_hit_anim(t_game *game)
+void	load_zombie_anim(t_game *game)
 {
 	fill_sprite_animation(game, "images/FPS_pixel_zombie/ATTACK_CROPPED_XPM", &game->animations.zombie_hit);
-	game->animations.zombie_hit.nb_imgs = 124;
-	game->animations.zombie_hit.current_img = game->animations.zombie_hit.imgs[0];
 	game->animations.zombie_hit.frame_duration_ms = 30;
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_CROPPED_XPM", &game->animations.zombie_run);
+	game->animations.zombie_run.frame_duration_ms = 30;
 }
 
 t_sprite	*spawn_zombie(t_game *game, t_vector pos)

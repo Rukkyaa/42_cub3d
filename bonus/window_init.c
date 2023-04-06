@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 11:56:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:45:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 void	init_animations(t_game *game)
 {
-	get_zombie_hit_anim(game);
-	get_zombie_run_anim(game);
+	load_zombie_anim(game);
 	game->animations.sword = load_item_anim(game, "sword");
 	game->animations.axe = load_item_anim(game, "axe");
 }
@@ -82,10 +81,8 @@ void init_sprites(t_game *game)
 void init_weapons(t_game *game)
 {
 	fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz", &game->hud.weapon_anim);
-	game->hud.weapon_anim.current_img = game->hud.weapon_anim.imgs[0];
 	game->hud.weapon_anim.frame_duration_ms = 100;
 	game->hud.weapon_anim.frame_offset = 0;
-	game->hud.weapon_anim.nb_imgs = 16;
 	game->hud.weapon_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 }
 

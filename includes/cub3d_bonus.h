@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 11:53:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 12:45:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -305,8 +305,7 @@ t_sprite		*spawn_zombie(t_game *game, t_vector pos);
 t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
-void			get_zombie_run_anim(t_game *game);
-void			get_zombie_hit_anim(t_game *game);
+void			load_zombie_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector3d pos, char *type);
 t_animation		load_item_anim(t_game *game, char *type);
 void			is_colliding(t_game *game, t_sprite *entity);

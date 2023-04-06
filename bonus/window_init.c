@@ -129,9 +129,11 @@ void	init_threads(t_game *game)
 	init_mutex(game, &game->img_put_rights);
 	init_mutex(game, &game->queue_rights);
 	init_mutex(game, &game->render_finished_rights);
+	pthread_mutex_lock(&game->queue_rights);
 	game->render_finished = 0;
 	game->task_count = 0;
 	game->task_done = 0;
+	pthread_mutex_unlock(&game->queue_rights);
 }
 
 
@@ -202,5 +204,5 @@ void	var_init(t_game *game)
 	load_map_debug(game);
 	clear_z_buffer(game);
 	init_threads(game);
-	//close_window(game);
+	// close_window(game);
 }

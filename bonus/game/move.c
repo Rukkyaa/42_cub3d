@@ -104,8 +104,8 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, 3);
 	if(game->mouse_move)
 	{
-		rotate_player(game, game->mouse_diff.x / 20);
-		game->camera.plane_center.y -=  game->mouse_diff.y / 2;
+		rotate_player(game, game->mouse_diff.x / 40);
+		game->camera.plane_center.y -=  game->mouse_diff.y / 4;
 		// vec_print(&game->mouse_diff, "mouse diff");
 		game->mouse_diff.x = 0;
 		game->mouse_diff.y = 0;
@@ -117,11 +117,6 @@ void	edit_player_rotate(t_game *game)
 		if(game->camera.plane_center.y < 150)
 			game->camera.plane_center.y = 150;
 	}
-	// printf("%d\n", (int)game->mouse.y);
-	// printf("%d\n", (int)game->mouse_diff.x);
-	// printf("%d\n", (int)game->mouse_diff.y);
-
-	
 	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 	{

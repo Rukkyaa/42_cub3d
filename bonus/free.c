@@ -59,8 +59,8 @@ void	kill_threads(t_game *game)
 	i = 0;
 	while(i < NB_THREADS)
 	{
+		pthread_detach(game->wall_threads[i]);
 		pthread_cancel(game->wall_threads[i]);
-		pthread_join(game->wall_threads[i], NULL);
 		i++;
 	}	
 	pthread_mutex_destroy(&game->print_rights);
@@ -96,6 +96,7 @@ int	close_window(t_game *game)
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_array(game->map);
+	kill_threads(game);
 	free_garbage();
 	exit(0);
 }

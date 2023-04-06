@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:37:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:40:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -319,6 +319,7 @@ bool			is_colliding_entity(t_sprite *sprites, t_sprite *entity);
 bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity, char dir);
 bool			can_attack(t_sprite *sprite, t_player *player);
 void			update_width(t_sprite *sprite);
+void			update_start_time(t_sprite *sprite, t_game *game);
 void			attack(t_game *game, t_sprite *sprite, t_player *player);
 
 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:36:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:39:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static bool	can_move(char **map, t_vector3d pos)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = (int)(pos.x) / 64;
 	y = (int)(pos.y) / 64;
@@ -47,7 +47,8 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		start = sprite->speed;
 		sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 		sprite->speed = vec_normalize(sprite->speed);
-		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
+		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity),
+				sprite->pos);
 		if (can_move(game->map, tmp))
 			sprite->pos = tmp;
 		sprite->pos.z = -5;
@@ -56,7 +57,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 
 static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 {
-	t_sprite *tmp;
+	t_sprite	*tmp;
 
 	tmp = *sprites;
 	while (tmp)
@@ -81,7 +82,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		tmp = tmp->next;
 	}
 	if (can_move(game->map, vec_sum(proj->pos, proj->speed)))
-    	proj->pos = vec_sum(proj->pos, proj->speed);
+		proj->pos = vec_sum(proj->pos, proj->speed);
 	else
 		remove_entity(sprites, proj);
 }

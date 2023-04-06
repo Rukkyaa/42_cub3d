@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:36:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:41:23 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	can_attack(t_sprite *sprite, t_player *player)
 {
 	return (sprite->animation.current_frame > 60
 		&& sprite->animation.current_frame < 70 && sprite->attacked == false
-			&& vec_distance(sprite->pos, player->pos) < 30);
+		&& vec_distance(sprite->pos, player->pos) < 30);
 }
 
 void	update_width(t_sprite *sprite)
@@ -25,13 +25,19 @@ void	update_width(t_sprite *sprite)
 		/ (sprite->animation.current_img->heigth);
 }
 
+void	update_start_time(t_sprite *sprite, t_game *game)
+{
+	sprite->animation.start_time_ms = game->time.frame.tv_sec * 1000
+		+ game->time.frame.tv_usec / 1000;
+}
+
 void	attack(t_game *game, t_sprite *sprite, t_player *player)
 {
 	if ((!sprite->state) == ATTACK)
 	{
 		sprite->state = ATTACK;
 		sprite->animation = game->animations.zombie_hit;
-		sprite->animation.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+		update_start_time(sprite, game);
 		update_width(sprite);
 	}
 	if (can_attack(sprite, player))
@@ -41,7 +47,8 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;
-	if (sprite->animation.current_frame > 110 && vec_distance(sprite->pos, player->pos) > 30)
+	if (sprite->animation.current_frame > 110
+		&& vec_distance(sprite->pos, player->pos) > 30)
 	{
 		sprite->state = RUN;
 		sprite->animation = game->animations.zombie_run;

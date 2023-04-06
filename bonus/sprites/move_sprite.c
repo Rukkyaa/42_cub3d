@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 11:41:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:21:23 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,14 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 
 	if (vec_distance(sprite->pos, player->pos) < 30)
 	{
+		if (sprite->animation.current_frame > 60 && sprite->animation.current_frame < 70 && sprite->attacked == false)
+		{
+			sprite->attacked = true;
+			printf("Aie !\n");
+		}
+		else if (sprite->animation.current_frame > 70)
+			sprite->attacked = false;
 		sprite->animation = game->animations.zombie_hit;
-		sprite->animation.current_img = sprite->animation.imgs[0];
 		return ;
 	}
 	else

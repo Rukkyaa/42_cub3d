@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 11:42:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 13:17:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,7 @@ typedef struct s_animation
 	t_img	*current_img;
 	int		frame_duration_ms;
 	int		nb_imgs;
+	int		current_frame;
 	int		frame_offset;
 	long	start_time_ms;
 }				t_animation;
@@ -164,6 +165,7 @@ typedef struct s_sprite
 	float			screen_width;
 	float			screen_height;
 	float			velocity;
+	bool			attacked;
 	t_vector3d		screen_pos;
 	t_animation		animation;
 	t_img			*current_img;

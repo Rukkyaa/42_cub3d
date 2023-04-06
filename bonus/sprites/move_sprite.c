@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:10:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 14:17:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,13 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	return (false);
 }
 
+static bool	can_attack(t_sprite *sprite, t_player *player)
+{
+	return (sprite->animation.current_frame > 60
+		&& sprite->animation.current_frame < 70 && sprite->attacked == false
+			&& vec_distance(sprite->pos, player->pos) < 30);
+}
+
 static void	attack(t_game *game, t_sprite *sprite, t_player *player)
 {
 	if ((!sprite->state) == ATTACK)
@@ -39,14 +46,14 @@ static void	attack(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->state = ATTACK;
 		sprite->animation = game->animations.zombie_hit;
 	}
-	if (sprite->animation.current_frame > 60 && sprite->animation.current_frame < 70 && sprite->attacked == false)
+	if (can_attack(sprite, player))
 	{
 		sprite->attacked = true;
 		printf("Aie !\n");
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;
-	if (sprite->animation.current_frame > 110)
+	if (sprite->animation.current_frame > 110 && vec_distance(sprite->pos, player->pos) > 30)
 	{
 		sprite->state = RUN;
 		sprite->animation = game->animations.zombie_run;

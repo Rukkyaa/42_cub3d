@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/06 18:02:34 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:23:38 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    melee_attack(t_game *game, t_weapon *weapon)
         if(sprite->type == MOB && sprite->visible)
         {
             if(fabs(sprite->angle_to_player) < M_PI / 4 && sprite->distance < 45)
-                remove_entity(&game->sprites, sprite); 
+                sprite->hp -= weapon->damage;
         }
 		sprite = next_sprite;
     }

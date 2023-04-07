@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 15:56:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/06 16:37:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static bool	can_move(char **map, t_vector3d pos)
 {
-	int x;
-	int y;
+	int	x;
+	int	y;
 
 	x = (int)(pos.x) / 64;
 	y = (int)(pos.y) / 64;
@@ -32,26 +32,47 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	return (false);
 }
 
-static void	move_mob(char **map, t_sprite *sprite, t_player *player)
+static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 {
 	t_vector3d	tmp;
 	t_vector3d	start;
 
-	if (vec_distance(sprite->pos, player->pos) < 30
-		|| vec_distance(sprite->pos, player->pos) > 400)
+	if (sprite->hp <= 0 || sprite->state == DEATH)
+	{
+		if (sprite->state != DEATH)
+		{
+			sprite->state = DEATH;
+			sprite->animation = game->animations.zombie_death;
+			update_start_time(sprite, game);
+			update_width(sprite);
+		}
+		if (sprite->animation.current_frame > 40)
+		{
+			spawn_item(game, sprite->pos, "sword");
+			remove_entity(&game->sprites, sprite);
+		}
+	}
+	else if (vec_distance(sprite->pos, player->pos) < 30 || sprite->state == ATTACK)
+	{
+		attack(game, sprite, player);
 		return ;
-	start = sprite->speed;
-	sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
-	sprite->speed = vec_normalize(sprite->speed);
-	tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity), sprite->pos);
-	if (can_move(map, tmp))
-		sprite->pos = tmp;
-	sprite->pos.z = -5;
+	}
+	else
+	{
+		start = sprite->speed;
+		sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
+		sprite->speed = vec_normalize(sprite->speed);
+		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity),
+				sprite->pos);
+		if (can_move(game->map, tmp))
+			sprite->pos = tmp;
+		sprite->pos.z = -5;
+	}
 }
 
 static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 {
-	t_sprite *tmp;
+	t_sprite	*tmp;
 
 	tmp = *sprites;
 	while (tmp)
@@ -62,21 +83,17 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 			continue ;
 		}
 		if (vec_distance(proj->pos, tmp->pos) < (proj->width / 2)
-			&& tmp->type == MOB && proj->pos.z < tmp->pos.z + tmp->height)
+			&& tmp->type == MOB && proj->pos.z < tmp->pos.z + tmp->height && tmp->hp > 0)
 		{
 			if (do_damage(proj, tmp))
-			{
-				remove_entity(sprites, tmp);
-				spawn_item(game, tmp->pos, "sword");
 				game->player.kills++;
-			}
 			remove_entity(sprites, proj);
 			return ;
 		}
 		tmp = tmp->next;
 	}
 	if (can_move(game->map, vec_sum(proj->pos, proj->speed)))
-    	proj->pos = vec_sum(proj->pos, proj->speed);
+		proj->pos = vec_sum(proj->pos, proj->speed);
 	else
 		remove_entity(sprites, proj);
 }
@@ -89,7 +106,7 @@ void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 	while (tmp)
 	{
 		if (tmp->type == MOB)
-			move_mob(game->map, tmp, player);
+			move_mob(game, tmp, player);
 		else if (tmp->type == PROJ)
 			move_proj(game, tmp, sprites);
 		tmp = tmp->next;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 18:20:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:13:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 # include <sys/time.h>
 # include <string.h>
 # include "../includes/miniaudio.h"
+# include <dirent.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -95,7 +96,7 @@ t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
 
 
 int     sample_img(t_img *img, float x, float y);
-t_img	**fill_sprite_animation(t_game *game, char *dir_path);
+void	fill_sprite_animation(t_game *game, char *dir_path, t_animation *animation);
 void    sort_imgs(t_img **array);
 void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
 void    update_animation(t_game *game, t_animation *animation);
@@ -133,7 +134,10 @@ void			handle_time(t_game *game);
 
 /*****************************************************************
 ** $$$$$$$\  $$$$$$$$\ $$\   $$\ $$$$$$$\  $$$$$$$$\ $$$$$$$\   **
-** $$  __$$\ $$  _____|$$$\  $$ |$$  __$$\ $$  _____|$$  __$$\  **
+** $$  __$$\ $$  _____|$$$\ #include <dirent.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/stat.h> $$ |$$  __$$\ $$  _____|$$  __$$\  **
 ** $$ |  $$ |$$ |      $$$$\ $$ |$$ |  $$ |$$ |      $$ |  $$ | **
 ** $$$$$$$  |$$$$$\    $$ $$\$$ |$$ |  $$ |$$$$$\    $$$$$$$  | **
 ** $$  __$$< $$  __|   $$ \$$$$ |$$ |  $$ |$$  __|   $$  __$$<  **
@@ -159,6 +163,8 @@ void			print_kill(t_game *game, int nb, int x);
 // Shapes
 void			draw_player(t_game *game, int color);
 void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
+void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start, t_vector end);
+
 void			psychedelic_view(t_game *game, t_img *img);
 
 
@@ -309,7 +315,7 @@ t_sprite		*spawn_zombie(t_game *game, t_vector pos);
 t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
-t_animation		get_zombie_anim(t_game *game);
+void			load_zombie_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector3d pos, char *type);
 t_animation		load_item_anim(t_game *game, char *type);
 void			is_colliding(t_game *game, t_sprite *entity);
@@ -317,6 +323,10 @@ void			remove_entity(t_sprite **sprites, t_sprite *entity);
 void			move_sprites(t_game *game, t_sprite **sprites, t_player *player);
 bool			is_colliding_entity(t_sprite *sprites, t_sprite *entity);
 bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity, char dir);
+bool			can_attack(t_sprite *sprite, t_player *player);
+void			update_width(t_sprite *sprite);
+void			update_start_time(t_sprite *sprite, t_game *game);
+void			attack(t_game *game, t_sprite *sprite, t_player *player);
 
 
 //INIT

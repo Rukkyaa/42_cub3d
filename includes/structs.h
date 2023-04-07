@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 17:51:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:17:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,9 @@
 # define FIRE 1
 # define RELOAD 2
 
+# define RUN 0
+# define ATTACK 1
+# define DEATH 2
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -86,7 +89,6 @@ typedef struct s_camera
 	t_vector3d			plane_center;
 }					t_camera;
 
-
 typedef struct s_img
 {
 	void	*mlx_img;
@@ -119,17 +121,20 @@ typedef struct s_texture
 
 typedef struct s_animation
 {
-	t_img		 **imgs;
-	t_img		 *current_img;
-	int          frame_duration_ms;
-	int          nb_imgs;
-	int          frame_offset;
-	long		start_time_ms;
+	t_img	**imgs;
+	t_img	*current_img;
+	int		frame_duration_ms;
+	int		nb_imgs;
+	int		current_frame;
+	int		frame_offset;
+	long	start_time_ms;
 }				t_animation;
 
 typedef struct s_animations
 {
 	t_animation	zombie_run;
+	t_animation	zombie_hit;
+	t_animation	zombie_death;
 	t_animation	sword;
 	t_animation	axe;
 }				t_animations;
@@ -145,9 +150,9 @@ typedef struct s_sprite
 {
 	char			*name;
 	int				type;
-	int 			state;
 	int				visible;
 	int				hp;
+	int				state;
 	float			height;
 	float			width;
 	float			distance;
@@ -155,6 +160,7 @@ typedef struct s_sprite
 	float			screen_width;
 	float			screen_height;
 	float			velocity;
+	bool			attacked;
 	t_vector3d		screen_pos;
 	t_animation		animation;
 	t_img			*current_img;
@@ -197,6 +203,8 @@ typedef struct s_player
 	t_weapon	weapon;
 	int			kills;
 	int 		tilt;
+	int			max_hp;
+	int			hp;
 	float		angle;
 	float		direction_adjust;
 	t_vector3d	current_tile;
@@ -221,6 +229,10 @@ typedef struct s_inventory
 
 typedef struct s_hud
 {
+	t_img		life_red_bar;
+	t_img		life_orange_bar;
+	t_img		life_green_bar;
+	t_img		life_bar_border;
 	t_img		aim;
 	t_img		weapon;
 	t_animation	weapon_anim;

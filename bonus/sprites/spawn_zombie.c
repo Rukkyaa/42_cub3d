@@ -6,22 +6,20 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 18:43:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:12:17 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-t_animation	get_zombie_anim(t_game *game)
+void	load_zombie_anim(t_game *game)
 {
-	t_animation	anim;
-
-	anim.nb_imgs = 30;
-	// anim.imgs = fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_CROPPED_XPM");
-	anim.imgs = fill_sprite_animation(game, "images/MOBS/MANCUBUS/IDLE");
-	anim.current_img = anim.imgs[0];
-	anim.frame_duration_ms = 30;
-	return (anim);
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/ATTACK_CROPPED_XPM", &game->animations.zombie_hit);
+	game->animations.zombie_hit.frame_duration_ms = 30;
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/RUN_CROPPED_XPM", &game->animations.zombie_run);
+	game->animations.zombie_run.frame_duration_ms = 30;
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/DEAD_CROPPED_XPM", &game->animations.zombie_death);
+	game->animations.zombie_death.frame_duration_ms = 30;
 }
 
 t_sprite	*spawn_zombie(t_game *game, t_vector pos)
@@ -38,7 +36,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
 		game->time.frame.tv_usec / 1000;
 	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
-	new_zombie->height = 54;
+	new_zombie->height = 50;
 	new_zombie->width = new_zombie->height *
 		(new_zombie->animation.current_img->width) /
 			(new_zombie->animation.current_img->heigth);
@@ -48,6 +46,8 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->type = MOB;
 	new_zombie->velocity = 3;
 	new_zombie->hp = 200;
+	new_zombie->attacked = false;
+	new_zombie->state = RUN;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);
 	return (new_zombie);

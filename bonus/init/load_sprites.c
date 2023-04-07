@@ -3,110 +3,107 @@
 /*                                                        :::      ::::::::   */
 /*   load_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/23 14:43:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/06 13:15:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/cub3d_bonus.h"
-#include <dirent.h>
-#include <stdlib.h>
-#include <string.h>
-#include <sys/stat.h>
-/*
-** Load an XPM image file from the given path using the game's mlx instance.
-** Returns a pointer to the resulting t_img struct, or NULL on error.
-*/
-// static t_img	*ft_xpm_to_img_wrapper(t_game *game, char *path)
-// {
-// 	t_img	*img;
+#include "cub3d_bonus.h"
 
-// 	img = (t_img *)malloc(sizeof(t_img));
-// 	if (!img)
-// 		return (NULL);
-// 	img->ptr = mlx_xpm_file_to_image(game->mlx, path, &img->width, &img->height);
-// 	if (!img->ptr)
-// 	{
-// 		free(img);
-// 		return (NULL);
-// 	}
-// 	img->data = (int *)mlx_get_data_addr(img->ptr, &img->bpp, &img->size_line, &img->endian);
-// 	return (img);
-// }
+static const char	*get_filename_ext(const char *filename)
+{
+	const char	*dot;
 
-const char *get_filename_ext(const char *filename) {
-    const char *dot = strrchr(filename, '.');
-    if(!dot || dot == filename) return "";
-    return dot + 1;
+	dot = strrchr(filename, '.');
+	if (!dot || dot == filename)
+		return ("");
+	return (dot + 1);
 }
 
-/*
-** Load all XPM files in the given directory and return an array of t_img pointers.
-** Returns NULL on error or if the directory is empty.
-*/
-t_img	**fill_sprite_animation(t_game *game, char *dir_path)
+static const int	count_nb_files(char *dir_path)
 {
 	DIR				*dir;
 	struct dirent	*entry;
-	t_img			**imgs;
 	size_t			count;
-	size_t			i;
 
 	dir = opendir(dir_path);
 	if (!dir)
-		return (NULL);
+		return (0);
 	count = 0;
-	while ((entry = readdir(dir)))
+	while (1)
 	{
+		entry = readdir(dir);
+		if (!entry)
+			break ;
 		if (entry->d_name[0] == '.')
-			continue;
-		// if (stat(ft_strjoin(dir_path, entry->d_name), &file_stat) < 0)
-		// 	continue;
-		// if (S_ISREG(file_stat.st_mode) && !ft_strncmp(get_filename_ext(entry->d_name), ".xpm", ft_strlen(".xpm")))
+			continue ;
 		count++;
 	}
-	// printf("%ld\n", count);
-	if (count == 0)
+	closedir(dir);
+	return (count);
+}
+
+/*
+** Load all XPM files in the given directory and return an array of
+** t_img pointers. Returns NULL on error or if the directory is empty.
+*/
+void	fill_sprite_animation(t_game *game, char *dir_path,
+	t_animation *animation)
+{
+	DIR				*dir;
+	struct dirent	*entry;
+	size_t			count;
+	size_t			i;
+	char			*name;
+	char			*tmp;
+
+	dir = opendir(dir_path);
+	if (!dir)
+		return ;
+	count = count_nb_files(dir_path);
+	if (!count)
 	{
 		closedir(dir);
-		return (NULL);
+		return ;
 	}
-	imgs = (t_img **)malloc((count + 1) * sizeof(t_img *));
-	if (!imgs)
+	animation->imgs = (t_img **)malloc((count + 1) * sizeof(t_img *));
+	if (!animation->imgs)
 	{
 		closedir(dir);
-		return (NULL);
+		return ;
 	}
 	i = 0;
 	rewinddir(dir);
-	char	*name;
-	char	*tmp;
-	while ((entry = readdir(dir)))
+	while (1)
 	{
+		entry = readdir(dir);
+		if (!entry)
+			break ;
 		if (entry->d_name[0] == '.')
-			continue;
-		// printf("%s\n",entry->d_name);
-		imgs[i] = malloc( sizeof(t_img ));
-		if (!imgs[i])
+			continue ;
+		animation->imgs[i] = malloc(sizeof(t_img));
+		if (!animation->imgs[i])
 		{
 			while (i > 0)
-				mlx_destroy_image(game->mlx, imgs[--i]);
-			free(imgs);
+				mlx_destroy_image(game->mlx, animation->imgs[--i]);
+			free(animation->imgs);
 			closedir(dir);
-			return (NULL);
+			return ;
 		}
 		tmp = ft_strjoin("/", entry->d_name);
 		name = ft_strjoin(dir_path, tmp);
-		ft_xpm_to_img(game, imgs[i], name); // ft_strjoin(dir_path, entry->d_name)
+		ft_xpm_to_img(game, animation->imgs[i], name);
 		free(tmp);
 		free(name);
-		imgs[i]->name = entry->d_name;
+		animation->imgs[i]->name = entry->d_name;
 		i++;
 	}
-	imgs[count] = NULL;
-	sort_imgs(imgs);
+	animation->imgs[count] = NULL;
+	animation->current_img = animation->imgs[0];
+	animation->nb_imgs = count;
+	animation->current_frame = 0;
+	sort_imgs(animation->imgs);
 	closedir(dir);
-	return (imgs);
 }

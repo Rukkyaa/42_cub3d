@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 17:47:02 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:23:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	init_animations(t_game *game)
 {
-	game->animations.zombie_run = get_zombie_anim(game);
+	load_zombie_anim(game);
 	game->animations.sword = load_item_anim(game, "sword");
 	game->animations.axe = load_item_anim(game, "axe");
 }
@@ -83,11 +83,9 @@ void init_weapons(t_game *game)
 	// Grapp gun anim
 	t_weapon grap_gun;
 	t_animation grap_gun_anim;
-	grap_gun_anim.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
-	grap_gun_anim.current_img = grap_gun_anim.imgs[0];
+	fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz", &grap_gun_anim);
 	grap_gun_anim.frame_duration_ms = 100;
 	grap_gun_anim.frame_offset = 0;
-	grap_gun_anim.nb_imgs = 16;
 	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	game->hud.weapon_anim = grap_gun_anim;
 
@@ -101,11 +99,9 @@ void init_weapons(t_game *game)
 	// Axe anim
 	t_weapon axe;
 	t_animation axe_anim;
-	axe_anim.imgs = fill_sprite_animation(game, "images/weapons/axe");
-	axe_anim.current_img = axe_anim.imgs[0];
+	fill_sprite_animation(game, "images/weapons/axe", &axe_anim);
 	axe_anim.frame_duration_ms = 30;
 	axe_anim.frame_offset = 0;
-	axe_anim.nb_imgs = 5;
 	axe_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	game->hud.weapon_anim = axe_anim;
 	axe.current_img = axe_anim.imgs[1];
@@ -117,7 +113,7 @@ void init_weapons(t_game *game)
 	axe.idle_img = *axe_anim.imgs;
 	axe.cool_down_ms = 500;
 	axe.attack_speed = 2;
-	axe.damage = 10;
+	axe.damage = 50;
 
 	game->player.weapon = axe;
 }
@@ -169,6 +165,8 @@ void	var_init(t_game *game)
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
+	game->player.max_hp = 200;
+	game->player.hp = 200;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;

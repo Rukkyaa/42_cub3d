@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/05 10:42:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 12:47:57 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,10 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->weapon_icons.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
+	ft_xpm_to_img(game, &game->hud.life_red_bar, "images/lifebar/red_bar.xpm");
+	ft_xpm_to_img(game, &game->hud.life_orange_bar, "images/lifebar/orange_bar.xpm");
+	ft_xpm_to_img(game, &game->hud.life_green_bar, "images/lifebar/green_bar.xpm");
+	ft_xpm_to_img(game, &game->hud.life_bar_border, "images/lifebar/grey_border.xpm");
 	ft_xpm_to_img(game, &game->texture.projectile, "images/projectiles/green_energy_ball.xpm");
 	load_number(game);
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");

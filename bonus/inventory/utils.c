@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 15:34:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/05 13:04:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_inventory(t_game *game)
 		game->inventory.items[i] = "empty";
 }
 
-void	add_item(t_game *game, char c)
+void	add_item(t_game *game, char *type)
 {
 	int	i;
 
@@ -31,10 +31,7 @@ void	add_item(t_game *game, char c)
 	{
 		if (!strcmp(game->inventory.items[i], "empty"))
 		{
-			if (c == 'A')
-				game->inventory.items[i] = "axe";
-			else if (c == 'S')
-				game->inventory.items[i] = "sword";
+			game->inventory.items[i] = type;
 			return ;
 		}
 	}
@@ -48,9 +45,9 @@ char	*get_item(int x, int y, char *items[36])
 void	select_item(t_game *game, int x, int y)
 {
 	if (!strcmp(get_item(x, y, game->inventory.items), "sword"))
-		game->inventory.selected_img = &game->weapon.sword;
+		game->inventory.selected_img = &game->weapon_icons.sword;
 	else if (!strcmp(get_item(x, y, game->inventory.items), "axe"))
-		game->inventory.selected_img = &game->weapon.axe;
+		game->inventory.selected_img = &game->weapon_icons.axe;
 }
 
 bool	item_out_of_bound(t_vector3d mouse, t_img img, t_img selected)

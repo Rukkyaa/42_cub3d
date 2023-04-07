@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/02 19:34:41 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/07 20:35:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	init_animations(t_game *game)
 {
-	game->animations.zombie_run = get_zombie_anim(game);
-	game->animations.sword = get_item_anim(game);
+	load_zombie_anim(game);
+	game->animations.sword = load_item_anim(game, "sword");
+	game->animations.axe = load_item_anim(game, "axe");
 }
 
 void	init_camera(t_camera *camera)
@@ -28,6 +29,7 @@ void	init_camera(t_camera *camera)
 	//camera->proj_plane_distance = 277;
 	camera->plane.x = 0;
 	camera->plane.y = camera->proj_plane_width / 2;
+	camera->plane.z = 0;
 	camera->plane_center.x = camera->half_res.x;
 	camera->plane_center.y = camera->half_res.y;
 	
@@ -56,32 +58,65 @@ void init_sprites(t_game *game)
 	while(i < 10)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		
-		tmp = spawn_zombie(game, zombie_pos);
-		if (!tmp)
-			printf("error spawn zombie\n");
-		i++;
+		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		{
+			tmp = spawn_zombie(game, zombie_pos);
+			if (!tmp)
+				printf("error spawn zombie\n");
+			i++;
+		}
 	}
-	t_vector item_pos;
-	item_pos.x = 3.0 * 64;
-	item_pos.y = 3.0 * 64;
-	tmp = spawn_item(game, item_pos);
-	if (!tmp)
-		printf("error spawn zombie\n");
 }
 
 void init_weapons(t_game *game)
 {
-	t_animation grap_gun;
-	grap_gun.imgs = fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz");
-	grap_gun.current_img = grap_gun.imgs[0];
-	// printf("anim\n");
-	grap_gun.frame_duration_ms = 100;
-	grap_gun.frame_offset = 0;
-	grap_gun.nb_imgs = 16;
-	grap_gun.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-	game->hud.weapon_anim = grap_gun;
+	// Grapp gun anim
+	t_weapon grap_gun;
+	t_animation grap_gun_anim;
+	fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz", &grap_gun_anim);
+	grap_gun_anim.frame_duration_ms = 30;
+	grap_gun_anim.frame_offset = 0;
+	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+
+	// Grapp gun
+	grap_gun.fire_anim = grap_gun_anim;
+	grap_gun.idle_img = *grap_gun_anim.imgs;
+	grap_gun.cool_down_ms = 500;
+	grap_gun.attack_speed = 2;
+	grap_gun.damage = 10;
+	grap_gun.idle_img = grap_gun_anim.imgs[1];
+	grap_gun.current_img = grap_gun.idle_img;
+	grap_gun.state = IDLE;
+	grap_gun.screen_pos.x = 0;
+	grap_gun.screen_pos.y = RES_Y - grap_gun.idle_img->heigth;
+	grap_gun.is_melee = 0;
+
+	// Axe anim
+	t_weapon axe;
+	t_animation axe_anim;
+	fill_sprite_animation(game, "images/weapons/axe", &axe_anim);
+	axe_anim.frame_duration_ms = 30;
+	axe_anim.frame_offset = 0;
+	axe_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	game->hud.weapon_anim = axe_anim;
+	axe.current_img = axe_anim.imgs[1];
+	axe.idle_img = axe_anim.imgs[1];
+	axe.screen_pos.x = 0;
+	axe.screen_pos.y = 0;
+
+	// Axe
+	axe.fire_anim = axe_anim;
+	axe.idle_img = *axe_anim.imgs;
+	axe.cool_down_ms = 500;
+	axe.attack_speed = 2;
+	axe.damage = 50;
+	axe.state = IDLE;
+	axe.is_melee = 1;
+
+	game->weapons.grap_gun = grap_gun;
+	game->weapons.axe = axe;
+	game->player.weapon = &game->weapons.axe;
 }
 
 
@@ -149,6 +184,7 @@ void	var_init(t_game *game)
 	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 20*64 + 32;
 	game->player.pos.y = 5*64 + 32;
+	game->player.pos.z = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.pos3d.x = 30*64 + 32;
@@ -162,11 +198,14 @@ void	var_init(t_game *game)
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
+	game->player.max_hp = 100;
+	game->player.hp = 100;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;
 	game->wall_height = 64;
 	game->mouse_move = 0;
+	game->player.kills = 0;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     // vec_print(&game->player.direction, "player dir");
 	// close_window(game);

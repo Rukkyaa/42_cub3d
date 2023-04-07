@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_imgs.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 15:06:10 by theo              #+#    #+#             */
-/*   Updated: 2023/03/10 15:10:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/07 14:18:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void    sort_imgs(t_img **array)
         i = 0;
         while (array[i + 1])
         {
-            if (ft_strncmp(array[i]->name, array[i + 1]->name, ft_strlen(array[i]->name)) > 0)
+            if (strcmp(array[i]->name, array[i + 1]->name) > 0 || strlen(array[i]->name) > strlen(array[i + 1]->name))
             {
                 tmp = array[i];
                 array[i] = array[i + 1];

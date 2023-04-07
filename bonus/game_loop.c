@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 17:29:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 17:04:21 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,14 @@ void	print_fps(int fps)
 	free(tmp);
 }
 
+void	inventory_switch(t_game *game)
+{
+	if(game->key_states['0' + 1] == 1)
+		game->player.weapon = &game->weapons.axe;
+	else if(game->key_states['0' + 2] == 1)
+		game->player.weapon = &game->weapons.grap_gun;
+}
+
 int	game_loop(void *g)
 {
 	t_game	*game;
@@ -42,23 +50,18 @@ int	game_loop(void *g)
 	// load_grid(game);
 	// if (!player_moving(game))
 	// 	ma_device_stop(&game->sounds.footstep.device);
-	if (is_collectible(game))
-	{
-		add_item(game, game->map[(int)game->player.pos.y / 64]
-			[(int)game->player.pos.x / 64]);
-		game->map[(int)game->player.pos.y / 64]
-			[(int)game->player.pos.x / 64] = '0';
-	}
 	edit_player_rotate(game);		
-	edit_player_pos(game);
+	edit_player_pos(game);		
+	inventory_switch(game);
+	handle_weapon(game, game->player.weapon);
+	is_colliding(game, game->sprites);
 	render_map(game);
-	if(game->mouse_clicked)
-		spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
 	render_sprites(game);
 	render_ui(game);
 	render(game);
 	print_fps(game->time.fps);
 	handle_sync(game);
+	print_kill(game, game->player.kills, RES_X - 55);
 	game->frame_count++;
 	//usleep(16000);
 	return (0);

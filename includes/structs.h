@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/02 19:18:04 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/07 20:27:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 # define MOB 0
 # define ITEM 1
 # define PROJ 2
+
+# define SWORD 0
+# define AXE 1
+
+# define IDLE 0
+# define FIRE 1
+# define RELOAD 2
+
+# define RUN 0
+# define ATTACK 1
+# define DEATH 2
+# define SPAWN 3
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -78,20 +90,6 @@ typedef struct s_camera
 	t_vector3d			plane_center;
 }					t_camera;
 
-typedef struct s_player
-{
-	t_vector3d	pos;
-	t_vector3d	speed;
-	t_vector3d	pos3d;
-	t_vector3d	tile_pos;
-	t_vector3d	collision_pos;
-	t_vector3d	direction;
-	int 		tilt;
-	float		angle;
-	float		direction_adjust;
-	t_vector3d	current_tile;
-}				t_player;
-
 typedef struct s_img
 {
 	void	*mlx_img;
@@ -115,6 +113,7 @@ typedef struct s_texture
 	t_img	ground;
 	t_img	roof;
 	t_img	projectile;
+	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
 }				t_texture;
@@ -123,18 +122,23 @@ typedef struct s_texture
 
 typedef struct s_animation
 {
-	t_img		 **imgs;
-	t_img		 *current_img;
-	int          frame_duration_ms;
-	int          nb_imgs;
-	int          frame_offset;
-	long		start_time_ms;
+	t_img	**imgs;
+	t_img	*current_img;
+	int		frame_duration_ms;
+	int		nb_imgs;
+	int		current_frame;
+	int		frame_offset;
+	long	start_time_ms;
 }				t_animation;
 
 typedef struct s_animations
 {
 	t_animation	zombie_run;
+	t_animation	zombie_hit;
+	t_animation	zombie_death;
+	t_animation	zombie_spawn;
 	t_animation	sword;
+	t_animation	axe;
 }				t_animations;
 
 typedef struct s_animated_mob
@@ -146,25 +150,75 @@ typedef struct s_animated_mob
 
 typedef struct s_sprite
 {
-	int		type;
-	int 	state;
-	float	height;
-	float	width;
-	float	distance;
-	float	screen_width;
-	float	screen_height;
-	int		visible;
-	t_vector3d	screen_pos;
-	t_animation	animation;
-	t_img	*current_img;
-	t_img	**img_run;
-	t_vector3d	pos;
-	t_vector3d	speed;
+	char			*name;
+	int				type;
+	int				visible;
+	int				hp;
+	int				state;
+	float			height;
+	float			width;
+	float			distance;
+	float			angle_to_player;
+	float			screen_width;
+	float			screen_height;
+	float			velocity;
+	bool			attacked;
+	t_vector3d		screen_pos;
+	t_animation		animation;
+	t_img			*current_img;
+	t_img			**img_run;
+	t_vector3d		pos;
+	t_vector3d		speed;
 	struct s_sprite	*next;
 }				t_sprite;
 
 
 // ---------------------------------------
+
+typedef struct s_weapon_icons
+{
+	t_img		sword;
+	t_img		axe;
+}				t_weapon_icons;
+
+typedef struct s_weapon
+{
+	int			state;
+	t_img		*idle_img;
+	t_img		*current_img;
+	t_animation fire_anim;
+	int			is_melee;
+	float		auto_attack;
+	float		cool_down_ms;
+	float		attack_speed;
+	float		damage;
+	float		ammo;
+	t_vector	screen_pos;
+}				t_weapon;
+
+typedef struct s_weapons
+{
+	t_weapon		axe;
+	t_weapon		grap_gun;
+}				t_weapons;
+
+typedef struct s_player
+{
+	t_vector3d	pos;
+	t_vector3d	speed;
+	t_vector3d	pos3d;
+	t_vector3d	tile_pos;
+	t_vector3d	collision_pos;
+	t_vector3d	direction;
+	t_weapon	*weapon;
+	int			kills;
+	int 		tilt;
+	int			max_hp;
+	int			hp;
+	float		angle;
+	float		direction_adjust;
+	t_vector3d	current_tile;
+}				t_player;
 
 typedef struct s_collision
 {
@@ -174,12 +228,6 @@ typedef struct s_collision
 	float			distance;
 	float			x_pos_tex;
 }					t_collision;
-
-typedef struct s_weapon
-{
-	t_img	sword;
-	t_img	axe;
-}				t_weapon;
 
 typedef struct s_inventory
 {
@@ -191,6 +239,10 @@ typedef struct s_inventory
 
 typedef struct s_hud
 {
+	t_img		life_red_bar;
+	t_img		life_orange_bar;
+	t_img		life_green_bar;
+	t_img		life_bar_border;
 	t_img		aim;
 	t_img		weapon;
 	t_animation	weapon_anim;
@@ -226,7 +278,8 @@ typedef struct s_game
 	int				key_release_states[256];
 	t_inventory		inventory;
 	t_hud			hud;
-	t_weapon		weapon;
+	t_weapon_icons	weapon_icons;
+	t_weapons		weapons;
 	t_time			time;
 	t_vector3d		mouse;
 	t_vector3d		mouse_diff;

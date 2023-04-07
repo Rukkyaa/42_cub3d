@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/03/23 16:21:11 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/06 17:52:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ float   deg_to_rad(float angle)
 
 int     sample_img(t_img *img, float x, float y)
 {
+	if (x < 0 || x > 1 || y < 0 || y > 1)
+		printf("%f %f\n", x, y);
     return (img_pix_read(img, x * img->width, y * img->heigth));
 }
 
@@ -62,7 +64,7 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
         {
             // printf("x_pos : %f\n",(i - (screen_pos.x - (line_width / 2))) / line_width);
             // printf("y_pos : %f\n", start_pos.y - j);
-            pixel_color = sample_img(sprite->animation.current_img, x_text, (j - j_offset) / line_width);
+            pixel_color = sample_img(sprite->animation.current_img, x_text, (j - j_offset) / line_height);
             // printf("%d %d : %d\n", i, j, pixel_color);
             if(get_t(pixel_color) == 0)
                 img_pix_put(&game->fps_img,  i,  j, pixel_color);
@@ -85,6 +87,7 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     
     // X AXIS ON SCREEN
     angle = vec_angle(game->player.direction, player_to_sprite);
+    sprite->angle_to_player = angle;
 
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
     float x_dist = (player_to_sprite.y / player_to_sprite.x);
@@ -111,20 +114,14 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
     //         screen_pos.y - game->sprites[0].texture.heigth/2);
 }
 
-void update_position(t_sprite *sprite)
-{
-    sprite->pos = vec_sum(sprite->pos,  sprite->speed);
-}
-
 void    render_sprites(t_game *game)
 {
 	t_sprite	*sprite;
 
 	sprite = game->sprites;
+	move_sprites(game, &game->sprites, &game->player);
     while(sprite)
     {
-	    if(sprite->type == PROJ)
-            update_position(sprite);
         compute_sprite(game, sprite);
         sprite = sprite->next;
     }

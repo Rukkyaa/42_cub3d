@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_rotate.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:14:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/10 15:33:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/07 15:11:10 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,6 @@ t_vector3d	vec_rotate(t_vector3d vector, float angle)
 	y = vector.x * sine + vector.y * cosine;
 	output.x = x;
 	output.y = y;
+	output.z = vector.z;
 	return (output);
 }

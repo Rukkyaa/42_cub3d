@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 22:06:56 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/07 20:33:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->texture.ground.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->texture.roof.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->inventory.img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon.sword.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon.axe.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.sword.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.axe.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.aim.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.weapon.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);
@@ -97,6 +97,6 @@ int	close_window(t_game *game)
 	free(game->mlx);
 	free_array(game->map);
 	kill_threads(game);
-	free_garbage();
+	// free_garbage();
 	exit(0);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_attack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 11:46:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:39:06 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	can_attack(t_sprite *sprite, t_player *player)
 {
 	return (sprite->animation.current_frame > 60
 		&& sprite->animation.current_frame < 70 && sprite->attacked == false
-		&& vec_distance(sprite->pos, player->pos) < 30);
+		&& vec_distance(sprite->pos, player->pos) < 45);
 }
 
 void	update_width(t_sprite *sprite)

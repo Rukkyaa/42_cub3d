@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/07 11:11:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:43:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ typedef struct s_player
 	t_vector3d	tile_pos;
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
+	int			max_hp;
+	int			hp;
 	int			kills;
 	int 		tilt;
 	float		angle;

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:40:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:19:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -159,6 +159,8 @@ void			print_kill(t_game *game, int nb, int x);
 // Shapes
 void			draw_player(t_game *game, int color);
 void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
+void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start, t_vector end);
+
 void			psychedelic_view(t_game *game, t_img *img);
 
 

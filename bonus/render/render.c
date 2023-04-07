@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 11:16:39 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:45:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,16 @@
 
 void	render_life_bar(t_game *game)
 {
+	t_vector	start;
+	t_vector	end;
+
+	start.x = RES_X - game->hud.life_bar.width - 20;
+	start.y = RES_Y - game->hud.life_bar.heigth - 10;
+	end.x = start.x + (game->hud.life_bar.width * game->player.hp / game->player.max_hp);
+	// end.x = start.x + (game->hud.life_bar.width / 2);
+	end.y = start.y + game->hud.life_bar.heigth;
 	put_img_to_img(&game->hud.life_bar_border, &game->fps_img, RES_X - game->hud.life_bar_border.width - 20, RES_Y - game->hud.life_bar_border.heigth - 10);
-	put_img_to_img(&game->hud.life_bar, &game->fps_img, RES_X - game->hud.life_bar_border.width - 20, RES_Y - game->hud.life_bar_border.heigth - 10);
+	put_img_to_img_crop(&game->hud.life_bar, &game->fps_img, start, end);
 }
 
 void	render_ui(t_game *game)

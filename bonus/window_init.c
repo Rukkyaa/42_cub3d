@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 14:23:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:51:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,16 +66,6 @@ void init_sprites(t_game *game)
 			i++;
 		}
 	}
-	// t_vector item_pos;
-	// item_pos.x = 3.0 * 64;
-	// item_pos.y = 3.0 * 64;
-	// tmp = spawn_item(game, (t_vector){7.0 * 64, 8.0 * 64}, "sword");
-	// tmp = spawn_item(game, (t_vector){3.0 * 64, 4.0 * 64}, "axe");
-	// tmp = spawn_item(game, (t_vector){3.0 * 64, 1.0 * 64}, "axe");
-	// tmp = spawn_item(game, (t_vector){6.0 * 64, 8.0 * 64}, "axe");
-	// tmp = spawn_item(game, item_pos, "sword");
-	// if (!tmp)
-	// 	printf("error spawn zombie\n");
 }
 
 void init_weapons(t_game *game)

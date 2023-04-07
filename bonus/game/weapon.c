@@ -6,11 +6,30 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/07 14:50:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:57:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	respawn_zombie(t_game *game)
+{
+	t_vector	zombie_pos;
+	t_sprite	*tmp;
+
+	while(1)
+	{
+		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
+		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		{
+			tmp = spawn_zombie(game, zombie_pos);
+			if (!tmp)
+				printf("error spawn zombie\n");
+			break ;
+		}
+	}
+}
 
 void    melee_attack(t_game *game, t_weapon *weapon)
 {
@@ -27,7 +46,11 @@ void    melee_attack(t_game *game, t_weapon *weapon)
 			{
                 sprite->hp -= weapon->damage;
 				if (sprite->hp <= 0)
+				{
 					game->player.kills++;
+					respawn_zombie(game);
+					respawn_zombie(game);
+				}
 			}
 		}
 		sprite = next_sprite;

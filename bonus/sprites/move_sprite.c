@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 14:48:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 15:10:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		}
 		if (sprite->animation.current_frame > 40)
 		{
-			spawn_item(game, sprite->pos, "axe");
+			// spawn_item(game, sprite->pos, "axe");
 			remove_entity(&game->sprites, sprite);
 		}
 	}

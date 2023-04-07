@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 14:41:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:46:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 	if (can_attack(sprite, player))
 	{
 		sprite->attacked = true;
-		printf("Aie !\n");
+		player->hp -= 10;
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;

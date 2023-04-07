@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 16:28:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:20:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	load_zombie_anim(t_game *game)
 	game->animations.zombie_run.frame_duration_ms = 30;
 	fill_sprite_animation(game, "images/FPS_pixel_zombie/DEAD_CROPPED_XPM", &game->animations.zombie_death);
 	game->animations.zombie_death.frame_duration_ms = 30;
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/SPAWN_CROPPED_XPM", &game->animations.zombie_spawn);
+	game->animations.zombie_spawn.frame_duration_ms = 15;
 }
 
 t_sprite	*spawn_zombie(t_game *game, t_vector pos)

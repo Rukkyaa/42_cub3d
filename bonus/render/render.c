@@ -6,11 +6,17 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 16:11:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:16:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	render_life_bar(t_game *game)
+{
+	put_img_to_img(&game->hud.life_bar_border, &game->fps_img, RES_X - game->hud.life_bar_border.width - 20, RES_Y - game->hud.life_bar_border.heigth - 10);
+	put_img_to_img(&game->hud.life_bar, &game->fps_img, RES_X - game->hud.life_bar_border.width - 20, RES_Y - game->hud.life_bar_border.heigth - 10);
+}
 
 void	render_ui(t_game *game)
 {
@@ -22,6 +28,7 @@ void	render_ui(t_game *game)
 		put_img_to_img(&game->inventory.img, &game->fps_img, 300, 159);
 		refresh_inventory(game);
 	}
+	render_life_bar(game);
 }
 
 void	render_map(t_game *game)

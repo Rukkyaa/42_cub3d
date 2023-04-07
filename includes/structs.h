@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 16:25:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 11:11:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,6 +208,8 @@ typedef struct s_inventory
 
 typedef struct s_hud
 {
+	t_img		life_bar;
+	t_img		life_bar_border;
 	t_img		aim;
 	t_img		weapon;
 	t_animation	weapon_anim;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/07 16:21:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 16:51:17 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,6 +196,12 @@ typedef struct s_weapon
 	t_vector	screen_pos;
 }				t_weapon;
 
+typedef struct s_weapons
+{
+	t_weapon		axe;
+	t_weapon		grap_gun;
+}				t_weapons;
+
 typedef struct s_player
 {
 	t_vector3d	pos;
@@ -204,7 +210,7 @@ typedef struct s_player
 	t_vector3d	tile_pos;
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
-	t_weapon	weapon;
+	t_weapon	*weapon;
 	int			kills;
 	int 		tilt;
 	int			max_hp;
@@ -259,6 +265,7 @@ typedef struct s_game
 	t_inventory		inventory;
 	t_hud			hud;
 	t_weapon_icons	weapon_icons;
+	t_weapons		weapons;
 	t_time			time;
 	t_vector3d		mouse;
 	t_vector3d		mouse_diff;

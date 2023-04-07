@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/15 11:37:25 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 16:56:50 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 bool	is_key(int keycode)
 {
-	return (('a' <= keycode && keycode <= 'z' ) && keycode != 'e' );
+	return ((('a' <= keycode && keycode <= 'z' ) && keycode != 'e' )|| ('0' <= keycode && keycode <= '9' ));
 }
 
 bool	is_walkable(t_game *game, int x, int y)

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 16:25:50 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 16:51:12 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,9 @@ void init_weapons(t_game *game)
 	axe.state = IDLE;
 	axe.is_melee = 1;
 
-	game->player.weapon = grap_gun;
+	game->weapons.grap_gun = grap_gun;
+	game->weapons.axe = axe;
+	game->player.weapon = &game->weapons.axe;
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 16:34:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 17:08:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos)
 	// printf("plane_center %f\n",game->camera.plane_center.y);
 	// printf("proj_plane_distance %f\n", game->camera.proj_plane_distance);
 	// printf("z %f\n", ( game->camera.half_res.y - game->camera.plane_center.y) / game->camera.proj_plane_distance);
-	vec3_print(new_projectile->speed, "proj speed");
+	// vec3_print(new_projectile->speed, "proj speed");
 	new_projectile->speed = vec_scalar_mult(new_projectile->speed, 25);
 	// vec3_print(new_projectile->speed, "proj speed");
 	// new_projectile->type = "zombie";

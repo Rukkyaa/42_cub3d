@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 15:14:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 16:25:50 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,16 +67,6 @@ void init_sprites(t_game *game)
 			i++;
 		}
 	}
-	// t_vector item_pos;
-	// item_pos.x = 3.0 * 64;
-	// item_pos.y = 3.0 * 64;
-	// tmp = spawn_item(game, (t_vector){7.0 * 64, 8.0 * 64}, "sword");
-	// tmp = spawn_item(game, (t_vector){3.0 * 64, 4.0 * 64}, "axe");
-	// tmp = spawn_item(game, (t_vector){3.0 * 64, 1.0 * 64}, "axe");
-	// tmp = spawn_item(game, (t_vector){6.0 * 64, 8.0 * 64}, "axe");
-	// tmp = spawn_item(game, item_pos, "sword");
-	// if (!tmp)
-	// 	printf("error spawn zombie\n");
 }
 
 void init_weapons(t_game *game)
@@ -88,7 +78,6 @@ void init_weapons(t_game *game)
 	grap_gun_anim.frame_duration_ms = 100;
 	grap_gun_anim.frame_offset = 0;
 	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-	game->hud.weapon_anim = grap_gun_anim;
 
 	// Grapp gun
 	grap_gun.fire_anim = grap_gun_anim;
@@ -96,6 +85,12 @@ void init_weapons(t_game *game)
 	grap_gun.cool_down_ms = 500;
 	grap_gun.attack_speed = 2;
 	grap_gun.damage = 10;
+	grap_gun.idle_img = grap_gun_anim.imgs[1];
+	grap_gun.current_img = grap_gun.idle_img;
+	grap_gun.state = IDLE;
+	grap_gun.screen_pos.x = 0;
+	grap_gun.screen_pos.y = RES_Y - grap_gun.idle_img->heigth;
+	grap_gun.is_melee = 0;
 
 	// Axe anim
 	t_weapon axe;
@@ -107,16 +102,19 @@ void init_weapons(t_game *game)
 	game->hud.weapon_anim = axe_anim;
 	axe.current_img = axe_anim.imgs[1];
 	axe.idle_img = axe_anim.imgs[1];
-	axe.state = IDLE;
+	axe.screen_pos.x = 0;
+	axe.screen_pos.y = 0;
 
-	// Grapp gun
+	// Axe
 	axe.fire_anim = axe_anim;
 	axe.idle_img = *axe_anim.imgs;
 	axe.cool_down_ms = 500;
 	axe.attack_speed = 2;
 	axe.damage = 50;
+	axe.state = IDLE;
+	axe.is_melee = 1;
 
-	game->player.weapon = axe;
+	game->player.weapon = grap_gun;
 }
 
 

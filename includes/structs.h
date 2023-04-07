@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/07 14:27:55 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 16:21:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,11 +187,13 @@ typedef struct s_weapon
 	t_img		*idle_img;
 	t_img		*current_img;
 	t_animation fire_anim;
+	int			is_melee;
 	float		auto_attack;
 	float		cool_down_ms;
 	float		attack_speed;
 	float		damage;
 	float		ammo;
+	t_vector	screen_pos;
 }				t_weapon;
 
 typedef struct s_player

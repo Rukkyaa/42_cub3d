@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 14:23:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 15:14:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ void	init_camera(t_camera *camera)
 	//camera->proj_plane_distance = 277;
 	camera->plane.x = 0;
 	camera->plane.y = camera->proj_plane_width / 2;
+	camera->plane.z = 0;
 	camera->plane_center.x = camera->half_res.x;
 	camera->plane_center.y = camera->half_res.y;
 	
@@ -152,6 +153,7 @@ void	var_init(t_game *game)
 	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
 	game->player.pos.x = 20*64 + 32;
 	game->player.pos.y = 5*64 + 32;
+	game->player.pos.z = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.pos3d.x = 30*64 + 32;
@@ -165,8 +167,8 @@ void	var_init(t_game *game)
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
-	game->player.max_hp = 200;
-	game->player.hp = 200;
+	game->player.max_hp = 100;
+	game->player.hp = 100;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;

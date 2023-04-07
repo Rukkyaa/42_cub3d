@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/02 19:59:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/07 18:28:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -248,10 +248,10 @@ void    render_fps(t_game *game)
     int all_tasks_ended = 0;
     while(1)
     {
-        pthread_mutex_lock(&game->render_finished_rights);
+        pthread_mutex_lock(&game->queue_rights);
         if(game->task_done >= RES_X - 1)
             all_tasks_ended = 1;
-        pthread_mutex_unlock(&game->render_finished_rights);      
+        pthread_mutex_unlock(&game->queue_rights);      
         if(all_tasks_ended)
             break;
     }

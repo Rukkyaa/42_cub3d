@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/06 16:37:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/07 14:24:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,18 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 	t_vector3d	tmp;
 	t_vector3d	start;
 
-	if (sprite->hp <= 0 || sprite->state == DEATH)
+	if (sprite->state == SPAWN)
+	{
+		if (sprite->animation.current_frame > 160)
+		{
+			sprite->state = RUN;
+			sprite->animation = game->animations.zombie_run;
+			update_start_time(sprite, game);
+			update_width(sprite);
+		}
+		return ;
+	}
+	else if (sprite->hp <= 0 || sprite->state == DEATH)
 	{
 		if (sprite->state != DEATH)
 		{

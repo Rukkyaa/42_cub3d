@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapon.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/07 14:23:38 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 14:50:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,15 @@ void    melee_attack(t_game *game, t_weapon *weapon)
     while(sprite)
     { 
         next_sprite = sprite->next;
-        if(sprite->type == MOB && sprite->visible)
+        if(sprite->type == MOB && sprite->visible && sprite->state != DEATH && sprite->state != SPAWN)
         {
             if(fabs(sprite->angle_to_player) < M_PI / 4 && sprite->distance < 45)
+			{
                 sprite->hp -= weapon->damage;
-        }
+				if (sprite->hp <= 0)
+					game->player.kills++;
+			}
+		}
 		sprite = next_sprite;
     }
 }

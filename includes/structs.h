@@ -6,7 +6,11 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/04/07 14:17:52 by teliet           ###   ########.fr       */
+=======
+/*   Updated: 2023/04/07 14:09:54 by axlamber         ###   ########.fr       */
+>>>>>>> f0b4a8b54089715c0f2bcbbe536c415500a0ad28
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +31,7 @@
 # define RUN 0
 # define ATTACK 1
 # define DEATH 2
+# define SPAWN 3
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -135,6 +140,7 @@ typedef struct s_animations
 	t_animation	zombie_run;
 	t_animation	zombie_hit;
 	t_animation	zombie_death;
+	t_animation	zombie_spawn;
 	t_animation	sword;
 	t_animation	axe;
 }				t_animations;

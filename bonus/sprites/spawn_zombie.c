@@ -6,7 +6,11 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/04/07 14:12:17 by teliet           ###   ########.fr       */
+=======
+/*   Updated: 2023/04/07 14:21:17 by axlamber         ###   ########.fr       */
+>>>>>>> f0b4a8b54089715c0f2bcbbe536c415500a0ad28
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +24,8 @@ void	load_zombie_anim(t_game *game)
 	game->animations.zombie_run.frame_duration_ms = 30;
 	fill_sprite_animation(game, "images/FPS_pixel_zombie/DEAD_CROPPED_XPM", &game->animations.zombie_death);
 	game->animations.zombie_death.frame_duration_ms = 30;
+	fill_sprite_animation(game, "images/FPS_pixel_zombie/SPAWN_CROPPED_XPM", &game->animations.zombie_spawn);
+	game->animations.zombie_spawn.frame_duration_ms = 15;
 }
 
 t_sprite	*spawn_zombie(t_game *game, t_vector pos)
@@ -32,7 +38,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->pos.x = pos.x;
 	new_zombie->pos.y = pos.y;
 	new_zombie->pos.z = 0;
-	new_zombie->animation = game->animations.zombie_run;
+	new_zombie->animation = game->animations.zombie_spawn;
 	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
 		game->time.frame.tv_usec / 1000;
 	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
@@ -47,7 +53,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 	new_zombie->velocity = 3;
 	new_zombie->hp = 200;
 	new_zombie->attacked = false;
-	new_zombie->state = RUN;
+	new_zombie->state = SPAWN;
 	new_zombie->next = NULL;
 	sprite_add_back(&game->sprites, new_zombie);
 	return (new_zombie);

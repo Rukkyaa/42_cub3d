@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 17:08:31 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/07 21:04:30 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	diff_y = y - RES_Y / 2;
 	// printf("%d - %d\n", x, y);
 	// printf("%d - %d\n", diff_x, diff_y);
-	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
+	//mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
 	// game->mouse.x = x;
 	// game->mouse.y = y;
 	// game->mouse_diff.x = diff_x;

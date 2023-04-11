@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 18:18:34 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:28:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,8 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
     if(weapon->state == FIRE)
     {
         int time_elapsed_ms = ft_now() - weapon->fire_anim.start_time_ms;
-        if(time_elapsed_ms >  weapon->fire_anim.frame_duration_ms * weapon->fire_anim.nb_imgs)
+		
+        if(time_elapsed_ms > weapon->fire_anim.frame_duration_ms * weapon->fire_anim.nb_imgs)
         {
 			if (!weapon->is_melee)
 				spawn_projectile(game, game->player.pos);

@@ -6,32 +6,34 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:46:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:57:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d.h"
 
-int		is_walkable(t_game *game, t_vector tile_coord)
+int	is_walkable(t_game *game, t_vector tile_coord)
 {
-	if(game->map[(int) tile_coord.x][(int) tile_coord.x] == '1')
+	if (game->map[(int) tile_coord.x][(int) tile_coord.x] == '1')
 		return (0);
 	return (1);
 }
 
-int		check_future_collision(t_game *game, t_vector speed)
+int	check_future_collision(t_game *game, t_vector speed)
 {
-	t_vector next_tile = pixel_to_tile(vec_sum(vec_sum(speed, game->player.pos), vec_scalar_mult(speed, 1/4 * 20)));
+	t_vector	next_tile;
 
-	return(is_walkable(game, next_tile));
+	next_tile = pixel_to_tile(vec_sum(vec_sum(speed, game->player.pos),
+				vec_scalar_mult(speed, 1 / 4 * 20)));
+	return (is_walkable(game, next_tile));
 }
 
 void	edit_player_pos(t_game *game)
 {
-	if (game->key_states['w'] )
+	if (game->key_states['w'])
 		game->player.pos = vec_sum(game->player.pos,
 				vec_scalar_mult(game->player.direction, 4));
-	if (game->key_states['s'] )
+	if (game->key_states['s'])
 		game->player.pos = vec_sum(game->player.pos,
 				vec_scalar_mult(game->player.direction, -4));
 	if (game->key_states['a'])

@@ -6,11 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:16:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/16 13:28:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:55:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/cub3d.h"
+#include "cub3d.h"
 
 static char	*ft_strjoin_free(char *s1, char *s2)
 {

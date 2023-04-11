@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 09:23:05 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/02 19:49:28 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/11 10:28:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,7 +125,6 @@ void wall_render(t_game *game, t_collision collision, t_vector3d line_pos, doubl
 void    *start_thread(void *void_game)
 {
     t_game *game = (t_game*) void_game; 
-    int i; 
     int found_task = 0;
     while(1)
     {

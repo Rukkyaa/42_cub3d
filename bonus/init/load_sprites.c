@@ -6,23 +6,23 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/07 14:15:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 10:29:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static const char	*get_filename_ext(const char *filename)
-{
-	const char	*dot;
+// static const char	*get_filename_ext(const char *filename)
+// {
+// 	const char	*dot;
 
-	dot = strrchr(filename, '.');
-	if (!dot || dot == filename)
-		return ("");
-	return (dot + 1);
-}
+// 	dot = strrchr(filename, '.');
+// 	if (!dot || dot == filename)
+// 		return ("");
+// 	return (dot + 1);
+// }
 
-static const int	count_nb_files(char *dir_path)
+static int	count_nb_files(char *dir_path)
 {
 	DIR				*dir;
 	struct dirent	*entry;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/11 16:11:24 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 18:02:09 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,6 +170,7 @@ typedef struct s_sprite
 	float			screen_height;
 	float			velocity;
 	bool			attacked;
+	t_vector3d		hit_box;
 	t_vector3d		screen_pos;
 	t_animation		animation;
 	t_img			*current_img;

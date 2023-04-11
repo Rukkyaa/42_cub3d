@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 16:34:25 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 12:20:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 			sprite->animation = game->animations.zombie_run;
 			update_start_time(sprite, game);
 			update_width(sprite);
+			sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * sprite->animation.nb_imgs;
 		}
 		return ;
 	}
@@ -59,7 +60,8 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		}
 		if (sprite->animation.current_frame > 40)
 		{
-			// spawn_item(game, sprite->pos, "axe");
+			if (rand() % 100 < 5)
+				spawn_item(game, sprite->pos, "heart", HEALTH);
 			remove_entity(&game->sprites, sprite);
 		}
 	}

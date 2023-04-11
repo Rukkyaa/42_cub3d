@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 11:45:43 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:16:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void    melee_attack(t_game *game, t_weapon *weapon)
 				if (sprite->hp <= 0)
 				{
 					game->player.kills++;
-					respawn_zombie(game);
+					if (game->player.kills % 3 == 0)
+						respawn_zombie(game);
 					respawn_zombie(game);
 				}
 			}

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 12:05:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:15:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,20 @@ void init_sprites(t_game *game)
 			i++;
 		}
 	}
-	i = 0;
-	while(i < 10)
-	{
-		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
-		zombie_pos.z = 0;
-		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
-		{
-			tmp = spawn_item(game, zombie_pos, "heart", HEALTH);
-			if (!tmp)
-				printf("error spawn zombie\n");
-			i++;
-		}
-	}
+	// i = 0;
+	// while(i < 10)
+	// {
+	// 	zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
+	// 	zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+	// 	zombie_pos.z = 0;
+	// 	if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+	// 	{
+	// 		tmp = spawn_item(game, zombie_pos, "heart", HEALTH);
+	// 		if (!tmp)
+	// 			printf("error spawn zombie\n");
+	// 		i++;
+	// 	}
+	// }
 }
 
 void init_weapons(t_game *game)

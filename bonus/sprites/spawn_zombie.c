@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:44:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:20:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,9 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos)
 	new_zombie->pos.y = pos.y;
 	new_zombie->pos.z = pos.z;
 	new_zombie->animation = game->animations.zombie_spawn;
-	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
-		game->time.frame.tv_usec / 1000;
-	new_zombie->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_zombie->animation.nb_imgs;
+	update_start_time(new_zombie, game);
 	new_zombie->height = 50;
-	new_zombie->width = new_zombie->height *
-		(new_zombie->animation.current_img->width) /
-			(new_zombie->animation.current_img->heigth);
+	update_width(new_zombie);
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;
 	new_zombie->speed.z = 0;

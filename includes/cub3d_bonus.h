@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 12:08:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 18:10:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,6 +129,7 @@ void			edit_player_rotate(t_game *game);
 void			update_player_tile_pos(t_player	*player);
 void			clear_z_buffer(t_game *game);
 void    		handle_weapon(t_game *game, t_weapon *weapon);
+long			ft_now(void);
 
 //Fps
 void			handle_sync(t_game *game);

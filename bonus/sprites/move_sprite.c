@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 17:59:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 18:05:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->speed = vec_normalize(sprite->speed);
 		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity),
 				sprite->pos);
-		// if (can_move(game->map, tmp))
-		// 	sprite->pos = tmp;
+		if (can_move(game->map, tmp))
+			sprite->pos = tmp;
 	}
 }
 
@@ -97,7 +97,6 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		if (tmp->type == MOB && vec_distance(proj->pos, tmp->pos) < (proj->width / 2) + tmp->width/2
 			&& proj->pos.z < tmp->pos.z + tmp->height && tmp->hp > 0)
 		{
-			printf("hit\n");
 			if (do_damage(proj, tmp))
 				game->player.kills++;
 			remove_entity(sprites, proj);

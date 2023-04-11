@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 12:20:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:25:47 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,8 +60,8 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		}
 		if (sprite->animation.current_frame > 40)
 		{
-			if (rand() % 100 < 5)
-				spawn_item(game, sprite->pos, "heart", HEALTH);
+			if (((double)rand() / (double)RAND_MAX) < 0.5)
+				spawn_item(game, sprite->pos, "sword", HEALTH);
 			remove_entity(&game->sprites, sprite);
 		}
 	}

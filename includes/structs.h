@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/11 12:04:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:11:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -316,6 +316,8 @@ typedef struct s_game
 	t_img			debug_img;
 	t_img			minimap;
 	int				mouse_clicked;
+	int				inventory_display;
+
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];
 	pthread_mutex_t	print_rights;

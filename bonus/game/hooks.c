@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 21:04:30 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 16:33:15 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	swap_items(int first, int second, char *items[36])
 
 int	mouse_press(int button, int x, int y, t_game *game)
 {
-	if (button == 1 && game->key_states['e'] && x > 320 && x < 1280 && y > 530
+	if (button == 1 && game->inventory_display && x > 320 && x < 1280 && y > 530
 		&& y < 736)
 	{
 		if (strcmp(get_item(x, y, game->inventory.items), "empty"))
@@ -32,7 +32,7 @@ int	mouse_press(int button, int x, int y, t_game *game)
 			select_item(game, x, y);
 		}
 	}
-	if(!game->key_states['e'])
+	if(!game->inventory_display)
 	{
 		//printf("shoot\n");
 		game->mouse_clicked = 1;
@@ -44,13 +44,13 @@ int	mouse_press(int button, int x, int y, t_game *game)
 
 int	mouse_release(int button, int x, int y, t_game *game)
 {
-	if(!game->key_states['e'])
+	if(!game->inventory_display)
 	{
 		//printf("shoot\n");
 		game->mouse_clicked = 0;
 		//spawn_projectile(game, game->player.pos, vec_scalar_mult(game->player.direction, 15));
 	}
-	if (button == 1 && game->key_states['e'] && x > 320 && x < 1280 && y > 530
+	if (button == 1 && game->inventory_display && x > 320 && x < 1280 && y > 530
 		&& y < 736)
 	{
 		if (game->inventory.selected != -1)
@@ -82,7 +82,7 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	// printf("%d\n", (int)game->mouse.y);
 	// printf("%d\n", (int)game->mouse_diff.x);
 	// printf("%d\n", (int)game->mouse_diff.y);
-	if(diff_x != 0 || diff_y != 0)
+	if( !game->inventory_display && (diff_x != 0 || diff_y != 0 ))
 	{
 		game->mouse_move = 1;
 		game->mouse_diff.x = diff_x;
@@ -95,22 +95,6 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 	// 	mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
 	// }		
 
-	if (!game->key_states['e'])
-	{
-		// printf("move\n");
-		if (!hide)
-		{
-			mlx_mouse_hide(game->mlx, _mlx()->win);
-			hide = 1;
-		}
-
-	}
-	else if (hide)
-	{
-		mlx_mouse_show(game->mlx, _mlx()->win);
-		hide = 0;
-	}
-
 	return (0);
 }
 
@@ -121,10 +105,19 @@ int	handle_keypress(int keycode, t_game *game)
 		close_window(game);
 	if (is_key(keycode))
 		game->key_states[keycode] = 1;
-	if (keycode == 'e' && game->key_states[keycode] == 0)
-		game->key_states[keycode] = 1;
-	else if (keycode == 'e' && game->key_states[keycode] == 1)
-		game->key_states[keycode] = 0;
+	if (game->key_states[keycode] == 0)
+	{
+		if(game->inventory_display)
+		{
+			game->inventory_display = 0;
+			mlx_mouse_hide(game->mlx, _mlx()->win);
+		}
+		else 
+		{
+			game->inventory_display = 1;	
+			mlx_mouse_show(game->mlx, _mlx()->win);
+		}
+	}
 	if (keycode == RIGHT)
 		game->key_states[0] = 1;
 	if (keycode == LEFT)
@@ -149,6 +142,7 @@ int	handle_keyrelease(int keycode, int *key_states)
 
 void	hooks(t_game *game)
 {
+	mlx_mouse_hide(game->mlx, _mlx()->win);
 	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, game);
 	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, game->key_states);
 	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_mouve_hook, game);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:34:14 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:43:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,6 @@ typedef struct s_game
 {
 	void		*mlx;
 	void		*fps_win;
-	int			time_inc;
 	t_img		fps_img;
 	char		**map;
 	int				key_states[256];

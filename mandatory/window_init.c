@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:34:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:45:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,11 @@ void	var_init(t_game *game)
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
 	game->player.direction_adjust = 10; 
-	game->time_inc = 150;
 	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);
 	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img, &game->fps_img.bpp,
 			&game->fps_img.line_len, &game->fps_img.endian);
 	game->fps_img.width = RES_X / 64;
 	game->fps_img.heigth = RES_Y / 64;
 	load_img(game);
-	load_map(game);
-	load_grid(game);
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0, 0);
 }

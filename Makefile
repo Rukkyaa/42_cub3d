@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/11 12:04:27 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/11 14:45:11 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,7 +35,7 @@ SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
 OBJS = $(SRC:.c=.o)
 
 # SHAPES FILES #
-SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, square circle line pixel_utils))
+SHAPE_SRC = $(addprefix mandatory/shapes/, $(addsuffix .c, circle line pixel_utils))
 SHAPE_OBJS = $(SHAPE_SRC:.c=.o)
 
 # MAP FILES #

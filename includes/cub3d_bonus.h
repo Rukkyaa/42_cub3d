@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 12:03:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:08:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,7 +298,7 @@ void			add_item(t_game *game, char *type);
 void			select_item(t_game *game, int x, int y);
 char			*get_item(int x, int y, char *items[36]);
 bool			item_out_of_bound(t_vector3d mouse, t_img img, t_img selected);
-bool			is_consommable(t_game *game, t_sprite *item);
+bool			is_consommable(t_sprite *item);
 void			use_item(t_game *game, t_sprite *item);
 
 /*********************************************************************************************

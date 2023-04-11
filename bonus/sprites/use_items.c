@@ -6,17 +6,16 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:55:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 12:02:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:08:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-bool	is_consommable(t_game *game, t_sprite *item)
+bool	is_consommable(t_sprite *item)
 {
 	if (item->id == HEALTH)
-		if (game->player.hp < game->player.max_hp)
-			return (true);
+		return (true);
 	return (false);
 }
 

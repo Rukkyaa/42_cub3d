@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/22 16:53:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 14:41:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,6 @@ void	load_grid(t_game *game)
 		{
 			pos.x = j * 64;
 			pos.y = i * 64;
-			if (game->map[i][j] == '1')
-				draw_square(game, pos, 64, 0xFFFFFF);
-			else
-				draw_square(game, pos, 64, 0xFFFFFF);
 		}
 	}
 }

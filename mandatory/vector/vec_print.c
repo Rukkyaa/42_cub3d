@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   vec_print.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:31:04 by axlamber          #+#    #+#             */
-/*   Updated: 2023/02/24 18:15:11 by theo             ###   ########.fr       */
+/*   Updated: 2023/02/22 11:31:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,4 @@ void	vec_print(t_vector *vector, char *name)
 	printf("-----------------------------------------------\n");
 	printf("| %s : x : %f | y : %f   |\n", name, vector->x, vector->y);
 	printf("-----------------------------------------------\n");
-}
-
-void	vec3_print(t_vector3d vector, char *name)
-{
-	printf("----------------------------------------------------------\n");
-	printf("| %s : x : %f | y : %f| z : %f    |\n", name, vector.x, vector.y, vector.z);
-	printf("----------------------------------------------------------\n");
 }

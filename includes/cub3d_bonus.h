@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:44:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:03:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -298,6 +298,8 @@ void			add_item(t_game *game, char *type);
 void			select_item(t_game *game, int x, int y);
 char			*get_item(int x, int y, char *items[36]);
 bool			item_out_of_bound(t_vector3d mouse, t_img img, t_img selected);
+bool			is_consommable(t_game *game, t_sprite *item);
+void			use_item(t_game *game, t_sprite *item);
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **
@@ -327,7 +329,7 @@ t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
 void			load_zombie_anim(t_game *game);
-t_sprite		*spawn_item(t_game *game, t_vector3d pos, char *type);
+t_sprite		*spawn_item(t_game *game, t_vector3d pos, char *type, int id);
 t_animation		load_item_anim(t_game *game, char *type);
 void			is_colliding(t_game *game, t_sprite *entity);
 void			remove_entity(t_sprite **sprites, t_sprite *entity);

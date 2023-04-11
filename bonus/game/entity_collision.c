@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/05 13:03:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:03:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,12 @@ void	is_colliding(t_game *game, t_sprite *entity)
 		distance = vec_distance(player_pos, entity_pos);
 		if (distance < 50)
 		{
-			if (entity->type == 1)
+			if (entity->type == ITEM)
 			{
-				add_item(game, entity->name);
+				if (is_consommable(game, entity))
+					use_item(game, entity);
+				else
+					add_item(game, entity->name);
 				remove_entity(&game->sprites, entity);
 			}
 			return ;

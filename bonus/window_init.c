@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:49:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:05:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void init_sprites(t_game *game)
 		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
-			tmp = spawn_item(game, zombie_pos, "heart");
+			tmp = spawn_item(game, zombie_pos, "heart", HEALTH);
 			if (!tmp)
 				printf("error spawn zombie\n");
 			i++;

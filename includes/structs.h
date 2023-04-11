@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/11 11:46:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 12:04:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,6 @@
 # define ITEM 1
 # define PROJ 2
 
-# define SWORD 0
-# define AXE 1
-
 # define IDLE 0
 # define FIRE 1
 # define RELOAD 2
@@ -28,6 +25,13 @@
 # define ATTACK 1
 # define DEATH 2
 # define SPAWN 3
+
+// Weapons
+# define SWORD 0
+# define AXE 1
+
+// Items
+# define HEALTH 50
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -157,6 +161,7 @@ typedef struct s_sprite
 	int				visible;
 	int				hp;
 	int				state;
+	int				id;
 	float			height;
 	float			width;
 	float			distance;

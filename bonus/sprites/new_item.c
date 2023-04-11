@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 11:49:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:59:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ t_animation	get_item_anim(t_game *game, char *type)
 	return (game->animations.sword);
 }
 
-t_sprite	*spawn_item(t_game *game, t_vector3d pos, char *type)
+t_sprite	*spawn_item(t_game *game, t_vector3d pos, char *type, int id)
 {
 	t_sprite	*new_item;
 
@@ -60,6 +60,7 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, char *type)
 	new_item->name = type;
 	new_item->next = NULL;
 	new_item->type = ITEM;
+	new_item->id = id;
 	sprite_add_back(&game->sprites, new_item);
 	return (new_item);
 }

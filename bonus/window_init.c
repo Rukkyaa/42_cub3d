@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 20:35:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:49:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	init_animations(t_game *game)
 	load_zombie_anim(game);
 	game->animations.sword = load_item_anim(game, "sword");
 	game->animations.axe = load_item_anim(game, "axe");
+	game->animations.heart = load_item_anim(game, "heart");
 }
 
 void	init_camera(t_camera *camera)
@@ -51,7 +52,7 @@ void init_sprites(t_game *game)
 {
 	int i = 0;
 	t_sprite	*tmp;
-	t_vector zombie_pos;
+	t_vector3d zombie_pos;
 
 	init_animations(game);
 	game->sprites = NULL;
@@ -59,9 +60,24 @@ void init_sprites(t_game *game)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
 		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
 			tmp = spawn_zombie(game, zombie_pos);
+			if (!tmp)
+				printf("error spawn zombie\n");
+			i++;
+		}
+	}
+	i = 0;
+	while(i < 10)
+	{
+		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
+		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		zombie_pos.z = 0;
+		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		{
+			tmp = spawn_item(game, zombie_pos, "heart");
 			if (!tmp)
 				printf("error spawn zombie\n");
 			i++;
@@ -78,7 +94,6 @@ void init_weapons(t_game *game)
 	grap_gun_anim.frame_duration_ms = 30;
 	grap_gun_anim.frame_offset = 0;
 	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
-
 	// Grapp gun
 	grap_gun.fire_anim = grap_gun_anim;
 	grap_gun.idle_img = *grap_gun_anim.imgs;

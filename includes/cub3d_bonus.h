@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 20:27:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:44:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -322,7 +322,7 @@ t_garbage		*_gc(void);
 ** \$$$$$$  |$$ |      $$ |  $$ |$$$$$$\    $$ |   $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|      \__|  \__|\______|   \__|   \________| \______/  **
 *************************************************************************/
-t_sprite		*spawn_zombie(t_game *game, t_vector pos);
+t_sprite		*spawn_zombie(t_game *game, t_vector3d pos);
 t_sprite		*spawn_projectile(t_game *game, t_vector3d pos);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);

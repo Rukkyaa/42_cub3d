@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 14:29:47 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:44:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	load_zombie_anim(t_game *game)
 	game->animations.zombie_spawn.frame_duration_ms = 15;
 }
 
-t_sprite	*spawn_zombie(t_game *game, t_vector pos)
+t_sprite	*spawn_zombie(t_game *game, t_vector3d pos)
 {
 	t_sprite	*new_zombie;
 
@@ -33,7 +33,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector pos)
 		return (NULL);
 	new_zombie->pos.x = pos.x;
 	new_zombie->pos.y = pos.y;
-	new_zombie->pos.z = 0;
+	new_zombie->pos.z = pos.z;
 	new_zombie->animation = game->animations.zombie_spawn;
 	new_zombie->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
 		game->time.frame.tv_usec / 1000;

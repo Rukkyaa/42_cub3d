@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/07 20:27:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:46:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,6 +113,7 @@ typedef struct s_texture
 	t_img	ground;
 	t_img	roof;
 	t_img	projectile;
+	t_img	heart;
 	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
@@ -139,6 +140,7 @@ typedef struct s_animations
 	t_animation	zombie_spawn;
 	t_animation	sword;
 	t_animation	axe;
+	t_animation	heart;
 }				t_animations;
 
 typedef struct s_animated_mob

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 13:00:34 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:49:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ t_animation	load_item_anim(t_game *game, char *type)
 		anim.current_img = &game->weapon_icons.sword;
 	else if (!strcmp(type, "axe"))
 		anim.current_img = &game->weapon_icons.axe;
+	else if (!strcmp(type, "heart"))
+		anim.current_img = &game->texture.heart;
 	anim.frame_duration_ms = 30;
 	return (anim);
 }
@@ -32,6 +34,8 @@ t_animation	get_item_anim(t_game *game, char *type)
 		return (game->animations.sword);
 	else if (!strcmp(type, "axe"))
 		return (game->animations.axe);
+	else if (!strcmp(type, "heart"))
+		return (game->animations.heart);
 	return (game->animations.sword);
 }
 
@@ -54,9 +58,6 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, char *type)
 		(new_item->animation.current_img->width) /
 			(new_item->animation.current_img->heigth);
 	new_item->name = type;
-	// new_item->speed.x = 0.1;
-	// new_item->speed.y = 0.1;
-	// new_item->type = "item";
 	new_item->next = NULL;
 	new_item->type = ITEM;
 	sprite_add_back(&game->sprites, new_item);

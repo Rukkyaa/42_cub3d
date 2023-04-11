@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapon.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/07 16:22:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/11 11:45:43 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,14 @@
 
 void	respawn_zombie(t_game *game)
 {
-	t_vector	zombie_pos;
+	t_vector3d	zombie_pos;
 	t_sprite	*tmp;
 
 	while(1)
 	{
 		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
 		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
 			tmp = spawn_zombie(game, zombie_pos);

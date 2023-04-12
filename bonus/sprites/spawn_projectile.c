@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:31:28 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:58:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,17 +38,26 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, int type)
 	new_projectile->pos.y = pos.y + game->player.direction.y * 10;
 	new_projectile->animation = get_energy_ball_anim(game, type);
 	new_projectile->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_projectile->animation.nb_imgs;
-	new_projectile->height = 32;
 	new_projectile->pos.z = 20 - new_projectile->height / 2;
 	new_projectile->last_pos = new_projectile->pos;
-	new_projectile->width = new_projectile->height *
-		(new_projectile->animation.current_img->width) /
-			(new_projectile->animation.current_img->heigth);
 	new_projectile->speed = game->player.direction;
 	new_projectile->speed.z = (float) 1.25 * (game->camera.plane_center.y -  game->camera.half_res.y) / (float) game->camera.proj_plane_distance;
 	new_projectile->speed = vec_scalar_mult(new_projectile->speed, 25);
 	new_projectile->next = NULL;
 	new_projectile->type = PROJ;
+	if (type == GREEN_PROJ)
+	{
+		new_projectile->damage = 50;
+		new_projectile->height = 32;
+	}
+	else if (type == BLUE_PROJ)
+	{
+		new_projectile->damage = 25;
+		new_projectile->height = 16;
+	}
+	new_projectile->width = new_projectile->height *
+		(new_projectile->animation.current_img->width) /
+			(new_projectile->animation.current_img->heigth);
 	sprite_add_back(&game->sprites, new_projectile);
 	return (new_projectile);
 }

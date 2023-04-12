@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:50:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:58:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@ static bool	projectile_terrain_collide(char **map, t_sprite *proj)
 }
 
 
-static bool	do_damage(t_sprite *proj, t_sprite *sprite)
+bool	do_damage(int damage, t_sprite *sprite)
 {
-	sprite->hp -= 100;
+	sprite->hp -= damage;
 	if (sprite->hp <= 0)
 		return (true);
 	return (false);
@@ -98,7 +98,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->animation.current_frame > 40)
 		{
 			if (((double)rand() / (double)RAND_MAX) < 0.5)
-				spawn_item(game, sprite->pos, "sword", HEALTH);
+				spawn_item(game, sprite->pos, "heart", HEALTH);
 			remove_entity(&game->sprites, sprite);
 		}
 	}
@@ -154,7 +154,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		}
 		if (tmp->type == MOB && proj_mob_collide(tmp, proj) && tmp->hp > 0)
 		{
-			if (do_damage(proj, tmp))
+			if (do_damage(proj->damage, tmp))
 			{
 				game->player.kills++;
 				if (game->player.kills % 3 == 0)

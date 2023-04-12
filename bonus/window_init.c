@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:52:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 18:01:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void init_weapons(t_game *game)
 	axe.idle_img = *axe_anim.imgs;
 	axe.cool_down_ms = 500;
 	axe.attack_speed = 2;
-	axe.damage = 50;
+	axe.damage = 25;
 	axe.state = IDLE;
 	axe.is_melee = 1;
 

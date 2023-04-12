@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 15:05:40 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 17:06:18 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,30 @@ static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 	if (sprite->hp <= 0)
 		return (true);
 	return (false);
+}
+
+void	mob_wall_collide(t_game *game, t_sprite *mob)
+{
+	t_vector3d	v_offset;
+	t_vector3d	vi_pos;
+	t_vector3d	vi_pos_add_offset;
+	
+	v_offset.x = 0;
+	v_offset.y = 0;
+	if (mob->speed.x > 0)
+		v_offset.x = mob->width/2;
+	else
+		v_offset.x = -mob->width/2;
+	if (mob->speed.y > 0)
+		v_offset.y = mob->width/2;
+	else
+		v_offset.y = -mob->width/2;
+	vi_pos = pixel_to_tile(mob->pos);
+	vi_pos_add_offset = pixel_to_tile(vec_sum(mob->pos, v_offset));
+	if(!is_walkable(game, vi_pos_add_offset.x, vi_pos.y))
+		mob->speed.x = 0;
+	if(!is_walkable(game , vi_pos.x, vi_pos_add_offset.y))
+		mob->speed.y = 0;
 }
 
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
@@ -88,21 +112,11 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		start = sprite->speed;
 		sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 		sprite->speed = vec_normalize(sprite->speed);
-		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity),
-				sprite->pos);
-		if (can_move(game->map, tmp))
-			sprite->pos = tmp;
+		sprite->speed = vec_scalar_mult(sprite->speed, sprite->velocity);
+		mob_wall_collide(game, sprite);
+		sprite->pos = vec_sum(sprite->pos, sprite->speed);
 	}
 }
-
-#include <stdbool.h>
-#include <math.h>
-
-typedef struct {
-    float x;
-    float y;
-    float z;
-} t_vector3;
 
 int proj_mob_collide(t_sprite *mob, t_sprite *proj) {
 	t_vector3d proj_true_pos;

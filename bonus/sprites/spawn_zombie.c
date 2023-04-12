@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 14:51:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 17:52:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	{
 		new_zombie->height = 60;
 		new_zombie->velocity = 2;
-		new_zombie->hp = 500;
+		new_zombie->hp = 300;
 		new_zombie->animated_mob.run = game->animations.zombie_walk;
 		new_zombie->animated_mob.hit.frame_duration_ms = 20;
 		new_zombie->damage = 50;

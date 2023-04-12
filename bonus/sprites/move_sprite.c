@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:06:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 17:50:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,7 +155,12 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		if (tmp->type == MOB && proj_mob_collide(tmp, proj) && tmp->hp > 0)
 		{
 			if (do_damage(proj, tmp))
+			{
 				game->player.kills++;
+				if (game->player.kills % 3 == 0)
+					respawn_zombie(game);
+				respawn_zombie(game);
+			}
 			remove_entity(sprites, proj);
 			return ;
 		}

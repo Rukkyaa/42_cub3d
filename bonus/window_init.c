@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:33:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:52:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -126,7 +126,7 @@ void init_weapons(t_game *game)
 	// Plasma riffle
 	plasma_riffle.fire_anim = plasma_riffle_anim;
 	plasma_riffle.idle_img = *plasma_riffle_anim.imgs;
-	plasma_riffle.cool_down_ms = 250;
+	plasma_riffle.cool_down_ms = 100;
 	plasma_riffle.fire_anim.frame_duration_ms = (int)(plasma_riffle.cool_down_ms / plasma_riffle_anim.nb_imgs) + 1;
 	plasma_riffle.attack_speed = 2;
 	plasma_riffle.damage = 10;

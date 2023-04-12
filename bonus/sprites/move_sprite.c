@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 14:58:39 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 15:05:40 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,7 @@ typedef struct {
     float z;
 } t_vector3;
 
-int check_collide(t_sprite *mob, t_sprite *proj) {
+int proj_mob_collide(t_sprite *mob, t_sprite *proj) {
 	t_vector3d proj_true_pos;
 	t_vector3d proj_to_mob;
 	float straight_dist;
@@ -138,7 +138,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 			tmp = tmp->next;
 			continue ;
 		}
-		if (tmp->type == MOB && check_collide(tmp, proj) && tmp->hp > 0)
+		if (tmp->type == MOB && proj_mob_collide(tmp, proj) && tmp->hp > 0)
 		{
 			if (do_damage(proj, tmp))
 				game->player.kills++;

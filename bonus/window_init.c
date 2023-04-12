@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 12:51:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 15:21:10 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,7 +225,7 @@ void	var_init(t_game *game)
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     // vec_print(&game->player.direction, "player dir");
 	// close_window(game);
-	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64);
+	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 16 + MAP_MARGIN * 2, map_heigth(game->map) * 16 + MAP_MARGIN * 2);
 	game->debug_img.addr = mlx_get_data_addr(game->debug_img.mlx_img, &game->debug_img.bpp,
 			&game->debug_img.line_len, &game->debug_img.endian);
 	game->minimap.mlx_img = mlx_new_image(game->mlx, 224, 224);
@@ -235,8 +235,8 @@ void	var_init(t_game *game)
 	game->minimap.heigth = 224;
 	game->minimap_center.x = game->minimap.width / 2;
 	game->minimap_center.y =  game->minimap.heigth / 2;
-	game->debug_img.width =  map_width(game->map) * 64;
-	game->debug_img.heigth = map_heigth(game->map) * 64;
+	game->debug_img.width = map_width(game->map) * 16 + MAP_MARGIN * 2;
+	game->debug_img.heigth = map_heigth(game->map) * 16 + MAP_MARGIN * 2;
 	game->fps_win = _mlx()->win;
 	game->fps_img = _mlx()->img;
 	game->mouse_clicked  = 0;
@@ -255,7 +255,6 @@ void	var_init(t_game *game)
 	handle_time(game);
 	init_sprites(game);
 	init_weapons(game);
-	load_grid(game);
 	load_map_debug(game);
 	clear_z_buffer(game);
 	init_threads(game);

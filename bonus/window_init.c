@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 12:51:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:57:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,20 +69,6 @@ void init_sprites(t_game *game)
 			i++;
 		}
 	}
-	// i = 0;
-	// while(i < 10)
-	// {
-	// 	zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-	// 	zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
-	// 	zombie_pos.z = 0;
-	// 	if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
-	// 	{
-	// 		tmp = spawn_item(game, zombie_pos, "heart", HEALTH);
-	// 		if (!tmp)
-	// 			printf("error spawn zombie\n");
-	// 		i++;
-	// 	}
-	// }
 }
 
 void init_weapons(t_game *game)
@@ -129,8 +115,29 @@ void init_weapons(t_game *game)
 	axe.state = IDLE;
 	axe.is_melee = 1;
 
+
+	// Plasma riffle anim
+	t_weapon plasma_riffle;
+	t_animation plasma_riffle_anim;
+	fill_sprite_animation(game, "images/weapons/plasma_riffle_outscaled", &plasma_riffle_anim);
+	plasma_riffle_anim.frame_offset = 0;
+	plasma_riffle_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	// Plasma riffle
+	plasma_riffle.fire_anim = plasma_riffle_anim;
+	plasma_riffle.idle_img = *plasma_riffle_anim.imgs;
+	plasma_riffle.cool_down_ms = 250;
+	plasma_riffle.fire_anim.frame_duration_ms = (int)(plasma_riffle.cool_down_ms / plasma_riffle_anim.nb_imgs) + 1;
+	plasma_riffle.attack_speed = 2;
+	plasma_riffle.damage = 10;
+	plasma_riffle.idle_img = plasma_riffle_anim.imgs[0];
+	plasma_riffle.current_img = plasma_riffle.idle_img;
+	plasma_riffle.state = IDLE;
+	plasma_riffle.screen_pos.x = 0;
+	plasma_riffle.screen_pos.y = RES_Y - plasma_riffle.idle_img->heigth;
+	plasma_riffle.is_melee = 0;
 	game->weapons.grap_gun = grap_gun;
 	game->weapons.axe = axe;
+	game->weapons.plasma_riffle = plasma_riffle;
 	game->player.weapon = &game->weapons.axe;
 }
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 16:13:38 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 16:33:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	inventory_switch(t_game *game)
 		game->player.weapon = &game->weapons.axe;
 	else if(game->key_states['0' + 2] == 1)
 		game->player.weapon = &game->weapons.grap_gun;
+	else if(game->key_states['0' + 3] == 1)
+		game->player.weapon = &game->weapons.plasma_riffle;
 }
 
 int	game_loop(void *g)

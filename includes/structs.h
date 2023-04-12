@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 13:55:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 16:30:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,6 +150,7 @@ typedef struct s_animations
 	t_animation	zombie_spawn;
 	t_animation	sword;
 	t_animation	axe;
+	t_animation	plasma_riffle;
 	t_animation	heart;
 }				t_animations;
 
@@ -196,6 +197,7 @@ typedef struct s_weapon_icons
 {
 	t_img		sword;
 	t_img		axe;
+	t_img		plasma_riffle;
 }				t_weapon_icons;
 
 typedef struct s_weapon
@@ -218,6 +220,7 @@ typedef struct s_weapons
 {
 	t_weapon		axe;
 	t_weapon		grap_gun;
+	t_weapon		plasma_riffle;
 }				t_weapons;
 
 typedef struct s_player

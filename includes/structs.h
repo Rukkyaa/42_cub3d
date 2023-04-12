@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 12:10:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:44:34 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,9 +154,10 @@ typedef struct s_animations
 
 typedef struct s_animated_mob
 {
-	t_animation idle;
-	t_animation walk;
+	t_animation spawn;
 	t_animation run;
+	t_animation hit;
+	t_animation death;
 }				t_animated_mob;
 
 typedef struct s_sprite
@@ -182,6 +183,7 @@ typedef struct s_sprite
 	t_img			**img_run;
 	t_vector3d		pos;
 	t_vector3d		speed;
+	t_animated_mob	animated_mob;
 	struct s_sprite	*next;
 }				t_sprite;
 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 18:05:39 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:44:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->animation.current_frame > 160)
 		{
 			sprite->state = RUN;
-			sprite->animation = game->animations.zombie_run;
+			sprite->animation =  sprite->animated_mob.run;
 			update_start_time(sprite, game);
 			update_width(sprite);
 			sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * sprite->animation.nb_imgs;
@@ -54,7 +54,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->state != DEATH)
 		{
 			sprite->state = DEATH;
-			sprite->animation = game->animations.zombie_death;
+			sprite->animation =  sprite->animated_mob.death;
 			update_start_time(sprite, game);
 			update_width(sprite);
 		}

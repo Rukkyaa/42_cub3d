@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 12:18:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:48:34 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,11 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	new_zombie->pos.x = pos.x;
 	new_zombie->pos.y = pos.y;
 	new_zombie->pos.z = pos.z;
-	new_zombie->animation = game->animations.zombie_spawn;
+	new_zombie->animated_mob.spawn = game->animations.zombie_spawn;
+	new_zombie->animated_mob.run = game->animations.zombie_run;
+	new_zombie->animated_mob.hit = game->animations.zombie_hit;
+	new_zombie->animated_mob.death = game->animations.zombie_death;
+	new_zombie->animation = new_zombie->animated_mob.spawn;
 	update_start_time(new_zombie, game);
 	if (type == NORMAL_ZOMBIE)
 	{

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 12:52:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:54:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,6 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 		new_zombie->velocity = 2;
 		new_zombie->hp = 500;
 	}
-	else
-		printf("Error: Zombie type not found\n");
 	update_width(new_zombie);
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;

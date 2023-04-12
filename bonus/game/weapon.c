@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/12 17:20:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:33:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
         if(weapon->is_melee)
             melee_attack(game, weapon);
 		else
-			spawn_projectile(game, game->player.pos);
+			spawn_projectile(game, game->player.pos, weapon->projectile);
     }
     if(weapon->state == FIRE)
     {

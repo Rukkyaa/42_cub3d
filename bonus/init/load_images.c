@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/11 11:47:44 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:46:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->hud.life_green_bar, "images/lifebar/green_bar.xpm");
 	ft_xpm_to_img(game, &game->hud.life_bar_border, "images/lifebar/grey_border.xpm");
 	ft_xpm_to_img(game, &game->texture.projectile, "images/projectiles/green_energy_ball.xpm");
+	ft_xpm_to_img(game, &game->texture.blue_projectile, "images/projectiles/blue_energy_ball.xpm");
 	ft_xpm_to_img(game, &game->texture.heart, "images/items/heart/heart.xpm");
 	load_number(game);
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");

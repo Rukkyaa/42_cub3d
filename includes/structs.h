@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 17:23:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:32:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@
 // Weapons
 # define SWORD 0
 # define AXE 1
+
+// Projectiles
+# define GREEN_PROJ 0
+# define BLUE_PROJ 1
+
 
 // Items
 # define HEALTH 50
@@ -124,6 +129,7 @@ typedef struct s_texture
 	t_img	ground;
 	t_img	roof;
 	t_img	projectile;
+	t_img	blue_projectile;
 	t_img	heart;
 	t_img	number[10];
 	int		text_heigth;
@@ -211,6 +217,7 @@ typedef struct s_weapon
 	t_img		*current_img;
 	t_animation fire_anim;
 	int			is_melee;
+	int			projectile;
 	float		auto_attack;
 	float		cool_down_ms;
 	float		attack_speed;

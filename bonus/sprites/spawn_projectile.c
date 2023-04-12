@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 18:03:01 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 14:43:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,13 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos)
 	new_projectile = my_alloc(sizeof(t_sprite));
 	if (!new_projectile)
 		return (NULL);
-	new_projectile->pos.x = pos.x + game->player.direction.x * 30;
-	new_projectile->pos.y = pos.y + game->player.direction.y * 30;
+	new_projectile->pos.x = pos.x + game->player.direction.x * 10;
+	new_projectile->pos.y = pos.y + game->player.direction.y * 10;
 	new_projectile->animation = get_energy_ball_anim(game);
 	new_projectile->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_projectile->animation.nb_imgs;
-	new_projectile->pos.z = 5;
 	new_projectile->height = 32;
+	new_projectile->pos.z = 20 - new_projectile->height / 2;
+	new_projectile->last_pos = new_projectile->pos;
 	new_projectile->width = new_projectile->height *
 		(new_projectile->animation.current_img->width) /
 			(new_projectile->animation.current_img->heigth);

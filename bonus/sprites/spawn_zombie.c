@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 17:32:30 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 11:37:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,9 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos)
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;
 	new_zombie->speed.z = 0;
+
+	new_zombie->collide_width = 10;
+
 	new_zombie->type = MOB;
 	new_zombie->velocity = 3;
 	new_zombie->hp = 200;

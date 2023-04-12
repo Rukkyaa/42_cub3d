@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 17:59:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 14:50:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,37 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 	}
 }
 
+#include <stdbool.h>
+#include <math.h>
+
+typedef struct {
+    float x;
+    float y;
+    float z;
+} t_vector3;
+
+int check_collide(t_sprite *mob, t_sprite *proj) {
+	t_vector3d proj_true_pos;
+	t_vector3d proj_to_mob;
+	float straight_dist;
+	proj_to_mob = vec_sum(mob->pos, vec_scalar_mult(proj->pos, -1));
+
+	float angle = vec_angle(proj->speed, proj_to_mob);
+	float x_y_dist = sinf(angle) * vec_distance(mob->pos, proj->pos);
+	// vec3_print(proj->pos, "proj->pos");
+
+	straight_dist = sqrt((mob->pos.x - proj->pos.x) * (mob->pos.x - proj->pos.x) + (mob->pos.y - proj->pos.y) * (mob->pos.y - proj->pos.y));
+	if(straight_dist > sqrt((mob->collide_width/2 + proj->width/2) * (mob->collide_width/2 + proj->width/2)))
+		return (0);
+	
+	proj_true_pos = proj->pos;
+	proj_true_pos.z = proj_true_pos.z + proj->width / 2;
+	if(proj_true_pos.z > mob->pos.z + mob->height)
+		return 0;
+		
+	return 1;
+}
+
 static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 {
 	t_sprite	*tmp;
@@ -94,10 +125,8 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 			tmp = tmp->next;
 			continue ;
 		}
-		if (tmp->type == MOB && vec_distance(proj->pos, tmp->pos) < (proj->width / 2) + tmp->width/2
-			&& proj->pos.z < tmp->pos.z + tmp->height && tmp->hp > 0)
+		if (tmp->type == MOB && check_collide(tmp, proj) && tmp->hp > 0)
 		{
-			printf("hit\n");
 			if (do_damage(proj, tmp))
 				game->player.kills++;
 			remove_entity(sprites, proj);
@@ -106,7 +135,10 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		tmp = tmp->next;
 	}
 	if (can_move(game->map, vec_sum(proj->pos, proj->speed)))
+	{
+		proj->last_pos = proj->pos;
 		proj->pos = vec_sum(proj->pos, proj->speed);
+	}
 	else
 		remove_entity(sprites, proj);
 }

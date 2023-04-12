@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:55:08 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 18:21:19 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 15:09:53 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ void	load_map_debug(t_game *game)
 		j = -1;
 		while (++j < (map_width(game->map)))
 		{
-			pos.x = j * 16;
-			pos.y = i * 16;
+			pos.x = MAP_MARGIN + j * 16;
+			pos.y = MAP_MARGIN + i * 16;
 			if (game->map[i][j] == '1')
 				draw_filled_square(&game->debug_img, pos, 16, DARK_VIOLET_PIXEL);
 			else if (game->map[i][j] == '0')

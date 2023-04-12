@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 13:57:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 14:51:57 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,9 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;
 	new_zombie->speed.z = 0;
+
+	new_zombie->collide_width = 10;
+
 	new_zombie->type = MOB;
 	new_zombie->attacked = false;
 	new_zombie->state = SPAWN;

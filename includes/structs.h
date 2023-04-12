@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 16:30:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:23:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@
 # define NORMAL_ZOMBIE 0
 # define BIG_ZOMBIE 1
 # define BABY_ZOMBIE 2
+
+# define MAP_MARGIN 160
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -179,11 +181,13 @@ typedef struct s_sprite
 	float			screen_height;
 	float			velocity;
 	bool			attacked;
-	t_vector3d		hit_box;
+	// t_vector3d		hit_box;
+	int				collide_width;
 	t_vector3d		screen_pos;
 	t_animation		animation;
 	t_img			*current_img;
 	t_img			**img_run;
+	t_vector3d		last_pos;
 	t_vector3d		pos;
 	t_vector3d		speed;
 	t_animated_mob	animated_mob;

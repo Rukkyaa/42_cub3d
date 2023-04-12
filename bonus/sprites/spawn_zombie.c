@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_zombie.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 17:32:30 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 12:18:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	load_zombie_anim(t_game *game)
 	game->animations.zombie_spawn.frame_duration_ms = 15;
 }
 
-t_sprite	*spawn_zombie(t_game *game, t_vector3d pos)
+t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 {
 	t_sprite	*new_zombie;
 
@@ -36,14 +36,31 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos)
 	new_zombie->pos.z = pos.z;
 	new_zombie->animation = game->animations.zombie_spawn;
 	update_start_time(new_zombie, game);
-	new_zombie->height = 45;
+	if (type == NORMAL_ZOMBIE)
+	{
+		new_zombie->height = 45;
+		new_zombie->velocity = 4;
+		new_zombie->hp = 200;
+	}
+	else if (type == BABY_ZOMBIE)
+	{
+		new_zombie->height = 30;
+		new_zombie->velocity = 5;
+		new_zombie->hp = 100;
+	}
+	else if (type == BIG_ZOMBIE)
+	{
+		new_zombie->height = 60;
+		new_zombie->velocity = 2;
+		new_zombie->hp = 500;
+	}
+	else
+		printf("Error: Zombie type not found\n");
 	update_width(new_zombie);
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;
 	new_zombie->speed.z = 0;
 	new_zombie->type = MOB;
-	new_zombie->velocity = 3;
-	new_zombie->hp = 200;
 	new_zombie->attacked = false;
 	new_zombie->state = SPAWN;
 	new_zombie->next = NULL;

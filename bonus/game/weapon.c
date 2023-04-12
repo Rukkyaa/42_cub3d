@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 18:28:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:11:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	respawn_zombie(t_game *game)
 		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
-			tmp = spawn_zombie(game, zombie_pos);
+			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
 			if (!tmp)
 				printf("error spawn zombie\n");
 			break ;

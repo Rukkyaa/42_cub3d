@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 18:36:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:11:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void init_sprites(t_game *game)
 		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
-			tmp = spawn_zombie(game, zombie_pos);
+			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
 			if (!tmp)
 				printf("error spawn zombie\n");
 			i++;
@@ -113,7 +113,7 @@ void init_weapons(t_game *game)
 	fill_sprite_animation(game, "images/weapons/axe", &axe_anim);
 	axe_anim.frame_duration_ms = 30;
 	axe_anim.frame_offset = 0;
-	axe_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	axe_anim.start_time_ms = ft_now();
 	game->hud.weapon_anim = axe_anim;
 	axe.current_img = axe_anim.imgs[1];
 	axe.idle_img = axe_anim.imgs[1];

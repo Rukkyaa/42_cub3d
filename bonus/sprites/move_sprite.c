@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 14:50:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 14:58:39 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,23 @@ static bool	can_move(char **map, t_vector3d pos)
 
 	x = (int)(pos.x) / 64;
 	y = (int)(pos.y) / 64;
-	if (is_wall(map[y][x]) || ((pos.z < 0 || 64 < pos.z) && pos.z != -5))
+	if (is_wall(map[y][x]) || ((pos.z < 0 || 64 < pos.z)))
 		return (false);
 	return (true);
 }
+
+static bool	projectile_terrain_collide(char **map, t_sprite *proj)
+{
+	int	x;
+	int	y;
+
+	x = (int)(proj->pos.x + proj->speed.x) / 64;
+	y = (int)(proj->pos.y + proj->speed.y) / 64;
+	if (is_wall(map[y][x]) || ((proj->pos.z + proj->speed.z + proj->height/2 < 0 || 64 < proj->pos.z + proj->speed.z + proj->height/2)))
+		return (false);
+	return (true);
+}
+
 
 static bool	do_damage(t_sprite *proj, t_sprite *sprite)
 {
@@ -42,7 +55,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->animation.current_frame > 160)
 		{
 			sprite->state = RUN;
-			sprite->animation = game->animations.zombie_run;
+			sprite->animation =  sprite->animated_mob.run;
 			update_start_time(sprite, game);
 			update_width(sprite);
 			sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * sprite->animation.nb_imgs;
@@ -54,7 +67,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->state != DEATH)
 		{
 			sprite->state = DEATH;
-			sprite->animation = game->animations.zombie_death;
+			sprite->animation =  sprite->animated_mob.death;
 			update_start_time(sprite, game);
 			update_width(sprite);
 		}
@@ -77,8 +90,8 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->speed = vec_normalize(sprite->speed);
 		tmp = vec_sum(vec_scalar_mult(sprite->speed, sprite->velocity),
 				sprite->pos);
-		// if (can_move(game->map, tmp))
-		// 	sprite->pos = tmp;
+		if (can_move(game->map, tmp))
+			sprite->pos = tmp;
 	}
 }
 
@@ -134,7 +147,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		}
 		tmp = tmp->next;
 	}
-	if (can_move(game->map, vec_sum(proj->pos, proj->speed)))
+	if (projectile_terrain_collide(game->map, proj))
 	{
 		proj->last_pos = proj->pos;
 		proj->pos = vec_sum(proj->pos, proj->speed);

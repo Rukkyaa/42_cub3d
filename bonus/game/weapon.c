@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 12:16:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 12:11:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	respawn_zombie(t_game *game)
 		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
-			tmp = spawn_zombie(game, zombie_pos);
+			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
 			if (!tmp)
 				printf("error spawn zombie\n");
 			break ;
@@ -61,27 +61,25 @@ void    melee_attack(t_game *game, t_weapon *weapon)
 
 void    handle_weapon(t_game *game, t_weapon *weapon)
 {
-    
     if(weapon->state == IDLE && game->mouse_clicked == 1)
     {
-        weapon->fire_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+        weapon->fire_anim.start_time_ms = ft_now();
         weapon->state = FIRE;
         if(weapon->is_melee)
             melee_attack(game, weapon);
-        else
-            spawn_projectile(game, game->player.pos);
     }
     if(weapon->state == FIRE)
     {
-        int time_elapsed_ms = (game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000) - weapon->fire_anim.start_time_ms;
-        if(time_elapsed_ms >  weapon->fire_anim.frame_duration_ms * weapon->fire_anim.nb_imgs)
+        int time_elapsed_ms = ft_now() - weapon->fire_anim.start_time_ms;
+		
+        if(time_elapsed_ms > weapon->fire_anim.frame_duration_ms * weapon->fire_anim.nb_imgs)
         {
+			if (!weapon->is_melee)
+				spawn_projectile(game, game->player.pos);
             weapon->state = IDLE;
             weapon->current_img =  weapon->idle_img;
         }
         update_animation(game , &weapon->fire_anim);
         weapon->current_img =  weapon->fire_anim.current_img;
     }
-    // if(game->mouse_clicked)
-	// 	spawn_projectile(game, game->player.pos);
 }

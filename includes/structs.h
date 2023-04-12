@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 12:17:38 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 14:52:31 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@
 
 // Items
 # define HEALTH 50
+
+// Zombies
+# define NORMAL_ZOMBIE 0
+# define BIG_ZOMBIE 1
+# define BABY_ZOMBIE 2
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -139,6 +144,7 @@ typedef struct s_animation
 typedef struct s_animations
 {
 	t_animation	zombie_run;
+	t_animation	zombie_walk;
 	t_animation	zombie_hit;
 	t_animation	zombie_death;
 	t_animation	zombie_spawn;
@@ -149,9 +155,10 @@ typedef struct s_animations
 
 typedef struct s_animated_mob
 {
-	t_animation idle;
-	t_animation walk;
+	t_animation spawn;
 	t_animation run;
+	t_animation hit;
+	t_animation death;
 }				t_animated_mob;
 
 typedef struct s_sprite
@@ -162,6 +169,7 @@ typedef struct s_sprite
 	int				hp;
 	int				state;
 	int				id;
+	int				damage;
 	float			height;
 	float			width;
 	float			distance;
@@ -179,6 +187,7 @@ typedef struct s_sprite
 	t_vector3d		last_pos;
 	t_vector3d		pos;
 	t_vector3d		speed;
+	t_animated_mob	animated_mob;
 	struct s_sprite	*next;
 }				t_sprite;
 
@@ -203,6 +212,7 @@ typedef struct s_weapon
 	float		attack_speed;
 	float		damage;
 	float		ammo;
+	long		last_attack;
 	t_vector	screen_pos;
 }				t_weapon;
 

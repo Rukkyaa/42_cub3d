@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprites.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/06 17:52:14 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 14:13:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,13 +129,10 @@ void    render_sprites(t_game *game)
 	sprite = game->sprites;
     while(sprite)
     { 
+		if (sprite->animation.imgs)
+			update_animation(game, &sprite->animation);
         if(sprite->visible)
-        {
-            // printf("%f\n",game->sprites[i].distance);
-			if (sprite->animation.imgs)
-            	update_animation(game, &sprite->animation);
             draw_sprite(game, sprite);
-        }
 		sprite = sprite->next;
     }
     // close_window(game);

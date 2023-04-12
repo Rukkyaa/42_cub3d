@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_attack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 14:46:56 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 13:56:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 	if ((!sprite->state) == ATTACK)
 	{
 		sprite->state = ATTACK;
-		sprite->animation = game->animations.zombie_hit;
+		sprite->animation = sprite->animated_mob.hit;
 		update_start_time(sprite, game);
 		update_width(sprite);
 	}
 	if (can_attack(sprite, player))
 	{
 		sprite->attacked = true;
-		player->hp -= 10;
+		player->hp -= sprite->damage;
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;
@@ -51,7 +51,7 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 		&& vec_distance(sprite->pos, player->pos) > 30)
 	{
 		sprite->state = RUN;
-		sprite->animation = game->animations.zombie_run;
+		sprite->animation =  sprite->animated_mob.run;
 		update_width(sprite);
 	}
 }

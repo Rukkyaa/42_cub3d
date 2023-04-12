@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 16:27:43 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/12 12:51:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void init_sprites(t_game *game)
 		zombie_pos.z = 0;
 		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
 		{
-			tmp = spawn_zombie(game, zombie_pos);
+			tmp = spawn_zombie(game, zombie_pos, 2);
 			if (!tmp)
 				printf("error spawn zombie\n");
 			i++;
@@ -91,13 +91,13 @@ void init_weapons(t_game *game)
 	t_weapon grap_gun;
 	t_animation grap_gun_anim;
 	fill_sprite_animation(game, "images/weapons/Grap_gun_upscale_xpm_alpha_resized_fuzz", &grap_gun_anim);
-	grap_gun_anim.frame_duration_ms = 30;
 	grap_gun_anim.frame_offset = 0;
 	grap_gun_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
 	// Grapp gun
 	grap_gun.fire_anim = grap_gun_anim;
 	grap_gun.idle_img = *grap_gun_anim.imgs;
-	grap_gun.cool_down_ms = 500;
+	grap_gun.cool_down_ms = 250;
+	grap_gun.fire_anim.frame_duration_ms = (int)(grap_gun.cool_down_ms / grap_gun_anim.nb_imgs) + 1;
 	grap_gun.attack_speed = 2;
 	grap_gun.damage = 10;
 	grap_gun.idle_img = grap_gun_anim.imgs[1];
@@ -113,7 +113,7 @@ void init_weapons(t_game *game)
 	fill_sprite_animation(game, "images/weapons/axe", &axe_anim);
 	axe_anim.frame_duration_ms = 30;
 	axe_anim.frame_offset = 0;
-	axe_anim.start_time_ms = game->time.frame.tv_sec * 1000 + game->time.frame.tv_usec / 1000;
+	axe_anim.start_time_ms = ft_now();
 	game->hud.weapon_anim = axe_anim;
 	axe.current_img = axe_anim.imgs[1];
 	axe.idle_img = axe_anim.imgs[1];

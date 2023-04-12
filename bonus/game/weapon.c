@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/12 12:11:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:20:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,8 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
         weapon->state = FIRE;
         if(weapon->is_melee)
             melee_attack(game, weapon);
+		else
+			spawn_projectile(game, game->player.pos);
     }
     if(weapon->state == FIRE)
     {
@@ -74,10 +76,12 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
 		
         if(time_elapsed_ms > weapon->fire_anim.frame_duration_ms * weapon->fire_anim.nb_imgs)
         {
-			if (!weapon->is_melee)
-				spawn_projectile(game, game->player.pos);
+			// if (!weapon->is_melee)
+			// 	spawn_projectile(game, game->player.pos);
             weapon->state = IDLE;
             weapon->current_img =  weapon->idle_img;
+			weapon->fire_anim.current_img = weapon->fire_anim.imgs[0];
+			return ;
         }
         update_animation(game , &weapon->fire_anim);
         weapon->current_img =  weapon->fire_anim.current_img;

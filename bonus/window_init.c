@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:54:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:01:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -229,6 +229,7 @@ void	var_init(t_game *game)
 	game->player.weapon_selected = 24;
 	game->player.cocaine = false;
 	game->player.bonus_strength = 0;
+	game->player.velocity = 100;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;

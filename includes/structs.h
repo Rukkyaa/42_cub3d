@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 16:54:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:00:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -247,6 +247,7 @@ typedef struct s_player
 	int 		tilt;
 	int			max_hp;
 	int			hp;
+	int			velocity;
 	float		angle;
 	float		direction_adjust;
 	int			bonus_strength;

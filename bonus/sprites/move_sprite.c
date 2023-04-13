@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:55:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:05:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 				spawn_item(game, sprite->pos, AXE);
 			else if (rand_num > 0.15 && rand_num <= 0.30 && !weapon_in_inventory(game, PLASMA_RIFFLE))
 				spawn_item(game, sprite->pos, PLASMA_RIFFLE);
-			else
+			else if (rand_num > 0.30 && rand_num <= 0.35 && !game->player.cocaine)
 				spawn_item(game, sprite->pos, COCAINE);
 			remove_entity(&game->sprites, sprite);
 		}

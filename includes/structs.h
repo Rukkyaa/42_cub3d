@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 17:00:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:27:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 // Items
 # define AXE 1
 # define PLASMA_RIFFLE 2
+# define GRAP_GUN 3
 # define HEALTH 50
 # define COCAINE 51
 
@@ -159,6 +160,7 @@ typedef struct s_animations
 	t_animation	zombie_spawn;
 	t_animation	axe;
 	t_animation	plasma_riffle;
+	t_animation	grap_gun;
 	t_animation	heart;
 	t_animation	cocaine;
 }				t_animations;
@@ -204,9 +206,9 @@ typedef struct s_sprite
 
 typedef struct s_weapon_icons
 {
-	t_img		sword;
 	t_img		axe;
 	t_img		plasma_riffle;
+	t_img		grap_gun;
 }				t_weapon_icons;
 
 typedef struct s_weapon

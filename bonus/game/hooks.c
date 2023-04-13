@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 17:45:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 14:49:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	swap_items(int first, int second, char *items[36])
+void	swap_items(int first, int second, int items[36])
 {
-	char	*tmp;
+	int tmp;
 
 	tmp = items[first];
 	items[first] = items[second];
@@ -26,7 +26,7 @@ int	mouse_press(int button, int x, int y, t_game *game)
 	if (button == 1 && game->inventory_display && x > 320 && x < 1280 && y > 530
 		&& y < 736)
 	{
-		if (strcmp(get_item(x, y, game->inventory.items), "empty"))
+		if (get_item(x, y, game->inventory.items) != 0)
 		{
 			game->inventory.selected = (y - 530) / 70 * 12 + (x - 321) / 80;
 			select_item(game, x, y);

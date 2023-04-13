@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/05 13:04:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:44:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,34 +19,32 @@ void	init_inventory(t_game *game)
 	i = -1;
 	game->inventory.selected = -1;
 	while (++i < 36)
-		game->inventory.items[i] = "empty";
+		game->inventory.items[i] = 0;
 }
 
-void	add_item(t_game *game, char *type)
+void	add_item(t_game *game, int id)
 {
 	int	i;
 
 	i = -1;
 	while (++i < 36)
 	{
-		if (!strcmp(game->inventory.items[i], "empty"))
+		if (game->inventory.items[i] == 0)
 		{
-			game->inventory.items[i] = type;
+			game->inventory.items[i] = id;
 			return ;
 		}
 	}
 }
 
-char	*get_item(int x, int y, char *items[36])
+int	get_item(int x, int y, int items[36])
 {
 	return (items[(y - 530) / 70 * 12 + (x - 321) / 80]);
 }
 
 void	select_item(t_game *game, int x, int y)
 {
-	if (!strcmp(get_item(x, y, game->inventory.items), "sword"))
-		game->inventory.selected_img = &game->weapon_icons.sword;
-	else if (!strcmp(get_item(x, y, game->inventory.items), "axe"))
+	if (get_item(x, y, game->inventory.items) == AXE)
 		game->inventory.selected_img = &game->weapon_icons.axe;
 }
 

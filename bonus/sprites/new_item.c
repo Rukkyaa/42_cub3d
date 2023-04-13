@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:36:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:38:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,6 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, int id)
 	new_item->next = NULL;
 	new_item->type = ITEM;
 	new_item->id = id;
-	if (id == AXE)
-		new_item->name = "axe";
-	else if (id == HEALTH)
-		new_item->name = "health";
 	sprite_add_back(&game->sprites, new_item);
 	return (new_item);
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 14:29:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:45:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define BLUE_PROJ 1
 
 // Items
-# define AXE 0
+# define AXE 1
 # define HEALTH 50
 
 // Zombies
@@ -40,6 +40,8 @@
 # define BABY_ZOMBIE 2
 
 # define MAP_MARGIN 160
+
+typedef int WEAPON;
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **
@@ -167,7 +169,6 @@ typedef struct s_animated_mob
 
 typedef struct s_sprite
 {
-	char			*name;
 	int				type;
 	int				visible;
 	int				hp;
@@ -182,7 +183,6 @@ typedef struct s_sprite
 	float			screen_height;
 	float			velocity;
 	bool			attacked;
-	// t_vector3d		hit_box;
 	int				collide_width;
 	t_vector3d		screen_pos;
 	t_animation		animation;
@@ -261,7 +261,7 @@ typedef struct s_inventory
 	t_img	img;
 	t_img	*selected_img;
 	int		selected;
-	char	*items[36];
+	WEAPON	items[36];
 }				t_inventory;
 
 typedef struct s_hud

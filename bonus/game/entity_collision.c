@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/30 23:43:54 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 14:29:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:44:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	is_colliding(t_game *game, t_sprite *entity)
 				if (is_consommable(entity))
 					use_item(game, entity);
 				else
-					add_item(game, entity->name);
+					add_item(game, entity->id);
 				remove_entity(&game->sprites, entity);
 			}
 			return ;

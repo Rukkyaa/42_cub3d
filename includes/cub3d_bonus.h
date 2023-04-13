@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 22:43:46 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/14 00:33:39 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -155,6 +155,7 @@ void			render_fps(t_game *game);
 void			render_map(t_game *game);
 void			render(t_game *game);
 void			render_ui(t_game *game);
+void			render_menu(t_game *game);
 void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
@@ -353,6 +354,7 @@ void			respawn_zombie(t_game *game);
 void			load_img(t_game *game);
 void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);
+void 			init_sprites(t_game *game);
 
 /***************************************************************************
 **  $$$$$$\   $$$$$$\  $$$$$$$\  $$$$$$$\   $$$$$$\   $$$$$$\  $$$$$$$$\  **

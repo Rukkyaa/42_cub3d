@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 22:42:38 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/14 00:19:14 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,10 @@
 # define ATTACK 1
 # define DEATH 2
 # define SPAWN 3
+
+// GAME STATES
+# define PLAY 0
+# define MENU 1
 
 // Projectiles
 # define GREEN_PROJ 0
@@ -357,7 +361,7 @@ typedef struct s_game
 	t_img			minimap;
 	int				mouse_clicked;
 	int				inventory_display;
-
+	int				mode;
 	t_button		buttons[2];
 
 	pthread_t 		wall_threads[NB_THREADS];

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 23:13:15 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/14 00:34:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,17 +40,29 @@ void handle_button(t_game *game, t_button *button)
 {
 	if(button->pos.x < game->mouse.x && game->mouse.x < button->pos.x + button->idle_img.width
 		&& button->pos.y < game->mouse.y && game->mouse.y < button->pos.y + button->idle_img.heigth)
-		put_img_to_img(&button->hover_img, &game->fps_img, button->pos.x, button->pos.y);
+		{
+			put_img_to_img(&button->hover_img, &game->fps_img, button->pos.x, button->pos.y);
+			if(game->mouse_clicked)
+			{
+				game->mode = PLAY;
+				mlx_mouse_hide(game->mlx, _mlx()->win);
+				// init_sprites(game);
+			}
+		}
 	else
 		put_img_to_img(&button->idle_img, &game->fps_img, button->pos.x, button->pos.y);
+	
 }
 
-void	render_ui(t_game *game)
+void	render_menu(t_game *game)
 {
 	// Menu
 	put_img_to_img(&game->texture.menu, &game->fps_img, 0, 0);
 	handle_button(game, &game->buttons[0]);
-	
+}
+
+void	render_ui(t_game *game)
+{
 	put_img_to_img(&game->hud.aim, &game->fps_img, game->camera.half_res.x
 		- game->hud.aim.width / 2, game->camera.half_res.y
 		- game->hud.aim.width / 2);
@@ -67,7 +79,6 @@ void	render_ui(t_game *game)
 
 void	render_map(t_game *game)
 {
-	render_fps(game);
 	// if (game->key_states[2])
 	// 	psychedelic_view(game, &game->fps_img);
 	// load_map(game);
@@ -85,6 +96,7 @@ void	render(t_game *game)
 	// 	game->debug_img.mlx_img, 0, 0);
 	mlx_put_image_to_window(game->mlx, game->fps_win,
 		game->fps_img.mlx_img, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->fps_win,
-		game->minimap.mlx_img, 0, 0);
+	if(game->mode == PLAY)
+		mlx_put_image_to_window(game->mlx, game->fps_win,
+			game->minimap.mlx_img, 0, 0);
 }

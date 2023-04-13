@@ -6,11 +6,24 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:42:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:16:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:19:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+bool	weapon_in_inventory(t_game *game, int id)
+{
+	int	i;
+
+	i = -1;
+	while (++i < 36)
+	{
+		if (game->inventory.items[i] == id)
+			return (true);
+	}
+	return (false);
+}
 
 t_weapon	*get_weapon(t_game *game, t_inventory *inventory, int id)
 {

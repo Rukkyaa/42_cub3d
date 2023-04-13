@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:32:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:16:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_inventory(t_game *game)
 	game->inventory.selected = -1;
 	while (++i < 36)
 		game->inventory.items[i] = 0;
+	game->inventory.items[24] = AXE;
 }
 
 void	add_item(t_game *game, int id)

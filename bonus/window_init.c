@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:01:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:10:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -225,6 +225,7 @@ void	var_init(t_game *game)
 	game->player.direction_adjust = 10; 
 	game->player.max_hp = 100;
 	game->player.hp = 100;
+	game->player.weapon_selected = 24;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;

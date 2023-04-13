@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 16:33:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:42:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,16 +29,6 @@ void	print_fps(int fps)
 	tmp = ft_itoa(fps);
 	mlx_string_put(_mlx()->mlx, _mlx()->win, 100 , RES_Y - 20, WHITE_PIXEL, tmp);
 	free(tmp);
-}
-
-void	inventory_switch(t_game *game)
-{
-	if(game->key_states['0' + 1] == 1)
-		game->player.weapon = &game->weapons.axe;
-	else if(game->key_states['0' + 2] == 1)
-		game->player.weapon = &game->weapons.grap_gun;
-	else if(game->key_states['0' + 3] == 1)
-		game->player.weapon = &game->weapons.plasma_riffle;
 }
 
 int	game_loop(void *g)

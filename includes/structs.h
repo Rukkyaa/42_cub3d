@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 15:01:11 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:09:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -239,6 +239,7 @@ typedef struct s_player
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
 	t_weapon	*weapon;
+	int			weapon_selected;
 	int			kills;
 	int 		tilt;
 	int			max_hp;

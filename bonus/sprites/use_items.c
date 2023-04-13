@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:55:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:02:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:06:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	check_item(t_game *game)
 		{
 			game->player.bonus_strength = 250;
 			psychedelic_view(game, &game->fps_img);
-			game->player.velocity = 300;
+			game->player.velocity = 250;
 		}
 	}
 }

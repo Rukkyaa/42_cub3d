@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:16:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:20:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ void	add_item(t_game *game, int id)
 	int	i;
 
 	i = -1;
+	if (weapon_in_inventory(game, id))
+		return ;
 	while (++i < 36)
 	{
 		if (game->inventory.items[i] == 0)

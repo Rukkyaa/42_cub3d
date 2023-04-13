@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 16:40:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:54:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -249,6 +249,9 @@ typedef struct s_player
 	int			hp;
 	float		angle;
 	float		direction_adjust;
+	int			bonus_strength;
+	long		start_cocaine;
+	bool		cocaine;
 	t_vector3d	current_tile;
 }				t_player;
 

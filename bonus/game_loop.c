@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:42:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:46:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int	game_loop(void *g)
 	print_fps(game->time.fps);
 	handle_sync(game);
 	print_kill(game, game->player.kills, RES_X - 55);
+	check_item(game);
 	if (!game->inventory_display)
 		mlx_mouse_move(game->mlx, game->fps_win, RES_X / 2, RES_Y / 2);
 	game->frame_count++;

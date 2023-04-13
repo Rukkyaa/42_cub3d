@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:19:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:47:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -303,6 +303,7 @@ bool			is_consommable(t_sprite *item);
 void			use_item(t_game *game, t_sprite *item);
 void			inventory_switch(t_game *game);
 bool			weapon_in_inventory(t_game *game, int id);
+void			check_item(t_game *game);
 
 
 /*********************************************************************************************

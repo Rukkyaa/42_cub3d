@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:28:08 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:46:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -227,7 +227,7 @@ void	var_init(t_game *game)
 	game->player.direction_adjust = 10; 
 	game->player.max_hp = 100;
 	game->player.hp = 100;
-	game->player.weapon_selected = 24;
+	game->player.weapon_selected = 0;
 	game->player.cocaine = false;
 	game->player.bonus_strength = 0;
 	game->player.velocity = 100;

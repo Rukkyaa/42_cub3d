@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:46:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:47:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -263,7 +263,8 @@ void	var_init(t_game *game)
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);
-	load_map(game);
+	// load_map(game);
+	load_buttons(game);
 	// load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);

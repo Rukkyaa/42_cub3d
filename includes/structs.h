@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 17:27:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:42:38 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,6 +133,7 @@ typedef struct s_texture
 	t_img	blue_projectile;
 	t_img	heart;
 	t_img	cocaine;
+	t_img	menu;
 	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
@@ -307,6 +308,14 @@ typedef struct s_wall_task
 
 // -----------------------------------------------
 
+typedef struct s_button
+{
+	t_vector3d		pos;
+	t_vector3d		size;
+	t_img			idle_img;
+	t_img			hover_img;
+}				t_button;
+
 typedef struct s_game
 {
 	void 			*mlx;
@@ -348,6 +357,8 @@ typedef struct s_game
 	t_img			minimap;
 	int				mouse_clicked;
 	int				inventory_display;
+
+	t_button		buttons[2];
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

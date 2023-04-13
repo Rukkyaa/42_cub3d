@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:47:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 22:43:46 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -351,6 +351,7 @@ void			respawn_zombie(t_game *game);
 
 //INIT
 void			load_img(t_game *game);
+void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);
 
 /***************************************************************************

@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/11 14:54:19 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/13 14:21:44 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -129,7 +129,7 @@ flag:= 1
 		printf "|           CUB3D LOADING....          |\n";\
 		printf "========================================\n";\
 	fi
-	@printf "\033[1;32m|\033[32m                                       \033[m\r"
+	@printf "\033[1;32m|\033[32m                                                                              \033[m\r"
 	@printf "\033[1;35m|\033[0;32m Compiling $@... \033[m\r"
 	@cc -Wall -Wextra -Ofast -g3 -I $(INCLUDE) -I/usr/include -Imlx_linux -c $< -o ${<:.c=.o}
 	$(eval flag=$(shell echo $$(($(flag)+1))))

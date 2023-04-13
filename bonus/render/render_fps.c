@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 16:55:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 18:49:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -178,7 +178,7 @@ void pre_compute_resize(t_game *game)
     t_vector3d v_player_to_camera_plane;
     float ca;
     //printf("half_width : %f\n", halfWidth);
-    v_right  = vec_normalize(game->camera.plane);
+    v_right = vec_rotate(game->player.direction, 90);
     v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
     while(i < RES_X)
     {

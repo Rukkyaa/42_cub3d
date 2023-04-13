@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:10:06 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 19:02:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,12 +41,16 @@ void	init_basic_vectors(t_game *game)
 {
 	game->v_left.x = -1;
 	game->v_left.y = 0;
+	game->v_left.z = 0;
 	game->v_right.x = 1;
 	game->v_right.y = 0;
+	game->v_right.z = 0;
 	game->v_up.x = 0;
 	game->v_up.y = -1;
+	game->v_up.z = 0;
 	game->v_down.x = 0;
 	game->v_down.y = 1;
+	game->v_down.z = 0;
 }
 
 void init_sprites(t_game *game)
@@ -153,7 +157,10 @@ void	precompute_raycast(t_game *game)
     t_vector3d v_right;
     t_vector3d v_player_to_camera_plane;
 	
-    v_right  = vec_normalize(game->camera.plane) ;
+    // v_right.x = 0; //vec_normalize(game->camera.plane);
+	// v_right.y = 1;
+	// v_right.z = 0;
+	v_right = vec_rotate(game->player.direction, 90);
 	v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
 	while(i < RES_X)
 	{
@@ -207,20 +214,23 @@ void	var_init(t_game *game)
 	while(i--)
 		game->key_release_states[i] = 1;
 	game->mlx = _mlx()->mlx;
+	init_basic_vectors(game);
 	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
-	game->player.pos.x = 20*64 + 32;
-	game->player.pos.y = 5*64 + 32;
+	game->player.pos.x = 2*64 + 32;
+	game->player.pos.y = 2*64 + 32;
 	game->player.pos.z = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
-	game->player.pos3d.x = 30*64 + 32;
-	game->player.pos3d.y = 30*64 + 32; 
+	game->player.pos3d.x = 2*64 + 32;
+	game->player.pos3d.y = 2*64 + 32; 
 	game->player.pos3d.z = 32;
+	
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
 	game->player.direction.z = 0; 
 	game->player.tilt = 0; 
-	game->player.angle = 0; 
+	game->player.angle = vec_angle(game->v_left, game->player.direction) * 180.0f / M_PI; 
+	printf("player_angle %f\n", game->player.angle);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
@@ -237,9 +247,6 @@ void	var_init(t_game *game)
 	game->mouse_move = 0;
 	game->player.kills = 0;
 	game->inventory_display = 0;
-	// angle_to_vector( M_PI / 4, &game->player.direction);
-    // vec_print(&game->player.direction, "player dir");
-	// close_window(game);
 	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 16 + MAP_MARGIN * 2, map_heigth(game->map) * 16 + MAP_MARGIN * 2);
 	game->debug_img.addr = mlx_get_data_addr(game->debug_img.mlx_img, &game->debug_img.bpp,
 			&game->debug_img.line_len, &game->debug_img.endian);
@@ -262,9 +269,6 @@ void	var_init(t_game *game)
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);
-	// load_map(game);
-	// load_sounds(&game->sounds);
-	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 	handle_time(game);

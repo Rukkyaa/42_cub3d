@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 14:45:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:01:11 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 
 // Items
 # define AXE 1
+# define PLASMA_RIFFLE 2
 # define HEALTH 50
 
 // Zombies

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:44:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:23:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	add_item(t_game *game, int id)
 	int	i;
 
 	i = -1;
+	printf("add item %d\n", id);
 	while (++i < 36)
 	{
 		if (game->inventory.items[i] == 0)
@@ -46,6 +47,10 @@ void	select_item(t_game *game, int x, int y)
 {
 	if (get_item(x, y, game->inventory.items) == AXE)
 		game->inventory.selected_img = &game->weapon_icons.axe;
+	else if (get_item(x, y, game->inventory.items) == PLASMA_RIFFLE)
+		game->inventory.selected_img = &game->weapon_icons.plasma_riffle;
+	else
+		game->inventory.selected_img = NULL;
 }
 
 bool	item_out_of_bound(t_vector3d mouse, t_img img, t_img selected)

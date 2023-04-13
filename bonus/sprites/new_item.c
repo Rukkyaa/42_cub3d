@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:38:45 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:23:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,10 @@ t_animation	load_item_anim(t_game *game, int id)
 		anim.current_img = &game->weapon_icons.axe;
 	else if (id == HEALTH)
 		anim.current_img = &game->texture.heart;
+	else if (id == PLASMA_RIFFLE)
+		anim.current_img = &game->weapon_icons.plasma_riffle;
+	else
+		printf("Error: unknown item id %d\n", id);
 	anim.frame_duration_ms = 30;
 	return (anim);
 }
@@ -32,6 +36,8 @@ t_animation	get_item_anim(t_game *game, int id)
 		return (game->animations.axe);
 	else if (id == HEALTH)
 		return (game->animations.heart);
+	else if (id == PLASMA_RIFFLE)
+		return (game->animations.plasma_riffle);
 	printf("Error: unknown item id %d\n", id);
 	return (game->animations.plasma_riffle);
 }

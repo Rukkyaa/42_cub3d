@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:44:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:08:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ void	refresh_inventory(t_game *game)
 				continue ;
 			if (game->inventory.items[i * 12 + j] == AXE)
 				put_img_to_img(&game->weapon_icons.axe, &_mlx()->img, 329 + j * 80, 530 + i * 70);
+			else if (game->inventory.items[i * 12 + j] == PLASMA_RIFFLE)
+				put_img_to_img(&game->weapon_icons.plasma_riffle, &_mlx()->img, 329 + j * 80, 530 + i * 70);
 		}
 	}
 	if (game->inventory.selected != -1)

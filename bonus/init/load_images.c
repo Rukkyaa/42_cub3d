@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 14:23:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:59:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.ground, "images/retro_texture_pack/TILE_3E.xpm");
 	ft_xpm_to_img(game, &game->texture.roof, "images/retro_texture_pack/CONCRETE_1A.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
-	ft_xpm_to_img(game, &game->weapon_icons.sword, "images/weapons/longsword.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.axe, "images/weapons/axe.xpm");
+	ft_xpm_to_img(game, &game->weapon_icons.plasma_riffle, "images/weapons/icon/plasma_riffle.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
 	ft_xpm_to_img(game, &game->hud.life_red_bar, "images/lifebar/red_bar.xpm");

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:26:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:50:11 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,6 +97,6 @@ int	close_window(t_game *game)
 	free(game->mlx);
 	free_array(game->map);
 	kill_threads(game);
-	// free_garbage();
+	free_garbage();
 	exit(0);
 }

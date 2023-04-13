@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:01:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:16:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,10 @@ void init_sprites(t_game *game)
 	game->sprites = NULL;
 	while(i < 10)
 	{
-		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		zombie_pos.x = (double) rand() / (double) RAND_MAX * map_width(game->map) * 64;
+		zombie_pos.y = (double) rand() / (double) RAND_MAX * map_heigth(game->map) * 64;
 		zombie_pos.z = 0;
-		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		if (game->map[(int) (zombie_pos.y / 64)][(int) (zombie_pos.x / 64)] == '0')
 		{
 			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
 			if (!tmp)
@@ -257,7 +257,7 @@ void	var_init(t_game *game)
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);
-	load_map(game);
+	// load_map(game);
 	// load_sounds(&game->sounds);
 	init_basic_vectors(game);
 	init_inventory(game);

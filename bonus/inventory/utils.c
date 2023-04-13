@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:23:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:32:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void	add_item(t_game *game, int id)
 	int	i;
 
 	i = -1;
-	printf("add item %d\n", id);
 	while (++i < 36)
 	{
 		if (game->inventory.items[i] == 0)

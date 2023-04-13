@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:23:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:32:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,7 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, int id)
 	new_item->pos.x = pos.x;
 	new_item->pos.y = pos.y;
 	new_item->animation = get_item_anim(game, id);
-	new_item->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
-		game->time.frame.tv_usec / 1000;
+	new_item->animation.start_time_ms = ft_now();
 	new_item->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_item->animation.nb_imgs;
 	new_item->pos.z = 0;
 	new_item->height = 20;

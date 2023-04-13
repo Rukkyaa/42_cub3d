@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/12 17:32:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:29:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,16 +26,12 @@
 # define DEATH 2
 # define SPAWN 3
 
-// Weapons
-# define SWORD 0
-# define AXE 1
-
 // Projectiles
 # define GREEN_PROJ 0
 # define BLUE_PROJ 1
 
-
 // Items
+# define AXE 0
 # define HEALTH 50
 
 // Zombies
@@ -156,7 +152,6 @@ typedef struct s_animations
 	t_animation	zombie_hit;
 	t_animation	zombie_death;
 	t_animation	zombie_spawn;
-	t_animation	sword;
 	t_animation	axe;
 	t_animation	plasma_riffle;
 	t_animation	heart;

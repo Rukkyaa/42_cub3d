@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:21:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:31:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		if (sprite->animation.current_frame > 40)
 		{
 			if (((double)rand() / (double)RAND_MAX) < 0.5)
-				spawn_item(game, sprite->pos, "heart", HEALTH);
+				spawn_item(game, sprite->pos, HEALTH);
 			remove_entity(&game->sprites, sprite);
 		}
 	}

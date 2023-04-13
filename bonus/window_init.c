@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 18:02:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:36:21 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,8 @@
 void	init_animations(t_game *game)
 {
 	load_zombie_anim(game);
-	game->animations.sword = load_item_anim(game, "sword");
-	game->animations.axe = load_item_anim(game, "axe");
-	game->animations.heart = load_item_anim(game, "heart");
+	game->animations.axe = load_item_anim(game, AXE);
+	game->animations.heart = load_item_anim(game, HEALTH);
 }
 
 void	init_camera(t_camera *camera)

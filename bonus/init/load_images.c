@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 16:40:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:33:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.plasma_riffle, "images/weapons/icon/plasma_riffle.xpm");
+	ft_xpm_to_img(game, &game->weapon_icons.grap_gun, "images/weapons/icon/grap_gun.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");
 	ft_xpm_to_img(game, &game->hud.life_red_bar, "images/lifebar/red_bar.xpm");

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:41:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:29:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ t_animation	load_item_anim(t_game *game, int id)
 		anim.current_img = &game->weapon_icons.plasma_riffle;
 	else if (id == COCAINE)
 		anim.current_img = &game->texture.cocaine;
+	else if (id == GRAP_GUN)
+		anim.current_img = &game->weapon_icons.grap_gun;
 	else
 		printf("Error: unknown item id %d\n", id);
 	anim.frame_duration_ms = 30;
@@ -42,6 +44,8 @@ t_animation	get_item_anim(t_game *game, int id)
 		return (game->animations.plasma_riffle);
 	else if (id == COCAINE)
 		return (game->animations.cocaine);
+	else if (id == GRAP_GUN)
+		return (game->animations.grap_gun);
 	printf("Error: unknown item id %d\n", id);
 	return (game->animations.plasma_riffle);
 }

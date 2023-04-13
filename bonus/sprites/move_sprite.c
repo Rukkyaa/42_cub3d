@@ -6,23 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:58:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:21:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-static bool	can_move(char **map, t_vector3d pos)
-{
-	int	x;
-	int	y;
-
-	x = (int)(pos.x) / 64;
-	y = (int)(pos.y) / 64;
-	if (is_wall(map[y][x]) || ((pos.z < 0 || 64 < pos.z)))
-		return (false);
-	return (true);
-}
 
 static bool	projectile_terrain_collide(char **map, t_sprite *proj)
 {
@@ -71,7 +59,6 @@ void	mob_wall_collide(t_game *game, t_sprite *mob)
 
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 {
-	t_vector3d	tmp;
 	t_vector3d	start;
 
 	if (sprite->state == SPAWN)
@@ -124,8 +111,8 @@ int proj_mob_collide(t_sprite *mob, t_sprite *proj) {
 	float straight_dist;
 	proj_to_mob = vec_sum(mob->pos, vec_scalar_mult(proj->pos, -1));
 
-	float angle = vec_angle(proj->speed, proj_to_mob);
-	float x_y_dist = sinf(angle) * vec_distance(mob->pos, proj->pos);
+	// float angle = vec_angle(proj->speed, proj_to_mob);
+	// float x_y_dist = sinf(angle) * vec_distance(mob->pos, proj->pos);
 	// vec3_print(proj->pos, "proj->pos");
 
 	straight_dist = sqrt((mob->pos.x - proj->pos.x) * (mob->pos.x - proj->pos.x) + (mob->pos.y - proj->pos.y) * (mob->pos.y - proj->pos.y));

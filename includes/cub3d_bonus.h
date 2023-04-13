@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:53:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 14:19:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -342,6 +342,7 @@ void			update_width(t_sprite *sprite);
 void			update_start_time(t_sprite *sprite, t_game *game);
 void			attack(t_game *game, t_sprite *sprite, t_player *player);
 bool			do_damage(int damage, t_sprite *sprite);
+void			respawn_zombie(t_game *game);
 
 
 //INIT

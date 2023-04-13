@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 15:01:11 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:00:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define AXE 1
 # define PLASMA_RIFFLE 2
 # define HEALTH 50
+# define COCAINE 51
 
 // Zombies
 # define NORMAL_ZOMBIE 0
@@ -130,6 +131,7 @@ typedef struct s_texture
 	t_img	projectile;
 	t_img	blue_projectile;
 	t_img	heart;
+	t_img	cocaine;
 	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
@@ -158,6 +160,7 @@ typedef struct s_animations
 	t_animation	axe;
 	t_animation	plasma_riffle;
 	t_animation	heart;
+	t_animation	cocaine;
 }				t_animations;
 
 typedef struct s_animated_mob
@@ -239,12 +242,17 @@ typedef struct s_player
 	t_vector3d	collision_pos;
 	t_vector3d	direction;
 	t_weapon	*weapon;
+	int			weapon_selected;
 	int			kills;
 	int 		tilt;
 	int			max_hp;
 	int			hp;
+	int			velocity;
 	float		angle;
 	float		direction_adjust;
+	int			bonus_strength;
+	long		start_cocaine;
+	bool		cocaine;
 	t_vector3d	current_tile;
 }				t_player;
 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 14:49:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 15:39:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	handle_keypress(int keycode, t_game *game)
 		close_window(game);
 	if (is_key(keycode))
 		game->key_states[keycode] = 1;
-	if (game->key_states[keycode] == 0)
+	if (keycode == 'e')
 	{
 		if(game->inventory_display)
 		{

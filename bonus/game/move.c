@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 16:21:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:02:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,9 @@ void	edit_player_pos(t_game *game)
 		game->player.speed = vec_normalize(game->player.speed);
 	}
 	if(game->key_states[2] && game->key_states['w'])
-		game->player.speed = vec_scalar_mult(game->player.speed, 200 * game->time.delta_frame_ms / 1000.0f);
+		game->player.speed = vec_scalar_mult(game->player.speed, game->player.velocity * 2 * game->time.delta_frame_ms / 1000.0f);
 	else
-		game->player.speed = vec_scalar_mult(game->player.speed, 100 * game->time.delta_frame_ms / 1000.0f);
+		game->player.speed = vec_scalar_mult(game->player.speed, game->player.velocity * game->time.delta_frame_ms / 1000.0f);
 	player_collides(game, game->player.speed);
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;

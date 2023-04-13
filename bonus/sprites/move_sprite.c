@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:01:42 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 17:05:49 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,12 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 			float rand_num = (float)((double)rand() / (double)RAND_MAX);
 			if (rand_num <= 0.05)
 				spawn_item(game, sprite->pos, HEALTH);
-			else if (rand_num > 0.05 && rand_num <= 0.5)
+			else if (rand_num > 0.05 && rand_num <= 0.15 && !weapon_in_inventory(game, AXE))
 				spawn_item(game, sprite->pos, AXE);
-			else if (rand_num > 0.5 && rand_num <= 1)
+			else if (rand_num > 0.15 && rand_num <= 0.30 && !weapon_in_inventory(game, PLASMA_RIFFLE))
 				spawn_item(game, sprite->pos, PLASMA_RIFFLE);
+			else if (rand_num > 0.30 && rand_num <= 0.35 && !game->player.cocaine)
+				spawn_item(game, sprite->pos, COCAINE);
 			remove_entity(&game->sprites, sprite);
 		}
 	}
@@ -146,7 +148,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		}
 		if (tmp->type == MOB && proj_mob_collide(tmp, proj) && tmp->hp > 0)
 		{
-			if (do_damage(proj->damage, tmp))
+			if (do_damage(proj->damage + game->player.bonus_strength, tmp))
 			{
 				game->player.kills++;
 				if (game->player.kills % 3 == 0)

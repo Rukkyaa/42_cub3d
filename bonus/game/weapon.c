@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/12 18:00:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:54:54 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void    melee_attack(t_game *game, t_weapon *weapon)
         {
             if(fabs(sprite->angle_to_player) < M_PI / 4 && sprite->distance < 45)
 			{
-				if (do_damage(weapon->damage, sprite))
+				if (do_damage(weapon->damage + game->player.bonus_strength, sprite))
 				{
 					game->player.kills++;
 					if (game->player.kills % 3 == 0)

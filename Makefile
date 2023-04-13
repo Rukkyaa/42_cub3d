@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/13 16:12:09 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/13 17:10:55 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,7 +89,7 @@ RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load re
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #
-INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils refresh))
+INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils refresh weapons))
 INVENTORY_OBJS_BONUS = $(INVENTORY_SRC_BONUS:.c=.o)
 
 # SINGLETONS #

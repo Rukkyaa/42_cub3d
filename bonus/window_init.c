@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:16:24 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:10:06 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_animations(t_game *game)
 	game->animations.axe = load_item_anim(game, AXE);
 	game->animations.heart = load_item_anim(game, HEALTH);
 	game->animations.plasma_riffle = load_item_anim(game, PLASMA_RIFFLE);
+	game->animations.cocaine = load_item_anim(game, COCAINE);
 }
 
 void	init_camera(t_camera *camera)
@@ -225,6 +226,10 @@ void	var_init(t_game *game)
 	game->player.direction_adjust = 10; 
 	game->player.max_hp = 100;
 	game->player.hp = 100;
+	game->player.weapon_selected = 24;
+	game->player.cocaine = false;
+	game->player.bonus_strength = 0;
+	game->player.velocity = 100;
 	game->frame_count = 0;
 	game->time.delta_frame_ms = 0;
 	game->time.fps = 0;

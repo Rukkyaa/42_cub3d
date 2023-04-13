@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:23:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:41:22 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ t_animation	load_item_anim(t_game *game, int id)
 		anim.current_img = &game->texture.heart;
 	else if (id == PLASMA_RIFFLE)
 		anim.current_img = &game->weapon_icons.plasma_riffle;
+	else if (id == COCAINE)
+		anim.current_img = &game->texture.cocaine;
 	else
 		printf("Error: unknown item id %d\n", id);
 	anim.frame_duration_ms = 30;
@@ -38,6 +40,8 @@ t_animation	get_item_anim(t_game *game, int id)
 		return (game->animations.heart);
 	else if (id == PLASMA_RIFFLE)
 		return (game->animations.plasma_riffle);
+	else if (id == COCAINE)
+		return (game->animations.cocaine);
 	printf("Error: unknown item id %d\n", id);
 	return (game->animations.plasma_riffle);
 }
@@ -52,8 +56,7 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, int id)
 	new_item->pos.x = pos.x;
 	new_item->pos.y = pos.y;
 	new_item->animation = get_item_anim(game, id);
-	new_item->animation.start_time_ms = game->time.frame.tv_sec * 1000 +
-		game->time.frame.tv_usec / 1000;
+	new_item->animation.start_time_ms = ft_now();
 	new_item->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_item->animation.nb_imgs;
 	new_item->pos.z = 0;
 	new_item->height = 20;

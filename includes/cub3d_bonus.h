@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:55:06 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/13 17:11:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,6 +301,10 @@ int				get_item(int x, int y, int items[36]);
 bool			item_out_of_bound(t_vector3d mouse, t_img img, t_img selected);
 bool			is_consommable(t_sprite *item);
 void			use_item(t_game *game, t_sprite *item);
+void			inventory_switch(t_game *game);
+bool			weapon_in_inventory(t_game *game, int id);
+void			check_item(t_game *game);
+
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **

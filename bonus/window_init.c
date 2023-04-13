@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 16:10:10 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:40:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ void	init_animations(t_game *game)
 	game->animations.axe = load_item_anim(game, AXE);
 	game->animations.heart = load_item_anim(game, HEALTH);
 	game->animations.plasma_riffle = load_item_anim(game, PLASMA_RIFFLE);
+	game->animations.cocaine = load_item_anim(game, COCAINE);
 }
 
 void	init_camera(t_camera *camera)

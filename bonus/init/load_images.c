@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 14:59:37 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:40:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.projectile, "images/projectiles/green_energy_ball.xpm");
 	ft_xpm_to_img(game, &game->texture.blue_projectile, "images/projectiles/blue_energy_ball.xpm");
 	ft_xpm_to_img(game, &game->texture.heart, "images/items/heart/heart.xpm");
+	ft_xpm_to_img(game, &game->texture.cocaine, "images/items/cocaine.xpm");
 	load_number(game);
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }

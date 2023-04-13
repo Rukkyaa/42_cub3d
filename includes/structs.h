@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 16:09:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/13 16:40:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define AXE 1
 # define PLASMA_RIFFLE 2
 # define HEALTH 50
+# define COCAINE 51
 
 // Zombies
 # define NORMAL_ZOMBIE 0
@@ -130,6 +131,7 @@ typedef struct s_texture
 	t_img	projectile;
 	t_img	blue_projectile;
 	t_img	heart;
+	t_img	cocaine;
 	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
@@ -158,6 +160,7 @@ typedef struct s_animations
 	t_animation	axe;
 	t_animation	plasma_riffle;
 	t_animation	heart;
+	t_animation	cocaine;
 }				t_animations;
 
 typedef struct s_animated_mob

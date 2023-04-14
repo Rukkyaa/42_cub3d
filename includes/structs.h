@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 14:45:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:10:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@
 
 // Sound
 
-# define NB_SOUNDS 3
+# define NB_SOUNDS 7
+# define MAX_AXE_SOUNDS 5
 # define RUNNING_SOUND 0
 # define WALKING_SOUND 1
 # define AXE_SOUND 2

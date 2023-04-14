@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:48:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:13:47 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,22 @@ void	clear_unused_sounds(t_game *game)
 	}
 }
 
+void	play_axe_sound(t_game *game)
+{
+	int	i;
+
+	i = AXE_SOUND;
+	while (i < MAX_AXE_SOUNDS)
+	{
+		if (!is_sound_playing(game, i))
+		{
+			restart_sound(&game->audio.sounds[i]);
+			return ;
+		}
+		i++;
+	}
+}
+
 void	game_sound(t_game *game)
 {
 	clear_unused_sounds(game);
@@ -47,9 +63,7 @@ void	game_sound(t_game *game)
 		restart_sound(&game->audio.sounds[RUNNING_SOUND]);
 	if (game->player.shooting)
 	{
-		if (is_sound_playing(game, AXE_SOUND) && game->player.shooting != AXE)
-			ma_sound_stop(&game->audio.sounds[AXE_SOUND]);
 		if (game->player.shooting == AXE)
-			restart_sound(&game->audio.sounds[AXE_SOUND]);
+			play_axe_sound(game);
 	}
 }

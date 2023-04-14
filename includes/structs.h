@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 13:56:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:26:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -219,6 +219,7 @@ typedef struct s_weapon
 	t_animation fire_anim;
 	int			is_melee;
 	int			projectile;
+	int			id;
 	float		auto_attack;
 	float		cool_down_ms;
 	float		attack_speed;
@@ -256,6 +257,7 @@ typedef struct s_player
 	long		start_cocaine;
 	bool		cocaine;
 	int			state;
+	int			shooting;
 	t_vector3d	current_tile;
 }				t_player;
 

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 13:56:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:27:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void init_weapons(t_game *game)
 	grap_gun.screen_pos.y = RES_Y - grap_gun.idle_img->heigth;
 	grap_gun.is_melee = 0;
 	grap_gun.projectile = GREEN_PROJ;
+	grap_gun.id = GRAP_GUN;
 
 	// Axe anim
 	t_weapon axe;
@@ -117,6 +118,7 @@ void init_weapons(t_game *game)
 	axe.damage = 25;
 	axe.state = IDLE;
 	axe.is_melee = 1;
+	axe.id = AXE;
 
 
 	// Plasma riffle anim
@@ -139,6 +141,7 @@ void init_weapons(t_game *game)
 	plasma_riffle.screen_pos.y = RES_Y - plasma_riffle.idle_img->heigth;
 	plasma_riffle.is_melee = 0;
 	plasma_riffle.projectile = BLUE_PROJ;
+	plasma_riffle.id = PLASMA_RIFFLE;
 
 	game->weapons.grap_gun = grap_gun;
 	game->weapons.axe = axe;

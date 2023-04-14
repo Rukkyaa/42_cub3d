@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:09:44 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:32:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,4 +45,9 @@ void	game_sound(t_game *game)
 		restart_sound(&game->audio.sounds[WALKING_SOUND]);
 	else if (game->player.state == RUNNING_STATE)
 		restart_sound(&game->audio.sounds[RUNNING_SOUND]);
+	if (game->player.shooting)
+	{
+		if (!is_sound_playing(game, SHOOTING_SOUND))
+			play_sound(&game->audio.sounds[SHOOTING_SOUND]);
+	}
 }

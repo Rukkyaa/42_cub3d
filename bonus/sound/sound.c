@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:07:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:17:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,11 @@ void	play_sound(ma_sound *sound)
 
 void	restart_sound(ma_sound *sound)
 {
-	ma_sound_set_start_time_in_pcm_frames(sound, 0);
-	ma_sound_start(sound);
+	if (!ma_sound_is_playing(sound))
+	{
+		ma_sound_set_start_time_in_pcm_frames(sound, 0);
+		ma_sound_start(sound);
+	}
 }
 
 void	add_sound(t_audio *audio, int id, char *path)

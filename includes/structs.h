@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 17:27:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 10:08:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,19 +62,6 @@ typedef struct s_garbage
 	void				*content;
 	struct s_garbage	*next;
 }				t_garbage;
-
-typedef struct s_sound
-{
-	ma_decoder			decoder;
-	ma_device_config	device_config;
-	ma_device			device;
-}				t_sound;
-
-typedef struct s_sounds
-{
-	t_sound	footstep;
-	t_sound	dejavu;
-}				t_sounds;
 
 typedef struct t_vector
 {
@@ -334,7 +321,6 @@ typedef struct s_game
 	int				wall_height;
 	int				wall_height_x_proj_dist;
 	t_texture		texture;
-	t_sounds		sounds;
 	t_camera		camera;
 	t_vector3d		v_up;
 	t_vector3d		v_down;

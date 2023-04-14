@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:02:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 10:09:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,6 @@ void	edit_player_pos(t_game *game)
 	t_vector3d right = vec_rotate(game->player.direction, 90);
 	t_vector3d left = vec_rotate(game->player.direction, 270);
 
-	// if (player_moving(game) && game->key_states[2] == 1)
-	// {
-	// 	ma_device_stop(&game->sounds.footstep.device);
-	// 	ma_device_start(&game->sounds.dejavu.device);
-	// }
-	// else if (player_moving(game))
-	// {
-	// 	ma_device_start(&game->sounds.footstep.device);
-	// 	ma_device_stop(&game->sounds.dejavu.device);
-	// }
-	// else
-	// {
-	// 	ma_device_stop(&game->sounds.footstep.device);
-	// 	ma_device_stop(&game->sounds.dejavu.device);
-	// }
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )

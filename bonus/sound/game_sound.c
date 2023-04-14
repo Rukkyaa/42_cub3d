@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 15:13:47 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 15:41:42 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,23 @@ void	play_axe_sound(t_game *game)
 	int	i;
 
 	i = AXE_SOUND;
-	while (i < MAX_AXE_SOUNDS)
+	while (i < AXE_SOUND + MAX_AXE_SOUNDS)
+	{
+		if (!is_sound_playing(game, i))
+		{
+			restart_sound(&game->audio.sounds[i]);
+			return ;
+		}
+		i++;
+	}
+}
+
+void	play_plasma_riffle_sound(t_game *game)
+{
+	int	i;
+
+	i = PLASMA_RIFFLE_SOUND;
+	while (i < PLASMA_RIFFLE_SOUND + MAX_PLASMA_RIFFLE_SOUNDS)
 	{
 		if (!is_sound_playing(game, i))
 		{
@@ -65,5 +81,7 @@ void	game_sound(t_game *game)
 	{
 		if (game->player.shooting == AXE)
 			play_axe_sound(game);
+		else if (game->player.shooting == PLASMA_RIFFLE)
+			play_plasma_riffle_sound(game);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:46:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:29:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -264,7 +264,7 @@ void	var_init(t_game *game)
 	pre_compute_resize(game);
 	load_img(game);
 	load_map(game);
-	// load_sounds(&game->sounds);
+	init_sounds(&game->audio);
 	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);

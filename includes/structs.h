@@ -6,12 +6,14 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 10:08:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 12:25:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include "miniaudio.h"
 
 # define MOB 0
 # define ITEM 1
@@ -43,6 +45,12 @@
 # define BABY_ZOMBIE 2
 
 # define MAP_MARGIN 160
+
+// Sound
+
+# define NB_SOUNDS 2
+# define RUNNING_SOUND 0
+# define WALKING_SOUND 1
 
 typedef int WEAPON;
 
@@ -273,13 +281,21 @@ typedef struct s_hud
 	t_animation	weapon_anim;
 }				t_hud;
 
+typedef struct s_audio
+{
+	ma_decoder			decoder;
+	ma_device_config	device_config;
+	ma_device			device;
+	ma_engine			engine;
+	ma_sound			sounds[NB_SOUNDS];
+}				t_audio;
+
 typedef struct s_mlx
 {
 	void		*mlx;
 	void		*win;
 	t_img		img;
 }				t_mlx;
-
 
 // ---------------- MULTI-THREADING --------------
 
@@ -334,6 +350,7 @@ typedef struct s_game
 	t_img			minimap;
 	int				mouse_clicked;
 	int				inventory_display;
+	t_audio			audio;
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

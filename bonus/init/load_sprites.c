@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 10:29:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:02:16 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,7 @@ void	fill_sprite_animation(t_game *game, char *dir_path,
 	animation->current_img = animation->imgs[0];
 	animation->nb_imgs = count;
 	animation->current_frame = 0;
+	animation->frame_offset = 0;
 	sort_imgs(animation->imgs);
 	closedir(dir);
 }

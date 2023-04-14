@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:57:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/14 16:50:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -287,6 +287,6 @@ void	var_init(t_game *game)
 	init_weapons(game);
 	load_map_debug(game);
 	clear_z_buffer(game);
-	init_threads(game);
+	// init_threads(game);
 	// close_window(game);
 }

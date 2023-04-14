@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 16:50:08 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:13:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -234,9 +234,10 @@ void	var_init(t_game *game)
 	game->player.direction.z = 0; 
 	game->player.tilt = 0; 
 	game->player.angle = vec_angle(game->v_left, game->player.direction) * 180.0f / M_PI; 
-	printf("player_angle %f\n", game->player.angle);
+	// printf("player_angle %f\n", game->player.angle);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
+	game->player.speed.z = 0; 
 	game->player.direction_adjust = 10; 
 	game->player.max_hp = 100;
 	game->player.hp = 100;

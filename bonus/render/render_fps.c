@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 16:49:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:08:38 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -202,11 +202,11 @@ void    render_fps(t_game *game)
     line_pos.x = 0;
     int i = 0;
     // printf("Rendering frame #%d\n", game->frame_count);
-    pthread_mutex_lock(&game->queue_rights);
-    game->task_count = 0;
-    game->task_done = 0;
-    game->render_finished = 0;
-    pthread_mutex_unlock(&game->queue_rights); 
+    // pthread_mutex_lock(&game->queue_rights);
+    // game->task_count = 0;
+    // game->task_done = 0;
+    // game->render_finished = 0;
+    // pthread_mutex_unlock(&game->queue_rights); 
     while(line_pos.x < RES_X)
     {
         // v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right, game->ray_offset[ (int) line_pos.x]));

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 12:59:39 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 17:01:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:20:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ void	update_animation(t_game *game, t_animation *animation)
 		return ;
 	time_elapsed_ms = (game->time.frame.tv_sec * 1000
 			+ game->time.frame.tv_usec / 1000) - animation->start_time_ms;
-	img_index = (time_elapsed_ms / animation->frame_duration_ms
-			+ animation->frame_offset) % animation->nb_imgs;
+	img_index = (time_elapsed_ms / animation->frame_duration_ms) % animation->nb_imgs;
 	animation->current_img = animation->imgs[img_index];
 	animation->current_frame = img_index;
 }

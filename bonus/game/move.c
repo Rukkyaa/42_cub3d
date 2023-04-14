@@ -6,7 +6,11 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/04/13 17:57:02 by teliet           ###   ########.fr       */
+=======
+/*   Updated: 2023/04/14 14:01:04 by axlamber         ###   ########.fr       */
+>>>>>>> 26e6860376c364254684f1d317cd162d5e61687e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +22,22 @@ void	update_player_tile_pos(t_player	*player)
 	player->tile_pos.y = (int) ( player->pos.y / 64 );
 }
 
+void	update_player_state(int key_states[256], t_game *game)
+{
+	if (key_states['w'] || key_states['s'] || key_states['a'] || key_states['d'])
+		game->player.state = WALKING_STATE;
+	else
+		game->player.state = IDLE_STATE;
+	if (key_states[2] && key_states['w'])
+		game->player.state = RUNNING_STATE;
+}
+
+
 void	edit_player_pos(t_game *game)
 {
 	t_vector3d right = vec_rotate(game->player.direction, 90);
 	t_vector3d left = vec_rotate(game->player.direction, 270);
 
-	// if (player_moving(game) && game->key_states[2] == 1)
-	// {
-	// 	ma_device_stop(&game->sounds.footstep.device);
-	// 	ma_device_start(&game->sounds.dejavu.device);
-	// }
-	// else if (player_moving(game))
-	// {
-	// 	ma_device_start(&game->sounds.footstep.device);
-	// 	ma_device_stop(&game->sounds.dejavu.device);
-	// }
-	// else
-	// {
-	// 	ma_device_stop(&game->sounds.footstep.device);
-	// 	ma_device_stop(&game->sounds.dejavu.device);
-	// }
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )
@@ -60,6 +60,7 @@ void	edit_player_pos(t_game *game)
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
+	update_player_state(game->key_states, game);
 	update_player_tile_pos(&game->player);
 }
 

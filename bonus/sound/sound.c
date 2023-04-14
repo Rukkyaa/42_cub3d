@@ -3,48 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   sound.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 12:54:08 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/14 14:49:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	data_callback(ma_device *pDevice, void *pOutput,
-	const void *pInput, ma_uint32 frameCount)
+void	play_sound(ma_sound *sound)
 {
-	ma_decoder	*p_decoder;
-
-	p_decoder = (ma_decoder *)pDevice->pUserData;
-	ma_data_source_read_pcm_frames(p_decoder, pOutput, frameCount, NULL);
-	(void)pInput;
+	if (!ma_sound_is_playing(sound))
+		ma_sound_start(sound);
 }
 
-void	load_sound(t_sound *sound, char *name)
+void	restart_sound(ma_sound *sound)
 {
-	ma_decoder_init_file(name, NULL, &sound->decoder);
-	ma_data_source_set_looping(&sound->decoder, MA_TRUE);
-	sound->device_config = ma_device_config_init(ma_device_type_playback);
-	sound->device_config.playback.format = sound->decoder.outputFormat;
-	sound->device_config.playback.channels = sound->decoder.outputChannels;
-	sound->device_config.sampleRate = sound->decoder.outputSampleRate;
-	sound->device_config.dataCallback = data_callback;
-	sound->device_config.pUserData = &sound->decoder;
-	ma_device_init(NULL, &sound->device_config, &sound->device);
+	if (!ma_sound_is_playing(sound))
+	{
+		ma_sound_set_start_time_in_pcm_frames(sound, 0);
+		ma_sound_start(sound);
+	}
 }
 
-void	load_sounds(t_sounds *sounds)
+void	add_sound(t_audio *audio, int id, char *path)
 {
-	load_sound(&sounds->footstep, "bonus/sound/footstep.mp3");
-	load_sound(&sounds->dejavu, "bonus/sound/dejavu.mp3");
+	ma_result	result;
+
+	result = ma_sound_init_from_file(&audio->engine, path, 0, NULL, NULL, &audio->sounds[id]);
+	if (result != MA_SUCCESS)
+	{
+		printf("Failed to load sound: %s\n", ma_result_description(result));
+		// EXIT GAME
+	}
+	ma_sound_set_volume(&audio->sounds[id], 0.5f);
 }
 
-void	clear_sounds(t_sounds *sounds)
+void	load_sounds(t_audio *audio)
 {
-	ma_decoder_uninit(&sounds->footstep.decoder);
-	ma_decoder_uninit(&sounds->dejavu.decoder);
-	ma_device_uninit(&sounds->footstep.device);
-	ma_device_uninit(&sounds->dejavu.device);
+	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3");
+	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3");
+	add_sound(audio, AXE_SOUND, "bonus/sound/axe.mp3");
+}
+
+void	init_sounds(t_audio *audio)
+{
+	ma_result	result;
+
+	result = ma_engine_init(NULL, &audio->engine);
+	if (result != MA_SUCCESS)
+	{
+		printf("Failed to initialize audio engine: %s\n", ma_result_description(result));
+		// EXIT GAME
+	}
+	load_sounds(audio);
 }

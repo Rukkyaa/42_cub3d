@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:55:52 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/14 14:57:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void init_weapons(t_game *game)
 	grap_gun.screen_pos.y = RES_Y - grap_gun.idle_img->heigth;
 	grap_gun.is_melee = 0;
 	grap_gun.projectile = GREEN_PROJ;
+	grap_gun.id = GRAP_GUN;
 
 	// Axe anim
 	t_weapon axe;
@@ -121,6 +122,7 @@ void init_weapons(t_game *game)
 	axe.damage = 25;
 	axe.state = IDLE;
 	axe.is_melee = 1;
+	axe.id = AXE;
 
 
 	// Plasma riffle anim
@@ -143,6 +145,7 @@ void init_weapons(t_game *game)
 	plasma_riffle.screen_pos.y = RES_Y - plasma_riffle.idle_img->heigth;
 	plasma_riffle.is_melee = 0;
 	plasma_riffle.projectile = BLUE_PROJ;
+	plasma_riffle.id = PLASMA_RIFFLE;
 
 	game->weapons.grap_gun = grap_gun;
 	game->weapons.axe = axe;
@@ -248,6 +251,10 @@ void	var_init(t_game *game)
 	game->mouse_move = 0;
 	game->player.kills = 0;
 	game->inventory_display = 0;
+	game->player.state = IDLE;
+	// angle_to_vector( M_PI / 4, &game->player.direction);
+    // vec_print(&game->player.direction, "player dir");
+	// close_window(game);
 	game->debug_img.mlx_img = mlx_new_image(game->mlx, map_width(game->map) * 16 + MAP_MARGIN * 2, map_heigth(game->map) * 16 + MAP_MARGIN * 2);
 	game->debug_img.addr = mlx_get_data_addr(game->debug_img.mlx_img, &game->debug_img.bpp,
 			&game->debug_img.line_len, &game->debug_img.endian);
@@ -270,6 +277,9 @@ void	var_init(t_game *game)
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);
+	// load_map(game);
+	init_sounds(&game->audio);
+	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 	handle_time(game);

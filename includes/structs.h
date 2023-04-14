@@ -6,12 +6,14 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 17:27:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:45:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef STRUCT_H
 # define STRUCT_H
+
+# include "miniaudio.h"
 
 # define MOB 0
 # define ITEM 1
@@ -44,6 +46,18 @@
 
 # define MAP_MARGIN 160
 
+// Sound
+
+# define NB_SOUNDS 3
+# define RUNNING_SOUND 0
+# define WALKING_SOUND 1
+# define AXE_SOUND 2
+
+// State
+# define IDLE_STATE 0
+# define WALKING_STATE 1
+# define RUNNING_STATE 2
+
 typedef int WEAPON;
 
 /***************************************************************************
@@ -62,19 +76,6 @@ typedef struct s_garbage
 	void				*content;
 	struct s_garbage	*next;
 }				t_garbage;
-
-typedef struct s_sound
-{
-	ma_decoder			decoder;
-	ma_device_config	device_config;
-	ma_device			device;
-}				t_sound;
-
-typedef struct s_sounds
-{
-	t_sound	footstep;
-	t_sound	dejavu;
-}				t_sounds;
 
 typedef struct t_vector
 {
@@ -219,6 +220,7 @@ typedef struct s_weapon
 	t_animation fire_anim;
 	int			is_melee;
 	int			projectile;
+	int			id;
 	float		auto_attack;
 	float		cool_down_ms;
 	float		attack_speed;
@@ -255,6 +257,8 @@ typedef struct s_player
 	int			bonus_strength;
 	long		start_cocaine;
 	bool		cocaine;
+	int			state;
+	int			shooting;
 	t_vector3d	current_tile;
 }				t_player;
 
@@ -286,13 +290,21 @@ typedef struct s_hud
 	t_animation	weapon_anim;
 }				t_hud;
 
+typedef struct s_audio
+{
+	ma_decoder			decoder;
+	ma_device_config	device_config;
+	ma_device			device;
+	ma_engine			engine;
+	ma_sound			sounds[NB_SOUNDS];
+}				t_audio;
+
 typedef struct s_mlx
 {
 	void		*mlx;
 	void		*win;
 	t_img		img;
 }				t_mlx;
-
 
 // ---------------- MULTI-THREADING --------------
 
@@ -334,7 +346,6 @@ typedef struct s_game
 	int				wall_height;
 	int				wall_height_x_proj_dist;
 	t_texture		texture;
-	t_sounds		sounds;
 	t_camera		camera;
 	t_vector3d		v_up;
 	t_vector3d		v_down;
@@ -348,6 +359,7 @@ typedef struct s_game
 	t_img			minimap;
 	int				mouse_clicked;
 	int				inventory_display;
+	t_audio			audio;
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

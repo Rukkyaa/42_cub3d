@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 10:10:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:02:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ int	game_loop(void *g)
 	render_ui(game);
 	render(game);
 	print_fps(game->time.fps);
+	game_sound(game);
 	handle_sync(game);
 	print_kill(game, game->player.kills, RES_X - 55);
 	check_item(game);

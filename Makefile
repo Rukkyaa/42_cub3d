@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/13 15:42:43 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/14 13:55:32 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #

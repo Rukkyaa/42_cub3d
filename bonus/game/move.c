@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 10:09:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:01:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,17 @@ void	update_player_tile_pos(t_player	*player)
 	player->tile_pos.x = (int) ( player->pos.x / 64 );
 	player->tile_pos.y = (int) ( player->pos.y / 64 );
 }
+
+void	update_player_state(int key_states[256], t_game *game)
+{
+	if (key_states['w'] || key_states['s'] || key_states['a'] || key_states['d'])
+		game->player.state = WALKING_STATE;
+	else
+		game->player.state = IDLE_STATE;
+	if (key_states[2] && key_states['w'])
+		game->player.state = RUNNING_STATE;
+}
+
 
 void	edit_player_pos(t_game *game)
 {
@@ -45,6 +56,7 @@ void	edit_player_pos(t_game *game)
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
+	update_player_state(game->key_states, game);
 	update_player_tile_pos(&game->player);
 }
 

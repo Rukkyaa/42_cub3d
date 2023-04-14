@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 13:51:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:56:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -238,6 +238,7 @@ void	var_init(t_game *game)
 	game->mouse_move = 0;
 	game->player.kills = 0;
 	game->inventory_display = 0;
+	game->player.state = IDLE;
 	// angle_to_vector( M_PI / 4, &game->player.direction);
     // vec_print(&game->player.direction, "player dir");
 	// close_window(game);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 12:25:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 13:56:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,11 @@
 # define NB_SOUNDS 2
 # define RUNNING_SOUND 0
 # define WALKING_SOUND 1
+
+// State
+# define IDLE_STATE 0
+# define WALKING_STATE 1
+# define RUNNING_STATE 2
 
 typedef int WEAPON;
 
@@ -250,6 +255,7 @@ typedef struct s_player
 	int			bonus_strength;
 	long		start_cocaine;
 	bool		cocaine;
+	int			state;
 	t_vector3d	current_tile;
 }				t_player;
 

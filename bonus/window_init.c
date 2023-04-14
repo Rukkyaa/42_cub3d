@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:27:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 14:57:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,16 @@ void	init_basic_vectors(t_game *game)
 {
 	game->v_left.x = -1;
 	game->v_left.y = 0;
+	game->v_left.z = 0;
 	game->v_right.x = 1;
 	game->v_right.y = 0;
+	game->v_right.z = 0;
 	game->v_up.x = 0;
 	game->v_up.y = -1;
+	game->v_up.z = 0;
 	game->v_down.x = 0;
 	game->v_down.y = 1;
+	game->v_down.z = 0;
 }
 
 void init_sprites(t_game *game)
@@ -60,10 +64,10 @@ void init_sprites(t_game *game)
 	game->sprites = NULL;
 	while(i < 10)
 	{
-		zombie_pos.x = (double)rand() / (double)RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double)rand() / (double)RAND_MAX * map_heigth(game->map) * 64;
+		zombie_pos.x = (double) rand() / (double) RAND_MAX * map_width(game->map) * 64;
+		zombie_pos.y = (double) rand() / (double) RAND_MAX * map_heigth(game->map) * 64;
 		zombie_pos.z = 0;
-		if (game->map[(int)zombie_pos.y / 64][(int)zombie_pos.x / 64] == '0')
+		if (game->map[(int) (zombie_pos.y / 64)][(int) (zombie_pos.x / 64)] == '0')
 		{
 			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
 			if (!tmp)
@@ -157,7 +161,10 @@ void	precompute_raycast(t_game *game)
     t_vector3d v_right;
     t_vector3d v_player_to_camera_plane;
 	
-    v_right  = vec_normalize(game->camera.plane) ;
+    // v_right.x = 0; //vec_normalize(game->camera.plane);
+	// v_right.y = 1;
+	// v_right.z = 0;
+	v_right = vec_rotate(game->player.direction, 90);
 	v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
 	while(i < RES_X)
 	{
@@ -211,20 +218,23 @@ void	var_init(t_game *game)
 	while(i--)
 		game->key_release_states[i] = 1;
 	game->mlx = _mlx()->mlx;
+	init_basic_vectors(game);
 	// game->debug_win = mlx_new_window( _mlx()->mlx, map_width(game->map) * 64, map_heigth(game->map) * 64, "map");
-	game->player.pos.x = 20*64 + 32;
-	game->player.pos.y = 5*64 + 32;
+	game->player.pos.x = 2*64 + 32;
+	game->player.pos.y = 2*64 + 32;
 	game->player.pos.z = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
-	game->player.pos3d.x = 30*64 + 32;
-	game->player.pos3d.y = 30*64 + 32; 
+	game->player.pos3d.x = 2*64 + 32;
+	game->player.pos3d.y = 2*64 + 32; 
 	game->player.pos3d.z = 32;
+	
 	game->player.direction.x = 1;
 	game->player.direction.y = 0; 
 	game->player.direction.z = 0; 
 	game->player.tilt = 0; 
-	game->player.angle = 0; 
+	game->player.angle = vec_angle(game->v_left, game->player.direction) * 180.0f / M_PI; 
+	printf("player_angle %f\n", game->player.angle);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0; 
 	game->player.direction_adjust = 10; 
@@ -267,7 +277,7 @@ void	var_init(t_game *game)
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);
-	load_map(game);
+	// load_map(game);
 	init_sounds(&game->audio);
 	init_basic_vectors(game);
 	init_inventory(game);

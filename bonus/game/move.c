@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
+/*   Updated: 2023/04/13 17:57:02 by teliet           ###   ########.fr       */
+=======
 /*   Updated: 2023/04/14 14:01:04 by axlamber         ###   ########.fr       */
+>>>>>>> 26e6860376c364254684f1d317cd162d5e61687e
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,6 +94,7 @@ void	rotate_player(t_game *game, float angle)
 	vec_rotate_edit(&(game->player.direction), angle);
 	vec_rotate_edit(&(game->camera.plane), angle);
 	game->player.angle += angle;
+	game->player.angle = fmod((game->player.angle + 360) , 360);
 }
 
 void	edit_player_rotate(t_game *game)
@@ -101,7 +106,7 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, 3);
 	if(game->mouse_move)
 	{
-		rotate_player(game, game->mouse_diff.x / 40);
+		rotate_player(game, game->mouse_diff.x / 50);
 		game->camera.plane_center.y -=  game->mouse_diff.y / 4;
 		// vec_print(&game->mouse_diff, "mouse diff");
 		game->mouse_diff.x = 0;
@@ -114,7 +119,6 @@ void	edit_player_rotate(t_game *game)
 		if(game->camera.plane_center.y < 150)
 			game->camera.plane_center.y = 150;
 	}
-	game->player.angle = fmod((game->player.angle + 360) , 360);
 	if (game->key_states['r'])
 	{
 		if( game->player.pos3d.z < game->wall_height - 1)

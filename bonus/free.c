@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 16:50:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/14 17:51:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int	close_window(t_game *game)
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
 	free_array(game->map);
-	// kill_threads(game);
+	kill_threads(game);
 	free_garbage();
 	exit(0);
 }

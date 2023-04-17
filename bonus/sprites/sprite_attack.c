@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 13:39:12 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 13:47:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 	{
 		sprite->attacked = true;
 		player->hp -= sprite->damage;
-		player->sound_state.pASsfayer_hurt = true;
+		player->sound_state.player_hurt = true;
 		if (player->hp <= 0)
 		{
 			printf("You died, %d\n", player->kills);

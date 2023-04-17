@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:25:57 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:29:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ void init_weapons(t_game *game)
 	grap_gun.cool_down_ms = 500;
 	grap_gun.fire_anim.frame_duration_ms = (int)(grap_gun.cool_down_ms / grap_gun_anim.nb_imgs) + 1;
 	grap_gun.attack_speed = 2;
-	grap_gun.damage = 100;
+	grap_gun.damage = 200;
 	grap_gun.idle_img = grap_gun_anim.imgs[1];
 	grap_gun.current_img = grap_gun.idle_img;
 	grap_gun.state = IDLE;

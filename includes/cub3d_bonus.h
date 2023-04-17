@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 14:57:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/17 10:58:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -282,7 +282,7 @@ t_vector3d		vec_copy(t_vector3d vec1);
 *******************************************************/
 void			init_sounds(t_audio *audio);
 void			play_sound(ma_sound *sound);
-void			game_sound(t_game *game);
+void			game_sound(t_sound_state sound_state, ma_sound sound[NB_SOUNDS]);
 void			restart_sound(ma_sound *sound);
 
 /***********************************************************************************************

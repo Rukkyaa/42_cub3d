@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 13:47:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:36:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ bool	can_attack(t_sprite *sprite, t_player *player)
 {
 	return (sprite->animation.current_frame > 60
 		&& sprite->animation.current_frame < 70 && sprite->attacked == false
-		&& vec_distance(sprite->pos, player->pos) < 45);
+		&& vec_distance(sprite->pos, player->pos) < 60);
 }
 
 void	update_width(t_sprite *sprite)

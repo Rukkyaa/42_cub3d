@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 15:36:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:24:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,12 +65,25 @@ void	load_plasma_riffle_sounds(t_audio *audio)
 	}
 }
 
+void	load_plasma_sounds(t_audio *audio)
+{
+	int	i;
+
+	i = PLASMA_SHOOT_SOUND;
+	while (i < PLASMA_SHOOT_SOUND + MAX_PLASMA_SHOOT_SOUNDS)
+	{
+		add_sound(audio, i, "bonus/sound/plasma_shoot.wav");
+		i++;
+	}
+}
+
 void	load_sounds(t_audio *audio)
 {
 	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3");
 	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3");
 	load_weapon_sounds(audio);
 	load_plasma_riffle_sounds(audio);
+	load_plasma_sounds(audio);
 }
 
 void	init_sounds(t_audio *audio)

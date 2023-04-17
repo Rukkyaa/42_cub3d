@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/14 15:36:19 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:24:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,13 +48,17 @@
 
 // Sound
 
-# define NB_SOUNDS 12
+# define NB_SOUNDS 17
+
 # define MAX_AXE_SOUNDS 5
-# define MAX_PLASMA_RIFFLE_SOUNDS 5
+# define MAX_PLASMA_RIFFLE_SOUNDS 7
+# define MAX_PLASMA_SHOOT_SOUNDS 3
+
 # define RUNNING_SOUND 0
 # define WALKING_SOUND 1
 # define AXE_SOUND 2 // 2 to 6
-# define PLASMA_RIFFLE_SOUND 7 // 7 to 11
+# define PLASMA_RIFFLE_SOUND 7 // 7 to 13
+# define PLASMA_SHOOT_SOUND 14 // 14 to 16
 
 // State
 # define IDLE_STATE 0

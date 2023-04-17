@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/17 11:25:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:26:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@
 
 // Sound
 
-# define NB_SOUNDS 25
+# define NB_SOUNDS 26
 
 # define MAX_AXE_SOUNDS 5
 # define MAX_PLASMA_RIFFLE_SOUNDS 7
@@ -61,6 +61,7 @@
 # define PLASMA_RIFFLE_SOUND 7 // 7 to 13
 # define PLASMA_SHOOT_SOUND 14 // 14 to 16
 # define PLAYER_HURT_SOUND 17 // 17 to 24
+# define COCAINE_SOUND 25
 
 // State
 # define IDLE_STATE 0
@@ -260,6 +261,7 @@ typedef struct s_sound_state
 	int		player_state;
 	int		player_shooting;
 	bool	player_hurt;
+	bool	cocaine;
 }				t_sound_state;
 
 typedef struct s_player

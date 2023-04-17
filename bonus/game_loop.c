@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 11:24:21 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:28:09 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	game_loop(void *g)
 
 	game = (t_game *) g;
 	game->player.sound_state.player_hurt = false;
+	game->player.sound_state.cocaine = false;
 	clear_z_buffer(game);
 	handle_time(game);
 	edit_player_rotate(game);		

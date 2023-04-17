@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 11:55:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:19:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:27:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void	use_item(t_game *game, t_sprite *item)
 	else if (item->id == COCAINE)
 	{
 		game->player.cocaine = true;
+		game->player.sound_state.cocaine = true;
 		game->player.start_cocaine = ft_now();
 	}
 }

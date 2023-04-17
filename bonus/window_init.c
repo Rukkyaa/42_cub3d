@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 11:08:34 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:27:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -213,6 +213,7 @@ void	sound_state_init(t_sound_state *sound_state)
 	sound_state->player_state = IDLE;
 	sound_state->player_shooting = 0;
 	sound_state->player_hurt = false;
+	sound_state->cocaine = false;
 }
 
 void	var_init(t_game *game)

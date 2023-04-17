@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:52:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:28:04 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	if (type == NORMAL_ZOMBIE)
 	{
 		new_zombie->height = 45;
-		new_zombie->velocity = 4;
+		new_zombie->velocity = 2;
 		new_zombie->hp = 200;
 		new_zombie->damage = 10;
 	}
 	else if (type == BABY_ZOMBIE)
 	{
 		new_zombie->height = 30;
-		new_zombie->velocity = 5;
+		new_zombie->velocity = 3;
 		new_zombie->hp = 100;
 		new_zombie->animated_mob.hit.frame_duration_ms = 10;
 		new_zombie->damage = 5;
@@ -60,7 +60,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	else if (type == BIG_ZOMBIE)
 	{
 		new_zombie->height = 60;
-		new_zombie->velocity = 2;
+		new_zombie->velocity = 1;
 		new_zombie->hp = 300;
 		new_zombie->animated_mob.run = game->animations.zombie_walk;
 		new_zombie->animated_mob.hit.frame_duration_ms = 20;

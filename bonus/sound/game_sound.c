@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 15:26:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 15:41:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,60 +39,13 @@ void	clear_unused_sounds(t_sound_state sound_state,
 	}
 }
 
-void	play_axe_sound(ma_sound sounds[NB_SOUNDS])
+void	play_multiple_sound(ma_sound sounds[NB_SOUNDS], int sound_id,
+	int max_sounds)
 {
 	int	i;
 
-	i = AXE_SOUND;
-	while (i < AXE_SOUND + MAX_AXE_SOUNDS)
-	{
-		if (!is_sound_playing(&sounds[i]))
-		{
-			restart_sound(&sounds[i]);
-			return ;
-		}
-		i++;
-	}
-}
-
-void	play_plasma_riffle_sound(ma_sound sounds[NB_SOUNDS])
-{
-	int	i;
-
-	i = PLASMA_RIFFLE_SOUND;
-	while (i < PLASMA_RIFFLE_SOUND + MAX_PLASMA_RIFFLE_SOUNDS)
-	{
-		if (!is_sound_playing(&sounds[i]))
-		{
-			restart_sound(&sounds[i]);
-			return ;
-		}
-		i++;
-	}
-}
-
-void	play_plasma_shoot_sound(ma_sound sounds[NB_SOUNDS])
-{
-	int	i;
-
-	i = PLASMA_SHOOT_SOUND;
-	while (i < PLASMA_SHOOT_SOUND + MAX_PLASMA_SHOOT_SOUNDS)
-	{
-		if (!is_sound_playing(&sounds[i]))
-		{
-			restart_sound(&sounds[i]);
-			return ;
-		}
-		i++;
-	}
-}
-
-void	play_player_hurt_sound(ma_sound sounds[NB_SOUNDS])
-{
-	int	i;
-
-	i = PLAYER_HURT_SOUND;
-	while (i < PLAYER_HURT_SOUND + MAX_PLAYER_HURT_SOUNDS)
+	i = sound_id;
+	while (i < sound_id + max_sounds)
 	{
 		if (!is_sound_playing(&sounds[i]))
 		{
@@ -113,14 +66,17 @@ void	game_sound(t_sound_state sound_state, ma_sound sounds[NB_SOUNDS])
 	if (sound_state.player_shooting)
 	{
 		if (sound_state.player_shooting == AXE)
-			play_axe_sound(sounds);
+			play_multiple_sound(sounds, AXE_SOUND, MAX_AXE_SOUNDS);
 		else if (sound_state.player_shooting == PLASMA_RIFFLE)
-			play_plasma_riffle_sound(sounds);
+			play_multiple_sound(sounds, PLASMA_RIFFLE_SOUND,
+				MAX_PLASMA_RIFFLE_SOUNDS);
 		else if (sound_state.player_shooting == GRAP_GUN)
-			play_plasma_shoot_sound(sounds);
+			play_multiple_sound(sounds, PLASMA_SHOOT_SOUND,
+				MAX_PLASMA_SHOOT_SOUNDS);
 	}
 	if (sound_state.player_hurt)
-		play_player_hurt_sound(sounds);
+		play_multiple_sound(sounds, PLAYER_HURT_SOUND,
+			MAX_PLAYER_HURT_SOUNDS);
 	if (sound_state.cocaine)
 		restart_sound(&sounds[COCAINE_SOUND]);
 }

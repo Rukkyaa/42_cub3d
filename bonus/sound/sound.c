@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:24:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 11:21:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,18 @@ void	load_plasma_sounds(t_audio *audio)
 	}
 }
 
+void	load_player_hurt_sounds(t_audio *audio)
+{
+	int	i;
+
+	i = PLAYER_HURT_SOUND;
+	while (i < PLAYER_HURT_SOUND + MAX_PLAYER_HURT_SOUNDS)
+	{
+		add_sound(audio, i, "bonus/sound/hurt.wav");
+		i++;
+	}
+}
+
 void	load_sounds(t_audio *audio)
 {
 	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3");
@@ -84,6 +96,7 @@ void	load_sounds(t_audio *audio)
 	load_weapon_sounds(audio);
 	load_plasma_riffle_sounds(audio);
 	load_plasma_sounds(audio);
+	load_player_hurt_sounds(audio);
 }
 
 void	init_sounds(t_audio *audio)

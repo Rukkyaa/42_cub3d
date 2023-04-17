@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:56:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 11:23:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,22 @@ void	play_plasma_shoot_sound(ma_sound sounds[NB_SOUNDS])
 	}
 }
 
+void	play_player_hurt_sound(ma_sound sounds[NB_SOUNDS])
+{
+	int	i;
+
+	i = PLAYER_HURT_SOUND;
+	while (i < PLAYER_HURT_SOUND + MAX_PLAYER_HURT_SOUNDS)
+	{
+		if (!is_sound_playing(&sounds[i]))
+		{
+			restart_sound(&sounds[i]);
+			return ;
+		}
+		i++;
+	}
+}
+
 void	game_sound(t_sound_state sound_state, ma_sound sounds[NB_SOUNDS])
 {
 	clear_unused_sounds(sound_state, sounds);
@@ -103,4 +119,6 @@ void	game_sound(t_sound_state sound_state, ma_sound sounds[NB_SOUNDS])
 		else if (sound_state.player_shooting == GRAP_GUN)
 			play_plasma_shoot_sound(sounds);
 	}
+	if (sound_state.player_hurt)
+		play_player_hurt_sound(sounds);
 }

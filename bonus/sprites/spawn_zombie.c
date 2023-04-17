@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:28:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 14:09:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	load_zombie_anim(t_game *game)
 	fill_sprite_animation(game, "images/FPS_pixel_zombie/DEAD_CROPPED_XPM", &game->animations.zombie_death);
 	game->animations.zombie_death.frame_duration_ms = 30;
 	fill_sprite_animation(game, "images/FPS_pixel_zombie/SPAWN_CROPPED_XPM", &game->animations.zombie_spawn);
-	game->animations.zombie_spawn.frame_duration_ms = 15;
+	game->animations.zombie_spawn.frame_duration_ms = 10;
 }
 
 t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
@@ -54,7 +54,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 		new_zombie->height = 30;
 		new_zombie->velocity = 3;
 		new_zombie->hp = 100;
-		new_zombie->animated_mob.hit.frame_duration_ms = 10;
+		new_zombie->animated_mob.hit.frame_duration_ms = 5;
 		new_zombie->damage = 5;
 	}
 	else if (type == BIG_ZOMBIE)
@@ -63,7 +63,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 		new_zombie->velocity = 1;
 		new_zombie->hp = 300;
 		new_zombie->animated_mob.run = game->animations.zombie_walk;
-		new_zombie->animated_mob.hit.frame_duration_ms = 20;
+		new_zombie->animated_mob.hit.frame_duration_ms = 15;
 		new_zombie->damage = 50;
 	}
 	update_width(new_zombie);

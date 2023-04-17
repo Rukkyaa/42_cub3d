@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/17 10:24:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:34:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -244,28 +244,42 @@ typedef struct s_weapons
 	t_weapon		plasma_riffle;
 }				t_weapons;
 
+typedef struct s_audio
+{
+	ma_decoder			decoder;
+	ma_device_config	device_config;
+	ma_device			device;
+	ma_engine			engine;
+	ma_sound			sounds[NB_SOUNDS];
+}				t_audio;
+
+typedef struct s_sound_state
+{
+	int	player_state;
+	int	player_shooting;
+}				t_sound_state;
+
 typedef struct s_player
 {
-	t_vector3d	pos;
-	t_vector3d	speed;
-	t_vector3d	pos3d;
-	t_vector3d	tile_pos;
-	t_vector3d	collision_pos;
-	t_vector3d	direction;
-	t_weapon	*weapon;
-	int			weapon_selected;
-	int			kills;
-	int 		tilt;
-	int			max_hp;
-	int			hp;
-	int			velocity;
-	float		angle;
-	float		direction_adjust;
-	int			bonus_strength;
-	long		start_cocaine;
-	bool		cocaine;
-	int			state;
-	int			shooting;
+	t_vector3d		pos;
+	t_vector3d		speed;
+	t_vector3d		pos3d;
+	t_vector3d		tile_pos;
+	t_vector3d		collision_pos;
+	t_vector3d		direction;
+	t_weapon		*weapon;
+	t_sound_state	sound_state;
+	int				weapon_selected;
+	int				kills;
+	int 			tilt;
+	int				max_hp;
+	int				hp;
+	int				velocity;
+	float			angle;
+	float			direction_adjust;
+	int				bonus_strength;
+	long			start_cocaine;
+	bool			cocaine;
 	t_vector3d	current_tile;
 }				t_player;
 
@@ -297,14 +311,6 @@ typedef struct s_hud
 	t_animation	weapon_anim;
 }				t_hud;
 
-typedef struct s_audio
-{
-	ma_decoder			decoder;
-	ma_device_config	device_config;
-	ma_device			device;
-	ma_engine			engine;
-	ma_sound			sounds[NB_SOUNDS];
-}				t_audio;
 
 typedef struct s_mlx
 {

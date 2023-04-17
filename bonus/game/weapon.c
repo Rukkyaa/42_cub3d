@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/14 14:31:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:39:16 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
 {
     if(weapon->state == IDLE && game->mouse_clicked == 1)
     {
-		game->player.shooting = game->player.weapon->id;
+		game->player.sound_state.player_shooting = game->player.weapon->id;
         weapon->fire_anim.start_time_ms = ft_now();
         weapon->state = FIRE;
         if(weapon->is_melee)
@@ -71,7 +71,7 @@ void    handle_weapon(t_game *game, t_weapon *weapon)
 			spawn_projectile(game, game->player.pos, weapon->projectile);
     }
 	else
-		game->player.shooting = 0;
+		game->player.sound_state.player_shooting = 0;
     if(weapon->state == FIRE)
     {
         int time_elapsed_ms = ft_now() - weapon->fire_anim.start_time_ms;

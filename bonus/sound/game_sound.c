@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:23:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:38:39 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,19 +19,19 @@ bool	is_sound_playing(t_game *game, int id)
 
 void	clear_unused_sounds(t_game *game)
 {
-	if (game->player.state == IDLE_STATE)
+	if (game->player.sound_state.player_state == IDLE_STATE)
 	{
 		if (is_sound_playing(game, WALKING_SOUND))
 			ma_sound_stop(&game->audio.sounds[WALKING_SOUND]);
 		if (is_sound_playing(game, RUNNING_SOUND))
 			ma_sound_stop(&game->audio.sounds[RUNNING_SOUND]);
 	}
-	if (game->player.state == WALKING_STATE)
+	if (game->player.sound_state.player_state == WALKING_STATE)
 	{
 		if (is_sound_playing(game, RUNNING_SOUND))
 			ma_sound_stop(&game->audio.sounds[RUNNING_SOUND]);
 	}
-	if (game->player.state == RUNNING_STATE)
+	if (game->player.sound_state.player_state == RUNNING_STATE)
 	{
 		if (is_sound_playing(game, WALKING_SOUND))
 			ma_sound_stop(&game->audio.sounds[WALKING_SOUND]);
@@ -89,17 +89,17 @@ void	play_plasma_shoot_sound(t_game *game)
 void	game_sound(t_game *game)
 {
 	clear_unused_sounds(game);
-	if (game->player.state == WALKING_STATE)
+	if (game->player.sound_state.player_state == WALKING_STATE)
 		restart_sound(&game->audio.sounds[WALKING_SOUND]);
-	else if (game->player.state == RUNNING_STATE)
+	else if (game->player.sound_state.player_state == RUNNING_STATE)
 		restart_sound(&game->audio.sounds[RUNNING_SOUND]);
-	if (game->player.shooting)
+	if (game->player.sound_state.player_shooting)
 	{
-		if (game->player.shooting == AXE)
+		if (game->player.sound_state.player_shooting == AXE)
 			play_axe_sound(game);
-		else if (game->player.shooting == PLASMA_RIFFLE)
+		else if (game->player.sound_state.player_shooting == PLASMA_RIFFLE)
 			play_plasma_riffle_sound(game);
-		else if (game->player.shooting == GRAP_GUN)
+		else if (game->player.sound_state.player_shooting == GRAP_GUN)
 			play_plasma_shoot_sound(game);
 	}
 }

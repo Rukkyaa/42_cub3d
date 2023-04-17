@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 17:12:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/17 10:39:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ void	update_player_tile_pos(t_player	*player)
 void	update_player_state(int key_states[256], t_game *game)
 {
 	if (key_states['w'] || key_states['s'] || key_states['a'] || key_states['d'])
-		game->player.state = WALKING_STATE;
+		game->player.sound_state.player_state = WALKING_STATE;
 	else
-		game->player.state = IDLE_STATE;
+		game->player.sound_state.player_state = IDLE_STATE;
 	if (key_states[2] && key_states['w'])
-		game->player.state = RUNNING_STATE;
+		game->player.sound_state.player_state = RUNNING_STATE;
 }
 
 

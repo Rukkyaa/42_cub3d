@@ -37,7 +37,7 @@ void	load_number(t_game *game)
 
 void	load_buttons(t_game *game)
 {
-	game->buttons[0].pos.x = 650;
+	game->buttons[0].pos.x = 640;
 	game->buttons[0].pos.y = 650;
 	ft_xpm_to_img(game, &game->buttons[0].idle_img, "images/UI/start_button_idle.xpm");
 	ft_xpm_to_img(game, &game->buttons[0].hover_img, "images/UI/start_button_hover.xpm");

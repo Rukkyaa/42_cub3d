@@ -169,6 +169,16 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		remove_entity(sprites, proj);
 }
 
+void	check_remove(t_game *game, t_sprite *fx, t_sprite **sprites)
+{
+	int	time_elapsed_ms;
+
+	time_elapsed_ms = (game->time.frame.tv_sec * 1000
+			+ game->time.frame.tv_usec / 1000) - fx->animation.start_time_ms;
+	if(time_elapsed_ms > fx->animation.frame_duration_ms * fx->animation.nb_imgs)
+		remove_entity(sprites, fx);
+}
+
 void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 {
 	t_sprite	*tmp;
@@ -180,6 +190,8 @@ void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 			move_mob(game, tmp, player);
 		else if (tmp->type == PROJ)
 			move_proj(game, tmp, sprites);
+		else if (tmp->type == FX)
+			check_remove(game, tmp, sprites);
 		tmp = tmp->next;
 	}
 }

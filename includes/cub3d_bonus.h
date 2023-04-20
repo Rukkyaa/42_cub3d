@@ -333,9 +333,11 @@ t_garbage		*_gc(void);
 *************************************************************************/
 t_sprite		*spawn_zombie(t_game *game, t_vector3d pos, int type);
 t_sprite		*spawn_projectile(t_game *game, t_vector3d pos, int type);
+t_sprite		*spawn_blood(t_game *game, t_vector3d pos, int type);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
 void			load_zombie_anim(t_game *game);
+void			load_blood_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector3d pos, int id);
 t_animation		load_item_anim(t_game *game, int id);
 void			is_colliding(t_game *game, t_sprite *entity);

@@ -296,5 +296,6 @@ void	var_init(t_game *game)
 	load_map_debug(game);
 	clear_z_buffer(game);
 	init_threads(game);
+	load_blood_anim(game);
 	// close_window(game);
 }

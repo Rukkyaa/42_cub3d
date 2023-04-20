@@ -46,7 +46,6 @@ void	render_ui(t_game *game)
 		- game->player.weapon->current_img->heigth);
 	if(game->player.sound_state.player_hurt)
 	{
-		printf("hurt\n");
 		put_img_to_img(&game->texture.player_hurt_overlay ,&game->fps_img, 0, 0);
 	}
 	if (game->inventory_display)

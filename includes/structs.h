@@ -15,9 +15,11 @@
 
 # include "miniaudio.h"
 
-# define MOB 0
+# define MOB  0
 # define ITEM 1
 # define PROJ 2
+# define FX   3
+
 
 # define IDLE 0
 # define FIRE 1
@@ -180,6 +182,7 @@ typedef struct s_animations
 	t_animation	grap_gun;
 	t_animation	heart;
 	t_animation	cocaine;
+	t_animation	blood_splatter_line;
 }				t_animations;
 
 typedef struct s_animated_mob

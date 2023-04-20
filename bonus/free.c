@@ -53,6 +53,7 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->texture.menu.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->buttons[0].idle_img.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->buttons[0].hover_img.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->texture.player_hurt_overlay.mlx_img);
 }
 
 void	kill_threads(t_game *game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 17:22:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:14:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -171,6 +171,8 @@ void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start, t_vector end
 
 void			psychedelic_view(t_game *game, t_img *img);
 
+// UI
+void 			handle_button(t_game *game, t_button *button);
 
 // Multithreading 
 void    		wall_thread(t_game *game, t_wall_task d);
@@ -350,6 +352,7 @@ void			respawn_zombie(t_game *game);
 
 //INIT
 void			load_img(t_game *game);
+void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);
 
 /***************************************************************************

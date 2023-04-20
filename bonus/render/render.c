@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 15:27:19 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/20 16:09:59 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,16 @@ void	render_ui(t_game *game)
 		refresh_inventory(game);
 	}
 	render_life_bar(game);
+}
+
+
+void handle_button(t_game *game, t_button *button)
+{
+	if(button->pos.x < game->mouse.x && game->mouse.x < button->pos.x + button->idle_img.width
+		&& button->pos.y < game->mouse.y && game->mouse.y < button->pos.y + button->idle_img.heigth)
+		put_img_to_img(&button->hover_img, &game->fps_img, button->pos.x, button->pos.y);
+	else
+		put_img_to_img(&button->idle_img, &game->fps_img, button->pos.x, button->pos.y);
 }
 
 void	render_map(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:50:59 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/20 16:56:10 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -189,18 +189,18 @@ void	init_mutex(t_game *game, pthread_mutex_t *mutex)
 void	init_threads(t_game *game)
 {
 	int i;
-
+	
+	init_mutex(game, &game->print_rights);
+	init_mutex(game, &game->img_read_rights);
+	init_mutex(game, &game->img_put_rights);
+	init_mutex(game, &game->queue_rights);
+	init_mutex(game, &game->render_finished_rights);
 	i = 0;
 	while(i < NB_THREADS)
 	{
 		pthread_create(&game->wall_threads[i], NULL, start_thread, (void*) game);
 		i++;
 	}	
-	init_mutex(game, &game->print_rights);
-	init_mutex(game, &game->img_read_rights);
-	init_mutex(game, &game->img_put_rights);
-	init_mutex(game, &game->queue_rights);
-	init_mutex(game, &game->render_finished_rights);
 	pthread_mutex_lock(&game->queue_rights);
 	game->render_finished = 0;
 	game->task_count = 0;

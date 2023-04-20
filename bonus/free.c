@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 17:51:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:54:23 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	free_imgs(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->hud.aim.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->hud.weapon.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->texture.menu.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->buttons[0].idle_img.mlx_img);
+	mlx_destroy_image(_mlx()->mlx, game->buttons[0].hover_img.mlx_img);
 }
 
 void	kill_threads(t_game *game)

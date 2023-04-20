@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:14:22 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/20 16:30:45 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -173,6 +173,7 @@ void			psychedelic_view(t_game *game, t_img *img);
 
 // UI
 void 			handle_button(t_game *game, t_button *button);
+void			render_menu(t_game *game);
 
 // Multithreading 
 void    		wall_thread(t_game *game, t_wall_task d);

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:09:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/20 16:50:59 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -281,6 +281,7 @@ void	var_init(t_game *game)
 	game->wall_height_x_proj_dist = game->wall_height * game->camera.proj_plane_distance;
 	game->mouse.x = RES_X / 2;
 	game->mouse.y = RES_Y / 2;
+	game->mode = MENU;
 	precompute_raycast(game);
 	pre_compute_resize(game);
 	load_img(game);

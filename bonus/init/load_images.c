@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 16:11:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/20 16:51:36 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,10 @@ void	load_number(t_game *game)
 
 void	load_buttons(t_game *game)
 {
-	game->buttons[0].pos.x = 200;
-	game->buttons[0].pos.y = 200;
-	ft_xpm_to_img(game, &game->buttons[0].idle_img, "images/UI/start_button_hover.xpm");
-	ft_xpm_to_img(game, &game->buttons[0].hover_img, "images/UI/start_button_idle.xpm");
+	game->buttons[0].pos.x = 650;
+	game->buttons[0].pos.y = 650;
+	ft_xpm_to_img(game, &game->buttons[0].idle_img, "images/UI/start_button_idle.xpm");
+	ft_xpm_to_img(game, &game->buttons[0].hover_img, "images/UI/start_button_hover.xpm");
 }
 
 

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/20 16:08:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/20 16:32:10 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,10 @@
 # define IDLE_STATE 0
 # define WALKING_STATE 1
 # define RUNNING_STATE 2
+
+// Game states
+# define PLAY 0
+# define MENU 1
 
 typedef int WEAPON;
 
@@ -389,6 +393,7 @@ typedef struct s_game
 	int				inventory_display;
 	t_audio			audio;
 	t_button		buttons[2];
+	int				mode;
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

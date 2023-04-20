@@ -44,6 +44,8 @@ void	render_ui(t_game *game)
 	put_img_to_img(game->player.weapon->current_img, &game->fps_img, RES_X
 		/ 2 - game->player.weapon->current_img->width / 2, RES_Y
 		- game->player.weapon->current_img->heigth);
+	if(game->player.sound_state.player_hurt)
+		put_img_to_img(game->texture.player_hurt_overlay ,&game->fps_img, 0, 0);
 	if (game->inventory_display)
 	{
 		put_img_to_img(&game->inventory.img, &game->fps_img, 300, 159);

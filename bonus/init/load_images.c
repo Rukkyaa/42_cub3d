@@ -67,7 +67,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.blue_projectile, "images/projectiles/blue_energy_ball.xpm");
 	ft_xpm_to_img(game, &game->texture.heart, "images/items/heart/heart.xpm");
 	ft_xpm_to_img(game, &game->texture.cocaine, "images/items/cocaine.xpm");
-	ft_xpm_to_img(game, &game->texture.menu, "images/UI/menu_cub3D_v2.xpm");
+	ft_xpm_to_img(game, &game->texture.menu, "images/UI/menu_cub3D_v2/SCREEN_FX/blood_screen_1.xpm");
+	ft_xpm_to_img(game, &game->texture.player_hurt_overlay, "images/FX/.xpm");
 	load_number(game);
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }

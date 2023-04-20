@@ -148,6 +148,7 @@ typedef struct s_texture
 	t_img	blue_projectile;
 	t_img	heart;
 	t_img	cocaine;
+	t_img	player_hurt_overlay;
 	t_img	menu;
 	t_img	number[10];
 	int		text_heigth;

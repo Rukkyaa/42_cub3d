@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 18:09:53 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:52:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,10 @@ long	ft_now(void)
 
 	gettimeofday(&tv, NULL);
 	return (tv.tv_sec * 1000 + tv.tv_usec / 1000);
+}
+
+void	update_kill(t_game *game)
+{
+	game->player.kills++;
+	game->current_wave->zombie_killed++;
 }

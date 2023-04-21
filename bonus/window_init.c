@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:27:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:31:03 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -301,13 +301,4 @@ void	var_init(t_game *game)
 	load_blood_anim(game);
 	game->wave_count = 1;
 	game->current_wave = get_wave(game->wave_count);
-	if (!game->current_wave)
-		printf("no wave\n");
-	else
-	{
-	printf("Baby zombie count: %d\n", game->current_wave->baby_zombie_count);
-	printf("Normal zombie count: %d\n", game->current_wave->normal_zombie_count);
-	printf("Big zombie count: %d\n", game->current_wave->big_zombie_count);
-	printf("Total zombie count: %d\n", game->current_wave->total_zombie_count);
-	}
 }

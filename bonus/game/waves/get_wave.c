@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   waves.c                                            :+:      :+:    :+:   */
+/*   get_wave.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 12:16:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:47:31 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ t_wave	*count_zombie_types(cJSON *zombies)
 		result->total_zombie_count += count;
 		zombie = zombie->next;
 	}
+	result->zombie_killed = 0;
 	return (result);
 }
 

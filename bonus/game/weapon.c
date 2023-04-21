@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/17 15:35:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:53:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void    melee_attack(t_game *game, t_weapon *weapon)
 				spawn_blood(game, sprite->pos, 0);
 				if (do_damage(weapon->damage + game->player.bonus_strength, sprite))
 				{
-					game->player.kills++;
+					update_kill(game);
 					if (game->player.kills % 3 == 0)
 						respawn_zombie(game);
 					respawn_zombie(game);

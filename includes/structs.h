@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 13:22:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:47:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -344,6 +344,7 @@ typedef struct s_wave
 	int	big_zombie_count;
 	int	total_zombie_count;
 	int	zombie_spawned;
+	int	zombie_killed;
 }				t_wave;
 
 typedef struct s_mlx

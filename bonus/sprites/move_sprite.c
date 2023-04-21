@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/14 12:32:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:53:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -150,7 +150,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		{
 			if (do_damage(proj->damage + game->player.bonus_strength, tmp))
 			{
-				game->player.kills++;
+				update_kill(game);
 				if (game->player.kills % 3 == 0)
 					respawn_zombie(game);
 				respawn_zombie(game);

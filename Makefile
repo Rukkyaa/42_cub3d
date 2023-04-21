@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/21 12:13:57 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/21 13:49:43 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -97,9 +97,12 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon \
-	waves))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
+
+# WAVES #
+WAVE_SRC_BONUS = $(addprefix bonus/game/waves/, $(addsuffix .c, get_wave check_wave))
+WAVE_OBJS_BONUS = $(WAVE_SRC_BONUS:.c=.o)
 
 # SPRITES #
 SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
@@ -152,13 +155,13 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
 	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
 	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS)
+	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
 	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
 		-lpthread -ldl -Lcjson/ -lcjson $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
@@ -169,14 +172,14 @@ perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
 	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
 	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS)
+	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"
 	@make --no-print-directory -C libft/
 	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
 		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
-		$(GARBAGE_OBJS_BONUS)\
+		$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)\
 		-pg -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            PERF FINISHED !           |\n"
@@ -196,7 +199,7 @@ clean:
 	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS)
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

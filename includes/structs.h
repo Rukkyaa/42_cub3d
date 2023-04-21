@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 15:07:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:16:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -208,11 +208,10 @@ typedef struct s_sprite
 {
 	int				type;
 	int				visible;
-	t_stats			stats;
-	// int				hp;
-	// int				damage;
-	// int				range;
-	// float			velocity;
+	int				hp;
+	int				damage;
+	int				range;
+	float			velocity;
 	int				state;
 	int				id;
 	float			height;
@@ -349,12 +348,15 @@ typedef struct s_hud
 
 typedef struct s_wave
 {
-	int	baby_zombie_count;
-	int	normal_zombie_count;
-	int	big_zombie_count;
-	int	total_zombie_count;
-	int	zombie_spawned;
-	int	zombie_killed;
+	int		baby_zombie_count;
+	int		normal_zombie_count;
+	int		big_zombie_count;
+	int		total_zombie_count;
+	int		zombie_spawned;
+	int		zombie_killed;
+	t_stats	baby_zombie_stats;
+	t_stats	normal_zombie_stats;
+	t_stats	big_zombie_stats;
 }				t_wave;
 
 typedef struct s_mlx

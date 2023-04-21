@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 15:11:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:35:23 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,38 +39,13 @@ cJSON	*get_root(const char *filename)
 	return (root);
 }
 
-t_wave	*count_zombie_types(cJSON *zombies)
-{
-	t_wave	*result;
-	cJSON	*zombie;
-	char	*type;
-	int		count;
-
-	result = calloc(1, sizeof(t_wave));
-	zombie = cJSON_GetArrayItem(zombies, 0);
-	while (zombie)
-	{
-		type = cJSON_GetObjectItem(zombie, "type")->valuestring;
-		count = cJSON_GetObjectItem(zombie, "count")->valueint;
-		if (!strcmp(type, "BABY_ZOMBIE"))
-			result->baby_zombie_count = count;
-		else if (!strcmp(type, "NORMAL_ZOMBIE"))
-			result->normal_zombie_count = count;
-		else if (!strcmp(type, "BIG_ZOMBIE"))
-			result->big_zombie_count = count;
-		result->total_zombie_count += count;
-		zombie = zombie->next;
-	}
-	result->zombie_killed = 0;
-	return (result);
-}
-
 t_stats	get_stats(cJSON *zombies, const char *type)
 {
 	cJSON	*zombie;
 	cJSON	*stats_json;
 	t_stats	stats;
 
+	stats = (t_stats){0, 0, 0, 0};
 	zombie = cJSON_GetArrayItem(zombies, 0);
 	while (zombie)
 	{
@@ -87,6 +62,41 @@ t_stats	get_stats(cJSON *zombies, const char *type)
 		zombie = zombie->next;
 	}
 	return (stats);
+}
+
+t_wave	*count_zombie_types(cJSON *zombies)
+{
+	t_wave	*result;
+	cJSON	*zombie;
+	char	*type;
+	int		count;
+
+	result = calloc(1, sizeof(t_wave));
+	zombie = cJSON_GetArrayItem(zombies, 0);
+	while (zombie)
+	{
+		type = cJSON_GetObjectItem(zombie, "type")->valuestring;
+		count = cJSON_GetObjectItem(zombie, "count")->valueint;
+		if (!strcmp(type, "BABY_ZOMBIE"))
+		{
+			result->baby_zombie_count = count;
+			result->baby_zombie_stats = get_stats(zombies, type);
+		}
+		else if (!strcmp(type, "NORMAL_ZOMBIE"))
+		{
+			result->normal_zombie_count = count;
+			result->normal_zombie_stats = get_stats(zombies, type);
+		}
+		else if (!strcmp(type, "BIG_ZOMBIE"))
+		{
+			result->big_zombie_count = count;
+			result->big_zombie_stats = get_stats(zombies, type);
+		}
+		result->total_zombie_count += count;
+		zombie = zombie->next;
+	}
+	result->zombie_killed = 0;
+	return (result);
 }
 
 t_wave	*parse_wave(cJSON *waves, int wave_number)

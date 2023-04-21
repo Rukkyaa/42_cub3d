@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 14:10:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:38:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,33 @@ void	load_zombie_anim(t_game *game)
 	game->animations.zombie_spawn.frame_duration_ms = 10;
 }
 
+void	set_baby_zombie_stats(t_sprite *zombie, t_wave *wave)
+{
+	zombie->velocity = wave->baby_zombie_stats.velocity;
+	zombie->hp = wave->baby_zombie_stats.hp;
+	zombie->damage = wave->baby_zombie_stats.damage;
+	zombie->range = wave->baby_zombie_stats.range;
+	zombie->height = 30;
+}
+
+void	set_normal_zombie_stats(t_sprite *zombie, t_wave *wave)
+{
+	zombie->velocity = wave->normal_zombie_stats.velocity;
+	zombie->hp = wave->normal_zombie_stats.hp;
+	zombie->damage = wave->normal_zombie_stats.damage;
+	zombie->range = wave->normal_zombie_stats.range;
+	zombie->height = 45;
+}
+
+void	set_big_zombie_stats(t_sprite *zombie, t_wave *wave)
+{
+	zombie->velocity = wave->big_zombie_stats.velocity;
+	zombie->hp = wave->big_zombie_stats.hp;
+	zombie->damage = wave->big_zombie_stats.damage;
+	zombie->range = wave->big_zombie_stats.range;
+	zombie->height = 60;
+}
+
 t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 {
 	t_sprite	*new_zombie;
@@ -42,38 +69,24 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	new_zombie->animated_mob.death = game->animations.zombie_death;
 	new_zombie->animation = new_zombie->animated_mob.spawn;
 	update_start_time(new_zombie, game);
-	new_zombie->range = 45;
 	if (type == NORMAL_ZOMBIE)
-	{
-		new_zombie->height = 45;
-		new_zombie->velocity = 2;
-		new_zombie->hp = 200;
-		new_zombie->damage = 10;
-	}
+		set_normal_zombie_stats(new_zombie, game->current_wave);
 	else if (type == BABY_ZOMBIE)
 	{
-		new_zombie->height = 30;
-		new_zombie->velocity = 3;
-		new_zombie->hp = 100;
+		set_baby_zombie_stats(new_zombie, game->current_wave);
 		new_zombie->animated_mob.hit.frame_duration_ms = 5;
-		new_zombie->damage = 5;
 	}
 	else if (type == BIG_ZOMBIE)
 	{
-		new_zombie->height = 60;
-		new_zombie->velocity = 1;
-		new_zombie->hp = 300;
+		set_big_zombie_stats(new_zombie, game->current_wave);
 		new_zombie->animated_mob.run = game->animations.zombie_walk;
 		new_zombie->animated_mob.hit.frame_duration_ms = 15;
-		new_zombie->damage = 50;
 	}
 	update_width(new_zombie);
 	new_zombie->speed.x = 0;
 	new_zombie->speed.y = 0;
 	new_zombie->speed.z = 0;
-
 	new_zombie->collide_width = 10;
-
 	new_zombie->type = MOB;
 	new_zombie->attacked = false;
 	new_zombie->state = SPAWN;

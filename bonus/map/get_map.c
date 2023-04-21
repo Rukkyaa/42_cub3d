@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:16:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/23 22:02:50 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/04/21 11:30:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static char	*ft_strjoin_free(char *s1, char *s2)
 
 	i = 0;
 	j = 0;
-	strjoin = malloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
+	strjoin = my_alloc((ft_strlen(s1) + ft_strlen(s2) + 1) * sizeof(char));
 	if (!strjoin)
 		return (NULL);
 	while (s1[i])
@@ -34,7 +34,6 @@ static char	*ft_strjoin_free(char *s1, char *s2)
 		j ++;
 	}
 	strjoin[ft_strlen(s1) + ft_strlen(s2)] = '\0';
-	free(s1);
 	return (strjoin);
 }
 
@@ -60,7 +59,6 @@ static char	**string_to_map(char *s)
 		return (NULL);
 	s = random_wall(s);
 	array = ft_split(s, '\n');
-	free(s);
 	if (!array)
 		return (NULL);
 	return (array);
@@ -72,10 +70,10 @@ static char	**fd_to_map(int fd)
 	char	*str;
 	char	*buffer;
 
-	buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
+	buffer = (char *)my_alloc((BUFFER_SIZE + 1) * sizeof(char));
 	if (!buffer)
 		return (NULL);
-	str = (char *)malloc(1 * sizeof(char));
+	str = (char *)my_alloc(1 * sizeof(char));
 	if (!str)
 		return (NULL);
 	str[0] = '\0';
@@ -84,14 +82,10 @@ static char	**fd_to_map(int fd)
 	{
 		len_read = read(fd, buffer, BUFFER_SIZE);
 		if (len_read == -1)
-		{
-			free(str);
 			return (NULL);
-		}
 		buffer[len_read] = '\0';
 		str = ft_strjoin_free(str, buffer);
 	}
-	free(buffer);
 	return (string_to_map(str));
 }
 

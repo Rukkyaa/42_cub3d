@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:30:45 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/21 12:11:52 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # include <string.h>
 # include "../includes/miniaudio.h"
 # include <dirent.h>
+# include "../cjson/cJSON.h"
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -371,5 +372,8 @@ void			load_map_debug(t_game *game);
 void			*my_alloc(int size);
 void			free_garbage(void);
 void			free_array(char **map);
+
+// WAVES
+t_wave			*get_wave(int wave_number);
 
 #endif

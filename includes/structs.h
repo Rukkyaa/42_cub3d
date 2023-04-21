@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 11:10:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 12:16:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,8 @@
 // Game states
 # define PLAY 0
 # define MENU 1
+
+# define WAVE_FILE "./bonus/waves.json"
 
 typedef int WEAPON;
 
@@ -335,6 +337,14 @@ typedef struct s_hud
 	t_animation	weapon_anim;
 }				t_hud;
 
+typedef struct s_wave
+{
+	int	baby_zombie_count;
+	int	normal_zombie_count;
+	int	big_zombie_count;
+	int	total_zombie_count;
+	int	zombie_spawned;
+}				t_wave;
 
 typedef struct s_mlx
 {
@@ -394,6 +404,7 @@ typedef struct s_game
 	void			*debug_win;
 	t_img			debug_img;
 	t_img			minimap;
+	t_wave			*current_wave;
 	
 	int				mouse_clicked;
 	int				inventory_display;

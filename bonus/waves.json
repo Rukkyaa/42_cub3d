@@ -1,0 +1,75 @@
+{
+	"waves": [
+	{
+		"number": 1,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 10 }
+		]
+	},
+	{
+		"number": 2,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 10 },
+			{ "type": "NORMAL_ZOMBIE", "count": 2 }
+		]
+	},
+	{
+		"number": 3,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 15 },
+			{ "type": "NORMAL_ZOMBIE", "count": 3 }
+		]
+	},
+	{
+		"number": 4,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 20 },
+			{ "type": "NORMAL_ZOMBIE", "count": 4 }
+		]
+	},
+	{
+		"number": 5,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 5 },
+			{ "type": "NORMAL_ZOMBIE", "count": 10 }
+		]
+	},
+	{
+		"number": 6,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 10 },
+			{ "type": "NORMAL_ZOMBIE", "count": 15 }
+		]
+	},
+	{
+		"number": 7,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 15 },
+			{ "type": "NORMAL_ZOMBIE", "count": 20 }
+		]
+	},
+	{
+		"number": 8,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 20 },
+			{ "type": "NORMAL_ZOMBIE", "count": 25 }
+		]
+	},
+	{
+		"number": 9,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 10 },
+			{ "type": "NORMAL_ZOMBIE", "count": 10 },
+			{ "type": "BIG_ZOMBIE", "count": 2 }
+		]
+	},
+	{
+		"number": 10,
+		"zombies": [
+			{ "type": "BABY_ZOMBIE", "count": 15 },
+			{ "type": "NORMAL_ZOMBIE", "count": 15 },
+			{ "type": "BIG_ZOMBIE", "count": 3 }
+		]
+	}
+	]
+}

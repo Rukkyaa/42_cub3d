@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/14 15:25:28 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/21 12:13:57 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
 		bonus/free.c \
-		bonus/raycast_2D.c   \
+		bonus/raycast_2D.c
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 
@@ -97,7 +97,8 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon \
+	waves))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #
@@ -158,7 +159,7 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
 		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
-		-lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
+		-lpthread -ldl -Lcjson/ -lcjson $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 12:16:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:22:40 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -404,7 +404,9 @@ typedef struct s_game
 	void			*debug_win;
 	t_img			debug_img;
 	t_img			minimap;
+
 	t_wave			*current_wave;
+	int				wave_count;
 	
 	int				mouse_clicked;
 	int				inventory_display;

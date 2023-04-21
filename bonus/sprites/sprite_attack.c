@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 14:36:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:12:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->animation =  sprite->animated_mob.run;
 		update_start_time(sprite, game);
 		update_width(sprite);
+		sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * sprite->animation.nb_imgs;
 	}
 }

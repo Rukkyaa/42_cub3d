@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/20 16:32:10 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/21 11:10:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 
 // Sound
 
-# define NB_SOUNDS 26
+# define NB_SOUNDS 27
 
 # define MAX_AXE_SOUNDS 5
 # define MAX_PLASMA_RIFFLE_SOUNDS 7
@@ -64,6 +64,7 @@
 # define PLASMA_SHOOT_SOUND 14 // 14 to 16
 # define PLAYER_HURT_SOUND 17 // 17 to 24
 # define COCAINE_SOUND 25
+# define LOBBY_SOUND 26
 
 // State
 # define IDLE_STATE 0
@@ -271,6 +272,7 @@ typedef struct s_sound_state
 	int		player_shooting;
 	bool	player_hurt;
 	bool	cocaine;
+	int		game_mode;
 }				t_sound_state;
 
 typedef struct s_button

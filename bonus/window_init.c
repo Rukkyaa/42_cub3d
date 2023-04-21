@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:56:10 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/21 11:11:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -214,6 +214,7 @@ void	sound_state_init(t_sound_state *sound_state)
 	sound_state->player_shooting = 0;
 	sound_state->player_hurt = false;
 	sound_state->cocaine = false;
+	sound_state->game_mode = MENU;
 }
 
 void	var_init(t_game *game)
@@ -287,6 +288,7 @@ void	var_init(t_game *game)
 	load_img(game);
 	load_buttons(game);
 	init_sounds(&game->audio);
+	sound_state_init(&game->player.sound_state);
 	init_basic_vectors(game);
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);

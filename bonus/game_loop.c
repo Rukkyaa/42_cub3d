@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:49:47 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/21 11:13:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int	game_loop(void *g)
 	}
 	render(game);
 	print_fps(game->time.fps);
+	game->player.sound_state.game_mode = game->mode;
 	game_sound(game->player.sound_state, game->audio.sounds);
 	handle_sync(game);
 	game->frame_count++;

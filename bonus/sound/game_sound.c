@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 15:41:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 11:11:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,11 @@ void	clear_unused_sounds(t_sound_state sound_state,
 	{
 		if (is_sound_playing(&sounds[WALKING_SOUND]))
 			ma_sound_stop(&sounds[WALKING_SOUND]);
+	}
+	if (sound_state.game_mode == PLAY)
+	{
+		if (is_sound_playing(&sounds[LOBBY_SOUND]))
+			ma_sound_stop(&sounds[LOBBY_SOUND]);
 	}
 }
 
@@ -79,4 +84,6 @@ void	game_sound(t_sound_state sound_state, ma_sound sounds[NB_SOUNDS])
 			MAX_PLAYER_HURT_SOUNDS);
 	if (sound_state.cocaine)
 		restart_sound(&sounds[COCAINE_SOUND]);
+	if (sound_state.game_mode == MENU)
+		restart_sound(&sounds[LOBBY_SOUND]);
 }

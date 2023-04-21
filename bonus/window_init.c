@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:31:03 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:05:44 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,25 +56,21 @@ void	init_basic_vectors(t_game *game)
 
 void init_sprites(t_game *game)
 {
-	int i = 0;
-	t_sprite	*tmp;
-	t_vector3d zombie_pos;
-
 	init_animations(game);
 	game->sprites = NULL;
-	while(i < 10)
-	{
-		zombie_pos.x = (double) rand() / (double) RAND_MAX * map_width(game->map) * 64;
-		zombie_pos.y = (double) rand() / (double) RAND_MAX * map_heigth(game->map) * 64;
-		zombie_pos.z = 0;
-		if (game->map[(int) (zombie_pos.y / 64)][(int) (zombie_pos.x / 64)] == '0')
-		{
-			tmp = spawn_zombie(game, zombie_pos, rand() % 3);
-			if (!tmp)
-				printf("error spawn zombie\n");
-			i++;
-		}
-	}
+	// while(i < 10)
+	// {
+	// 	zombie_pos.x = (double) rand() / (double) RAND_MAX * map_width(game->map) * 64;
+	// 	zombie_pos.y = (double) rand() / (double) RAND_MAX * map_heigth(game->map) * 64;
+	// 	zombie_pos.z = 0;
+	// 	if (game->map[(int) (zombie_pos.y / 64)][(int) (zombie_pos.x / 64)] == '0')
+	// 	{
+	// 		tmp = spawn_zombie(game, zombie_pos, rand() % 3);
+	// 		if (!tmp)
+	// 			printf("error spawn zombie\n");
+	// 		i++;
+	// 	}
+	// }
 }
 
 void init_weapons(t_game *game)
@@ -301,4 +297,5 @@ void	var_init(t_game *game)
 	load_blood_anim(game);
 	game->wave_count = 1;
 	game->current_wave = get_wave(game->wave_count);
+	spawn_wave(game);
 }

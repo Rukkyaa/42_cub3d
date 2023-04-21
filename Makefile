@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/21 13:49:43 by axlamber         ###   ########.fr        #
+#    Updated: 2023/04/21 13:58:43 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -101,7 +101,7 @@ GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move e
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # WAVES #
-WAVE_SRC_BONUS = $(addprefix bonus/game/waves/, $(addsuffix .c, get_wave check_wave))
+WAVE_SRC_BONUS = $(addprefix bonus/game/waves/, $(addsuffix .c, get_wave wave_utils))
 WAVE_OBJS_BONUS = $(WAVE_SRC_BONUS:.c=.o)
 
 # SPRITES #

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:53:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:06:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,12 +149,7 @@ static void	move_proj(t_game *game, t_sprite *proj, t_sprite **sprites)
 		if (tmp->type == MOB && proj_mob_collide(tmp, proj) && tmp->hp > 0)
 		{
 			if (do_damage(proj->damage + game->player.bonus_strength, tmp))
-			{
 				update_kill(game);
-				if (game->player.kills % 3 == 0)
-					respawn_zombie(game);
-				respawn_zombie(game);
-			}
 			remove_entity(sprites, proj);
 			return ;
 		}

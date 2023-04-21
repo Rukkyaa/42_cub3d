@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:53:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:04:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -377,5 +377,6 @@ void			free_array(char **map);
 t_wave			*get_wave(int wave_number);
 void			check_wave(t_game *game);
 void			update_kill(t_game *game);
+void			spawn_wave(t_game *game);
 
 #endif

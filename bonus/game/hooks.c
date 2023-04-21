@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 15:39:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:03:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,9 @@ int	mouse_mouve_hook(int x, int y, t_game *game)
 		{
 			game->mouse_move = 1;
 			game->mouse_diff.x = diff_x;
-			game->mouse_diff.y = diff_y;
+			game->mouse_diff.y = diff_y;			
+			game->mouse.x = x;
+			game->mouse.y = y;
 		}
 		// mlx_mouse_move(game->mlx, _mlx()->win, RES_X / 2, RES_Y / 2);
 	}
@@ -150,7 +152,7 @@ int	handle_keyrelease(int keycode, int *key_states)
 
 void	hooks(t_game *game)
 {
-	mlx_mouse_hide(game->mlx, _mlx()->win);
+	// mlx_mouse_hide(game->mlx, _mlx()->win);
 	mlx_hook(_mlx()->win, 2, 1L << 1, handle_keypress, game);
 	mlx_hook(_mlx()->win, 3, 1L << 0, handle_keyrelease, game->key_states);
 	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_mouve_hook, game);

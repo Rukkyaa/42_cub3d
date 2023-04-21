@@ -101,7 +101,7 @@ GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move e
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # SPRITES #
-SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie sprite_add_back sprite_last new_item spawn_projectile\
+SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
 	remove_entity move_sprite sprite_attack use_items))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 

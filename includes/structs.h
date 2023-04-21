@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/17 15:26:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:32:10 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,11 @@
 
 # include "miniaudio.h"
 
-# define MOB 0
+# define MOB  0
 # define ITEM 1
 # define PROJ 2
+# define FX   3
+
 
 # define IDLE 0
 # define FIRE 1
@@ -67,6 +69,10 @@
 # define IDLE_STATE 0
 # define WALKING_STATE 1
 # define RUNNING_STATE 2
+
+// Game states
+# define PLAY 0
+# define MENU 1
 
 typedef int WEAPON;
 
@@ -144,6 +150,8 @@ typedef struct s_texture
 	t_img	blue_projectile;
 	t_img	heart;
 	t_img	cocaine;
+	t_img	player_hurt_overlay;
+	t_img	menu;
 	t_img	number[10];
 	int		text_heigth;
 	int		text_width;
@@ -174,6 +182,7 @@ typedef struct s_animations
 	t_animation	grap_gun;
 	t_animation	heart;
 	t_animation	cocaine;
+	t_animation	blood_splatter_line;
 }				t_animations;
 
 typedef struct s_animated_mob
@@ -263,6 +272,14 @@ typedef struct s_sound_state
 	bool	player_hurt;
 	bool	cocaine;
 }				t_sound_state;
+
+typedef struct s_button
+{
+	t_vector3d		pos;
+	t_vector3d		size;
+	t_img			idle_img;
+	t_img			hover_img;
+}				t_button;
 
 typedef struct s_player
 {
@@ -375,9 +392,12 @@ typedef struct s_game
 	void			*debug_win;
 	t_img			debug_img;
 	t_img			minimap;
+	
 	int				mouse_clicked;
 	int				inventory_display;
 	t_audio			audio;
+	t_button		buttons[2];
+	int				mode;
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

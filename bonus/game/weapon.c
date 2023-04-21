@@ -56,6 +56,7 @@ void    melee_attack(t_game *game, t_weapon *weapon)
         {
             if(fabs(sprite->angle_to_player) < M_PI / 4 && sprite->distance < 45)
 			{
+				spawn_blood(game, sprite->pos, 0);
 				if (do_damage(weapon->damage + game->player.bonus_strength, sprite))
 				{
 					game->player.kills++;

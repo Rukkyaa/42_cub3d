@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 17:33:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/20 16:51:36 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,15 @@ void	load_number(t_game *game)
 	ft_xpm_to_img(game, &game->texture.number[9], "images/numbers/9.xpm");
 }
 
+void	load_buttons(t_game *game)
+{
+	game->buttons[0].pos.x = 640;
+	game->buttons[0].pos.y = 650;
+	ft_xpm_to_img(game, &game->buttons[0].idle_img, "images/UI/start_button_idle.xpm");
+	ft_xpm_to_img(game, &game->buttons[0].hover_img, "images/UI/start_button_hover.xpm");
+}
+
+
 void	load_img(t_game *game)
 {
 	ft_xpm_to_img(game, &game->texture.wall1, "images/retro_texture_pack/CRATE_1L.xpm");
@@ -58,6 +67,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.blue_projectile, "images/projectiles/blue_energy_ball.xpm");
 	ft_xpm_to_img(game, &game->texture.heart, "images/items/heart/heart.xpm");
 	ft_xpm_to_img(game, &game->texture.cocaine, "images/items/cocaine.xpm");
+	ft_xpm_to_img(game, &game->texture.menu, "images/UI/menu_cub3D_v2.xpm");
+	ft_xpm_to_img(game, &game->texture.player_hurt_overlay, "images/FX/blurry_blood.xpm");
 	load_number(game);
 	// ft_xpm_to_img(game, &game->hud.aim, "images/aim_red.xpm");
 }

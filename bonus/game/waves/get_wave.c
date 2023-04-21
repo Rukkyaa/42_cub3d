@@ -6,11 +6,38 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:47:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:11:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+cJSON	*get_root(const char *filename)
+{
+	FILE	*file;
+	cJSON	*root;
+	long	file_size;
+	char	*file_contents;
+
+	file = fopen(filename, "rb");
+	if (!file)
+		return (NULL);
+	fseek(file, 0, SEEK_END);
+	file_size = ftell(file);
+	fseek(file, 0, SEEK_SET);
+	file_contents = malloc(file_size + 1);
+	if (fread(file_contents, file_size, 1, file) != 1)
+	{
+		fclose(file);
+		free(file_contents);
+		return (NULL);
+	}
+	fclose(file);
+	file_contents[file_size] = '\0';
+	root = cJSON_Parse(file_contents);
+	free(file_contents);
+	return (root);
+}
 
 t_wave	*count_zombie_types(cJSON *zombies)
 {
@@ -38,31 +65,28 @@ t_wave	*count_zombie_types(cJSON *zombies)
 	return (result);
 }
 
-cJSON	*get_root(const char *filename)
+t_stats	get_stats(cJSON *zombies, const char *type)
 {
-	FILE	*file;
-	cJSON	*root;
-	long	file_size;
-	char	*file_contents;
+	cJSON	*zombie;
+	cJSON	*stats_json;
+	t_stats	stats;
 
-	file = fopen(filename, "rb");
-	if (!file)
-		return (NULL);
-	fseek(file, 0, SEEK_END);
-	file_size = ftell(file);
-	fseek(file, 0, SEEK_SET);
-	file_contents = malloc(file_size + 1);
-	if (fread(file_contents, file_size, 1, file) != 1)
+	zombie = cJSON_GetArrayItem(zombies, 0);
+	while (zombie)
 	{
-		fclose(file);
-		free(file_contents);
-		return (NULL);
+		if (!strcmp(cJSON_GetObjectItem(zombie, "type")->valuestring, type))
+		{
+			stats_json = cJSON_GetObjectItem(zombie, "stats");
+			stats.velocity = cJSON_GetObjectItem(stats_json,
+					"velocity")->valuedouble;
+			stats.hp = cJSON_GetObjectItem(stats_json, "health")->valueint;
+			stats.damage = cJSON_GetObjectItem(stats_json, "damage")->valueint;
+			stats.range = cJSON_GetObjectItem(stats_json, "range")->valueint;
+			break ;
+		}
+		zombie = zombie->next;
 	}
-	fclose(file);
-	file_contents[file_size] = '\0';
-	root = cJSON_Parse(file_contents);
-	free(file_contents);
-	return (root);
+	return (stats);
 }
 
 t_wave	*parse_wave(cJSON *waves, int wave_number)

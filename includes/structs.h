@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 14:10:09 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 15:07:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -196,22 +196,31 @@ typedef struct s_animated_mob
 	t_animation death;
 }				t_animated_mob;
 
+typedef struct s_stats
+{
+	float	velocity;
+	int		hp;
+	int		damage;
+	int		range;
+}				t_stats;
+
 typedef struct s_sprite
 {
 	int				type;
 	int				visible;
-	int				hp;
+	t_stats			stats;
+	// int				hp;
+	// int				damage;
+	// int				range;
+	// float			velocity;
 	int				state;
 	int				id;
-	int				damage;
-	int				range;
 	float			height;
 	float			width;
 	float			distance;
 	float			angle_to_player;
 	float			screen_width;
 	float			screen_height;
-	float			velocity;
 	bool			attacked;
 	int				collide_width;
 	t_vector3d		screen_pos;

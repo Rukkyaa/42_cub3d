@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 12:15:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 13:15:36 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -299,7 +299,7 @@ void	var_init(t_game *game)
 	clear_z_buffer(game);
 	init_threads(game);
 	load_blood_anim(game);
-	game->current_wave = get_wave(1);
+	game->current_wave = get_wave(9);
 	if (!game->current_wave)
 		printf("no wave\n");
 	else{

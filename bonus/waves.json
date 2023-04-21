@@ -3,69 +3,69 @@
 	{
 		"number": 1,
 		"zombies": [
-			{ "type": "NORMAL_ZOMBIE", "count": 10 }
+			{ "type": "NORMAL_ZOMBIE", "count": 5 }
 		]
 	},
 	{
 		"number": 2,
 		"zombies": [
-			{ "type": "NORMAL_ZOMBIE", "count": 15 }
+			{ "type": "NORMAL_ZOMBIE", "count": 7 }
 		]
 	},
 	{
 		"number": 3,
 		"zombies": [
-			{ "type": "NORMAL_ZOMBIE", "count": 20 }
+			{ "type": "NORMAL_ZOMBIE", "count": 10 }
 		]
 	},
 	{
 		"number": 4,
 		"zombies": [
-			{ "type": "NORMAL_ZOMBIE", "count": 25 }
+			{ "type": "NORMAL_ZOMBIE", "count": 15 }
 		]
 	},
 	{
 		"number": 5,
 		"zombies": [
-			{ "type": "BIG_ZOMBIE", "count": 2 },
-			{ "type": "NORMAL_ZOMBIE", "count": 30 }
+			{ "type": "BIG_ZOMBIE", "count": 2 }
 		]
 	},
 	{
 		"number": 6,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 10 },
+			{ "type": "BABY_ZOMBIE", "count": 2 },
 			{ "type": "NORMAL_ZOMBIE", "count": 15 }
 		]
 	},
 	{
 		"number": 7,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 15 },
+			{ "type": "BABY_ZOMBIE", "count": 4 },
 			{ "type": "NORMAL_ZOMBIE", "count": 20 }
 		]
 	},
 	{
 		"number": 8,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 20 },
-			{ "type": "NORMAL_ZOMBIE", "count": 25 }
+			{ "type": "BABY_ZOMBIE", "count": 5 },
+			{ "type": "NORMAL_ZOMBIE", "count": 25 },
+			{ "type": "BIG_ZOMBIE", "count": 1 }
 		]
 	},
 	{
 		"number": 9,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 10 },
-			{ "type": "NORMAL_ZOMBIE", "count": 10 },
-			{ "type": "BIG_ZOMBIE", "count": 2 }
+			{ "type": "BABY_ZOMBIE", "count": 7 },
+			{ "type": "NORMAL_ZOMBIE", "count": 20 },
+			{ "type": "BIG_ZOMBIE", "count": 5 }
 		]
 	},
 	{
 		"number": 10,
 		"zombies": [
 			{ "type": "BABY_ZOMBIE", "count": 15 },
-			{ "type": "NORMAL_ZOMBIE", "count": 15 },
-			{ "type": "BIG_ZOMBIE", "count": 3 }
+			{ "type": "NORMAL_ZOMBIE", "count": 30 },
+			{ "type": "BIG_ZOMBIE", "count": 5 }
 		]
 	}
 	]

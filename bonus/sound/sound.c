@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:04:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 11:17:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	restart_sound(ma_sound *sound)
 	}
 }
 
-void	add_sound(t_audio *audio, int id, char *path)
+void	add_sound(t_audio *audio, int id, char *path, float volume)
 {
 	ma_result	result;
 
@@ -38,7 +38,7 @@ void	add_sound(t_audio *audio, int id, char *path)
 		printf("Failed to load sound: %s\n", ma_result_description(result));
 		// EXIT GAME
 	}
-	ma_sound_set_volume(&audio->sounds[id], 1);
+	ma_sound_set_volume(&audio->sounds[id], volume);
 }
 
 void	load_weapon_sounds(t_audio *audio)
@@ -48,7 +48,7 @@ void	load_weapon_sounds(t_audio *audio)
 	i = AXE_SOUND;
 	while (i < AXE_SOUND + MAX_AXE_SOUNDS)
 	{
-		add_sound(audio, i, "bonus/sound/axe.mp3");
+		add_sound(audio, i, "bonus/sound/axe.mp3", 1);
 		i++;
 	}
 }
@@ -60,7 +60,7 @@ void	load_plasma_riffle_sounds(t_audio *audio)
 	i = PLASMA_RIFFLE_SOUND;
 	while (i < PLASMA_RIFFLE_SOUND + MAX_PLASMA_RIFFLE_SOUNDS)
 	{
-		add_sound(audio, i, "bonus/sound/plasma_riffle.wav");
+		add_sound(audio, i, "bonus/sound/plasma_riffle.wav", 1);
 		i++;
 	}
 }
@@ -72,7 +72,7 @@ void	load_plasma_sounds(t_audio *audio)
 	i = PLASMA_SHOOT_SOUND;
 	while (i < PLASMA_SHOOT_SOUND + MAX_PLASMA_SHOOT_SOUNDS)
 	{
-		add_sound(audio, i, "bonus/sound/plasma_shoot.wav");
+		add_sound(audio, i, "bonus/sound/plasma_shoot.wav", 1);
 		i++;
 	}
 }
@@ -84,17 +84,17 @@ void	load_player_hurt_sounds(t_audio *audio)
 	i = PLAYER_HURT_SOUND;
 	while (i < PLAYER_HURT_SOUND + MAX_PLAYER_HURT_SOUNDS)
 	{
-		add_sound(audio, i, "bonus/sound/hurt.wav");
+		add_sound(audio, i, "bonus/sound/hurt.wav", 1);
 		i++;
 	}
 }
 
 void	load_sounds(t_audio *audio)
 {
-	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3");
-	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3");
-	add_sound(audio, COCAINE_SOUND, "bonus/sound/snif_pjay.wav");
-	add_sound(audio, LOBBY_SOUND, "bonus/sound/lobby_sound.wav");
+	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3", 1);
+	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3", 1);
+	add_sound(audio, COCAINE_SOUND, "bonus/sound/snif_pjay.wav", 1);
+	add_sound(audio, LOBBY_SOUND, "bonus/sound/lobby_sound.wav", 0.8f);
 	load_weapon_sounds(audio);
 	load_plasma_riffle_sounds(audio);
 	load_plasma_sounds(audio);

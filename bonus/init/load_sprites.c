@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/14 17:02:16 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 11:22:20 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ void	fill_sprite_animation(t_game *game, char *dir_path,
 		closedir(dir);
 		return ;
 	}
-	animation->imgs = (t_img **)malloc((count + 1) * sizeof(t_img *));
+	animation->imgs = (t_img **)my_alloc((count + 1) * sizeof(t_img *));
 	if (!animation->imgs)
 	{
 		closedir(dir);
@@ -83,7 +83,7 @@ void	fill_sprite_animation(t_game *game, char *dir_path,
 			break ;
 		if (entry->d_name[0] == '.')
 			continue ;
-		animation->imgs[i] = malloc(sizeof(t_img));
+		animation->imgs[i] = my_alloc(sizeof(t_img));
 		if (!animation->imgs[i])
 		{
 			while (i > 0)

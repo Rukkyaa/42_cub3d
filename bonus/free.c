@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/20 16:54:23 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/21 11:24:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,16 +86,10 @@ int	close_window(t_game *game)
 	while (game->animations.zombie_run.imgs[++i])
 	{
 		mlx_destroy_image(_mlx()->mlx, game->animations.zombie_run.imgs[i]->mlx_img);
-		free(game->animations.zombie_run.imgs[i]);
 	}
-	free(game->animations.zombie_run.imgs);
 	i = -1;
 	while (game->hud.weapon_anim.imgs[++i])
-	{
 		mlx_destroy_image(_mlx()->mlx, game->hud.weapon_anim.imgs[i]->mlx_img);
-		free(game->hud.weapon_anim.imgs[i]);
-	}
-	free(game->hud.weapon_anim.imgs);
 	free_imgs(game);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 14:09:50 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 14:10:59 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ t_sprite	*spawn_zombie(t_game *game, t_vector3d pos, int type)
 	new_zombie->animated_mob.death = game->animations.zombie_death;
 	new_zombie->animation = new_zombie->animated_mob.spawn;
 	update_start_time(new_zombie, game);
+	new_zombie->range = 45;
 	if (type == NORMAL_ZOMBIE)
 	{
 		new_zombie->height = 45;

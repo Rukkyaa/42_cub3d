@@ -3,35 +3,32 @@
 	{
 		"number": 1,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 10 }
+			{ "type": "NORMAL_ZOMBIE", "count": 10 }
 		]
 	},
 	{
 		"number": 2,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 10 },
-			{ "type": "NORMAL_ZOMBIE", "count": 2 }
+			{ "type": "NORMAL_ZOMBIE", "count": 15 }
 		]
 	},
 	{
 		"number": 3,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 15 },
-			{ "type": "NORMAL_ZOMBIE", "count": 3 }
+			{ "type": "NORMAL_ZOMBIE", "count": 20 }
 		]
 	},
 	{
 		"number": 4,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 20 },
-			{ "type": "NORMAL_ZOMBIE", "count": 4 }
+			{ "type": "NORMAL_ZOMBIE", "count": 25 }
 		]
 	},
 	{
 		"number": 5,
 		"zombies": [
-			{ "type": "BABY_ZOMBIE", "count": 5 },
-			{ "type": "NORMAL_ZOMBIE", "count": 10 }
+			{ "type": "BIG_ZOMBIE", "count": 2 },
+			{ "type": "NORMAL_ZOMBIE", "count": 30 }
 		]
 	},
 	{

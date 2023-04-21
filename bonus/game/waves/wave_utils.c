@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 14:29:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/21 16:08:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,16 +46,13 @@ void	check_wave(t_game *game)
 	{
 		free(game->current_wave);
 		game->wave_count++;
-		if (game->wave_count == 10)
+		if (game->wave_count == 15)
 		{
 			printf("You win !\n");
 			close_window(game);
 		}
 		game->current_wave = get_wave(game->wave_count);
 		printf("\nReady for wave %d ?\n", game->wave_count);
-		// printf("Baby zombie: %d\n", game->current_wave->baby_zombie_count);
-		// printf("Normal zombie: %d\n", game->current_wave->normal_zombie_count);
-		// printf("Big zombie: %d\n", game->current_wave->big_zombie_count);
 		spawn_wave(game);
 	}
 }

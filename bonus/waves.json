@@ -139,6 +139,86 @@
 				"stats": {"velocity": 1, "health": 1000, "damage": 75, "range": 60}
 			}
 		]
+	},
+	{
+		"number": 11,
+		"zombies": [
+			{
+				"type": "NORMAL_ZOMBIE",
+				"count": 50,
+				"stats": {"velocity": 2.5, "health": 300, "damage": 15, "range": 50}
+			},
+			{
+				"type": "BIG_ZOMBIE",
+				"count": 10,
+				"stats": {"velocity": 1, "health": 600, "damage": 75, "range": 60}
+			}
+		]
+	},
+	{
+		"number": 12,
+		"zombies": [
+			{
+				"type": "BABY_ZOMBIE",
+				"count": 15,
+				"stats": {"velocity": 3, "health": 150, "damage": 7, "range": 45}
+			},
+			{
+				"type": "NORMAL_ZOMBIE",
+				"count": 30,
+				"stats": {"velocity": 2.5, "health": 300, "damage": 15, "range": 50}
+			},
+			{
+				"type": "BIG_ZOMBIE",
+				"count": 5,
+				"stats": {"velocity": 1, "health": 600, "damage": 75, "range": 60}
+			}
+		]
+	},
+	{
+		"number": 13,
+		"zombies": [
+			{
+				"type": "BABY_ZOMBIE",
+				"count": 20,
+				"stats": {"velocity": 3, "health": 150, "damage": 7, "range": 45}
+			},
+			{
+				"type": "NORMAL_ZOMBIE",
+				"count": 40,
+				"stats": {"velocity": 2.5, "health": 300, "damage": 15, "range": 50}
+			}
+		]
+	},
+	{
+		"number": 14,
+		"zombies": [
+			{
+				"type": "NORMAL_ZOMBIE",
+				"count": 30,
+				"stats": {"velocity": 5, "health": 300, "damage": 15, "range": 45}
+			}
+		]
+	},
+	{
+		"number": 15,
+		"zombies": [
+			{
+				"type": "BABY_ZOMBIE",
+				"count": 25,
+				"stats": {"velocity": 3, "health": 150, "damage": 7, "range": 45}
+			},
+			{
+				"type": "NORMAL_ZOMBIE",
+				"count": 50,
+				"stats": {"velocity": 5, "health": 300, "damage": 15, "range": 45}
+			},
+			{
+				"type": "BIG_ZOMBIE",
+				"count": 10,
+				"stats": {"velocity": 1, "health": 10000, "damage": 100, "range": 60}
+			}
+		]
 	}
 	]
 }

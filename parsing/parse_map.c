@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:43:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:01:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:26:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 bool	is_valid_content(char c)
 {
 	return (c == '0' || c == '1' || c == 'N' || c == 'S'
-		|| c == 'E' || c == 'W' || c == ' ' || c == '\n');
+		|| c == 'E' || c == 'W' || c == ' ');
 }
 
 int	check_map_content(t_parsing *parsing, char **map)

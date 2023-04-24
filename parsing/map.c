@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:17:59 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 17:24:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 18:24:46 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@
 char	**add_line(char **map, char *line)
 {
 	int		i;
+	int		len;
 	char	**new_map;
-
 	i = 0;
 	while (map[i])
 		i++;
@@ -36,6 +36,9 @@ char	**add_line(char **map, char *line)
 		i++;
 	}
 	new_map[i] = line;
+	len = ft_strlen(line);
+	if (len > 0 && line[len - 1] == '\n')
+		line[len - 1] = '\0';
 	new_map[i + 1] = NULL;
 	free(map);
 	return (new_map);

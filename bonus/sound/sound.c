@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:17:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:48:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ void	load_sounds(t_audio *audio)
 	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3", 1);
 	add_sound(audio, COCAINE_SOUND, "bonus/sound/snif_pjay.wav", 1);
 	add_sound(audio, LOBBY_SOUND, "bonus/sound/lobby_sound.wav", 0.8f);
+	add_sound(audio, GAME_SOUND, "bonus/sound/game_sound.wav", 0.8f);
 	load_weapon_sounds(audio);
 	load_plasma_riffle_sounds(audio);
 	load_plasma_sounds(audio);

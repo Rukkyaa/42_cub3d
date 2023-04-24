@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/14 13:52:25 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:11:14 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 09:46:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,6 @@ void	game_sound(t_sound_state sound_state, ma_sound sounds[NB_SOUNDS])
 		restart_sound(&sounds[COCAINE_SOUND]);
 	if (sound_state.game_mode == MENU)
 		restart_sound(&sounds[LOBBY_SOUND]);
+	else
+		restart_sound(&sounds[GAME_SOUND]);
 }

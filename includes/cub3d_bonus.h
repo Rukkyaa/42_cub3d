@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 14:04:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 14:37:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@
 # define BLACK_PIXEL 0x000000
 # define GRAY_PIXEL  0xD9DADB
 # define WHITE_PIXEL 0xFFFFFF
-# define VIOLET_PIXEL 0x610627
-# define DARK_VIOLET_PIXEL 0x2B0211
+# define VIOLET 0x610627
+# define DARK_VIOLET 0x2B0211
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 

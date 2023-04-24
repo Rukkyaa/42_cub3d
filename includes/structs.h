@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/21 15:16:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/24 15:19:26 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -439,5 +439,17 @@ typedef struct s_game
 	int				render_finished;
 }				t_game;
 
+
+// Norminette useless structs 	
+
+typedef struct s_roof_data
+{
+	t_vector3d	v3d_intersect_point;
+	int			i;
+	int			pixel_color;
+	int			shade;
+	int			min;
+	unsigned int	*img_addr;
+}				t_roof_data;
 
 #endif

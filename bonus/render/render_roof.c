@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:58:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/24 15:22:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/24 15:29:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	get_roof_color(t_game *game, t_vector3d intersection, t_img *img)
 	return (img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
 }
 
-void	shading(t_game *game, int *pixel_color, int *shade,
+void	shading_roof(t_game *game, int *pixel_color, int *shade,
 		t_vector3d v3d_intersect_point)
 {
 	float	distance;
@@ -64,7 +64,7 @@ void	render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos,
 					game->row_dist[(int)line_pos.x][i]));
 		d.pixel_color = get_roof_color(game, d.v3d_intersect_point,
 				&game->texture.roof);
-		shading(game, &d.pixel_color, &d.shade, d.v3d_intersect_point);
+		shading_roof(game, &d.pixel_color, &d.shade, d.v3d_intersect_point);
 		*d.img_addr = d.pixel_color;
 		d.img_addr -= RES_X;
 		i--;

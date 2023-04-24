@@ -6,72 +6,11 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/24 14:59:37 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/24 15:24:28 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
-t_vector3d get_floor_intersection(t_vector3d position, t_vector3d direction) {
-    t_vector3d intersection;
-    
-    double t = -position.z / direction.z;
-    intersection.x = position.x + t * direction.x;
-    intersection.y = position.y + t * direction.y;
-    intersection.z = 0;
-    
-    return intersection;
-}
-
-
-int get_floor_color(t_vector3d intersection, t_img *img)
-{
-	t_vector3d v_texture_pos;
-
-    // v_tile.x = (int) intersection.x / 64;
-    // v_tile.y = (int) intersection.y / 64;
-
-    // to do : get texture of the specific tile hit
-    v_texture_pos.x = fmod(intersection.x, 64); /// 64;
-    v_texture_pos.y = fmod(intersection.y,  64); // / 64;
-    // vec_print(&v_texture_pos, "v_texture_pos");
-    //return(sample_img(img, v_texture_pos.x, v_texture_pos.y));
-    return(img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
-}
-
-void    render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos)
-{
-    t_vector3d v3d_intersect_point;
-    int i = line_pos.y;
-    int pixel_color;
-    int shade = 1;
-    float distance;
-    unsigned int *img_addr;
-
-    img_addr = ( unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
-    while(i < RES_Y)
-    {
-        v3d_intersect_point = vec_sum(game->player.pos, vec_scalar_mult(v_ray_dir,  game->row_dist[(int)line_pos.x][i]));
-        // printf("read dist\n");
-        pixel_color =  get_floor_color(v3d_intersect_point, &game->texture.ground);
-            // pixel_color = add_shade(pixel_color, 0.5  * 255); 
-        if(HD && shade)
-        {
-            distance = vec_distance(game->player.pos, v3d_intersect_point);
-            if(distance > 320)
-                pixel_color = add_shade(pixel_color, fmin(fmax(1 - (distance  - 320 ) / 512, 0), 1) * 255); 
-            else
-                shade = 0;
-        }
-        
-
-        *img_addr = pixel_color;  
-        // img_pix_put(&game->fps_img, line_pos.x, i, pixel_color);
-        // printf("pix_put\n");
-        img_addr += RES_X;
-        i++;
-    }
-}
 
 int my_abs(int n)
 {

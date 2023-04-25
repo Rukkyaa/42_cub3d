@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/25 17:45:32 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/25 18:17:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,6 +230,7 @@ typedef struct s_sprite
 	t_vector3d		last_pos;
 	t_vector3d		pos;
 	t_vector3d		speed;
+	t_vector3d		screen_size;
 	t_animated_mob	animated_mob;
 	struct s_sprite	*next;
 }				t_sprite;

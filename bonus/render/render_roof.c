@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:58:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/24 15:29:14 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	pre_compute_rows_dist(t_game *game, t_vector3d line_pos,
 	while (i < line_pos.y - line_height)
 	{
 		dist = ((game->wall_height - game->player.pos3d.z)
-				* game->camera.proj_plane_distance)
+				* game->camera.p_plane_dist)
 			/ (float)(game->camera.plane_center.y - i);
 		dist /= resize;
 		game->row_dist[(int)line_pos.x][i] = dist;
@@ -90,7 +90,7 @@ void	pre_compute_rows_dist(t_game *game, t_vector3d line_pos,
 	i = line_pos.y;
 	while (i < RES_Y)
 	{
-		dist = (game->player.pos3d.z * game->camera.proj_plane_distance)
+		dist = (game->player.pos3d.z * game->camera.p_plane_dist)
 			/ (float)(i - game->camera.plane_center.y);
 		dist /= resize;
 		game->row_dist[(int)line_pos.x][i] = dist;

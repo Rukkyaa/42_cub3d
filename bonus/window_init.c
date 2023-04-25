@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 14:05:44 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	init_camera(t_camera *camera)
 	camera->proj_plane_width =  RES_X ; //camera->proj_plane_height * ( (float) RES_X / (float) RES_Y);
 	camera->half_res.x = RES_X / 2;
 	camera->half_res.y = RES_Y / 2;
-	camera->proj_plane_distance = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
-	//camera->proj_plane_distance = 277;
+	camera->p_plane_dist = ((float) camera->proj_plane_width / 2.0f) / tanf(FOV_RADIANS / 2.0f);
+	//camera->p_plane_dist = 277;
 	camera->plane.x = 0;
 	camera->plane.y = camera->proj_plane_width / 2;
 	camera->plane.z = 0;
@@ -161,7 +161,7 @@ void	precompute_raycast(t_game *game)
 	// v_right.y = 1;
 	// v_right.z = 0;
 	v_right = vec_rotate(game->player.direction, 90);
-	v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.proj_plane_distance);
+	v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.p_plane_dist);
 	while(i < RES_X)
 	{
         game->ray_offset[i] = ((2.0f * (float) i / (RES_X - 1.0f)) - 1.0f) * (game->camera.proj_plane_width / 2);
@@ -275,7 +275,7 @@ void	var_init(t_game *game)
 	game->fps_img = _mlx()->img;
 	game->mouse_clicked  = 0;
 	init_camera(&game->camera);
-	game->wall_height_x_proj_dist = game->wall_height * game->camera.proj_plane_distance;
+	game->wall_height_x_proj_dist = game->wall_height * game->camera.p_plane_dist;
 	game->mouse.x = RES_X / 2;
 	game->mouse.y = RES_Y / 2;
 	game->mode = MENU;

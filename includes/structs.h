@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/24 15:19:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/25 17:19:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,7 +119,7 @@ typedef struct s_time
 
 typedef struct s_camera
 {
-	float	proj_plane_distance;
+	float	p_plane_dist;
 	float	proj_plane_height;
 	float	proj_plane_width;
 	t_vector3d			half_res;

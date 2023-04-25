@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/13 17:53:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void   draw_sprite(t_game *game, t_sprite *sprite)
 {
     t_vector3d start_pos;
     //printf("sprite distance : %f\n", sprite->distance);
-    float line_height =  (sprite->height / sprite->distance  ) * game->camera.proj_plane_distance; // (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.proj_plane_distance;
-    float line_width =  (sprite->width / sprite->distance ) * game->camera.proj_plane_distance;
+    float line_height =  (sprite->height / sprite->distance  ) * game->camera.p_plane_dist; // (RES_Y / game->camera.proj_plane_height) * (sprite->height / sprite->distance ) * game->camera.p_plane_dist;
+    float line_width =  (sprite->width / sprite->distance ) * game->camera.p_plane_dist;
     int pixel_color;
 
     // Start
@@ -91,14 +91,14 @@ void    compute_sprite(t_game *game, t_sprite *sprite)
 
     vec_rotate_edit(&player_to_sprite, -game->player.angle);
     float x_dist = (player_to_sprite.y / player_to_sprite.x);
-    x_dist = x_dist * ( (float) RES_X / 2);
+    x_dist = x_dist * ( (float) game->camera.p_plane_dist);
 
     // Y AXIS ON SCREEN
     float xy_distance = sqrt(player_to_sprite.x * player_to_sprite.x + player_to_sprite.y * player_to_sprite.y) * cosf(angle);
     t_vector3d z_vector;
     z_vector.x = xy_distance;
     z_vector.y = sprite->pos.z - game->player.pos3d.z;
-    float y_dist = (z_vector.y / z_vector.x) * game->camera.proj_plane_distance;\
+    float y_dist = (z_vector.y / z_vector.x) * game->camera.p_plane_dist;
     //y_dist = y_dist * ( (float) RES_Y / 2.0f) ; 
 
     screen_pos.x =  x_dist + RES_X / 2;

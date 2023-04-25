@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/17 10:39:00 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,7 +129,7 @@ void	edit_player_rotate(t_game *game)
 		if( game->player.pos3d.z > 1)
 		{
 			game->player.pos3d.z -= 1;
-			//game->camera.plane_center.y = game->player.pos3d.z + game->camera.proj_plane_distance * cosf(M_PI/2) ;
+			//game->camera.plane_center.y = game->player.pos3d.z + game->camera.p_plane_dist * cosf(M_PI/2) ;
 			//game->player.tilt -= 1;
 			// printf("pos : %f\n", game->player.pos3d.z);
 		}

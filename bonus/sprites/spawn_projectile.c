@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_projectile.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:58:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, int type)
 	new_projectile->pos.z = 20 - new_projectile->height / 2;
 	new_projectile->last_pos = new_projectile->pos;
 	new_projectile->speed = game->player.direction;
-	new_projectile->speed.z = (float) 1.25 * (game->camera.plane_center.y -  game->camera.half_res.y) / (float) game->camera.proj_plane_distance;
+	new_projectile->speed.z = (float) 1.25 * (game->camera.plane_center.y -  game->camera.half_res.y) / (float) game->camera.p_plane_dist;
 	new_projectile->speed = vec_scalar_mult(new_projectile->speed, 25);
 	new_projectile->next = NULL;
 	new_projectile->type = PROJ;

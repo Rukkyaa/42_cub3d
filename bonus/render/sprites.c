@@ -14,8 +14,6 @@
 
 int	sample_img(t_img *img, float x, float y)
 {
-	if (x < 0 || x > 1 || y < 0 || y > 1)
-		printf("%f %f\n", x, y);
 	return (img_pix_read(img, x * img->width, y * img->heigth));
 }
 

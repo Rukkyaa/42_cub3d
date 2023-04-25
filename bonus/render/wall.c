@@ -55,14 +55,14 @@ void	wall_thread(t_game *game, t_wall_task d)
 	{
 		if (d.collision.distance > 1000)
 			img_pix_put(&game->fps_img, d.line_pos.x, i, BLACK_PIXEL);
-        else
-        {
-            pixel_color = img_pix_read(&d.collision.wall, x_text, (((float)(i
-                                + offset) / (float)d.line_height)
-                        * d.collision.wall.heigth));
-            shading_wall(game, &pixel_color, d);
-            img_pix_put(&game->fps_img, d.line_pos.x, i, pixel_color);
-        }
+		else
+		{
+			pixel_color = img_pix_read(&d.collision.wall, x_text, (((float)(i
+								+ offset) / (float)d.line_height)
+						* d.collision.wall.heigth));
+			shading_wall(game, &pixel_color, d);
+			img_pix_put(&game->fps_img, d.line_pos.x, i, pixel_color);
+		}
 		i++;
 	}
 }

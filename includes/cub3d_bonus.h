@@ -3,10 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/04/25 17:41:34 by teliet           ###   ########.fr       */
+=======
+/*   Updated: 2023/04/24 18:11:30 by axlamber         ###   ########.fr       */
+>>>>>>> cd58ed06bf3500f0294807bd8347e7f885fdbf97
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -285,6 +289,8 @@ void			init_sounds(t_audio *audio);
 void			play_sound(ma_sound *sound);
 void			game_sound(t_sound_state sound_state, ma_sound sound[NB_SOUNDS]);
 void			restart_sound(ma_sound *sound);
+void			add_sound(t_audio *audio, int id, char *path, float volume);
+void			load_sounds(t_audio *audio);
 
 /***********************************************************************************************
 ** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **

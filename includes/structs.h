@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/25 17:19:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/25 17:45:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 
 // Sound
 
-# define NB_SOUNDS 27
+# define NB_SOUNDS 28
 
 # define MAX_AXE_SOUNDS 5
 # define MAX_PLASMA_RIFFLE_SOUNDS 7
@@ -65,6 +65,7 @@
 # define PLAYER_HURT_SOUND 17 // 17 to 24
 # define COCAINE_SOUND 25
 # define LOBBY_SOUND 26
+# define GAME_SOUND 27
 
 // State
 # define IDLE_STATE 0

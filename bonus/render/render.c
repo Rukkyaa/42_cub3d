@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:12:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:37:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,14 @@ void	render_life_bar(t_game *game)
 		- game->hud.life_bar_border.heigth - 10);
 	hp_percentage = game->player.hp * 100 / game->player.max_hp;
 	if (hp_percentage > 66)
-		put_img_to_img_crop(&game->hud.life_green_bar, &game->fps_img, start, end);
+		put_img_to_img_crop(&game->hud.life_green_bar, &game->fps_img, start,
+			end);
 	else if (hp_percentage > 33)
-		put_img_to_img_crop(&game->hud.life_orange_bar, &game->fps_img, start, end);
+		put_img_to_img_crop(&game->hud.life_orange_bar, &game->fps_img, start,
+			end);
 	else
-		put_img_to_img_crop(&game->hud.life_red_bar, &game->fps_img, start, end);
-
+		put_img_to_img_crop(&game->hud.life_red_bar, &game->fps_img, start,
+			end);
 }
 
 void	render_ui(t_game *game)
@@ -41,12 +43,13 @@ void	render_ui(t_game *game)
 	put_img_to_img(&game->hud.aim, &game->fps_img, game->camera.half_res.x
 		- game->hud.aim.width / 2, game->camera.half_res.y
 		- game->hud.aim.width / 2);
-	put_img_to_img(game->player.weapon->current_img, &game->fps_img, RES_X
-		/ 2 - game->player.weapon->current_img->width / 2, RES_Y
+	put_img_to_img(game->player.weapon->current_img, &game->fps_img, RES_X / 2
+		- game->player.weapon->current_img->width / 2, RES_Y
 		- game->player.weapon->current_img->heigth);
-	if(game->player.sound_state.player_hurt)
+	if (game->player.sound_state.player_hurt)
 	{
-		put_img_to_img(&game->texture.player_hurt_overlay ,&game->fps_img, 0, 0);
+		put_img_to_img(&game->texture.player_hurt_overlay, &game->fps_img, 0,
+			0);
 	}
 	if (game->inventory_display)
 	{
@@ -56,47 +59,22 @@ void	render_ui(t_game *game)
 	render_life_bar(game);
 }
 
-
-void handle_button(t_game *game, t_button *button)
-{
-	if(button->pos.x < game->mouse.x && game->mouse.x < button->pos.x + button->idle_img.width
-		&& button->pos.y < game->mouse.y && game->mouse.y < button->pos.y + button->idle_img.heigth)
-		{
-			put_img_to_img(&button->hover_img, &game->fps_img, button->pos.x, button->pos.y);
-			if(game->mouse_clicked)
-			{
-				game->mode = PLAY;
-				mlx_mouse_hide(game->mlx, _mlx()->win);
-				// init_sprites(game);
-			}
-		}
-	else
-		put_img_to_img(&button->idle_img, &game->fps_img, button->pos.x, button->pos.y);
-}
-
 void	render_map(t_game *game)
 {
-
-	sample_img_to_img(&game->minimap, &game->debug_img, game->player.pos.x / 4 - game->minimap_center.x + MAP_MARGIN, game->player.pos.y / 4 - game->minimap_center.y + MAP_MARGIN );
+	sample_img_to_img(&game->minimap, &game->debug_img, game->player.pos.x / 4
+		- game->minimap_center.x + MAP_MARGIN, game->player.pos.y / 4
+		- game->minimap_center.y + MAP_MARGIN);
 	draw_filled_circle(&game->minimap, game->minimap_center, 3, RED_PIXEL);
-	draw_line_dda(&game->minimap, game->minimap_center, vec_sum(game->minimap_center, vec_scalar_mult(game->player.direction, 10)), RED_PIXEL);	
-	// draw_player(game, RED_PIXEL);
-}
-
-void	render_menu(t_game *game)
-{
-	// Menu
-	put_img_to_img(&game->texture.menu, &game->fps_img, 0, 0);
-	handle_button(game, &game->buttons[0]);
+	draw_line_dda(&game->minimap, game->minimap_center,
+		vec_sum(game->minimap_center,
+			vec_scalar_mult(game->player.direction, 10)), RED_PIXEL);
 }
 
 void	render(t_game *game)
 {
-	// mlx_put_image_to_window(game->mlx, game->fps_win,
-	// 	game->debug_img.mlx_img, 0, 0);
-	mlx_put_image_to_window(game->mlx, game->fps_win,
-		game->fps_img.mlx_img, 0, 0);
-	if(game->mode == PLAY)
-		mlx_put_image_to_window(game->mlx, game->fps_win,
-			game->minimap.mlx_img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0,
+		0);
+	if (game->mode == PLAY)
+		mlx_put_image_to_window(game->mlx, game->fps_win, game->minimap.mlx_img,
+			0, 0);
 }

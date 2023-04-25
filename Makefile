@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/25 17:31:54 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/25 17:41:34 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ HEADERS = ./includes/cub3d.h
 
 NAME_BONUS = cub3d_bonus
 
-SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c \
+SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c bonus/menu.c \
 		bonus/free.c \
 		bonus/raycast_2D.c
 

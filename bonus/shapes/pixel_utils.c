@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/21 13:33:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/26 14:48:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,27 +31,16 @@ t_vector3d	tile_to_pixel(t_vector3d tile_coord)
 	return (pixel_coord);
 }
 
-// t_vector3d	pixel_to_tile(t_vector3d vector)
-// {
-// 	t_vector3d	tile_coord;
-
-// 	tile_coord.x = (int)(vector.x / 64.0f);
-// 	tile_coord.y = (int)(vector.y / 64.0f);
-// 	return (tile_coord);
-// }
-
-
-int divide_by_64(int value) {
-    return value >> 6; // equivalent to value / 64
+int	divide_by_64(int value)
+{
+	return (value >> 6);
 }
 
 t_vector3d	pixel_to_tile(t_vector3d vector)
 {
 	t_vector3d	tile_coord;
 
-    tile_coord.x = divide_by_64(vector.x);
-    tile_coord.y = divide_by_64(vector.y);
-
+	tile_coord.x = divide_by_64(vector.x);
+	tile_coord.y = divide_by_64(vector.y);
 	return (tile_coord);
 }
-

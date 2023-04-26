@@ -100,13 +100,13 @@ void	fill_sprite_animation(t_game *game, char *dir_path,
 	if (!count)
 	{
 		closedir(dir);
-		return (0);
+		return ;
 	}
 	animation->imgs = (t_img **)my_alloc((count + 1) * sizeof(t_img *));
 	if (!animation->imgs)
 	{
 		closedir(dir);
-		return (0);
+		return ;
 	}
 	rewinddir(dir);
 	fill_animation(game, animation, dir, dir_path);

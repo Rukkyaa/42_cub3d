@@ -166,7 +166,6 @@ void    		render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos);
 void			print_kill(t_game *game, int nb, int x);
 
 // Shapes
-void			draw_player(t_game *game, int color);
 void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
 void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start, t_vector end);
 

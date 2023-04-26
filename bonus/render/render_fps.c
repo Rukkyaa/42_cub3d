@@ -64,11 +64,11 @@ void	render_fps(t_game *game)
 	int			line_height;
 	t_collision	collision;
 	t_vector3d	line_pos;
-	t_vector3d	player_to_midwall;
 	t_vector3d	v_ray_dir;
 
 	line_pos.y = game->camera.half_res.y;
 	line_pos.x = 0;
+	line_pos.z = 0;
 	init_tasks(game);
 	while (line_pos.x < RES_X)
 	{

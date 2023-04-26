@@ -51,9 +51,6 @@ void	draw_sprite(t_game *game, t_sprite *sprite)
 {
 	t_vector3d	start_pos;
 	t_vector3d	end_pos;
-	float		line_height;
-	float		line_width;
-	int			pixel_color;
 
 	sprite->screen_size.y = (sprite->height / sprite->distance)
 		* game->camera.p_plane_dist;

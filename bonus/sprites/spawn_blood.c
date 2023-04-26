@@ -23,6 +23,7 @@ t_sprite	*spawn_blood(t_game *game, t_vector3d pos, int type)
 {
 	t_sprite	*new_blood;
 
+	(void) type;
 	new_blood = my_alloc(sizeof(t_sprite));
 	if (!new_blood)
 		return (NULL);

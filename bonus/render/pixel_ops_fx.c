@@ -17,7 +17,7 @@ unsigned int	img_pix_read_disco(t_img *img, int x, int y)
 	char	*pixel;
 
 	pixel = (img->addr + (y * img->line_len + x * 4));
-	return (pixel);
+	return ((unsigned int) pixel);
 }
 
 unsigned int	img_pix_read_dark(t_img *img, int x, int y)

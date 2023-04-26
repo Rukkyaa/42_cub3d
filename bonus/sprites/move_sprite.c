@@ -59,7 +59,6 @@ void	mob_wall_collide(t_game *game, t_sprite *mob)
 
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 {
-	t_vector3d	start;
 
 	if (sprite->state == SPAWN)
 	{
@@ -103,7 +102,6 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 	}
 	else
 	{
-		start = sprite->speed;
 		sprite->speed = vec_sum(player->pos, vec_scalar_mult(sprite->pos, -1));
 		sprite->speed = vec_normalize(sprite->speed);
 		sprite->speed = vec_scalar_mult(sprite->speed, sprite->velocity);
@@ -114,9 +112,9 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 
 int proj_mob_collide(t_sprite *mob, t_sprite *proj) {
 	t_vector3d proj_true_pos;
-	t_vector3d proj_to_mob;
+	// t_vector3d proj_to_mob;
 	float straight_dist;
-	proj_to_mob = vec_sum(mob->pos, vec_scalar_mult(proj->pos, -1));
+	// proj_to_mob = vec_sum(mob->pos, vec_scalar_mult(proj->pos, -1));
 
 	// float angle = vec_angle(proj->speed, proj_to_mob);
 	// float x_y_dist = sinf(angle) * vec_distance(mob->pos, proj->pos);

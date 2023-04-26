@@ -31,7 +31,7 @@ void	get_wall(t_game *game, t_collision *collision, char c)
 		collision->wall = game->texture.door;
 }
 
-void	shading_wall(t_game *game, int *pixel_color, t_wall_task d)
+void	shading_wall(int *pixel_color, t_wall_task d)
 {
 	if (HD && d.collision.distance > 320)
 		*pixel_color = add_shade(*pixel_color, fmin(fmax(1
@@ -60,7 +60,7 @@ void	wall_thread(t_game *game, t_wall_task d)
 			pixel_color = img_pix_read(&d.collision.wall, x_text, (((float)(i
 								+ offset) / (float)d.line_height)
 						* d.collision.wall.heigth));
-			shading_wall(game, &pixel_color, d);
+			shading_wall(&pixel_color, d);
 			img_pix_put(&game->fps_img, d.line_pos.x, i, pixel_color);
 		}
 		i++;

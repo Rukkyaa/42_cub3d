@@ -33,7 +33,7 @@ void	print_fps(int fps)
 	free(tmp);
 }
 
-int	game_loop(t_game *game)
+void	game_loop(t_game *game)
 {
 	handle_time(game);
 	edit_player_rotate(game);

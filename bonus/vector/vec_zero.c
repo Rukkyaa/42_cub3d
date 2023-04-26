@@ -18,6 +18,6 @@ t_vector3d	vec_zero(void)
 
 	vector.x = 0;
 	vector.y = 0;
-	vector.z /= 0;
+	vector.z = 0;
 	return (vector);
 }

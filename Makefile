@@ -76,7 +76,7 @@ MAP_OBJS_BONUS = $(MAP_SRC_BONUS:.c=.o)
 
 # VECTOR FILES #
 VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance mult normalize \
-	print scalar_mult sum to_angle rotate_edit rotate rotate_rad copy resize))
+	print scalar_mult sum to_angle rotate_edit rotate rotate_rad copy resize zero))
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
@@ -107,7 +107,7 @@ WAVE_OBJS_BONUS = $(WAVE_SRC_BONUS:.c=.o)
 
 # SPRITES #
 SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
-	remove_entity move_sprite sprite_attack use_items))
+	remove_entity move_sprite sprite_attack use_items zombie_stats))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #

@@ -61,12 +61,13 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, int id)
 	new_item->pos.y = pos.y;
 	new_item->animation = get_item_anim(game, id);
 	new_item->animation.start_time_ms = ft_now();
-	new_item->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_item->animation.nb_imgs;
+	new_item->animation.frame_offset = ((double)rand() / (double)RAND_MAX)
+		* new_item->animation.nb_imgs;
 	new_item->pos.z = 0;
 	new_item->height = 20;
 	new_item->width = new_item->height *
 		(new_item->animation.current_img->width) /
-			(new_item->animation.current_img->heigth);
+		(new_item->animation.current_img->heigth);
 	new_item->next = NULL;
 	new_item->type = ITEM;
 	new_item->id = id;

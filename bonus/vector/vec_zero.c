@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sprite_add_back.c                                  :+:      :+:    :+:   */
+/*   vec_to_angle.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/22 14:57:33 by axlamber          #+#    #+#             */
-/*   Updated: 2023/03/22 14:59:59 by axlamber         ###   ########.fr       */
+/*   Created: 2023/02/22 11:30:20 by axlamber          #+#    #+#             */
+/*   Updated: 2023/04/07 15:11:15 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-void	sprite_add_back(t_sprite **lst, t_sprite *new)
+t_vector3d	vec_zero(void)
 {
-	t_sprite	*tmp;
+	t_vector3d	vector;
 
-	if (*lst)
-	{
-		tmp = sprite_last(*lst);
-		tmp->next = new;
-	}
-	else
-		*lst = new;
+	vector.x = 0;
+	vector.y = 0;
+	vector.z /= 0;
+	return (vector);
 }

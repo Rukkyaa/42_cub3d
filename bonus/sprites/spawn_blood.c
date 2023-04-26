@@ -14,7 +14,8 @@
 
 void	load_blood_anim(t_game *game)
 {
-	fill_sprite_animation(game, "images/FX/blood_splatter_line_xpm", &game->animations.blood_splatter_line);
+	fill_sprite_animation(game, "images/FX/blood_splatter_line_xpm",
+		&game->animations.blood_splatter_line);
 	game->animations.blood_splatter_line.frame_duration_ms = 70;
 }
 
@@ -37,9 +38,9 @@ t_sprite	*spawn_blood(t_game *game, t_vector3d pos, int type)
 	new_blood->next = NULL;
 	new_blood->type = FX;
 	new_blood->height = 10;
-	new_blood->width = new_blood->height *
-		(new_blood->animation.current_img->width) /
-			(new_blood->animation.current_img->heigth);
+	new_blood->width = new_blood->height
+		* (new_blood->animation.current_img->width)
+		/ (new_blood->animation.current_img->heigth);
 	sprite_add_back(&game->sprites, new_blood);
 	update_start_time(new_blood, game);
 	return (new_blood);

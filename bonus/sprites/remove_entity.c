@@ -19,14 +19,14 @@
 ** @param game the game struct
 ** @param entity the entity to remove
 */
-void remove_entity(t_sprite **sprites, t_sprite *entity)
+void	remove_entity(t_sprite **sprites, t_sprite *entity)
 {
 	t_sprite	*tmp;
 
 	if (*sprites == entity)
 	{
 		*sprites = (*sprites)->next;
-		return;
+		return ;
 	}
 	tmp = *sprites;
 	while (tmp && tmp->next != entity)
@@ -34,28 +34,3 @@ void remove_entity(t_sprite **sprites, t_sprite *entity)
 	if (tmp)
 		tmp->next = entity->next;
 }
-
-
-
-// void	remove_entity(t_game *game, int id)
-// {
-// 	t_sprite	*entity;
-// 	t_sprite	*prev;
-
-// 	entity = game->sprites;
-// 	prev = NULL;
-// 	while (entity)
-// 	{
-// 		if (entity->id == id)
-// 		{
-// 			if (prev)
-// 				prev->next = entity->next;
-// 			else
-// 				game->sprites = entity->next;
-// 			free(entity);
-// 			return ;
-// 		}
-// 		prev = entity;
-// 		entity = entity->next;
-// 	}
-// }

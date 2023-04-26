@@ -23,41 +23,47 @@ t_animation	get_energy_ball_anim(t_game *game, int type)
 	else if (type == BLUE_PROJ)
 		anim.current_img = &game->texture.blue_projectile;
 	anim.frame_duration_ms = 100000;
-	// anim.play = 0;
 	return (anim);
+}
+
+void	set_type_specs(t_sprite *new_proj, int type)
+{
+	if (type == GREEN_PROJ)
+	{
+		new_proj->damage = 50;
+		new_proj->height = 32;
+	}
+	else if (type == BLUE_PROJ)
+	{
+		new_proj->damage = 25;
+		new_proj->height = 16;
+	}
 }
 
 t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, int type)
 {
-	t_sprite	*new_projectile;
+	t_sprite	*new_proj;
 
-	new_projectile = my_alloc(sizeof(t_sprite));
-	if (!new_projectile)
+	new_proj = my_alloc(sizeof(t_sprite));
+	if (!new_proj)
 		return (NULL);
-	new_projectile->pos.x = pos.x + game->player.direction.x * 10;
-	new_projectile->pos.y = pos.y + game->player.direction.y * 10;
-	new_projectile->animation = get_energy_ball_anim(game, type);
-	new_projectile->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * new_projectile->animation.nb_imgs;
-	new_projectile->pos.z = 20 - new_projectile->height / 2;
-	new_projectile->last_pos = new_projectile->pos;
-	new_projectile->speed = game->player.direction;
-	new_projectile->speed.z = (float) 1.25 * (game->camera.plane_center.y -  game->camera.half_res.y) / (float) game->camera.p_plane_dist;
-	new_projectile->speed = vec_scalar_mult(new_projectile->speed, 25);
-	new_projectile->next = NULL;
-	new_projectile->type = PROJ;
-	if (type == GREEN_PROJ)
-	{
-		new_projectile->damage = 50;
-		new_projectile->height = 32;
-	}
-	else if (type == BLUE_PROJ)
-	{
-		new_projectile->damage = 25;
-		new_projectile->height = 16;
-	}
-	new_projectile->width = new_projectile->height *
-		(new_projectile->animation.current_img->width) /
-			(new_projectile->animation.current_img->heigth);
-	sprite_add_back(&game->sprites, new_projectile);
-	return (new_projectile);
+	new_proj->pos.x = pos.x + game->player.direction.x * 10;
+	new_proj->pos.y = pos.y + game->player.direction.y * 10;
+	new_proj->animation = get_energy_ball_anim(game, type);
+	new_proj->animation.frame_offset = ((double)rand() / (double)RAND_MAX)
+		* new_proj->animation.nb_imgs;
+	new_proj->pos.z = 20 - new_proj->height / 2;
+	new_proj->last_pos = new_proj->pos;
+	new_proj->speed = game->player.direction;
+	new_proj->speed.z = (float)1.25 * (game->camera.plane_center.y
+			- game->camera.half_res.y) / (float)game->camera.p_plane_dist;
+	new_proj->speed = vec_scalar_mult(new_proj->speed, 25);
+	new_proj->next = NULL;
+	new_proj->type = PROJ;
+	set_type_specs(new_proj, type);
+	new_proj->width = new_proj->height
+		* (new_proj->animation.current_img->width)
+		/ (new_proj->animation.current_img->heigth);
+	sprite_add_back(&game->sprites, new_proj);
+	return (new_proj);
 }

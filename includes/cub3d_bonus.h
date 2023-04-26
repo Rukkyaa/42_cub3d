@@ -270,6 +270,7 @@ double			vec_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec_angle(t_vector3d v1, t_vector3d v2);
 t_vector3d		vec_copy(t_vector3d vec1);
+t_vector3d		vec_zero(void);
 
 /*******************************************************
 **  $$$$$$\   $$$$$$\  $$\   $$\ $$\   $$\ $$$$$$$\   **
@@ -354,6 +355,14 @@ void			update_start_time(t_sprite *sprite, t_game *game);
 void			attack(t_game *game, t_sprite *sprite, t_player *player);
 bool			do_damage(int damage, t_sprite *sprite);
 void			respawn_zombie(t_game *game);
+void			set_baby_zombie_stats(t_sprite *zombie, t_wave *wave);
+void			set_normal_zombie_stats(t_sprite *zombie, t_wave *wave);
+void			set_big_zombie_stats(t_sprite *zombie, t_wave *wave);
+void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie, int type);
+
+
+
+
 
 
 //INIT

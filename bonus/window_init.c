@@ -58,19 +58,6 @@ void init_sprites(t_game *game)
 {
 	init_animations(game);
 	game->sprites = NULL;
-	// while(i < 10)
-	// {
-	// 	zombie_pos.x = (double) rand() / (double) RAND_MAX * map_width(game->map) * 64;
-	// 	zombie_pos.y = (double) rand() / (double) RAND_MAX * map_heigth(game->map) * 64;
-	// 	zombie_pos.z = 0;
-	// 	if (game->map[(int) (zombie_pos.y / 64)][(int) (zombie_pos.x / 64)] == '0')
-	// 	{
-	// 		tmp = spawn_zombie(game, zombie_pos, rand() % 3);
-	// 		if (!tmp)
-	// 			printf("error spawn zombie\n");
-	// 		i++;
-	// 	}
-	// }
 }
 
 void init_weapons(t_game *game)
@@ -157,9 +144,6 @@ void	precompute_raycast(t_game *game)
     t_vector3d v_right;
     t_vector3d v_player_to_camera_plane;
 	
-    // v_right.x = 0; //vec_normalize(game->camera.plane);
-	// v_right.y = 1;
-	// v_right.z = 0;
 	v_right = vec_rotate(game->player.direction, 90);
 	v_player_to_camera_plane = vec_scalar_mult(game->player.direction, game->camera.p_plane_dist);
 	while(i < RES_X)

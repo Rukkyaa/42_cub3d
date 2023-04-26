@@ -91,10 +91,8 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
     int tile_found = 0;
     float distance = 0.0f;
 
-    while(!tile_found )//&& distance < max_distance)
+    while(!tile_found )
     {
-        // printf(" \n --------------- \n");
-        // printf("distance :%f\n",distance);
         if(v_ray_length_1D.x < v_ray_length_1D.y)
         {
             last_step = 'x';
@@ -127,18 +125,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
             }
             else 
             {
-                door_intersection.y = collision_point.y + 32 * v_ray_dir.y / fabs(v_ray_dir.x);// vec_sum(collision_point, vec_scalar_mult(v_ray_dir, 32));
-                // if(door_intersection.x > 0 && door_intersection.x < 10)
-                // {
-                //     printf("dx/dy : %f\n", fmod(collision_point.y , 64));
-                //     printf("collision : %f\n", fmod(collision_point.y , 64));
-                //     printf("door intersection : %f\n", door_intersection.x);
-                // }
-                // vec_print(&v_ray_dir, "v_ray_dir");
-                // vec_print(&collision_point, "collision_point");
-                // vec_print(&door_intersection, "door intersection");
-                // vec_print(&v_map_check, "v_map_check");
-                // printf("fmod(door_intersection.y): %d\n",((int) door_intersection.y ) / 64);
+                door_intersection.y = collision_point.y + 32 * v_ray_dir.y / fabs(v_ray_dir.x);
             }
             if( ((int) door_intersection.y ) / 64 ==  v_map_check.y)
             {
@@ -156,9 +143,5 @@ t_collision	cast_2D_ray(t_game *game, t_vector3d direction)
     collision.orientation = get_collision_orientation(last_step, v_step);
     collision.point = collision_point;
     collision.x_pos_tex = get_texture_x(last_step, collision_point ,v_map_check);
-    // if(game->map[(int)v_map_check.y][(int)v_map_check.x] == "D")
-    //     collision.is_door = 1;
-    // else 
-    //     collision.is_door = 0;
     return ((collision));
 }

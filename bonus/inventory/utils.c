@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:47:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:41:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	select_item(t_game *game, int x, int y)
 
 bool	item_out_of_bound(t_vector3d mouse, t_img img, t_img selected)
 {
-	return (mouse.x < selected.width / 2 || mouse.x > img.width -
-		selected.width / 2 || mouse.y < selected.heigth / 2 || mouse.y
-			> img.heigth - selected.heigth / 2);
+	return (mouse.x < selected.width / 2 || mouse.x > img.width - selected.width
+		/ 2 || mouse.y < selected.heigth / 2 || mouse.y > img.heigth
+		- selected.heigth / 2);
 }

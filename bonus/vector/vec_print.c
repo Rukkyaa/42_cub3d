@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:31:04 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/07 15:10:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/26 14:42:40 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	vec_print(t_vector3d *vector, char *name)
 void	vec3_print(t_vector3d vector, char *name)
 {
 	printf("----------------------------------------------------------\n");
-	printf("| %s : x : %f | y : %f| z : %f    |\n", name, vector.x, vector.y, vector.z);
+	printf("| %s : x : %f | y : %f| z : %f    |\n", name, vector.x, vector.y,
+		vector.z);
 	printf("----------------------------------------------------------\n");
 }

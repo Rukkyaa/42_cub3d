@@ -34,3 +34,26 @@ void	pre_compute_resize(t_game *game)
 		i++;
 	}
 }
+
+void	precompute_raycast(t_game *game)
+{
+	int			i;
+	t_vector3d	v_ray_dir;
+	t_vector3d	v_right;
+	t_vector3d	v_player_to_camera_plane;
+
+	i = 0;
+	v_right = vec_rotate(game->player.direction, 90);
+	v_player_to_camera_plane = vec_scalar_mult(game->player.direction,
+			game->camera.p_plane_dist);
+	while (i < RES_X)
+	{
+		game->ray_offset[i] = ((2.0f * (float)i / (RES_X - 1.0f)) - 1.0f)
+			* (game->camera.proj_plane_width / 2);
+		v_ray_dir = vec_sum(v_player_to_camera_plane, vec_scalar_mult(v_right,
+					game->ray_offset[i]));
+		v_ray_dir = vec_normalize(v_ray_dir);
+		game->ray_angle[i] = vec_angle(game->player.direction, v_ray_dir);
+		i++;
+	}
+}

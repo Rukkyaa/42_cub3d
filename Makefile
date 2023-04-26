@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/25 17:45:19 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/26 12:23:11 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -60,7 +60,7 @@ HEADERS = ./includes/cub3d.h
 
 NAME_BONUS = cub3d_bonus
 
-SRC_BONUS = bonus/main.c bonus/window_init.c bonus/game_loop.c bonus/menu.c \
+SRC_BONUS = bonus/main.c bonus/game_loop.c bonus/menu.c \
 		bonus/free.c \
 		bonus/raycast_2D.c
 
@@ -111,7 +111,7 @@ SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spa
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #
-INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, load_sprites load_images))
+INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_weapons init_windows init_camera init_multi_threading basic_vectors sound load_sprites load_images))
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # GARBAGE #

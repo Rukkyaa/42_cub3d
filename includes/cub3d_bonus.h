@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/25 17:45:56 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/26 12:21:28 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -162,6 +162,7 @@ void    		render_sprites(t_game *game);
 void 			sort_sprites(t_sprite** headRef);
 void    		render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height);
 void    		pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_height, float resize);
+void			precompute_raycast(t_game *game);
 void    		render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos);
 void			print_kill(t_game *game, int nb, int x);
 
@@ -221,13 +222,23 @@ t_vector3d		get_next_tile(t_game *game, t_vector3d direction);
 t_vector3d		pixel_to_tile(t_vector3d vector);
 t_vector3d		tile_to_pixel(t_vector3d tile_coord);
 int				pixel_out_of_bound(float x, float y, t_img *image);
-void			var_init(t_game *game);
 char			**get_map(char *arg);
 int				close_window(t_game *game);
 void			move(t_game *game, char direction);
 
 // mlx Utils
 unsigned int	img_pix_read(t_img *img, int x, int y);
+
+
+// INIT
+void			var_init(t_game *game);
+void			init_player(t_game *game);
+void 			init_weapons(t_game *game);
+void			init_threads(t_game *game);
+void			init_camera(t_game *game, t_camera *camera);
+void			init_windows(t_game *game);
+void			init_basic_vectors(t_game *game);
+void			sound_state_init(t_sound_state *sound_state);
 
 /**************************************
 ** $$\      $$\  $$$$$$\  $$$$$$$\   **

@@ -126,5 +126,5 @@ void	hooks(t_game *game)
 	mlx_hook(_mlx()->win, 4, 1L << 2, mouse_press, game);
 	mlx_hook(_mlx()->win, 5, 1L << 3, mouse_release, game);
 	mlx_hook(_mlx()->win, 17, 0, close_window, game);
-	mlx_loop_hook(game->mlx, game_loop, game);
+	mlx_loop_hook(game->mlx, main_loop, game);
 }

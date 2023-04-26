@@ -212,7 +212,7 @@ void			load_map(t_game *game);
 int				key_gestion(int keycode, t_game *game);
 int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
-int				game_loop(void *g);
+int				main_loop(void *g);
 
 // Controls
 void	rotate_player(t_game *game, float angle);

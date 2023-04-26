@@ -1,6 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   multi_threading.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/04/26 14:49:56 by teliet            #+#    #+#             */
+/*   Updated: 2023/04/26 14:50:02 by teliet           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "cub3d_bonus.h"
-
 
 void	execute_task(t_game *game, t_wall_task *task)
 {
@@ -31,7 +41,7 @@ void	*start_thread(void *void_game)
 		pthread_mutex_unlock(&game->queue_rights);
 		if (found_task)
 		{
-            execute_task(game, &task);
+			execute_task(game, &task);
 			found_task = 0;
 		}
 	}

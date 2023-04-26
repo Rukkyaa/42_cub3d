@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/26 12:23:11 by theo             ###   ########.fr        #
+#    Updated: 2023/04/26 14:58:38 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils fps move entity_collision weapon))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils time move entity_collision weapon))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # WAVES #

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 16:06:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 18:48:12 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	render_life_bar(t_game *game)
 
 void	render_ui(t_game *game)
 {
-	put_img_to_img(&game->hud.aim, &game->fps_img, game->camera.half_res.x
+	put_img_to_img_faded(&game->hud.aim, &game->fps_img, game->camera.half_res.x
 		- game->hud.aim.width / 2, game->camera.half_res.y
 		- game->hud.aim.width / 2);
 	put_img_to_img(game->player.weapon->current_img, &game->fps_img, RES_X / 2

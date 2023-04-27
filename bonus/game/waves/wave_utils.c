@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 16:08:17 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:17:06 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	check_wave(t_game *game)
 	{
 		free(game->current_wave);
 		game->wave_count++;
-		if (game->wave_count == 15)
+		if (game->wave_count == 16)
 		{
 			printf("You win !\n");
 			close_window(game);

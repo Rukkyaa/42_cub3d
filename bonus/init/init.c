@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:41:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 18:13:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,11 +80,7 @@ void	var_init(t_game *game)
 	clear_z_buffer(game);
 	init_threads(game);
 	load_blood_anim(game);
-<<<<<<< HEAD
-	game->wave_count = 13;
-=======
 	game->wave_count = 1;
->>>>>>> 89d414d635c00db4519c9afa17ff420d80c6d6dc
 	game->current_wave = get_wave(game->wave_count);
 	spawn_wave(game);
 }

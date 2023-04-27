@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:39:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 18:31:45 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,14 @@ void	game_loop(t_game *game)
 	check_wave(game);
 }
 
+void	menu_fade_out(t_game *game)
+{
+	printf("menu fade out\n");
+	faded_view(game, &game->fps_img, (game->frame_count - game->menu_fade_start) * 3);
+	if(game->frame_count - game->menu_fade_start > 40)
+		game->mode = PLAY;
+}
+
 int	main_loop(void *g)
 {
 	t_game	*game;
@@ -75,10 +83,10 @@ int	main_loop(void *g)
 	clear_z_buffer(game);
 	if (game->mode == PLAY)
 		game_loop(game);
-	else if (game->mode == MENU)
-	{
+	else if (game->mode == MENU || game->mode == MENU_FADE_OUT)
 		render_menu(game);
-	}
+	if (game->mode == MENU_FADE_OUT)
+		menu_fade_out(game);
 	render(game);
 	if (game->mode == PLAY)
 		print_fps(game->time.fps);

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:02 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/25 17:42:09 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 18:24:33 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ void	handle_button(t_game *game, t_button *button)
 			button->pos.y);
 		if (game->mouse_clicked)
 		{
-			game->mode = PLAY;
+			game->mode = MENU_FADE_OUT;
+			game->menu_fade_start = game->frame_count;
 			mlx_mouse_hide(game->mlx, _mlx()->win);
 		}
 	}

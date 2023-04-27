@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/27 15:55:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 18:23:23 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@
 // Game states
 # define PLAY 0
 # define MENU 1
+# define MENU_FADE_OUT 2
 
 # define WAVE_FILE "./bonus/waves.json"
 
@@ -433,6 +434,7 @@ typedef struct s_game
 	t_audio			audio;
 	t_button		buttons[2];
 	int				mode;
+	int				menu_fade_start;
 
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];

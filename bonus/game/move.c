@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 15:34:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:15:41 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,12 +64,8 @@ void	player_mobs_collide(t_game *game,  t_sprite *sprites)
 	}
 }
 
-
-void	edit_player_pos(t_game *game)
+void	player_jump(t_game *game)
 {
-	t_vector3d right = vec_rotate(game->player.direction, 90);
-	t_vector3d left = vec_rotate(game->player.direction, 270);
-
 	if(game->key_states[32] && game->player.jumping == 0)
 	{
 		game->player.jumping = 1;
@@ -86,6 +82,14 @@ void	edit_player_pos(t_game *game)
 		else
 			game->player.jumping = 0;
 	}
+}
+
+void	edit_player_pos(t_game *game)
+{
+	t_vector3d right = vec_rotate(game->player.direction, 90);
+	t_vector3d left = vec_rotate(game->player.direction, 270);
+
+	player_jump(game);
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )

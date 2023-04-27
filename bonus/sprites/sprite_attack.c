@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:02:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:27:14 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,21 @@ void	update_start_time(t_sprite *sprite, t_game *game)
 		+ game->time.frame.tv_usec / 1000;
 }
 
+void	check_death(t_game *game, t_player *player)
+{
+	if (player->hp <= 0)
+	{
+		if(game->player.real_death_time == 0)
+			game->player.real_death_time = game->frame_count;
+		if(game->player.lethal_hits < 2)
+		{
+			printf("You died, %d\n", player->kills);
+			game->player.death_time = game->frame_count;
+			game->player.lethal_hits++;
+		}
+	}
+}
+
 void	attack(t_game *game, t_sprite *sprite, t_player *player)
 {
 	if ((!sprite->state) == ATTACK)
@@ -45,17 +60,7 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->attacked = true;
 		player->hp -= sprite->damage;
 		player->sound_state.player_hurt = true;
-		if (player->hp <= 0)
-		{
-			if(game->player.real_death_time == 0)
-				game->player.real_death_time = game->frame_count;
-			if(game->player.lethal_hits < 2)
-			{
-				printf("You died, %d\n", player->kills);
-				game->player.death_time = game->frame_count;
-				game->player.lethal_hits++;
-			}
-		}
+		check_death(game, player);
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;

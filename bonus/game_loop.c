@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 16:15:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:39:33 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,19 @@ void	print_fps(int fps)
 	free(tmp);
 }
 
+void	death_animation(t_game *game)
+{
+	edit_player_rotate(game);
+	edit_player_pos(game);
+	inventory_switch(game);
+	handle_weapon(game, game->player.weapon);
+}
+
 void	game_loop(t_game *game)
 {
 	handle_time(game);
 	if(game->player.hp > 0)
-	{
-		edit_player_rotate(game);
-		edit_player_pos(game);
-		inventory_switch(game);
-		handle_weapon(game, game->player.weapon);
-	}
+		death_animation(game);
 	else
 	{
 		if(game->frame_count - game->player.death_time < 5)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 14:06:14 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 12:20:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,38 @@ void	mob_wall_collide(t_game *game, t_sprite *mob)
 		mob->speed.x = 0;
 	if(!is_walkable(game , vi_pos.x, vi_pos_add_offset.y))
 		mob->speed.y = 0;
+}
+
+
+void	mob_mob_collide(t_game *game,  t_sprite *sprite_a,  t_sprite *sprite_b)
+{
+	t_vector3d	next_pos_a;	
+	t_vector3d	next_pos_b;	
+	float  distance;
+
+	next_pos_a = vec_sum(sprite_a->pos, sprite_a->speed);
+	next_pos_b = vec_sum(sprite_b->pos, sprite_b->speed);
+	distance = vec_distance(next_pos_a, next_pos_b);
+	if (distance < 10)
+	{
+		sprite_a->speed.x = 0;
+		sprite_b->speed.x = 0;
+		sprite_a->speed.y = 0;
+		sprite_b->speed.y = 0;
+	}
+}
+
+void	check_mob_collisions(t_game *game, t_sprite *sprite)
+{
+	t_sprite		*tmp;
+
+	tmp = sprite->next;
+	while (tmp)
+	{
+		if (tmp->type == MOB)
+			mob_mob_collide(game, sprite, tmp);
+		tmp = tmp->next;
+	}
 }
 
 static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
@@ -106,6 +138,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->speed = vec_normalize(sprite->speed);
 		sprite->speed = vec_scalar_mult(sprite->speed, sprite->velocity);
 		mob_wall_collide(game, sprite);
+		check_mob_collisions(game, sprite);
 		sprite->pos = vec_sum(sprite->pos, sprite->speed);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/26 12:22:45 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/27 12:12:25 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	var_init(t_game *game)
 	clear_z_buffer(game);
 	init_threads(game);
 	load_blood_anim(game);
-	game->wave_count = 1;
+	game->wave_count = 13;
 	game->current_wave = get_wave(game->wave_count);
 	spawn_wave(game);
 }

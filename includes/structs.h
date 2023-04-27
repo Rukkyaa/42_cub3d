@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/26 18:46:35 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 15:12:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -312,12 +312,14 @@ typedef struct s_player
 	int				max_hp;
 	int				hp;
 	int				velocity;
+	int				jumping;
+	int				start_jump;
 	float			angle;
 	float			direction_adjust;
 	int				bonus_strength;
 	long			start_cocaine;
 	bool			cocaine;
-	t_vector3d	current_tile;
+	t_vector3d		current_tile;
 }				t_player;
 
 typedef struct s_collision

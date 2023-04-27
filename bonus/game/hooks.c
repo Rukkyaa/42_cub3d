@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:18:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 15:22:15 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,6 +102,8 @@ int	handle_keypress(int keycode, t_game *game)
 		game->key_states[1] = 1;
 	if (keycode == SHIFT)
 		game->key_states[2] = 1;
+	if (keycode == 32)
+		game->key_states[32] = 1;
 	return (0);
 }
 
@@ -115,6 +117,8 @@ int	handle_keyrelease(int keycode, int *key_states)
 		key_states[1] = 0;
 	if (keycode == SHIFT)
 		key_states[2] = 0;
+	if (keycode == 32)
+		key_states[32] = 0;
 	return (0);
 }
 

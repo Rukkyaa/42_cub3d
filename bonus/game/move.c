@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 12:36:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 15:34:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,11 @@ void	player_mob_collide(t_game *game,  t_sprite *mob)
 	t_vector3d	next_pos_a;	
 	t_vector3d	next_pos_b;	
 	float  distance;
+	int  	collide_dist;
+	if(game->player.jumping)
+		collide_dist = 7;
+	else
+		collide_dist = 10;
 
 	next_pos_a = vec_sum(mob->pos, mob->speed);
 	next_pos_b = vec_sum(game->player.pos, game->player.speed);
@@ -65,16 +70,32 @@ void	edit_player_pos(t_game *game)
 	t_vector3d right = vec_rotate(game->player.direction, 90);
 	t_vector3d left = vec_rotate(game->player.direction, 270);
 
+	if(game->key_states[32] && game->player.jumping == 0)
+	{
+		game->player.jumping = 1;
+		game->player.start_jump = game->frame_count;
+	}
+	if(game->player.jumping == 1)
+	{
+		if(game->frame_count - game->player.start_jump < 5)
+			game->player.pos3d.z += 3;
+		else if (game->frame_count - game->player.start_jump < 9)
+			game->player.pos3d.z += 0;
+		else if (game->player.pos3d.z > 32)
+			game->player.pos3d.z -= 2;
+		else
+			game->player.jumping = 0;
+	}
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'] )
 		game->player.speed = vec_scalar_mult(game->player.direction, -1);
-	if (game->key_states['a'])
+	if (game->key_states['a'] && !game->player.jumping)
 	{
 		game->player.speed = vec_sum(game->player.speed, left);
 		game->player.speed = vec_normalize(game->player.speed);
 	}
-	else if (game->key_states['d'])
+	else if (game->key_states['d'] && !game->player.jumping)
 	{
 		game->player.speed = vec_sum(game->player.speed, right);
 		game->player.speed = vec_normalize(game->player.speed);
@@ -149,23 +170,23 @@ void	edit_player_rotate(t_game *game)
 		if(game->camera.plane_center.y < 150)
 			game->camera.plane_center.y = 150;
 	}
-	if (game->key_states['r'])
-	{
-		if( game->player.pos3d.z < game->wall_height - 1)
-		{
-			game->player.pos3d.z += 1;
-						//game->player.tilt += 1;
-			// printf("pos : %f\n", game->player.pos3d.z);
-		}
-	}
-	if (game->key_states['f'])
-	{
-		if( game->player.pos3d.z > 1)
-		{
-			game->player.pos3d.z -= 1;
-			//game->camera.plane_center.y = game->player.pos3d.z + game->camera.p_plane_dist * cosf(M_PI/2) ;
-			//game->player.tilt -= 1;
-			// printf("pos : %f\n", game->player.pos3d.z);
-		}
-	}
+	// if (game->key_states['r'])
+	// {
+	// 	if( game->player.pos3d.z < game->wall_height - 1)
+	// 	{
+	// 		game->player.pos3d.z += 1;
+	// 					//game->player.tilt += 1;
+	// 		// printf("pos : %f\n", game->player.pos3d.z);
+	// 	}
+	// }
+	// if (game->key_states['f'])
+	// {
+	// 	if( game->player.pos3d.z > 1)
+	// 	{
+	// 		game->player.pos3d.z -= 1;
+	// 		//game->camera.plane_center.y = game->player.pos3d.z + game->camera.p_plane_dist * cosf(M_PI/2) ;
+	// 		//game->player.tilt -= 1;
+	// 		// printf("pos : %f\n", game->player.pos3d.z);
+	// 	}
+	// }
 }

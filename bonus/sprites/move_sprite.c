@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 15:17:50 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:06:45 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	check_mob_collisions(t_game *game, t_sprite *sprite)
 	tmp = sprite->next;
 	while (tmp)
 	{
-		if (tmp->type == MOB)
+		if (tmp->type == MOB && tmp->state != SPAWN && tmp->state != DEATH)
 			mob_mob_collide(game, sprite, tmp);
 		tmp = tmp->next;
 	}

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/26 19:13:47 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 16:05:21 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,12 @@ void	init_player(t_game *game)
 	game->player.direction_adjust = 10;
 	game->player.max_hp = 100;
 	game->player.hp = 100;
+	game->player.death_time = 0;
+	game->player.real_death_time = 0;
+	game->player.lethal_hits = 0;
 	game->player.weapon_selected = 0;
 	game->player.cocaine = false;
 	game->player.bonus_strength = 0;
 	game->player.velocity = 100;
+	
 }

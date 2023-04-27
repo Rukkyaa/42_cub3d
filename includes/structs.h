@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/27 15:12:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 15:55:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -314,6 +314,9 @@ typedef struct s_player
 	int				velocity;
 	int				jumping;
 	int				start_jump;
+	int				real_death_time;
+	int				death_time;
+	int				lethal_hits;
 	float			angle;
 	float			direction_adjust;
 	int				bonus_strength;

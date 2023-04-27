@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 13:56:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 16:15:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,20 @@ void	print_fps(int fps)
 void	game_loop(t_game *game)
 {
 	handle_time(game);
-	edit_player_rotate(game);
-	edit_player_pos(game);
-	inventory_switch(game);
-	handle_weapon(game, game->player.weapon);
+	if(game->player.hp > 0)
+	{
+		edit_player_rotate(game);
+		edit_player_pos(game);
+		inventory_switch(game);
+		handle_weapon(game, game->player.weapon);
+	}
+	else
+	{
+		if(game->frame_count - game->player.death_time < 5)
+			game->player.pos3d.z -= 3;
+		if(game->frame_count - game->player.real_death_time > 100)
+			close_window(game);
+	}
 	is_colliding(game, game->sprites);
 	render_fps(game);
 	render_map(game);

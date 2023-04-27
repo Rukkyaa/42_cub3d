@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 15:03:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 16:06:57 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,14 @@ void	render_ui(t_game *game)
 	put_img_to_img(game->player.weapon->current_img, &game->fps_img, RES_X / 2
 		- game->player.weapon->current_img->width / 2, RES_Y
 		- game->player.weapon->current_img->heigth);
-	if (game->player.sound_state.player_hurt)
+	if (game->player.sound_state.player_hurt || game->player.hp <= 0)
 	{
 		put_img_to_img(&game->texture.player_hurt_overlay, &game->fps_img, 0,
 			0);
+	}
+	if(game->player.hp <= 0)
+	{
+		red_view(game, &game->fps_img);
 	}
 	if (game->inventory_display)
 	{

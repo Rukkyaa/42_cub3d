@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 18:09:53 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:12:32 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 17:11:51 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,11 @@ void	load_player_hurt_sounds(t_audio *audio)
 
 void	load_sounds(t_audio *audio)
 {
-	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3", 1);
-	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3", 1);
+	add_sound(audio, RUNNING_SOUND, "bonus/sound/dejavu.mp3", 0.8f);
+	add_sound(audio, WALKING_SOUND, "bonus/sound/footstep.mp3", 0.5f);
 	add_sound(audio, COCAINE_SOUND, "bonus/sound/snif_pjay.wav", 1);
 	add_sound(audio, LOBBY_SOUND, "bonus/sound/lobby_sound.wav", 0.8f);
-	add_sound(audio, GAME_SOUND, "bonus/sound/game_sound.wav", 0.8f);
+	add_sound(audio, GAME_SOUND, "bonus/sound/game_sound.wav", 1.5f);
 	load_weapon_sounds(audio);
 	load_plasma_riffle_sounds(audio);
 	load_plasma_sounds(audio);

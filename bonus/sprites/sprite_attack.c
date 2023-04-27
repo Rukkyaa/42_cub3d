@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_attack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:02:36 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 17:07:53 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,10 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 		{
 			if(game->player.real_death_time == 0)
 				game->player.real_death_time = game->frame_count;
+			if (game->player.lethal_hits == 0)
+				printf("You died, %d\n", player->kills);
 			if(game->player.lethal_hits < 2)
 			{
-				printf("You died, %d\n", player->kills);
 				game->player.death_time = game->frame_count;
 				game->player.lethal_hits++;
 			}

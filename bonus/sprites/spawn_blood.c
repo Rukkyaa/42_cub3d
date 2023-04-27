@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   spawn_projectile.c                                 :+:      :+:    :+:   */
+/*   spawn_blood.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/12 17:58:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/27 13:44:36 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_sprite	*spawn_blood(t_game *game, t_vector3d pos, int type)
 		return (NULL);
 	new_blood->pos.x = pos.x;
 	new_blood->pos.y = pos.y;
-	new_blood->pos.z = 16;
+	new_blood->pos.z = 20 + (game->camera.plane_center.y - RES_Y/2) / RES_Y * 32;
 	new_blood->animation = game->animations.blood_splatter_line;
 	new_blood->animation.frame_offset = 0;
 	new_blood->last_pos = new_blood->pos;

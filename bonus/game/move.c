@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/25 17:20:05 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 12:36:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,37 @@ void	update_player_state(int key_states[256], t_game *game)
 		game->player.sound_state.player_state = IDLE_STATE;
 	if (key_states[2] && key_states['w'])
 		game->player.sound_state.player_state = RUNNING_STATE;
+}
+
+void	player_mob_collide(t_game *game,  t_sprite *mob)
+{
+	t_vector3d	next_pos_a;	
+	t_vector3d	next_pos_b;	
+	float  distance;
+
+	next_pos_a = vec_sum(mob->pos, mob->speed);
+	next_pos_b = vec_sum(game->player.pos, game->player.speed);
+	distance = vec_distance(next_pos_a, next_pos_b);
+	if (distance < 10)
+	{
+		mob->speed.x = 0;
+		mob->speed.x = 0;
+		game->player.speed.x = 0;
+		game->player.speed.y = 0;
+	}
+}
+
+void	player_mobs_collide(t_game *game,  t_sprite *sprites)
+{
+	t_sprite		*tmp;
+
+	tmp = sprites;
+	while (tmp)
+	{
+		if (tmp->type == MOB && tmp->state != DEATH)
+			player_mob_collide(game, tmp);
+		tmp = tmp->next;
+	}
 }
 
 
@@ -53,12 +84,15 @@ void	edit_player_pos(t_game *game)
 	else
 		game->player.speed = vec_scalar_mult(game->player.speed, game->player.velocity * game->time.delta_frame_ms / 1000.0f);
 	player_collides(game, game->player.speed);
+	player_mobs_collide(game, game->sprites);
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
 	update_player_state(game->key_states, game);
 	update_player_tile_pos(&game->player);
 }
+
+
 
 void		player_collides(t_game *game, t_vector3d speed)
 {

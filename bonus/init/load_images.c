@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/20 16:51:36 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/27 14:32:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,8 +59,10 @@ void	load_img_two(t_game *game)
 	ft_xpm_to_img(game, &game->texture.heart, "images/items/heart/heart.xpm");
 	ft_xpm_to_img(game, &game->texture.cocaine, "images/items/cocaine.xpm");
 	ft_xpm_to_img(game, &game->texture.menu, "images/UI/menu_cub3D_v2.xpm");
+	// ft_xpm_to_img(game, &game->texture.player_hurt_overlay,
+	// 	"images/FX/blurry_blood.xpm");
 	ft_xpm_to_img(game, &game->texture.player_hurt_overlay,
-		"images/FX/blurry_blood.xpm");
+		"images/FX/blood_overlay_swapped.xpm");
 	load_number(game);
 }
 

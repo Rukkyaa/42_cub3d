@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 10:48:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 14:36:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,6 +181,11 @@ void			put_img_to_img(t_img *img, t_img *fill, int start_x,
 					int start_y);
 void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start,
 					t_vector end);
+void			put_img_to_img_alpha(t_img *img, t_img *fill, int start_x,
+					int start_y);
+void			put_img_to_img_green_alpha(t_img *img, t_img *fill, int start_x,
+					int start_y);
+					
 
 void			psychedelic_view(t_game *game, t_img *img);
 

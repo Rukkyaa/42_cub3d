@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/25 18:17:16 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/26 18:46:35 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -453,5 +453,18 @@ typedef struct s_roof_data
 	int			min;
 	unsigned int	*img_addr;
 }				t_roof_data;
+
+typedef struct s_raycast_data
+{
+	t_vector3d v_ray_dir;
+	t_vector3d v_step;
+	t_vector3d v_ray_length_1D;
+	t_vector3d v_map_check;
+	t_vector3d v_ray_unit_step;
+    t_vector3d collision_point;
+    t_collision collision;
+    float distance;
+	char		last_step;
+}				t_raycast_data;
 
 #endif

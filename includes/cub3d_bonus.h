@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/26 12:21:28 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/27 10:48:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,22 +17,22 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# include <stdio.h>
-# include <stdbool.h>
-# include <stdlib.h>
-# include "../mlx/mlx/mlx.h"
-# include "../libft/includes/libft.h"
-# include <sys/types.h>
-# include <sys/stat.h>
-# include <fcntl.h>
-# include <math.h>
-# include <float.h>
-# include <time.h>
-# include <sys/time.h>
-# include <string.h>
-# include "../includes/miniaudio.h"
-# include <dirent.h>
 # include "../cjson/cJSON.h"
+# include "../includes/miniaudio.h"
+# include "../libft/includes/libft.h"
+# include "../mlx/mlx/mlx.h"
+# include <dirent.h>
+# include <fcntl.h>
+# include <float.h>
+# include <math.h>
+# include <stdbool.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <sys/stat.h>
+# include <sys/time.h>
+# include <sys/types.h>
+# include <time.h>
 
 # ifndef M_PI
 #  define M_PI 3.14159265358979323846
@@ -48,11 +48,11 @@
 # define LEFT 65363
 # define SHIFT 65505
 
-# define FOV_RADIANS ( M_PI / 2 )
+# define FOV_RADIANS (M_PI / 2)
 # define FOV 60
 
-# define RES_X  1600
-# define RES_Y  900
+# define RES_X 1600
+# define RES_Y 900
 
 # define NB_THREADS 3
 
@@ -71,41 +71,42 @@
 **  \______/  \______/ \________|\______/ \__|  \__| \______/  **
 ****************************************************************/
 
-# define RED_PIXEL   0xFF0000
+# define RED_PIXEL 0xFF0000
 # define GREEN_PIXEL 0x00FF00
-# define BLUE_PIXEL  0x0000FF
+# define BLUE_PIXEL 0x0000FF
 # define BLACK_PIXEL 0x000000
-# define GRAY_PIXEL  0xD9DADB
+# define GRAY_PIXEL 0xD9DADB
 # define WHITE_PIXEL 0xFFFFFF
 # define VIOLET 0x610627
 # define DARK_VIOLET 0x2B0211
-# define PALE_BLUE 	 0x25F7C6
-# define PALE_BLUE_SHADED 	 0x0D5243
+# define PALE_BLUE 0x25F7C6
+# define PALE_BLUE_SHADED 0x0D5243
 
-#include "structs.h"
+# include "structs.h"
 
 // Color conversions
-int					get_t(int trgb);
-int					get_r(int trgb);
-int					get_g(int trgb);
-int					get_b(int trgb);
-int					create_trgb(int t, int r, int g, int b);
+int				get_t(int trgb);
+int				get_r(int trgb);
+int				get_g(int trgb);
+int				get_b(int trgb);
+int				create_trgb(int t, int r, int g, int b);
 
 // Color operations
 int				add_shade(int trgb, int shade);
 
 // Ray casting
-t_collision		cast_2D_ray(t_game *game, t_vector3d direction);
+t_collision		cast_two_d_ray(t_game *game, t_vector3d direction);
 
-
-int     sample_img(t_img *img, float x, float y);
-void	fill_sprite_animation(t_game *game, char *dir_path, t_animation *animation);
-void    sort_imgs(t_img **array);
-void	ft_xpm_to_img(t_game *game, t_img *texture, char *path);
-void    update_animation(t_game *game, t_animation *animation);
-void 	pre_compute_resize(t_game *game);
-void	sample_img_to_img(t_img *dest, t_img *src, int start_x, int start_y);
-int 	divide_by_64(int value);
+int				sample_img(t_img *img, float x, float y);
+void			fill_sprite_animation(t_game *game, char *dir_path,
+					t_animation *animation);
+void			sort_imgs(t_img **array);
+void			ft_xpm_to_img(t_game *game, t_img *texture, char *path);
+void			update_animation(t_game *game, t_animation *animation);
+void			pre_compute_resize(t_game *game);
+void			sample_img_to_img(t_img *dest, t_img *src, int start_x,
+					int start_y);
+int				divide_by_64(int value);
 
 /************************************************
 **  $$$$$$\   $$$$$$\  $$\      $$\ $$$$$$$$\  **
@@ -127,15 +128,14 @@ bool			player_moving(t_game *game);
 void			player_collides(t_game *game, t_vector3d speed);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
-void			update_player_tile_pos(t_player	*player);
+void			update_player_tile_pos(t_player *player);
 void			clear_z_buffer(t_game *game);
-void    		handle_weapon(t_game *game, t_weapon *weapon);
+void			handle_weapon(t_game *game, t_weapon *weapon);
 long			ft_now(void);
 
 //Fps
 void			handle_sync(t_game *game);
 void			handle_time(t_game *game);
-
 
 /*****************************************************************
 ** $$$$$$$\  $$$$$$$$\ $$\   $$\ $$$$$$$\  $$$$$$$$\ $$$$$$$\   **
@@ -148,7 +148,7 @@ void			handle_time(t_game *game);
 ** \__|  \__|\________|\__|  \__|\_______/ \________|\__|  \__| **
 *****************************************************************/
 void			img_pix_put(t_img *img, int x, int y, int color);
-char 			*img_get_addr(t_img *img, int x, int y);
+char			*img_get_addr(t_img *img, int x, int y);
 void			render_fps(t_game *game);
 void			render_map(t_game *game);
 void			render(t_game *game);
@@ -157,29 +157,41 @@ void			clear_img(t_img *img);
 int				get_color(t_img *img, int x, int y);
 int				is_wall(char c);
 void			get_wall(t_game *game, t_collision *collision, char c);
-void 			wall_render(t_game *game, t_collision collision, t_vector3d line_pos, double line_height);
-void    		render_sprites(t_game *game);
-void 			sort_sprites(t_sprite** headRef);
-void    		render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos, float line_height);
-void    		pre_compute_rows_dist(t_game *game, t_vector3d line_pos, float line_height, float resize);
+void			wall_render(t_game *game, t_collision collision,
+					t_vector3d line_pos, double line_height);
+void			render_sprites(t_game *game);
+void			sort_sprites(t_sprite **headRef);
+void			render_roof(t_game *game, t_vector3d v_ray_dir,
+					t_vector3d line_pos, float line_height);
+void			pre_compute_rows_dist(t_game *game, t_vector3d line_pos,
+					float line_height, float resize);
 void			precompute_raycast(t_game *game);
-void    		render_floor(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos);
+void			render_floor(t_game *game, t_vector3d v_ray_dir,
+					t_vector3d line_pos);
 void			print_kill(t_game *game, int nb, int x);
 
+int				handle_doors(t_game *game, t_raycast_data *d, char last_step,
+					int *tile_found);
+char			get_collision_orientation(char last_step, t_vector3d v_step);
+double			get_texture_x(char last_step, t_vector3d v_collision_point,
+					t_vector3d v_map_check);
+
 // Shapes
-void			put_img_to_img(t_img *img, t_img *fill, int start_x, int start_y);
-void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start, t_vector end);
+void			put_img_to_img(t_img *img, t_img *fill, int start_x,
+					int start_y);
+void			put_img_to_img_crop(t_img *img, t_img *fill, t_vector start,
+					t_vector end);
 
 void			psychedelic_view(t_game *game, t_img *img);
 
 // UI
-void 			handle_button(t_game *game, t_button *button);
+void			handle_button(t_game *game, t_button *button);
 void			render_menu(t_game *game);
 
-// Multithreading 
-void    		wall_thread(t_game *game, t_wall_task d);
-void    		*start_thread(void *void_data);
-void    		submit_task_wall(t_game *game, t_wall_task task);
+// Multithreading
+void			wall_thread(t_game *game, t_wall_task d);
+void			*start_thread(void *void_data);
+void			submit_task_wall(t_game *game, t_wall_task task);
 
 /*****************************************************************
 **  $$$$$$\  $$\   $$\  $$$$$$\  $$$$$$$\  $$$$$$$$\  $$$$$$\   **
@@ -191,32 +203,32 @@ void    		submit_task_wall(t_game *game, t_wall_task task);
 ** \$$$$$$  |$$ |  $$ |$$ |  $$ |$$ |      $$$$$$$$\ \$$$$$$  | **
 **  \______/ \__|  \__|\__|  \__|\__|      \________| \______/  **
 *****************************************************************/
-void			draw_filled_square(t_img *img, t_vector3d pos,
-					int width, int color);
-void			draw_circle(t_game *game, t_vector3d center,
-					int radius, int color);
-void			draw_filled_circle(t_img *img, t_vector3d mid,
-					int radius, int color);
-void			draw_vertical_line(t_img *img, t_vector3d pos, int len, int color);
-void			draw_vertical_line_2(t_img *img, t_vector3d pos,
-					int len, int color);
-void			draw_line_dda(t_img *img, t_vector3d vec1,
-					t_vector3d vec2, int color);
+void			draw_filled_square(t_img *img, t_vector3d pos, int width,
+					int color);
+void			draw_circle(t_game *game, t_vector3d center, int radius,
+					int color);
+void			draw_filled_circle(t_img *img, t_vector3d mid, int radius,
+					int color);
+void			draw_vertical_line(t_img *img, t_vector3d pos, int len,
+					int color);
+void			draw_vertical_line_2(t_img *img, t_vector3d pos, int len,
+					int color);
+void			draw_line_dda(t_img *img, t_vector3d vec1, t_vector3d vec2,
+					int color);
 void			draw_filled_rectangle(t_img *img, t_vector3d vec,
 					t_vector3d size, int color);
 void			draw_square(t_img *img, t_vector3d pos, int width, int color);
 void			load_grid(t_game *game);
 void			load_map(t_game *game);
 
-// Events 
+// Events
 int				key_gestion(int keycode, t_game *game);
 int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
 int				main_loop(void *g);
 
 // Controls
-void	rotate_player(t_game *game, float angle);
-
+void			rotate_player(t_game *game, float angle);
 
 t_vector3d		get_next_tile(t_game *game, t_vector3d direction);
 t_vector3d		pixel_to_tile(t_vector3d vector);
@@ -229,11 +241,10 @@ void			move(t_game *game, char direction);
 // mlx Utils
 unsigned int	img_pix_read(t_img *img, int x, int y);
 
-
 // INIT
 void			var_init(t_game *game);
 void			init_player(t_game *game);
-void 			init_weapons(t_game *game);
+void			init_weapons(t_game *game);
 void			init_threads(t_game *game);
 void			init_camera(t_game *game, t_camera *camera);
 void			init_windows(t_game *game);
@@ -274,7 +285,7 @@ t_vector3d		vec_rotate(t_vector3d vector, float angle);
 void			vec_to_angle(double angle, t_vector3d *vector);
 void			vec_print(t_vector3d *vector, char *name);
 void			vec3_print(t_vector3d vector, char *name);
-t_vector3d			vec_rotate_rad(t_vector3d vector, float angle);
+t_vector3d		vec_rotate_rad(t_vector3d vector, float angle);
 void			vec_rotate_edit(t_vector3d *vector, float angle);
 double			vec_distance(t_vector3d vec1, t_vector3d vec2);
 double			vec3d_distance(t_vector3d vec1, t_vector3d vec2);
@@ -294,7 +305,8 @@ t_vector3d		vec_zero(void);
 *******************************************************/
 void			init_sounds(t_audio *audio);
 void			play_sound(ma_sound *sound);
-void			game_sound(t_sound_state sound_state, ma_sound sound[NB_SOUNDS]);
+void			game_sound(t_sound_state sound_state,
+					ma_sound sound[NB_SOUNDS]);
 void			restart_sound(ma_sound *sound);
 void			add_sound(t_audio *audio, int id, char *path, float volume);
 void			load_sounds(t_audio *audio);
@@ -302,11 +314,16 @@ void			load_sounds(t_audio *audio);
 /***********************************************************************************************
 ** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **
 ** \_$$  _|$$$\  $$ |$$ |   $$ |$$  _____|$$$\  $$ |\__$$  __|$$  __$$\ $$  __$$\\$$\   $$  | **
-**   $$ |  $$$$\ $$ |$$ |   $$ |$$ |      $$$$\ $$ |   $$ |   $$ /  $$ |$$ |  $$ |\$$\ $$  /  **
-**   $$ |  $$ $$\$$ |\$$\  $$  |$$$$$\    $$ $$\$$ |   $$ |   $$ |  $$ |$$$$$$$  | \$$$$  /   **
-**   $$ |  $$ \$$$$ | \$$\$$  / $$  __|   $$ \$$$$ |   $$ |   $$ |  $$ |$$  __$$<   \$$  /    **
-**   $$ |  $$ |\$$$ |  \$$$  /  $$ |      $$ |\$$$ |   $$ |   $$ |  $$ |$$ |  $$ |   $$ |     **
-** $$$$$$\ $$ | \$$ |   \$  /   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
+**   $$ |  $$$$\ $$ |$$ |   $$ |$$ |      $$$$\ $$ |   $$ |   $$
+	/  $$ |$$ |  $$ |\$$\ $$  /  **
+**   $$ |  $$ $$\$$ |\$$\  $$  |$$$$$\    $$ $$\$$ |   $$ |   $$ |  $$ |$$$$$$$  | \$$$$ 
+	/   **
+**   $$ |  $$ \$$$$ | \$$\$$ 
+	/ $$  __|   $$ \$$$$ |   $$ |   $$ |  $$ |$$  __$$<   \$$  /    **
+**   $$ |  $$ |\$$$ |  \$$$ 
+	/  $$ |      $$ |\$$$ |   $$ |   $$ |  $$ |$$ |  $$ |   $$ |     **
+** $$$$$$\ $$ | \$$ |   \$ 
+	/   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
 ** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
 ***********************************************************************************************/
 void			init_inventory(t_game *game);
@@ -321,11 +338,11 @@ void			inventory_switch(t_game *game);
 bool			weapon_in_inventory(t_game *game, int id);
 void			check_item(t_game *game);
 
-
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **
 ** $$  __$$\ \_$$  _|$$$\  $$ |$$  __$$\ $$ |      $$  _____|\__$$  __|$$  __$$\ $$$\  $$ | **
-** $$ /  \__|  $$ |  $$$$\ $$ |$$ /  \__|$$ |      $$ |         $$ |   $$ /  $$ |$$$$\ $$ | **
+** $$ /  \__|  $$ |  $$$$\ $$ |$$ /  \__|$$ |      $$ |         $$ |   $$
+	/  $$ |$$$$\ $$ | **
 ** \$$$$$$\    $$ |  $$ $$\$$ |$$ |$$$$\ $$ |      $$$$$\       $$ |   $$ |  $$ |$$ $$\$$ | **
 **  \____$$\   $$ |  $$ \$$$$ |$$ |\_$$ |$$ |      $$  __|      $$ |   $$ |  $$ |$$ \$$$$ | **
 ** $$\   $$ |  $$ |  $$ |\$$$ |$$ |  $$ |$$ |      $$ |         $$ |   $$ |  $$ |$$ |\$$$ | **
@@ -356,9 +373,11 @@ t_sprite		*spawn_item(t_game *game, t_vector3d pos, int id);
 t_animation		load_item_anim(t_game *game, int id);
 void			is_colliding(t_game *game, t_sprite *entity);
 void			remove_entity(t_sprite **sprites, t_sprite *entity);
-void			move_sprites(t_game *game, t_sprite **sprites, t_player *player);
+void			move_sprites(t_game *game, t_sprite **sprites,
+					t_player *player);
 bool			is_colliding_entity(t_sprite *sprites, t_sprite *entity);
-bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity, char dir);
+bool			is_colliding_entity_dir(t_sprite *sprites, t_sprite *entity,
+					char dir);
 bool			can_attack(t_sprite *sprite, t_player *player);
 void			update_width(t_sprite *sprite);
 void			update_start_time(t_sprite *sprite, t_game *game);
@@ -368,12 +387,8 @@ void			respawn_zombie(t_game *game);
 void			set_baby_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_normal_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_big_zombie_stats(t_sprite *zombie, t_wave *wave);
-void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie, int type);
-
-
-
-
-
+void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie,
+					int type);
 
 //INIT
 void			load_img(t_game *game);

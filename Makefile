@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/26 14:58:38 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/27 10:48:37 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,7 +62,7 @@ NAME_BONUS = cub3d_bonus
 
 SRC_BONUS = bonus/main.c bonus/game_loop.c bonus/menu.c \
 		bonus/free.c \
-		bonus/raycast_2D.c
+		bonus/raycast_2D.c bonus/raycast_2D_two.c
 
 OBJS_BONUS = $(SRC_BONUS:.c=.o)
 

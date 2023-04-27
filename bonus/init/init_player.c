@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/26 12:25:14 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/26 19:13:47 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 void	init_player(t_game *game)
 {
-	game->player.pos.x = 2 * 64 + 32;
-	game->player.pos.y = 2 * 64 + 32;
+	game->player.pos.x =  1 * 64 + 32;
+	game->player.pos.y =  1 * 64 + 32;
 	game->player.pos.z = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
-	game->player.pos3d.x = 2 * 64 + 32;
-	game->player.pos3d.y = 2 * 64 + 32;
+	game->player.pos3d.x = 1 * 64 + 32;
+	game->player.pos3d.y = 1 * 64 + 32;
 	game->player.pos3d.z = 32;
 	game->player.direction.x = 1;
 	game->player.direction.y = 0;

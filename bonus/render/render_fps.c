@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/25 17:32:53 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/26 18:42:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	render_fps(t_game *game)
 	{
 		v_ray_dir = vec_rotate_rad(game->player.direction,
 				game->ray_angle[(int)line_pos.x]);
-		collision = cast_2D_ray(game, v_ray_dir);
+		collision = cast_two_d_ray(game, v_ray_dir);
 		collision.distance = collision.distance
 			* game->fisheye_resize_wall[(int)line_pos.x];
 		line_height = game->wall_height * game->camera.p_plane_dist

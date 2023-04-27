@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/26 14:57:04 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 19:23:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ t_weapon	init_grap_gun(t_game *game)
 		+ game->time.frame.tv_usec / 1000;
 	grap_gun.fire_anim = grap_gun_anim;
 	grap_gun.idle_img = *grap_gun_anim.imgs;
-	grap_gun.cool_down_ms = 500;
+	grap_gun.cool_down_ms = 1000;
 	grap_gun.fire_anim.frame_duration_ms = (int)(grap_gun.cool_down_ms
 			/ grap_gun_anim.nb_imgs) + 1;
 	grap_gun.attack_speed = 2;

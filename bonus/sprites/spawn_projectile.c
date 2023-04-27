@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 15:36:09 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/27 19:22:00 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ t_animation	get_energy_ball_anim(t_game *game, int type)
 	return (anim);
 }
 
-void	set_type_specs(t_sprite *new_proj, int type)
+void	set_type_specs(t_game *game, t_sprite *new_proj, int type)
 {
 	if (type == GREEN_PROJ)
 	{
-		new_proj->damage = 50;
+		new_proj->damage = 200;
 		new_proj->height = 32;
+		new_proj->pos.z = 7 + (game->player.pos3d.z - 32);
 	}
 	else if (type == BLUE_PROJ)
 	{
@@ -60,7 +61,7 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, int type)
 	new_proj->speed = vec_scalar_mult(new_proj->speed, 25);
 	new_proj->next = NULL;
 	new_proj->type = PROJ;
-	set_type_specs(new_proj, type);
+	set_type_specs(game, new_proj, type);
 	new_proj->width = new_proj->height
 		* (new_proj->animation.current_img->width)
 		/ (new_proj->animation.current_img->heigth);

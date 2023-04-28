@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 14:25:58 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 14:31:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -187,11 +187,12 @@ void			put_img_to_img_alpha(t_img *img, t_img *fill, int start_x,
 					int start_y);
 void			put_img_to_img_green_alpha(t_img *img, t_img *fill, int start_x,
 					int start_y);
-void	put_img_to_img_faded(t_img *img, t_img *fill, int start_x, int start_y);
+void			put_img_to_img_faded(t_img *img, t_img *fill, int start_x, int start_y);
 
 void			psychedelic_view(t_game *game, t_img *img);
 void			red_view(t_game *game, t_img *img);
 void			faded_view(t_game *game, t_img *img, int fading);
+void			sample_map(t_img *dest, t_img *src, int start_x, int start_y);
 
 
 // UI

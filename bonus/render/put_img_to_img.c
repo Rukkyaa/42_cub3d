@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:05:34 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 12:26:57 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 14:31:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -179,6 +179,34 @@ void	put_img_to_img_crop(t_img *img, t_img *fill, t_vector start,
 		dest_pixel += 4 * (fill->width - (int)(end.x - start.x));
 	}
 }
+
+void	sample_map(t_img *dest, t_img *map, int start_x, int start_y)
+{
+	int				x;
+	int				y;
+	unsigned int	color;
+	char			*src_pixel;
+	char			*dest_pixel;
+
+	src_pixel = img_get_addr(src, start_x, start_y);
+	dest_pixel = img_get_addr(dest, 0, 0);
+	y = -1;
+	while (++y < dest->heigth)
+	{
+		x = -1;
+		while (++x < dest->width)
+		{
+			color = *(unsigned int *)src_pixel;
+			if (color != 4278190080)
+				*(unsigned int *)dest_pixel = color;
+			src_pixel += 4;
+			dest_pixel += 4;
+		}
+		dest_pixel += 4 * (dest->width - 224);
+		src_pixel += 4 * 224;
+	}
+}
+
 
 void	sample_img_to_img(t_img *dest, t_img *src, int start_x, int start_y)
 {

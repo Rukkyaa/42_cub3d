@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 20:20:24 by theo              #+#    #+#             */
-/*   Updated: 2023/04/28 18:05:10 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 18:20:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,46 +21,46 @@ t_sprite	*get_tail(t_sprite *cur)
 	return (cur);
 }
 
-
-static t_sprite	*partition_helper(t_sprite *cur, t_sprite *pivot,
-		t_sprite **newHead, t_sprite **newEnd)
+void	swap(t_sprite **prev, t_sprite **cur, t_sprite **tail, t_sprite **tmp)
 {
-	t_sprite *tmp;
-
-	if (cur->distance >= pivot->distance)
-	{
-		if (*newHead == NULL)
-			*newHead = cur;
-		return (cur->next);
-	}
-	else
-	{
-		tmp = cur->next;
-		cur->next = NULL;
-		(*newEnd)->next = cur;
-		*newEnd = cur;
-		return (tmp);
-	}
+	if (*prev != NULL)
+		(*prev)->next = (*cur)->next;
+	*tmp = (*cur)->next;
+	(*cur)->next = NULL;
+	(*tail)->next = *cur;
+	(*tail) = *cur;
+	(*cur) = *tmp;
 }
 
 t_sprite	*partition(t_sprite *head, t_sprite *end, t_sprite **newHead,
 		t_sprite **newEnd)
 {
-	t_sprite *pivot = end;
-	t_sprite *tail = pivot;
-	t_sprite *prev = NULL;
-	t_sprite *cur = head;
+	t_sprite	*pivot;
+	t_sprite	*cur;
+	t_sprite	*tail;
+	t_sprite	*prev;
+	t_sprite	*tmp;
 
+	pivot = end;
+	prev = NULL;
+	cur = head;
+	tail = pivot;
 	while (cur != pivot)
-		cur = partition_helper(cur, pivot, newHead, &tail);
-
+	{
+		if (cur->distance >= pivot->distance)
+		{
+			if (*newHead == NULL)
+				*newHead = cur;
+			prev = cur;
+			cur = cur->next;
+		}
+		else
+			swap(&prev, &cur, &tail, &tmp);
+	}
 	if (*newHead == NULL)
 		*newHead = pivot;
-	*newEnd = tail;
-
-	return (pivot);
+	return (*newEnd = tail, pivot);
 }
-
 
 t_sprite	*quick_sort_recur_helper(t_sprite *head, t_sprite *end)
 {
@@ -88,14 +88,12 @@ t_sprite	*quick_sort_recur_helper(t_sprite *head, t_sprite *end)
 	return (new_head);
 }
 
-t_sprite	*quick_sort_recur(t_sprite *head, t_sprite *end)
+void	sort_sprites(t_sprite **head)
 {
-	if (!head || head == end)
-		return (head);
-	return (quick_sort_recur_helper(head, end));
-}
+	t_sprite	*end;
 
-void	sort_sprites(t_sprite **headRef)
-{
-	*headRef = quick_sort_recur(*headRef, get_tail(*headRef));
+	end = get_tail(*head);
+	if (!*head || *head == end)
+		return ;
+	*head = quick_sort_recur_helper(*head, end);
 }

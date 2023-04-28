@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:16:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:30:56 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:09:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,18 +26,18 @@ static char	*ft_strjoin_free(char *s1, char *s2)
 	while (s1[i])
 	{
 		strjoin[i] = s1[i];
-		i ++;
+		i++;
 	}
 	while (s2[j])
 	{
 		strjoin[j + i] = s2[j];
-		j ++;
+		j++;
 	}
 	strjoin[ft_strlen(s1) + ft_strlen(s2)] = '\0';
 	return (strjoin);
 }
 
-static char *random_wall(char *s)
+static char	*random_wall(char *s)
 {
 	int	len;
 	int	i;
@@ -48,7 +48,7 @@ static char *random_wall(char *s)
 	while (++i < len)
 		if (s[i] == '1')
 			s[i] = (rand() % 4) + 1 + '0';
-	return s;
+	return (s);
 }
 
 static char	**string_to_map(char *s)

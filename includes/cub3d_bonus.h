@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 14:31:34 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 17:19:07 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,6 +95,7 @@ int				create_trgb(int t, int r, int g, int b);
 
 // Color operations
 int				add_shade(int trgb, int shade);
+float			color_interpolate(int color1, int color2, double t);
 
 // Ray casting
 t_collision		cast_two_d_ray(t_game *game, t_vector3d direction);

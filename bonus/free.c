@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:29:31 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/28 17:22:25 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,15 +58,15 @@ void	free_imgs(t_game *game)
 
 void	kill_threads(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = 0;
-	while(i < NB_THREADS)
+	while (i < NB_THREADS)
 	{
 		pthread_detach(game->wall_threads[i]);
 		pthread_cancel(game->wall_threads[i]);
 		i++;
-	}	
+	}
 	pthread_mutex_destroy(&game->print_rights);
 	pthread_mutex_destroy(&game->img_read_rights);
 	pthread_mutex_destroy(&game->img_put_rights);
@@ -85,7 +85,8 @@ int	close_window(t_game *game)
 	i = -1;
 	while (game->animations.zombie_run.imgs[++i])
 	{
-		mlx_destroy_image(_mlx()->mlx, game->animations.zombie_run.imgs[i]->mlx_img);
+		mlx_destroy_image(_mlx()->mlx,
+			game->animations.zombie_run.imgs[i]->mlx_img);
 	}
 	i = -1;
 	while (game->hud.weapon_anim.imgs[++i])

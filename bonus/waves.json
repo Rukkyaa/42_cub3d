@@ -206,17 +206,17 @@
 			{
 				"type": "BABY_ZOMBIE",
 				"count": 25,
-				"stats": {"velocity": 3, "health": 150, "damage": 7, "range": 45}
+				"stats": {"velocity": 5, "health": 150, "damage": 10, "range": 45}
 			},
 			{
 				"type": "NORMAL_ZOMBIE",
 				"count": 50,
-				"stats": {"velocity": 5, "health": 300, "damage": 15, "range": 45}
+				"stats": {"velocity": 6, "health": 300, "damage": 20, "range": 45}
 			},
 			{
 				"type": "BIG_ZOMBIE",
-				"count": 10,
-				"stats": {"velocity": 1, "health": 10000, "damage": 100, "range": 60}
+				"count": 5,
+				"stats": {"velocity": 2, "health": 1000, "damage": 100, "range": 60}
 			}
 		]
 	}

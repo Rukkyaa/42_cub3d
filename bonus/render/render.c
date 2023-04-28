@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 20:12:22 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:01:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,18 +66,17 @@ void	render_ui(t_game *game)
 void	render_map(t_game *game)
 {
 	if (game->mode == PLAY)
-		sample_map(&game->minimap, &game->debug_img, game->player.pos.x / 4
+		sample_map(&game->fps_img, &game->debug_img, game->player.pos.x / 4
 			- game->minimap_center.x + MAP_MARGIN, game->player.pos.y / 4
 			- game->minimap_center.y + MAP_MARGIN);
-	draw_filled_circle(&game->minimap, game->minimap_center, 3, RED_PIXEL);
-	draw_line_dda(&game->minimap, game->minimap_center,
-		vec_sum(game->minimap_center,
-			vec_scalar_mult(game->player.direction, 10)), RED_PIXEL);
+	// draw_filled_circle(&game->minimap, game->minimap_center, 3, RED_PIXEL);
+	// draw_line_dda(&game->minimap, game->minimap_center,
+	// 	vec_sum(game->minimap_center,
+	// 		vec_scalar_mult(game->player.direction, 10)), RED_PIXEL);
 }
 
 void	render(t_game *game)
 {
 	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0,
 		0);
-
 }

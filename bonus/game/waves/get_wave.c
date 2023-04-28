@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_wave.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 15:35:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:43:08 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -123,6 +123,17 @@ t_wave	*parse_wave(cJSON *waves, int wave_number)
 	return (NULL);
 }
 
+void	auto_increase_difficulty(t_wave	*wave, int wave_number)
+{
+	float coeff; 
+	
+	coeff = 1 + ((wave_number - 15) / 5);
+	wave->baby_zombie_count *= coeff;
+	wave->normal_zombie_count *= coeff;
+	wave->big_zombie_count *= coeff;
+	wave->total_zombie_count *= coeff;
+}
+
 t_wave	*get_wave(int wave_number)
 {
 	cJSON	*root;
@@ -138,7 +149,13 @@ t_wave	*get_wave(int wave_number)
 		cJSON_Delete(root);
 		return (NULL);
 	}
-	result = parse_wave(waves, wave_number);
+	if(wave_number > 15)
+	{
+		result = parse_wave(waves, 15);
+		auto_increase_difficulty(result, wave_number);
+	}
+	else
+		result = parse_wave(waves, wave_number);
 	cJSON_Delete(root);
 	return (result);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wave_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:17:06 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/28 14:42:03 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,11 @@ void	check_wave(t_game *game)
 	{
 		free(game->current_wave);
 		game->wave_count++;
-		if (game->wave_count == 16)
-		{
-			printf("You win !\n");
-			close_window(game);
-		}
+		// if (game->wave_count == 16)
+		// {
+		// 	printf("You win !\n");
+		// 	close_window(game);
+		// }
 		game->current_wave = get_wave(game->wave_count);
 		printf("\nReady for wave %d ?\n", game->wave_count);
 		spawn_wave(game);

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 18:52:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 15:01:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void	game_loop(t_game *game)
 	}
 	is_colliding(game, game->sprites);
 	render_fps(game);
-	render_map(game);
 	render_sprites(game);
 	render_ui(game);
+	render_map(game);
 	print_kill(game, game->player.kills, RES_X - 55);
 	check_item(game);
 	if (!game->inventory_display)

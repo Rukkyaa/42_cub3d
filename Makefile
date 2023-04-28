@@ -6,7 +6,7 @@
 #    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/27 10:48:37 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/28 13:10:35 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -106,8 +106,8 @@ WAVE_SRC_BONUS = $(addprefix bonus/game/waves/, $(addsuffix .c, get_wave wave_ut
 WAVE_OBJS_BONUS = $(WAVE_SRC_BONUS:.c=.o)
 
 # SPRITES #
-SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
-	remove_entity move_sprite sprite_attack use_items zombie_stats))
+SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
+	remove_entity move_sprite sprite_attack use_items zombie_stats collisions))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #

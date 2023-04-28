@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 18:46:47 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 14:25:58 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@
 # define RES_Y 900
 
 # define NB_THREADS 3
+
+# define MOUSE_SENSITIVITY 1.5f
 
 # define HD 1
 
@@ -397,6 +399,13 @@ void			set_normal_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_big_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie,
 					int type);
+void	check_mob_collisions(t_game *game, t_sprite *sprite);
+int		proj_mob_collide(t_sprite *mob, t_sprite *proj);
+bool	projectile_terrain_collide(char **map, t_sprite *proj);
+void	mob_wall_collide(t_game *game, t_sprite *mob);
+void	mob_mob_collide(t_game *game, t_sprite *sprite_a, t_sprite *sprite_b);
+void	sprite_spawn(t_game *game, t_sprite *sprite);
+void	sprite_death(t_game *game, t_sprite *sprite);
 
 //INIT
 void			load_img(t_game *game);

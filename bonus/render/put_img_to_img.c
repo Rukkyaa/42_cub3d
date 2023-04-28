@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:05:34 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 18:50:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 12:26:57 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,7 +115,7 @@ void	put_img_to_img_faded(t_img *img, t_img *fill, int start_x, int start_y)
 		{
 			color = *(unsigned int *)src_pixel;
 			if(get_r(color) != 0)
-				color = color_interpolate(*(unsigned int *)dest_pixel,  color, 0.5);
+				color = color_interpolate(*(unsigned int *)dest_pixel,  color, 0.3);
 			if (color != 4278190080)
 				*(unsigned int *)dest_pixel = color;
 			src_pixel += 4;

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 17:15:41 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/28 14:18:42 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -161,8 +161,8 @@ void	edit_player_rotate(t_game *game)
 		rotate_player(game, 3);
 	if(game->mouse_move)
 	{
-		rotate_player(game, game->mouse_diff.x / 50);
-		game->camera.plane_center.y -=  game->mouse_diff.y / 4;
+		rotate_player(game, game->mouse_diff.x / 50 * MOUSE_SENSITIVITY);
+		game->camera.plane_center.y -=  game->mouse_diff.y / 4 * MOUSE_SENSITIVITY;
 		// vec_print(&game->mouse_diff, "mouse diff");
 		game->mouse_diff.x = 0;
 		game->mouse_diff.y = 0;

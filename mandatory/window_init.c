@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   window_init.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:45:43 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:42:04 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	ft_xpm_to_img(t_game *game, t_img *texture, char *path)
 
 void	load_img(t_game *game)
 {
-	ft_xpm_to_img(game, &game->texture.wall, "images/wall.xpm");
+	ft_xpm_to_img(game, &game->texture.wall, "images/retro_texture_pack/HEDGE_1A.xpm");
 }
 
 void	var_init(t_game *game)

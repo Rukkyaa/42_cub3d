@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/11 15:48:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/29 17:45:45 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 	x_text = 0;
 	y_text = 0;
 	while (++i < line_pos.y)
-		img_pix_put(&game->fps_img, line_pos.x, i, 0x696969);
+		img_pix_put(&game->fps_img, line_pos.x, i, 0x29b3e0);
 	i = 0;
 	while (i < line_height)
 	{
@@ -45,7 +45,7 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 		i++;
 	}
 	while (i < RES_Y)
-		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, 0x8b668b);
+		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, 0x3ecc3e);
 }
 
 void	update_collision(t_collision *collision, t_game *game,

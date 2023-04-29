@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wave_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 14:42:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 15:53:38 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 t_vector3d	get_random_pos(char **map)
 {
 	t_vector3d	pos;
-	while(1)
+
+	while (1)
 	{
 		pos.x = (double)rand() / (double)RAND_MAX * map_width(map) * 64;
 		pos.y = (double)rand() / (double)RAND_MAX * map_heigth(map) * 64;
@@ -27,7 +28,7 @@ t_vector3d	get_random_pos(char **map)
 
 void	spawn_wave(t_game *game)
 {
-	int i;
+	int	i;
 
 	i = -1;
 	while (++i < game->current_wave->baby_zombie_count)
@@ -42,15 +43,11 @@ void	spawn_wave(t_game *game)
 
 void	check_wave(t_game *game)
 {
-	if (game->current_wave->zombie_killed == game->current_wave->total_zombie_count)
+	if (game->current_wave->zombie_killed ==
+		game->current_wave->total_zombie_count)
 	{
 		free(game->current_wave);
 		game->wave_count++;
-		// if (game->wave_count == 16)
-		// {
-		// 	printf("You win !\n");
-		// 	close_window(game);
-		// }
 		game->current_wave = get_wave(game->wave_count);
 		printf("\nReady for wave %d ?\n", game->wave_count);
 		spawn_wave(game);

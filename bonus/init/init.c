@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 18:22:05 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 15:47:21 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	init_game(t_game *game)
 	game->mouse.x = RES_X / 2;
 	game->mouse.y = RES_Y / 2;
 	game->mode = MENU;
+	game->wave_count = 1;
+	game->current_wave = get_wave(game->wave_count);
 }
 
 void	init_keys(t_game *game)
@@ -80,7 +82,5 @@ void	var_init(t_game *game)
 	clear_z_buffer(game);
 	init_threads(game);
 	load_blood_anim(game);
-	game->wave_count = 10;
-	game->current_wave = get_wave(game->wave_count);
 	spawn_wave(game);
 }

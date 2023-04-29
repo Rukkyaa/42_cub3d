@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   time.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:35:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/26 15:46:17 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 15:54:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,9 @@ void	handle_sync(t_game *game)
 
 void	handle_time(t_game *game)
 {
-	static int	first_call = 1;
-	
+	static int	first_call;
+
+	first_call = 1;
 	game->time.last_frame.tv_sec = game->time.frame.tv_sec;
 	game->time.last_frame.tv_usec = game->time.frame.tv_usec;
 	gettimeofday(&game->time.frame, NULL);

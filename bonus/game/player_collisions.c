@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 17:11:26 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 17:39:30 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	player_wall_collides(t_game *game, t_vector3d speed)
 		v_offset.y = 25;
 	else
 		v_offset.y = -25;
-	vi_pos = pixel_to_tile(game->player.pos);
+	vi_pos = pixel_to_tile(vec_sum(game->player.pos,game->player.speed));
 	vi_pos_add_offset = pixel_to_tile(vec_sum(game->player.pos, v_offset));
 	if (!is_walkable(game, vi_pos_add_offset.x, vi_pos.y))
 		game->player.speed.x = 0;

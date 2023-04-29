@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 17:01:36 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 17:15:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ void	game_loop(t_game *game)
 		if (game->frame_count - game->player.real_death_time > 100)
 			close_window(game);
 	}
-	is_colliding(game, game->sprites);
 	render_fps(game);
 	render_sprites(game);
 	render_ui(game);

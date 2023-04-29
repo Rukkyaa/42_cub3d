@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:42:41 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 17:11:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,22 @@ static void	player_mob_collide(t_game *game, t_sprite *mob)
 	}
 }
 
+static void	player_item_collide(t_game *game, t_sprite *item)
+{
+	float		distance;
+
+	distance = vec_distance(game->player.pos, item->pos);
+    if (distance < 50)
+    {
+        if (is_consommable(item))
+            use_item(game, item);
+        else
+            add_item(game, item->id);
+        remove_entity(&game->sprites, item);
+        return ;
+    }
+}
+
 void	player_mobs_collide(t_game *game, t_sprite *sprites)
 {
 	t_sprite	*tmp;
@@ -44,6 +60,8 @@ void	player_mobs_collide(t_game *game, t_sprite *sprites)
 	{
 		if (tmp->type == MOB && tmp->state != DEATH)
 			player_mob_collide(game, tmp);
+    	if (tmp->type == ITEM)
+			player_item_collide(game, tmp);
 		tmp = tmp->next;
 	}
 }

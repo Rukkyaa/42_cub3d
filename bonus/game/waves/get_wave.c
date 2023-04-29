@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_wave.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 14:43:08 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 16:30:32 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ t_stats	get_stats(cJSON *zombies, const char *type)
 		{
 			stats_json = cJSON_GetObjectItem(zombie, "stats");
 			stats.velocity = cJSON_GetObjectItem(stats_json,
-					"velocity")->valuedouble;
+					"velocity")
+				->valuedouble;
 			stats.hp = cJSON_GetObjectItem(stats_json, "health")->valueint;
 			stats.damage = cJSON_GetObjectItem(stats_json, "damage")->valueint;
 			stats.range = cJSON_GetObjectItem(stats_json, "range")->valueint;
@@ -123,10 +124,10 @@ t_wave	*parse_wave(cJSON *waves, int wave_number)
 	return (NULL);
 }
 
-void	auto_increase_difficulty(t_wave	*wave, int wave_number)
+void	auto_increase_difficulty(t_wave *wave, int wave_number)
 {
-	float coeff; 
-	
+	float	coeff;
+
 	coeff = 1 + ((wave_number - 15) / 5);
 	wave->baby_zombie_count *= coeff;
 	wave->normal_zombie_count *= coeff;
@@ -149,7 +150,7 @@ t_wave	*get_wave(int wave_number)
 		cJSON_Delete(root);
 		return (NULL);
 	}
-	if(wave_number > 15)
+	if (wave_number > 15)
 	{
 		result = parse_wave(waves, 15);
 		auto_increase_difficulty(result, wave_number);

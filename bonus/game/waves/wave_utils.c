@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 15:53:38 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 16:29:13 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,10 @@ void	spawn_wave(t_game *game)
 
 void	check_wave(t_game *game)
 {
-	if (game->current_wave->zombie_killed ==
-		game->current_wave->total_zombie_count)
+	t_wave	*wave;
+
+	wave = game->current_wave;
+	if (wave->zombie_killed == wave->total_zombie_count)
 	{
 		free(game->current_wave);
 		game->wave_count++;

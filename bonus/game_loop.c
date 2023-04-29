@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 15:01:52 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 17:01:36 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	death_animation(t_game *game)
 void	game_loop(t_game *game)
 {
 	handle_time(game);
-	if(game->player.hp > 0)
+	if (game->player.hp > 0)
 		death_animation(game);
 	else
 	{
-		if(game->frame_count - game->player.death_time < 5)
+		if (game->frame_count - game->player.death_time < 5)
 			game->player.pos3d.z -= 3;
-		if(game->frame_count - game->player.real_death_time > 100)
+		if (game->frame_count - game->player.real_death_time > 100)
 			close_window(game);
 	}
 	is_colliding(game, game->sprites);
@@ -67,8 +67,9 @@ void	game_loop(t_game *game)
 
 void	menu_fade_out(t_game *game)
 {
-	faded_view(game, &game->fps_img, (game->frame_count - game->menu_fade_start) * 4);
-	if(game->frame_count - game->menu_fade_start > 30)
+	faded_view(game, &game->fps_img, (game->frame_count - game->menu_fade_start)
+			* 4);
+	if (game->frame_count - game->menu_fade_start > 30)
 	{
 		game->game_start_time = game->frame_count;
 		game->mode = PLAY;
@@ -89,8 +90,9 @@ int	main_loop(void *g)
 		render_menu(game);
 	if (game->mode == MENU_FADE_OUT)
 		menu_fade_out(game);
-	if(game->mode == PLAY && game->frame_count - game->game_start_time < 40)
-		faded_view(game, &game->fps_img, 255 -  (game->frame_count - game->game_start_time) * 6);
+	if (game->mode == PLAY && game->frame_count - game->game_start_time < 40)
+		faded_view(game, &game->fps_img, 255 - (game->frame_count
+					- game->game_start_time) * 6);
 	render(game);
 	if (game->mode == PLAY)
 		print_fps(game->time.fps);

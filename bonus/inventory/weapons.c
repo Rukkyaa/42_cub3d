@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:42:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:46:21 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/29 16:58:54 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ t_weapon	*get_weapon(t_game *game, t_inventory *inventory, int id)
 
 void	inventory_switch(t_game *game)
 {
-	if (get_weapon(game, &game->inventory, game->player.weapon_selected) != game->player.weapon)
+	if (get_weapon(game, &game->inventory,
+			game->player.weapon_selected) != game->player.weapon)
 	{
 		if (get_weapon(game, &game->inventory, game->player.weapon_selected))
-			game->player.weapon = get_weapon(game, &game->inventory, game->player.weapon_selected);
+			game->player.weapon = get_weapon(game, &game->inventory,
+					game->player.weapon_selected);
 		else
 			game->player.weapon = &game->weapons.axe;
 	}
@@ -53,10 +55,12 @@ void	inventory_switch(t_game *game)
 		game->player.weapon_selected = 1;
 	else if (game->key_states['0' + 3] == 1)
 		game->player.weapon_selected = 2;
-	if(game->key_states['0' + 1] == 1 && get_weapon(game, &game->inventory, 0))
+	if (game->key_states['0' + 1] == 1 && get_weapon(game, &game->inventory, 0))
 		game->player.weapon = get_weapon(game, &game->inventory, 0);
-	else if(game->key_states['0' + 2] == 1 && get_weapon(game, &game->inventory, 1))
+	else if (game->key_states['0' + 2] == 1 && get_weapon(game,
+				&game->inventory, 1))
 		game->player.weapon = get_weapon(game, &game->inventory, 1);
-	else if(game->key_states['0' + 3] == 1 && get_weapon(game, &game->inventory, 2))
+	else if (game->key_states['0' + 3] == 1 && get_weapon(game,
+				&game->inventory, 2))
 		game->player.weapon = get_weapon(game, &game->inventory, 2);
 }

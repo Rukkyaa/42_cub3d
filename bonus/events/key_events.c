@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:17:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 16:27:01 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,6 @@ int	handle_keypress(int keycode, t_game *game)
 
 int	handle_keyrelease(int keycode, int *key_states)
 {
-	printf("keycode %d\n", keycode);
 	if (is_alpha(keycode))
 		key_states[keycode] = 0;
 	if (keycode == RIGHT)

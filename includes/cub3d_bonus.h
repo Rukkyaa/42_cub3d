@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:00:18 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/29 16:51:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,8 @@ bool			is_walkable(t_game *game, int x, int y);
 bool			is_collectible(t_game *game);
 
 bool			player_moving(t_game *game);
-void			player_collides(t_game *game, t_vector3d speed);
+void			player_wall_collides(t_game *game, t_vector3d speed);
+void			player_mobs_collide(t_game *game, t_sprite *sprites);
 void			edit_player_pos(t_game *game);
 void			edit_player_rotate(t_game *game);
 void			update_player_tile_pos(t_player *player);
@@ -246,8 +247,6 @@ int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
 int				main_loop(void *g);
 
-// Controls
-void			rotate_player(t_game *game, float angle);
 
 t_vector3d		get_next_tile(t_game *game, t_vector3d direction);
 t_vector3d		pixel_to_tile(t_vector3d vector);

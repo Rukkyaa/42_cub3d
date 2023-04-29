@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/04/28 13:10:35 by teliet           ###   ########.fr        #
+#    Updated: 2023/04/29 16:04:20 by theo             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -90,7 +90,7 @@ RENDER_SRC_BONUS = $(addprefix bonus/render/, $(addsuffix .c, quick_sort load re
 RENDER_OBJS_BONUS = $(RENDER_SRC_BONUS:.c=.o)
 
 # INVENTORY #
-INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils refresh weapons))
+INVENTORY_SRC_BONUS = $(addprefix bonus/inventory/, $(addsuffix .c, utils utils2 refresh weapons))
 INVENTORY_OBJS_BONUS = $(INVENTORY_SRC_BONUS:.c=.o)
 
 # SINGLETONS #
@@ -98,12 +98,16 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, hooks utils time move entity_collision weapon))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, utils time move entity_collision weapon))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # WAVES #
 WAVE_SRC_BONUS = $(addprefix bonus/game/waves/, $(addsuffix .c, get_wave wave_utils))
 WAVE_OBJS_BONUS = $(WAVE_SRC_BONUS:.c=.o)
+
+# EVENTS #
+EVENTS_SRC_BONUS = $(addprefix bonus/events/, $(addsuffix .c, hooks mouse_events key_events))
+EVENTS_OBJS_BONUS = $(EVENTS_SRC_BONUS:.c=.o)
 
 # SPRITES #
 SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
@@ -156,13 +160,13 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
 	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
 	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
+	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS)  
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
 	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
 		-lpthread -ldl -Lcjson/ -lcjson $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
@@ -173,7 +177,7 @@ perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
 	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
 	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
+	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"
 	@make --no-print-directory -C libft/
 	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
@@ -200,7 +204,7 @@ clean:
 	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

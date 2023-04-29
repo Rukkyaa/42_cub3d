@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 17:19:07 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/29 16:00:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,13 @@ void			update_player_tile_pos(t_player *player);
 void			clear_z_buffer(t_game *game);
 void			handle_weapon(t_game *game, t_weapon *weapon);
 long			ft_now(void);
+
+// Events
+int				handle_keypress(int keycode, t_game *game);
+int				handle_keyrelease(int keycode, int *key_states);
+int				mouse_press(int button, int x, int y, t_game *game);
+int				mouse_release(int button, int x, int y, t_game *game);
+int				mouse_mouve_hook(int x, int y, t_game *game);
 
 //Fps
 void			handle_sync(t_game *game);
@@ -349,6 +356,7 @@ void			use_item(t_game *game, t_sprite *item);
 void			inventory_switch(t_game *game);
 bool			weapon_in_inventory(t_game *game, int id);
 void			check_item(t_game *game);
+void			swap_items(int first, int second, int items[36]);
 
 /*********************************************************************************************
 **  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **

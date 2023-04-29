@@ -1,0 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   key_events.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
+/*   Updated: 2023/04/29 16:17:16 by theo             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "cub3d_bonus.h"
+
+bool	is_alpha(int keycode)
+{
+	return ((('a' <= keycode && keycode <= 'z') && keycode != 'e')
+		|| ('0' <= keycode && keycode <= '9'));
+}
+
+int	handle_inventory(t_game *game)
+{
+	if (game->inventory_display)
+	{
+		game->inventory_display = 0;
+		mlx_mouse_hide(game->mlx, _mlx()->win);
+	}
+	else
+	{
+		game->inventory_display = 1;
+		mlx_mouse_show(game->mlx, _mlx()->win);
+	}
+}
+
+int	handle_keypress(int keycode, t_game *game)
+{
+	if (keycode == ESC)
+		close_window(game);
+	if (is_alpha(keycode))
+		game->key_states[keycode] = 1;
+	if (keycode == 'e')
+		handle_inventory(game);
+	if (keycode == RIGHT)
+		game->key_states[0] = 1;
+	if (keycode == LEFT)
+		game->key_states[1] = 1;
+	if (keycode == SHIFT)
+		game->key_states[2] = 1;
+	if (keycode == 32)
+		game->key_states[32] = 1;
+	return (0);
+}
+
+int	handle_keyrelease(int keycode, int *key_states)
+{
+	printf("keycode %d\n", keycode);
+	if (is_alpha(keycode))
+		key_states[keycode] = 0;
+	if (keycode == RIGHT)
+		key_states[0] = 0;
+	if (keycode == LEFT)
+		key_states[1] = 0;
+	if (keycode == SHIFT)
+		key_states[2] = 0;
+	if (keycode == 32)
+		key_states[32] = 0;
+	return (0);
+}

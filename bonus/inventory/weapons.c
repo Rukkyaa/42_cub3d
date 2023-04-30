@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:42:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:02:14 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 21:39:36 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,8 @@ t_weapon	*get_weapon(t_game *game, t_inventory *inventory, int id)
 		return (&game->weapons.plasma_riffle);
 	else if (inventory->items[id] == GRAP_GUN)
 		return (&game->weapons.grap_gun);
+	else if (inventory->items[id] == SHOTGUN)
+		return (&game->weapons.shotgun);
 	return (NULL);
 }
 

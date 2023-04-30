@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/26 14:41:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:40:45 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_inventory(t_game *game)
 	game->inventory.selected = -1;
 	while (++i < 36)
 		game->inventory.items[i] = 0;
-	game->inventory.items[0] = AXE;
+	game->inventory.items[0] = SHOTGUN;
 }
 
 void	add_item(t_game *game, int id)
@@ -53,6 +53,8 @@ void	select_item(t_game *game, int x, int y)
 		game->inventory.selected_img = &game->weapon_icons.plasma_riffle;
 	else if (get_item(x, y, game->inventory.items) == GRAP_GUN)
 		game->inventory.selected_img = &game->weapon_icons.grap_gun;
+	else if (get_item(x, y, game->inventory.items) == SHOTGUN)
+		game->inventory.selected_img = &game->weapon_icons.shotgun;
 	else
 		game->inventory.selected_img = NULL;
 }

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/29 16:57:24 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 22:16:14 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,38 @@ void	melee_attack(t_game *game, t_weapon *weapon)
 	}
 }
 
+void	shotgun_attack(t_game *game, t_weapon *weapon)
+{
+	t_sprite	*sprite;
+	t_sprite	*next_sprite;
+
+	sprite = game->sprites;
+	while (sprite)
+	{
+		next_sprite = sprite->next;
+		if (sprite->type == MOB && sprite->visible && sprite->state != DEATH
+			&& sprite->state != SPAWN)
+		{
+			if (sinf(fabs(sprite->angle_to_player)) * sprite->distance < 15)
+			{
+				spawn_blood(game, sprite->pos, 0);
+				if (do_damage(weapon->damage * (240 - sprite->distance) / 240 + game->player.bonus_strength,
+						sprite))
+					update_kill(game);
+			}
+		}
+		sprite = next_sprite;
+	}
+}
+
 void	weapon_idle(t_game *game, t_weapon *weapon)
 {
 	game->player.sound_state.player_shooting = game->player.weapon->id;
 	weapon->fire_anim.start_time_ms = ft_now();
 	weapon->state = FIRE;
-	if (weapon->is_melee)
+	if(weapon->id == SHOTGUN)
+		shotgun_attack(game, weapon);
+	else if (weapon->is_melee)
 		melee_attack(game, weapon);
 	else
 		spawn_projectile(game, game->player.pos, weapon->projectile);

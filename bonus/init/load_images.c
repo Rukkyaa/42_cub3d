@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/27 15:51:13 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 21:36:07 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,6 +87,8 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->weapon_icons.plasma_riffle,
 		"images/weapons/icon/plasma_riffle.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.grap_gun,
+		"images/weapons/icon/grap_gun.xpm");
+	ft_xpm_to_img(game, &game->weapon_icons.shotgun,
 		"images/weapons/icon/grap_gun.xpm");
 	ft_xpm_to_img(game, &game->hud.aim, "images/aim_white_simple.xpm");
 	ft_xpm_to_img(game, &game->hud.weapon, "images/weapons/transparent.xpm");

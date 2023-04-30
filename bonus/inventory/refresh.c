@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:33:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:12:27 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 21:37:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@ void	refresh_inventory(t_game *game)
 					329 + j * 80, 530 + i * 70);
 			else if (game->inventory.items[i * 12 + j] == GRAP_GUN)
 				put_img_to_img(&game->weapon_icons.grap_gun, &_mlx()->img, 329
+					+ j * 80, 530 + i * 70);
+			else if (game->inventory.items[i * 12 + j] == SHOTGUN)
+				put_img_to_img(&game->weapon_icons.shotgun, &_mlx()->img, 329
 					+ j * 80, 530 + i * 70);
 		}
 	}

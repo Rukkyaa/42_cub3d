@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   menu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:02 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/27 18:24:33 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 15:05:33 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,17 @@ void	handle_button(t_game *game, t_button *button)
 	else
 		put_img_to_img(&button->idle_img, &game->fps_img, button->pos.x,
 			button->pos.y);
+}
+
+void	menu_fade_out(t_game *game)
+{
+	faded_view(game, &game->fps_img, (game->frame_count - game->menu_fade_start)
+		* 4);
+	if (game->frame_count - game->menu_fade_start > 30)
+	{
+		game->game_start_time = game->frame_count;
+		game->mode = PLAY;
+	}
 }
 
 void	render_menu(t_game *game)

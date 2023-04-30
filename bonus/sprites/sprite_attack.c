@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_attack.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 14:36:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 18:13:12 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 14:59:20 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,16 @@ void	update_start_time(t_sprite *sprite, t_game *game)
 		+ game->time.frame.tv_usec / 1000;
 }
 
-void	check_death(t_game *game, t_player *player)
+void	sprite_attack(t_game *game, t_player *player, t_sprite *sprite)
 {
+	sprite->attacked = true;
+	player->hp -= sprite->damage;
+	player->sound_state.player_hurt = true;
 	if (player->hp <= 0)
 	{
-		if(game->player.real_death_time == 0)
+		if (game->player.real_death_time == 0)
 			game->player.real_death_time = game->frame_count;
-		if(game->player.lethal_hits < 2)
+		if (game->player.lethal_hits < 2)
 		{
 			printf("You died, %d\n", player->kills);
 			game->player.death_time = game->frame_count;
@@ -57,20 +60,18 @@ void	attack(t_game *game, t_sprite *sprite, t_player *player)
 	}
 	if (can_attack(sprite, player))
 	{
-		sprite->attacked = true;
-		player->hp -= sprite->damage;
-		player->sound_state.player_hurt = true;
-		check_death(game, player);
+		sprite_attack(game, &game->player, sprite);
 	}
 	else if (sprite->animation.current_frame > 70)
 		sprite->attacked = false;
-	if (sprite->animation.current_frame > 110
-		&& vec_distance(sprite->pos, player->pos) > 30)
+	if (sprite->animation.current_frame > 110 && vec_distance(sprite->pos,
+			player->pos) > 30)
 	{
 		sprite->state = RUN;
-		sprite->animation =  sprite->animated_mob.run;
+		sprite->animation = sprite->animated_mob.run;
 		update_start_time(sprite, game);
 		update_width(sprite);
-		sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX) * sprite->animation.nb_imgs;
+		sprite->animation.frame_offset = ((double)rand() / (double)RAND_MAX)
+			* sprite->animation.nb_imgs;
 	}
 }

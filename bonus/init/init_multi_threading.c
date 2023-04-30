@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/26 12:25:31 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 15:05:08 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	init_mutex(t_game *game, pthread_mutex_t *mutex)
 
 void	init_threads(t_game *game)
 {
-	int i;
+	int	i;
 
 	init_mutex(game, &game->print_rights);
 	init_mutex(game, &game->img_read_rights);

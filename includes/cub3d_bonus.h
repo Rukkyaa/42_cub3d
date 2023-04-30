@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:51:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 15:18:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -207,6 +207,7 @@ void			sample_map(t_img *dest, t_img *src, int start_x, int start_y);
 // UI
 void			handle_button(t_game *game, t_button *button);
 void			render_menu(t_game *game);
+void			menu_fade_out(t_game *game);
 
 // Multithreading
 void			wall_thread(t_game *game, t_wall_task d);

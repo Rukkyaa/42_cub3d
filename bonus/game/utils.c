@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:57:32 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 14:45:03 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ bool	player_moving(t_game *game)
 
 bool	is_collectible(t_game *game)
 {
-	char c = game->map[(int)game->player.pos.y / 64]
-						[(int)game->player.pos.x / 64];
-						
+	char	c;
+
+	c = game->map[(int)game->player.pos.y / 64][(int)game->player.pos.x / 64];
 	return (c == 'S' || c == 'A');
 }
 

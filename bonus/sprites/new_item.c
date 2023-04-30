@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   new_item.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/13 17:29:40 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/04/30 15:01:06 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ t_sprite	*spawn_item(t_game *game, t_vector3d pos, int id)
 		* new_item->animation.nb_imgs;
 	new_item->pos.z = 0;
 	new_item->height = 20;
-	new_item->width = new_item->height *
-		(new_item->animation.current_img->width) /
+	new_item->width = new_item->height * \
+		(new_item->animation.current_img->width) / \
 		(new_item->animation.current_img->heigth);
 	new_item->next = NULL;
 	new_item->type = ITEM;

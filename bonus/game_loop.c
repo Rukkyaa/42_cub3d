@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 17:15:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 15:05:55 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,17 +64,6 @@ void	game_loop(t_game *game)
 	check_wave(game);
 }
 
-void	menu_fade_out(t_game *game)
-{
-	faded_view(game, &game->fps_img, (game->frame_count - game->menu_fade_start)
-			* 4);
-	if (game->frame_count - game->menu_fade_start > 30)
-	{
-		game->game_start_time = game->frame_count;
-		game->mode = PLAY;
-	}
-}
-
 int	main_loop(void *g)
 {
 	t_game	*game;
@@ -91,7 +80,7 @@ int	main_loop(void *g)
 		menu_fade_out(game);
 	if (game->mode == PLAY && game->frame_count - game->game_start_time < 40)
 		faded_view(game, &game->fps_img, 255 - (game->frame_count
-					- game->game_start_time) * 6);
+				- game->game_start_time) * 6);
 	render(game);
 	if (game->mode == PLAY)
 		print_fps(game->time.fps);

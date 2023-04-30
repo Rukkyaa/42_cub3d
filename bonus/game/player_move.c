@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:41:25 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 14:51:05 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,14 +49,13 @@ void	player_jump(t_game *game)
 	}
 }
 
-void	edit_player_pos(t_game *game)
+void	set_player_direction(t_game *game)
 {
 	t_vector3d	right;
 	t_vector3d	left;
 
 	right = vec_rotate(game->player.direction, 90);
 	left = vec_rotate(game->player.direction, 270);
-	player_jump(game);
 	if (game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.direction, 1);
 	else if (game->key_states['s'])
@@ -70,7 +69,13 @@ void	edit_player_pos(t_game *game)
 	{
 		game->player.speed = vec_sum(game->player.speed, right);
 		game->player.speed = vec_normalize(game->player.speed);
-	}
+	}	
+}
+
+void	edit_player_pos(t_game *game)
+{
+	player_jump(game);
+	set_player_direction(game);
 	if (game->key_states[2] && game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.speed,
 				game->player.velocity * 2 * game->time.delta_frame_ms

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:38:11 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 16:15:00 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 18:26:48 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,22 +75,6 @@ int	handle_doors(t_game *game, t_raycast_data *d, char last_step,
 		return (handle_doors_y(game, d, last_step, tile_found));
 	else
 		return (handle_doors_x(game, d, last_step, tile_found));
-	if (((int)door_intersection.y) / 64 == d->v_map_check.y)
-	{
-		d->collision.x_pos_tex = ((int)door_intersection.y) % 64;
-		if(d->collision.x_pos_tex > 32)
-			return 0;
-		d->collision.distance = d->distance * 64 + sqrtf(32 * 32
-				+ pow(d->v_ray_dir.y / d->v_ray_dir.x * 32, 2));
-		d->collision.orientation = get_collision_orientation(last_step,
-				d->v_step);
-		d->collision.point = d->collision_point;
-		*tile_found = 1;
-		get_wall(game, &d->collision,
-			game->map[(int)d->v_map_check.y][(int)d->v_map_check.x]);
-		return (1);
-	}
-	return (0);
 }
 
 char	get_collision_orientation(char last_step, t_vector3d v_step)

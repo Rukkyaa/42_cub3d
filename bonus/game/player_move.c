@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 17:15:44 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 18:29:29 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,10 +85,17 @@ void 	player_doors_collide(t_game *game)
 	if (game->map[(int) pos_tile.y][(int) pos_tile.x] == 'D')
 	{
 		door = game->doors[(int) (pos_tile.y * map_width(game->map) + pos_tile.x)];
-			printf("bonjor\n");
+		if(door->open_state > 50)
+			return ;
+		if(game->key_states['x'] == 1)
+		{
+			if(door->open_state == 0)
+				door->open_state = 64;
+			else 
+				door->open_state = 0;
+		}
 		if(door->x_oriented)
 		{
-			printf("hello\n");
 			if(game->player.pos.x  < pos_tile.x * 64 + 32 &&  pos_tile.x * 64 + 32 < next_pos.x)
 				game->player.speed.x = 0;
 		}

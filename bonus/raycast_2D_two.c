@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:38:11 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 19:00:54 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 20:12:22 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int	handle_doors_y(t_game *game, t_raycast_data *d, t_door *door, int *tile_foun
 	
 	door_offset = 32 * d->v_ray_dir.x / fabs(d->v_ray_dir.y) - door->open_state;
 	door_intersection.x = d->collision_point.x + door_offset;
-	if (((int)door_intersection.x) / 64 == d->v_map_check.x)
+	if (d->v_map_check.x * 64 < door_intersection.x && door_intersection.x < (d->v_map_check.x + 1) * 64)
 	{
-		d->collision.x_pos_tex = ((int)door_intersection.x) % 64;
-		if(d->collision.x_pos_tex >  64 - door->open_state)
+		d->collision.x_pos_tex = ((int)door_intersection.x) % 64 ; 
+		if(d->collision.x_pos_tex > 64 - door->open_state)
 			return 0;
 		d->collision.distance = d->distance * 64 + sqrtf(32 * 32
 				+ pow(d->v_ray_dir.x / d->v_ray_dir.y * 32, 2));
@@ -68,7 +68,7 @@ int	handle_doors(t_game *game, t_raycast_data *d, int *tile_found)
 	t_vector3d	door_intersection;
 	float door_offset;
 	t_door	*door;
-
+	// printf("doors\n");
 	door = game->doors[(int) (d->v_map_check.y * map_width(game->map) + d->v_map_check.x)];
 	if (door->x_oriented)
 		return (handle_doors_x(game, d, door, tile_found));

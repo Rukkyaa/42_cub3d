@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 19:05:02 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 19:28:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,11 +96,18 @@ void 	player_doors_collide(t_game *game)
 			return ;
 		if(door->x_oriented)
 		{
-			if(game->player.pos.x  < pos_tile.x * 64 + 32 &&  pos_tile.x * 64 + 32 < next_pos.x)
+			if(game->player.pos.x  < pos_tile.x * 64 + 10 &&  pos_tile.x * 64 + 10 < next_pos.x)
+				game->player.speed.x = 0;
+			if(game->player.pos.x  > pos_tile.x * 64 + 50 &&  pos_tile.x * 64 + 50 > next_pos.x)
 				game->player.speed.x = 0;
 		}
-		else if(game->player.pos.y  < pos_tile.y * 64 + 32 &&  pos_tile.y * 64 + 32 < next_pos.y)
-			game->player.speed.y = 0;
+		else 
+		{
+			if(game->player.pos.y  < pos_tile.y * 64 + 10 &&  pos_tile.y * 64 + 10 < next_pos.y)
+				game->player.speed.y = 0;
+			if(game->player.pos.y  > pos_tile.y * 64 + 50 &&  pos_tile.y * 64 + 50 > next_pos.y)
+				game->player.speed.y = 0;
+		}
 	}
 }
 

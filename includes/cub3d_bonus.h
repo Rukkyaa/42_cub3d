@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:18:47 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 18:49:40 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -181,8 +181,7 @@ void			render_floor(t_game *game, t_vector3d v_ray_dir,
 					t_vector3d line_pos);
 void			print_kill(t_game *game, int nb, int x);
 
-int				handle_doors(t_game *game, t_raycast_data *d, char last_step,
-					int *tile_found);
+int				handle_doors(t_game *game, t_raycast_data *d, int *tile_found);
 char			get_collision_orientation(char last_step, t_vector3d v_step);
 double			get_texture_x(char last_step, t_vector3d v_collision_point,
 					t_vector3d v_map_check);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/27 10:51:03 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 18:49:42 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,7 @@ t_collision	cast_two_d_ray(t_game *game, t_vector3d direction)
 				game->map[(int)d.v_map_check.y][(int)d.v_map_check.x]);
 		}
 		else if (game->map[(int)d.v_map_check.y][(int)d.v_map_check.x] == 'D'
-				&& handle_doors(game, &d, d.last_step, &tile_found))
+				&& handle_doors(game, &d, &tile_found))
 			return (d.collision);
 	}
 	fill_collision(&d, d.last_step);

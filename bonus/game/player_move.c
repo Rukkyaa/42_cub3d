@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 14:51:05 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 17:15:44 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,31 @@ void	set_player_direction(t_game *game)
 	}	
 }
 
+void 	player_doors_collide(t_game *game)
+{
+	t_vector3d	next_pos;
+	t_vector3d	pos_tile;
+	t_vector3d	next_pos_tile;
+	t_door		*door;
+
+	next_pos = vec_sum(game->player.pos, game->player.speed);
+	next_pos_tile = pixel_to_tile(next_pos);
+	pos_tile = pixel_to_tile(game->player.pos);
+	if (game->map[(int) pos_tile.y][(int) pos_tile.x] == 'D')
+	{
+		door = game->doors[(int) (pos_tile.y * map_width(game->map) + pos_tile.x)];
+			printf("bonjor\n");
+		if(door->x_oriented)
+		{
+			printf("hello\n");
+			if(game->player.pos.x  < pos_tile.x * 64 + 32 &&  pos_tile.x * 64 + 32 < next_pos.x)
+				game->player.speed.x = 0;
+		}
+		else if(game->player.pos.y  < pos_tile.y * 64 + 32 &&  pos_tile.y * 64 + 32 < next_pos.y)
+			game->player.speed.y = 0;
+	}
+}
+
 void	edit_player_pos(t_game *game)
 {
 	player_jump(game);
@@ -85,6 +110,7 @@ void	edit_player_pos(t_game *game)
 				game->player.velocity * game->time.delta_frame_ms / 1000.0f);
 	player_wall_collides(game, game->player.speed);
 	player_mobs_collide(game, game->sprites);
+	player_doors_collide(game);
 	game->player.pos = vec_sum(game->player.pos, game->player.speed);
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/30 15:50:20 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 17:09:37 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -372,6 +372,7 @@ typedef struct s_door
 	int		pos_x;
 	int		pos_y;
 	int		open_state;
+	int		x_oriented;
 }				t_door;
 
 typedef struct s_mlx
@@ -412,7 +413,7 @@ typedef struct s_game
 	int				mouse_move;
 	t_player		player;
 	t_sprite		*sprites;
-	t_door			*doors;
+	t_door			*doors[10000];
 	float			z_buffer[RES_X];
 	float			row_dist[RES_X][RES_Y];
 	float			ray_offset[RES_X];

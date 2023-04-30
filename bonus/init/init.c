@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 16:00:57 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 17:17:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,14 @@ void	init_game(t_game *game)
 	game->current_wave = get_wave(game->wave_count);
 
 	// doors 
-	game->doors = my_alloc(sizeof(t_door));
-	game->doors->pos_x = 21;
-	game->doors->pos_y = 3;
+	game->doors[3 * map_width(game->map) + 21] = my_alloc(sizeof(t_door));
+	game->doors[3 * map_width(game->map) + 21]->pos_x = 21;
+	game->doors[3 * map_width(game->map) + 21]->pos_y = 3;
+	game->doors[3 * map_width(game->map) + 21]->x_oriented = 1;
+	game->doors[10 * map_width(game->map) + 11] = my_alloc(sizeof(t_door));
+	game->doors[10 * map_width(game->map) + 11]->pos_x = 11;
+	game->doors[10 * map_width(game->map) + 11]->pos_y = 10;
+	game->doors[10 * map_width(game->map) + 11]->x_oriented =  0;
 }
 
 void	init_keys(t_game *game)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/28 14:40:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 15:50:20 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -367,6 +367,13 @@ typedef struct s_wave
 	t_stats	big_zombie_stats;
 }				t_wave;
 
+typedef struct s_door
+{
+	int		pos_x;
+	int		pos_y;
+	int		open_state;
+}				t_door;
+
 typedef struct s_mlx
 {
 	void		*mlx;
@@ -405,6 +412,7 @@ typedef struct s_game
 	int				mouse_move;
 	t_player		player;
 	t_sprite		*sprites;
+	t_door			*doors;
 	float			z_buffer[RES_X];
 	float			row_dist[RES_X][RES_Y];
 	float			ray_offset[RES_X];

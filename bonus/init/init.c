@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:16:17 by theo             ###   ########.fr       */
+/*   Updated: 2023/04/30 16:00:57 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,11 @@ void	init_game(t_game *game)
 	game->mode = MENU;
 	game->wave_count = 1;
 	game->current_wave = get_wave(game->wave_count);
+
+	// doors 
+	game->doors = my_alloc(sizeof(t_door));
+	game->doors->pos_x = 21;
+	game->doors->pos_y = 3;
 }
 
 void	init_keys(t_game *game)

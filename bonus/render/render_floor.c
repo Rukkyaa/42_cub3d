@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_floor.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:23:54 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/24 15:29:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/01 15:39:16 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,21 @@ void	shading_floor(t_game *game, int *pixel_color, int *shade,
 								- 320) / 512, 0), 1) * 255);
 		else
 			*shade = 0;
+	}
+}
+
+void	render_floor_unicolor(t_game *game, t_vector3d line_pos)
+{
+	int			i;
+	t_roof_data	d;
+
+	i = line_pos.y;
+	d.img_addr = (unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
+	while (i < RES_Y)
+	{
+		*d.img_addr = game->floor_color;
+		d.img_addr += RES_X;
+		i++;
 	}
 }
 

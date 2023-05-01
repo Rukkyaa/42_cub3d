@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/01 15:07:53 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:38:07 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -450,6 +450,9 @@ typedef struct s_game
 
 	t_wave			*current_wave;
 	int				wave_count;
+
+	int				floor_color;
+	int				roof_color;
 	
 	int				mouse_clicked;
 	int				inventory_display;

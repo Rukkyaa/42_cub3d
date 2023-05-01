@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 18:49:40 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:51:01 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,9 @@
 
 # define MOUSE_SENSITIVITY 1.5f
 
-# define HD 1
+# ifndef HD
+# 	define HD 0
+# endif
 
 # define MAX_DISTANCE 10
 
@@ -179,6 +181,8 @@ void			pre_compute_rows_dist(t_game *game, t_vector3d line_pos,
 void			precompute_raycast(t_game *game);
 void			render_floor(t_game *game, t_vector3d v_ray_dir,
 					t_vector3d line_pos);
+void			render_floor_unicolor(t_game *game, t_vector3d line_pos);
+void			render_roof_unicolor(t_game *game, t_vector3d line_pos, int line_height);
 void			print_kill(t_game *game, int nb, int x);
 
 int				handle_doors(t_game *game, t_raycast_data *d, int *tile_found);

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/01 14:21:42 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:07:53 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,7 @@ typedef struct s_animations
 	t_animation	heart;
 	t_animation	cocaine;
 	t_animation	blood_splatter_line;
+	t_animation	shotgun;
 }				t_animations;
 
 typedef struct s_animated_mob

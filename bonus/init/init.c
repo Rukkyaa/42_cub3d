@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 14:22:15 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:08:13 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ void	init_animations(t_game *game)
 	game->animations.plasma_riffle = load_item_anim(game, PLASMA_RIFFLE);
 	game->animations.cocaine = load_item_anim(game, COCAINE);
 	game->animations.grap_gun = load_item_anim(game, GRAP_GUN);
+	game->animations.shotgun = load_item_anim(game, SHOTGUN);
 }
 
 void	init_sprites(t_game *game)

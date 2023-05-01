@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 20:15:03 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 14:06:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,17 @@ void	init_game(t_game *game)
 	game->doors[3 * map_width(game->map) + 21]->pos_y = 3;
 	game->doors[3 * map_width(game->map) + 21]->x_oriented = 1;
 	game->doors[3 * map_width(game->map) + 21]->open_state = 0;
+	game->doors[3 * map_width(game->map) + 21]->state = CLOSED;
 	game->doors[10 * map_width(game->map) + 11] = my_alloc(sizeof(t_door));
 	game->doors[10 * map_width(game->map) + 11]->pos_x = 11;
 	game->doors[10 * map_width(game->map) + 11]->pos_y = 10;
 	game->doors[10 * map_width(game->map) + 11]->x_oriented =  0;
 	game->doors[10 * map_width(game->map) + 11]->open_state = 0;
+	game->doors[10 * map_width(game->map) + 11]->state = CLOSED;
+
+	game->doors_small[0] = game->doors[3 * map_width(game->map) + 21];
+	game->doors_small[1] = game->doors[10 * map_width(game->map) + 11];
+	game->doors_small[2] = 0;
 }
 
 void	init_keys(t_game *game)

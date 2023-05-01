@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/04/30 17:09:37 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 14:06:37 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,12 @@
 # define PLAY 0
 # define MENU 1
 # define MENU_FADE_OUT 2
+
+// Door states
+# define CLOSED 0
+# define OPEN 1
+# define OPENING 2
+# define CLOSING 3
 
 # define WAVE_FILE "./bonus/waves.json"
 
@@ -318,6 +324,7 @@ typedef struct s_player
 	int				real_death_time;
 	int				death_time;
 	int				lethal_hits;
+	int				near_door;
 	float			angle;
 	float			direction_adjust;
 	int				bonus_strength;
@@ -371,6 +378,7 @@ typedef struct s_door
 {
 	int		pos_x;
 	int		pos_y;
+	int		state;
 	int		open_state;
 	int		x_oriented;
 }				t_door;
@@ -414,6 +422,7 @@ typedef struct s_game
 	t_player		player;
 	t_sprite		*sprites;
 	t_door			*doors[10000];
+	t_door			*doors_small[3];
 	float			z_buffer[RES_X];
 	float			row_dist[RES_X][RES_Y];
 	float			ray_offset[RES_X];

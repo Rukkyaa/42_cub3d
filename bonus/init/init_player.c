@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/30 15:16:09 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 13:33:01 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	init_player_two(t_game *game)
 	game->player.cocaine = false;
 	game->player.bonus_strength = 0;
 	game->player.velocity = 100;
+	game->player.near_door = 0;
 }
 
 void	init_player(t_game *game)

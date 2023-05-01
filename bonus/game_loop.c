@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:05:55 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 14:18:04 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,31 @@ void	death_animation(t_game *game)
 	handle_weapon(game, game->player.weapon);
 }
 
+void	update_doors(t_game *game)
+{
+	t_door *door;
+	int i;
+
+	i = 0;
+	while(game->doors_small[i] != 0)
+	{
+		door = game->doors_small[i];
+		if(door->state == OPENING)
+		{
+			door->open_state++;
+			if(door->open_state == 64)
+				door->state = OPEN;
+		}
+		else if(door->state == CLOSING)
+		{
+			door->open_state--;
+			if(door->open_state == 0)
+				door->state = CLOSED;
+		}
+		i++;
+	}
+}
+
 void	game_loop(t_game *game)
 {
 	handle_time(game);
@@ -53,6 +78,7 @@ void	game_loop(t_game *game)
 		if (game->frame_count - game->player.real_death_time > 100)
 			close_window(game);
 	}
+	update_doors(game);
 	render_fps(game);
 	render_sprites(game);
 	render_ui(game);

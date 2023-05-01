@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 16:13:03 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:39:18 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,6 @@ void	init_game(t_game *game)
 	game->doors[10 * map_width(game->map) + 11]->x_oriented =  0;
 	game->doors[10 * map_width(game->map) + 11]->open_state = 0;
 	game->doors[10 * map_width(game->map) + 11]->state = CLOSED;
-
 	game->doors_small[0] = game->doors[3 * map_width(game->map) + 21];
 	game->doors_small[1] = game->doors[10 * map_width(game->map) + 11];
 	game->doors_small[2] = 0;

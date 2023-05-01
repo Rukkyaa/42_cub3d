@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:49:56 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 16:05:06 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:40:35 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,10 @@ void	execute_task(t_game *game, t_wall_task *task)
 	pre_compute_rows_dist(game, task->line_pos, task->line_height,
 		game->fisheye_resize[(int)task->line_pos.x]);
 	render_floor(game, task->v_ray_dir, task->line_pos);
-	if(HD)
-	{
+	if (HD)
 		render_roof(game, task->v_ray_dir, task->line_pos, task->line_height);
-	}
 	else
-	{
-		// render_floor_unicolor(game, task->line_pos);
 		render_roof_unicolor(game, task->line_pos, task->line_height);
-	}
 }
 
 void	*start_thread(void *void_game)

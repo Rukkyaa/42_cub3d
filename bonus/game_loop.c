@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 14:18:04 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:44:33 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,23 +43,23 @@ void	death_animation(t_game *game)
 
 void	update_doors(t_game *game)
 {
-	t_door *door;
-	int i;
+	t_door	*door;
+	int		i;
 
 	i = 0;
-	while(game->doors_small[i] != 0)
+	while (game->doors_small[i] != 0)
 	{
 		door = game->doors_small[i];
-		if(door->state == OPENING)
+		if (door->state == OPENING)
 		{
 			door->open_state++;
-			if(door->open_state == 64)
+			if (door->open_state == 64)
 				door->state = OPEN;
 		}
-		else if(door->state == CLOSING)
+		else if (door->state == CLOSING)
 		{
 			door->open_state--;
-			if(door->open_state == 0)
+			if (door->open_state == 0)
 				door->state = CLOSED;
 		}
 		i++;

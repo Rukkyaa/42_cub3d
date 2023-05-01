@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:58:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 16:42:17 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:42:30 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ int	get_roof_color(t_game *game, t_vector3d intersection, t_img *img)
 		return (0xff001010);
 	v_texture_pos.x = fmod(intersection.x, 64);
 	v_texture_pos.y = fmod(intersection.y, 64);
-	return (img_pix_read(img, v_texture_pos.x * img->width / 64 , v_texture_pos.y * img->heigth / 64));
+	return (img_pix_read(img, v_texture_pos.x * img->width / 64, v_texture_pos.y
+			* img->heigth / 64));
 }
 
 void	shading_roof(t_game *game, int *pixel_color, int *shade,
@@ -103,8 +104,8 @@ void	pre_compute_rows_dist(t_game *game, t_vector3d line_pos,
 	i = line_pos.y;
 	while (i < RES_Y)
 	{
-		dist = (game->player.pos3d.z * game->camera.p_plane_dist)
-			/ (float)(i - game->camera.plane_center.y);
+		dist = (game->player.pos3d.z * game->camera.p_plane_dist) / (float)(i
+				- game->camera.plane_center.y);
 		dist /= resize;
 		game->row_dist[(int)line_pos.x][i] = dist;
 		i++;

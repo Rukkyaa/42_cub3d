@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 15:41:13 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 16:02:31 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	init_game(t_game *game)
 	game->mode = MENU;
 	game->wave_count = 12;
 	game->current_wave = get_wave(game->wave_count);
-	game->roof_color =  0x29b3e0;
-	game->floor_color = 0x111111;
+	game->roof_color =  0x331d0f;
+	game->floor_color =  0xb8a386;
 
 	// doors 
 	game->doors[3 * map_width(game->map) + 21] = my_alloc(sizeof(t_door));

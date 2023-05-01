@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:16:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 13:35:08 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:32:35 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 bool	is_walkable(t_game *game, int x, int y)
 {
-	t_door *door;
-	
-	if(is_wall(game->map[y][x]))
-		return(0);
-	if(game->map[y][x] == 'D')
+	t_door	*door;
+
+	if (is_wall(game->map[y][x]))
+		return (0);
+	if (game->map[y][x] == 'D')
 	{
-		door = game->doors[(int) (y * map_width(game->map) + x)];
-		if(door->open_state < 50)
-			return 0;
+		door = game->doors[(int)(y * map_width(game->map) + x)];
+		if (door->open_state < 50)
+			return (0);
 	}
 	return (1);
 }

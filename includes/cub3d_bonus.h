@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 16:05:14 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:35:01 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,6 +138,7 @@ void			update_player_tile_pos(t_player *player);
 void			clear_z_buffer(t_game *game);
 void			handle_weapon(t_game *game, t_weapon *weapon);
 long			ft_now(void);
+void			player_doors_open(t_game *game);
 
 // Events
 int				handle_keypress(int keycode, t_game *game);

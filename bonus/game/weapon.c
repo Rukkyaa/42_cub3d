@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 15:28:29 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:32:20 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,13 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 		if (sprite->type == MOB && sprite->visible && sprite->state != DEATH
 			&& sprite->state != SPAWN)
 		{
-			if (hits > 0 && sinf(fabs(sprite->angle_to_player)) * sprite->distance < 15 && sprite->distance < 240)
+			if (hits > 0 && sinf(fabs(sprite->angle_to_player))
+				* sprite->distance < 15 && sprite->distance < 240)
 			{
 				spawn_blood(game, sprite->pos, 0);
 				hits--;
-				if (do_damage((weapon->damage  + game->player.bonus_strength )* (240 - sprite->distance) / 240,
+				if (do_damage((weapon->damage + game->player.bonus_strength)
+						* (240 - sprite->distance) / 240,
 						sprite))
 					update_kill(game);
 			}
@@ -69,7 +71,7 @@ void	weapon_idle(t_game *game, t_weapon *weapon)
 	game->player.sound_state.player_shooting = game->player.weapon->id;
 	weapon->fire_anim.start_time_ms = ft_now();
 	weapon->state = FIRE;
-	if(weapon->id == SHOTGUN)
+	if (weapon->id == SHOTGUN)
 		shotgun_attack(game, weapon);
 	else if (weapon->is_melee)
 		melee_attack(game, weapon);

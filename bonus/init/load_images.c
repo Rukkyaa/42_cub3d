@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/01 15:09:39 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 22:24:43 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,12 +76,24 @@ void	load_img(t_game *game)
 		"images/retro_texture_pack/DOOR_2A.xpm");
 	ft_xpm_to_img(game, &game->texture.wall4,
 		"images/retro_texture_pack/CRATE_1J.xpm");
-	ft_xpm_to_img(game, &game->texture.door,
-		"images/retro_texture_pack/DOOR_2E.xpm");
-	ft_xpm_to_img(game, &game->texture.ground,
-		"images/retro_texture_pack/TILE_3E.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall1,
+	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_19-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall2,
+	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_20-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall3,
+	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_20-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.wall4,
+	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_19-512x512.xpm");
+	// ft_xpm_to_img(game, &game->texture.door,
+	// 	"images/retro_texture_pack/DOOR_2E.xpm");
+	// ft_xpm_to_img(game, &game->texture.ground,
+	// 	"images/terrain/ground_handpaint_1.xpm");
+	// ft_xpm_to_img(game, &game->texture.roof,
+	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_11-512x512.xpm");
 	ft_xpm_to_img(game, &game->texture.roof,
 		"images/retro_texture_pack/CONCRETE_1A.xpm");
+	ft_xpm_to_img(game, &game->texture.ground,
+		"images/retro_texture_pack/TILE_3E.xpm");
 	ft_xpm_to_img(game, &game->inventory.img, "images/inventory.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.axe, "images/weapons/axe.xpm");
 	ft_xpm_to_img(game, &game->weapon_icons.plasma_riffle,

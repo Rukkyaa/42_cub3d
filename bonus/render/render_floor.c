@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 15:23:54 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 15:39:16 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 16:42:27 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	get_floor_color(t_vector3d intersection, t_img *img)
 
 	v_texture_pos.x = fmod(intersection.x, 64);
 	v_texture_pos.y = fmod(intersection.y, 64);
-	return (img_pix_read(img, v_texture_pos.x, v_texture_pos.y));
+	return (img_pix_read(img, v_texture_pos.x * img->width / 64 , v_texture_pos.y * img->heigth / 64));
 }
 
 void	shading_floor(t_game *game, int *pixel_color, int *shade,

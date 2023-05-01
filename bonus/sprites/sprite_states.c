@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_states.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:49:22 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/28 14:33:48 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/01 14:31:17 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ void	sprite_death(t_game *game, t_sprite *sprite)
 			spawn_item(game, sprite->pos, PLASMA_RIFFLE);
 		else if (rand_num > 0.40 && rand_num <= 0.45 && !game->player.cocaine)
 			spawn_item(game, sprite->pos, COCAINE);
+		else if (rand_num > 0.45 && rand_num <= 0.50)
+			spawn_item(game, sprite->pos, SHOTGUN);
 		remove_entity(&game->sprites, sprite);
 	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:55:08 by theo              #+#    #+#             */
-/*   Updated: 2023/04/24 14:37:09 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:12:52 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,11 +82,11 @@ void	load_map_debug(t_game *game)
 			pos.x = MAP_MARGIN + j * 16;
 			pos.y = MAP_MARGIN + i * 16;
 			if (game->map[i][j] == '1')
-				draw_filled_square(&game->debug_img, pos, 16, DARK_VIOLET);
+				draw_filled_square(&game->debug_img, pos, 16, 0x45475c);
 			else if (game->map[i][j] == '0')
-				draw_filled_square(&game->debug_img, pos, 16, VIOLET);
+				draw_filled_square(&game->debug_img, pos, 16, 0x87888d);
 			else
-				draw_filled_square(&game->debug_img, pos, 16, DARK_VIOLET);
+				draw_filled_square(&game->debug_img, pos, 16, 0x45475c);
 		}
 	}
 }

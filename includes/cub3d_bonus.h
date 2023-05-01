@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 15:51:01 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 16:05:14 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@
 # define MOUSE_SENSITIVITY 1.5f
 
 # ifndef HD
-# 	define HD 0
+# 	define HD 1
 # endif
 
 # define MAX_DISTANCE 10

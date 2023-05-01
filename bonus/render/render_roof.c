@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:58:52 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 15:45:27 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 16:05:26 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ void	render_roof(t_game *game, t_vector3d v_ray_dir, t_vector3d line_pos,
 	i = line_pos.y - line_height - 1;
 	d.shade = 1;
 	d.min = 0;
-	if (line_pos.x < 224)
-		d.min = 224;
 	d.img_addr = (unsigned int *)img_get_addr(&game->fps_img, line_pos.x, i);
 	while (i >= d.min)
 	{

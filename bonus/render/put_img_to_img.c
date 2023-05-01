@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   put_img_to_img.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 15:05:34 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 17:15:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/01 16:07:19 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,7 @@ void	sample_map(t_img *dest, t_img *map, int start_x, int start_y)
 		while (++x < 224)
 		{
 			color = color_interpolate(*(unsigned int *)dest_pixel,
-					*(unsigned int *)map_pixel, 0.5);
+					*(unsigned int *)map_pixel, 0.7);
 			if (color != 4278190080)
 				*(unsigned int *)dest_pixel = color;
 			map_pixel += 4;

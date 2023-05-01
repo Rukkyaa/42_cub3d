@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 15:53:14 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 15:08:23 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:10:47 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ t_animation	get_item_anim(t_game *game, int id)
 	else if (id == GRAP_GUN)
 		return (game->animations.grap_gun);
 	else if (id == SHOTGUN)
-		return (game->animations.shot_gun);
+		return (game->animations.shotgun);
 	printf("Error: unknown item id %d\n", id);
 	return (game->animations.plasma_riffle);
 }

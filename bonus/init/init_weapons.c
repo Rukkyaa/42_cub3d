@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/30 22:22:38 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:13:03 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,5 +125,5 @@ void	init_weapons(t_game *game)
 	game->weapons.plasma_riffle = init_plasma_rifle(game);
 	game->weapons.axe = init_axe(game);
 	game->weapons.shotgun = init_shotgun(game);
-	game->player.weapon = &game->weapons.shotgun;
+	game->player.weapon = &game->weapons.axe;
 }

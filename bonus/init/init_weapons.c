@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_weapons.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/27 19:23:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/04/30 22:22:38 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,31 @@ t_weapon	init_axe(t_game *game)
 	return (axe);
 }
 
+t_weapon	init_shotgun(t_game *game)
+{
+	t_weapon	shotgun;
+	t_animation	shotgun_anim;
+
+	fill_sprite_animation(game, "images/weapons/shotgun_xpm", &shotgun_anim);
+	shotgun_anim.frame_duration_ms = 150;
+	shotgun_anim.frame_offset = 0;
+	shotgun_anim.start_time_ms = ft_now();
+	game->hud.weapon_anim = shotgun_anim;
+	shotgun.current_img = shotgun_anim.imgs[0];
+	shotgun.idle_img = shotgun_anim.imgs[0];
+	shotgun.screen_pos.x = 0;
+	shotgun.screen_pos.y = 0;
+	shotgun.fire_anim = shotgun_anim;
+	shotgun.idle_img = *shotgun_anim.imgs;
+	shotgun.cool_down_ms = 1000;
+	shotgun.attack_speed = 2;
+	shotgun.damage = 300;
+	shotgun.state = IDLE;
+	shotgun.is_melee = 1;
+	shotgun.id = SHOTGUN;
+	return (shotgun);
+}
+
 t_weapon	init_plasma_rifle(t_game *game)
 {
 	t_weapon	plasma_riffle;
@@ -99,5 +124,6 @@ void	init_weapons(t_game *game)
 	game->weapons.grap_gun = init_grap_gun(game);
 	game->weapons.plasma_riffle = init_plasma_rifle(game);
 	game->weapons.axe = init_axe(game);
-	game->player.weapon = &game->weapons.axe;
+	game->weapons.shotgun = init_shotgun(game);
+	game->player.weapon = &game->weapons.shotgun;
 }

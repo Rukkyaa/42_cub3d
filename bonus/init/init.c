@@ -6,7 +6,11 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/01 14:06:47 by theo             ###   ########.fr       */
+=======
+/*   Updated: 2023/04/30 22:31:18 by theo             ###   ########.fr       */
+>>>>>>> shotgun
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +46,7 @@ void	init_game(t_game *game)
 	game->mouse.x = RES_X / 2;
 	game->mouse.y = RES_Y / 2;
 	game->mode = MENU;
-	game->wave_count = 1;
+	game->wave_count = 15;
 	game->current_wave = get_wave(game->wave_count);
 
 	// doors 

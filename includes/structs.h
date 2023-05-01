@@ -6,7 +6,11 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
+<<<<<<< HEAD
 /*   Updated: 2023/05/01 14:06:37 by theo             ###   ########.fr       */
+=======
+/*   Updated: 2023/04/30 21:36:26 by theo             ###   ########.fr       */
+>>>>>>> shotgun
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +42,7 @@
 # define AXE 1
 # define PLASMA_RIFFLE 2
 # define GRAP_GUN 3
+# define SHOTGUN 4
 # define HEALTH 50
 # define COCAINE 51
 
@@ -250,6 +255,7 @@ typedef struct s_weapon_icons
 	t_img		axe;
 	t_img		plasma_riffle;
 	t_img		grap_gun;
+	t_img		shotgun;
 }				t_weapon_icons;
 
 typedef struct s_weapon
@@ -275,6 +281,7 @@ typedef struct s_weapons
 	t_weapon		axe;
 	t_weapon		grap_gun;
 	t_weapon		plasma_riffle;
+	t_weapon		shotgun;
 }				t_weapons;
 
 typedef struct s_audio

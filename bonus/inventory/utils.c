@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 17:03:38 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 15:13:50 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:20:02 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	init_inventory(t_game *game)
 	game->inventory.selected = -1;
 	while (++i < 36)
 		game->inventory.items[i] = 0;
-	game->inventory.items[0] = AXE;
+	game->inventory.items[0] = SHOTGUN;
 }
 
 void	add_item(t_game *game, int id)

@@ -6,7 +6,7 @@
 /*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 22:16:14 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/01 15:28:29 by theo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 {
 	t_sprite	*sprite;
 	t_sprite	*next_sprite;
+	int			hits;
 
+	hits = 100;
 	sprite = game->sprites;
 	while (sprite)
 	{
@@ -49,10 +51,11 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 		if (sprite->type == MOB && sprite->visible && sprite->state != DEATH
 			&& sprite->state != SPAWN)
 		{
-			if (sinf(fabs(sprite->angle_to_player)) * sprite->distance < 15)
+			if (hits > 0 && sinf(fabs(sprite->angle_to_player)) * sprite->distance < 15 && sprite->distance < 240)
 			{
 				spawn_blood(game, sprite->pos, 0);
-				if (do_damage(weapon->damage * (240 - sprite->distance) / 240 + game->player.bonus_strength,
+				hits--;
+				if (do_damage((weapon->damage  + game->player.bonus_strength )* (240 - sprite->distance) / 240,
 						sprite))
 					update_kill(game);
 			}

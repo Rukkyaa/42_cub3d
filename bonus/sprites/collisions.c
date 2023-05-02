@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   collisions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:31:21 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 14:59:51 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 15:00:24 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	mob_wall_collide(t_game *game, t_sprite *mob)
 		mob->speed.y = 0;
 }
 
-void	mob_mob_collide(t_game *game, t_sprite *sprite_a, t_sprite *sprite_b)
+void	mob_mob_collide(t_sprite *sprite_a, t_sprite *sprite_b)
 {
 	t_vector3d	next_pos_a;
 	t_vector3d	next_pos_b;
@@ -68,7 +68,7 @@ void	mob_mob_collide(t_game *game, t_sprite *sprite_a, t_sprite *sprite_b)
 	}
 }
 
-void	check_mob_collisions(t_game *game, t_sprite *sprite)
+void	check_mob_collisions(t_sprite *sprite)
 {
 	t_sprite	*tmp;
 
@@ -76,7 +76,7 @@ void	check_mob_collisions(t_game *game, t_sprite *sprite)
 	while (tmp)
 	{
 		if (tmp->type == MOB && tmp->state != SPAWN && tmp->state != DEATH)
-			mob_mob_collide(game, sprite, tmp);
+			mob_mob_collide(sprite, tmp);
 		tmp = tmp->next;
 	}
 }

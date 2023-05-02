@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_images.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/01 22:24:43 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 14:53:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,9 @@ void	load_img(t_game *game)
 	ft_xpm_to_img(game, &game->texture.wall3,
 		"images/retro_texture_pack/DOOR_2A.xpm");
 	ft_xpm_to_img(game, &game->texture.wall4,
-		"images/retro_texture_pack/CRATE_1J.xpm");
+		"images/retro_texture_pack/CRATE_1J.xpm");	
+	ft_xpm_to_img(game, &game->texture.door,
+		"images/retro_texture_pack/DOOR_2E.xpm");
 	// ft_xpm_to_img(game, &game->texture.wall1,
 	// 	"images/SBS - Tiny Texture Pack 2 - 512x512/512x512/Tile/Tile_19-512x512.xpm");
 	// ft_xpm_to_img(game, &game->texture.wall2,

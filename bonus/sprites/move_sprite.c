@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 11:39:34 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:00:54 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static void	move_mob(t_game *game, t_sprite *sprite, t_player *player)
 		sprite->speed = vec_scalar_mult(sprite->speed, sprite->velocity);
 		sprite->speed.z = 0;
 		mob_wall_collide(game, sprite);
-		check_mob_collisions(game, sprite);
+		check_mob_collisions(sprite);
 		sprite->pos = vec_sum(sprite->pos, sprite->speed);
 	}
 }

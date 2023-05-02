@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   key_events.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:27:01 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 15:04:57 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ bool	is_alpha(int keycode)
 		|| ('0' <= keycode && keycode <= '9'));
 }
 
-int	handle_inventory(t_game *game)
+void	handle_inventory(t_game *game)
 {
 	if (game->inventory_display)
 	{

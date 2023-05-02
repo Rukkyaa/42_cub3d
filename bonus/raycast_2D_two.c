@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D_two.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 10:38:11 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 22:45:53 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 14:56:04 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,8 @@ int	handle_doors_y(t_game *game, t_raycast_data *d, t_door *door,
 
 int	handle_doors(t_game *game, t_raycast_data *d, int *tile_found)
 {
-	t_vector3d	door_intersection;
-	float		door_offset;
 	t_door		*door;
 
-	// printf("doors\n");
 	door = game->doors[(int)(d->v_map_check.y * map_width(game->map)
 			+ d->v_map_check.x)];
 	if (door->x_oriented)

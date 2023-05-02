@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 19:26:05 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 14:54:49 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/cub3d_bonus.h"
 
-int	init_raycast_two(t_game *game, t_vector3d direction, t_raycast_data *d)
+void	init_raycast_two(t_game *game, t_raycast_data *d)
 {
 	if (d->v_ray_dir.y < 0)
 	{
@@ -48,7 +48,7 @@ void	init_raycast(t_game *game, t_vector3d direction, t_raycast_data *d)
 		d->v_ray_length_1D.x = (tile_to_pixel(d->v_map_check).x + 64
 				- game->player.pos.x) / 64 * d->v_ray_unit_step.x;
 	}
-	init_raycast_two(game, direction, d);
+	init_raycast_two(game, d);
 }
 
 void	fill_collision(t_raycast_data *d, char last_step)

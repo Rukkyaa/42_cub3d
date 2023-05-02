@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 11:17:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:06:54 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -349,7 +349,7 @@ void			load_sounds(t_audio *audio);
 	/   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
 ** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
 ***********************************************************************************************/
-void			init_inventory(t_game *game);
+void			entory(t_game *game);
 void			refresh_inventory(t_game *game);
 void			add_item(t_game *game, int id);
 void			select_item(t_game *game, int x, int y);
@@ -414,11 +414,11 @@ void			set_normal_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_big_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie,
 					int type);
-void	check_mob_collisions(t_game *game, t_sprite *sprite);
+void	check_mob_collisions(t_sprite *sprite);
 int		proj_mob_collide(t_sprite *mob, t_sprite *proj);
 bool	projectile_terrain_collide(char **map, t_sprite *proj);
 void	mob_wall_collide(t_game *game, t_sprite *mob);
-void	mob_mob_collide(t_game *game, t_sprite *sprite_a, t_sprite *sprite_b);
+void	mob_mob_collide(t_sprite *sprite_a, t_sprite *sprite_b);
 void	sprite_spawn(t_game *game, t_sprite *sprite);
 void	sprite_death(t_game *game, t_sprite *sprite);
 

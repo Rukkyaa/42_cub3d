@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_move.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 22:34:38 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 11:13:43 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ void	player_jump(t_game *game)
 	}
 	if (game->player.jumping == 1)
 	{
-		if (game->frame_count - game->player.start_jump < 5)
-			game->player.pos3d.z += 3;
-		else if (game->frame_count - game->player.start_jump < 9)
+		if (game->frame_count - game->player.start_jump < 10)
+			game->player.pos3d.z += 1.5;
+		else if (game->frame_count - game->player.start_jump < 16)
 			game->player.pos3d.z += 0;
 		else if (game->player.pos3d.z > 32)
-			game->player.pos3d.z -= 2;
+			game->player.pos3d.z -= 1;
 		else
 			game->player.jumping = 0;
 	}

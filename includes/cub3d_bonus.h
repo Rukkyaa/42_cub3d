@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/01 22:35:01 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 11:17:59 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -391,6 +391,7 @@ t_sprite		*spawn_projectile(t_game *game, t_vector3d pos, int type);
 t_sprite		*spawn_blood(t_game *game, t_vector3d pos, int type);
 t_sprite		*sprite_last(t_sprite *lst);
 void			sprite_add_back(t_sprite **lst, t_sprite *new);
+void			sprite_add_front(t_sprite **lst, t_sprite *new);
 void			load_zombie_anim(t_game *game);
 void			load_blood_anim(t_game *game);
 t_sprite		*spawn_item(t_game *game, t_vector3d pos, int id);

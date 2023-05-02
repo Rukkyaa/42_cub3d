@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 13:11:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 11:39:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,10 @@ void	check_remove(t_game *game, t_sprite *fx, t_sprite **sprites)
 void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 {
 	t_sprite	*tmp;
+	t_sprite	*tmp_prev;
 
 	tmp = *sprites;
+	tmp->prev = NULL;
 	while (tmp)
 	{
 		if (tmp->type == MOB)
@@ -92,6 +94,9 @@ void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 			move_proj(game, tmp, sprites);
 		else if (tmp->type == FX)
 			check_remove(game, tmp, sprites);
+		tmp_prev = tmp;
 		tmp = tmp->next;
+		if(tmp)
+			tmp->prev = tmp_prev;
 	}
 }

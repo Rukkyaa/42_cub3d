@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/01 15:38:07 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 11:21:38 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -242,6 +242,7 @@ typedef struct s_sprite
 	t_vector3d		screen_size;
 	t_animated_mob	animated_mob;
 	struct s_sprite	*next;
+	struct s_sprite	*prev;
 }				t_sprite;
 
 
@@ -425,6 +426,7 @@ typedef struct s_game
 	int				mouse_move;
 	t_player		player;
 	t_sprite		*sprites;
+	t_sprite		*reverse_sprites;
 	t_door			*doors[10000];
 	t_door			*doors_small[3];
 	float			z_buffer[RES_X];

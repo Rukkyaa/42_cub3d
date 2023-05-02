@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: theo <theo@student.42.fr>                  +#+  +:+       +#+         #
+#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/01 22:35:11 by theo             ###   ########.fr        #
+#    Updated: 2023/05/02 11:18:16 by teliet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -110,7 +110,7 @@ EVENTS_SRC_BONUS = $(addprefix bonus/events/, $(addsuffix .c, hooks mouse_events
 EVENTS_OBJS_BONUS = $(EVENTS_SRC_BONUS:.c=.o)
 
 # SPRITES #
-SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states spawn_zombie spawn_blood sprite_add_back sprite_last new_item spawn_projectile\
+SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states spawn_zombie spawn_blood sprite_add_back sprite_add_front sprite_last new_item spawn_projectile\
 	remove_entity move_sprite sprite_attack use_items zombie_stats collisions))
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 

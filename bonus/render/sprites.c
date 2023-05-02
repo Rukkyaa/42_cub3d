@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 13:31:27 by theo              #+#    #+#             */
-/*   Updated: 2023/04/27 19:16:26 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 11:31:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,7 +95,6 @@ void	render_sprites(t_game *game)
 	t_sprite	*sprite;
 
 	sprite = game->sprites;
-	move_sprites(game, &game->sprites, &game->player);
 	while (sprite)
 	{
 		compute_sprite(game, sprite);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_weapons.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/01 15:31:26 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 11:41:16 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_weapon	init_shotgun(t_game *game)
 	shotgun.idle_img = *shotgun_anim.imgs;
 	shotgun.cool_down_ms = 1000;
 	shotgun.attack_speed = 2;
-	shotgun.damage = 200;
+	shotgun.damage = 300;
 	shotgun.state = IDLE;
 	shotgun.is_melee = 1;
 	shotgun.id = SHOTGUN;

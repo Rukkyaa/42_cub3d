@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_player.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/01 13:33:01 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 13:51:58 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ void	init_player_two(t_game *game)
 	game->player.bonus_strength = 0;
 	game->player.velocity = 100;
 	game->player.near_door = 0;
+	game->player.jumping = 0;
 }
 
 void	init_player(t_game *game)

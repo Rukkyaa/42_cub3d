@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   spawn_blood.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 15:01:34 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 14:28:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@ void	load_blood_anim(t_game *game)
 {
 	fill_sprite_animation(game, "images/FX/blood_splatter_line_xpm",
 		&game->animations.blood_splatter_line);
+	fill_sprite_animation(game, "images/FX/new_pack_blood/test_rename",
+		&game->animations.blood_splatter_round);
 	game->animations.blood_splatter_line.frame_duration_ms = 70;
+	game->animations.blood_splatter_round.frame_duration_ms = 10;
 }
 
 t_sprite	*spawn_blood(t_game *game, t_vector3d pos, int type)

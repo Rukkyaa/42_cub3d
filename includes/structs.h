@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/02 11:21:38 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 13:55:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,7 @@ typedef struct s_animations
 	t_animation	heart;
 	t_animation	cocaine;
 	t_animation	blood_splatter_line;
+	t_animation	blood_splatter_round;
 	t_animation	shotgun;
 }				t_animations;
 

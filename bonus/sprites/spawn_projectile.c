@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/22 14:49:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/27 19:22:00 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/02 15:12:19 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,8 @@ t_sprite	*spawn_projectile(t_game *game, t_vector3d pos, int type)
 	new_proj = my_alloc(sizeof(t_sprite));
 	if (!new_proj)
 		return (NULL);
-	new_proj->pos.x = pos.x + game->player.direction.x * 10;
-	new_proj->pos.y = pos.y + game->player.direction.y * 10;
+	new_proj->pos.x = pos.x + game->player.direction.x * 20;
+	new_proj->pos.y = pos.y + game->player.direction.y * 20;
 	new_proj->animation = get_energy_ball_anim(game, type);
 	new_proj->animation.frame_offset = ((double)rand() / (double)RAND_MAX)
 		* new_proj->animation.nb_imgs;

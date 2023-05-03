@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   move_sprite.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/31 15:36:07 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 15:00:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:29:36 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ void	move_sprites(t_game *game, t_sprite **sprites, t_player *player)
 			check_remove(game, tmp, sprites);
 		tmp_prev = tmp;
 		tmp = tmp->next;
-		if(tmp)
+		if (tmp)
 			tmp->prev = tmp_prev;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:49:22 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/03 11:07:25 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/03 11:31:13 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,28 @@ void	sprite_spawn(t_game *game, t_sprite *sprite)
 	}
 }
 
-void	sprite_death(t_game *game, t_sprite *sprite)
+void	drop_item(t_game *game, t_sprite *sprite)
 {
 	float	rand_num;
 
+	rand_num = (float)((double)rand() / (double)RAND_MAX);
+	if (rand_num <= 0.10)
+		spawn_item(game, sprite->pos, HEALTH);
+	else if (rand_num > 0.10 && rand_num <= 0.25
+		&& !weapon_in_inventory(game, GRAP_GUN))
+		spawn_item(game, sprite->pos, GRAP_GUN);
+	else if (rand_num > 0.25 && rand_num <= 0.40
+		&& !weapon_in_inventory(game, PLASMA_RIFFLE))
+		spawn_item(game, sprite->pos, PLASMA_RIFFLE);
+	else if (rand_num > 0.40 && rand_num <= 0.45 && !game->player.cocaine)
+		spawn_item(game, sprite->pos, COCAINE);
+	else if (rand_num > 0.45 && rand_num <= 0.50
+		&& !weapon_in_inventory(game, SHOTGUN))
+		spawn_item(game, sprite->pos, SHOTGUN);
+}
+
+void	sprite_death(t_game *game, t_sprite *sprite)
+{
 	if (sprite->state != DEATH)
 	{
 		sprite->state = DEATH;
@@ -38,20 +56,7 @@ void	sprite_death(t_game *game, t_sprite *sprite)
 	}
 	if (sprite->animation.current_frame > 40)
 	{
-		rand_num = (float)((double)rand() / (double)RAND_MAX);
-		if (rand_num <= 0.10)
-			spawn_item(game, sprite->pos, HEALTH);
-		else if (rand_num > 0.10 && rand_num <= 0.25
-			&& !weapon_in_inventory(game, GRAP_GUN))
-			spawn_item(game, sprite->pos, GRAP_GUN);
-		else if (rand_num > 0.25 && rand_num <= 0.40
-			&& !weapon_in_inventory(game, PLASMA_RIFFLE))
-			spawn_item(game, sprite->pos, PLASMA_RIFFLE);
-		else if (rand_num > 0.40 && rand_num <= 0.45 && !game->player.cocaine)
-			spawn_item(game, sprite->pos, COCAINE);
-		else if (rand_num > 0.45 && rand_num <= 0.50
-			&& !weapon_in_inventory(game, SHOTGUN))
-			spawn_item(game, sprite->pos, SHOTGUN);
+		drop_item(game, sprite);
 		remove_entity(&game->sprites, sprite);
 	}
 }

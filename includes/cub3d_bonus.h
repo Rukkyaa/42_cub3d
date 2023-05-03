@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 15:06:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:15:17 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -424,6 +424,7 @@ void	sprite_death(t_game *game, t_sprite *sprite);
 
 //INIT
 void			load_img(t_game *game);
+void			load_texture(t_game *game);
 void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);
 

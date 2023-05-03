@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: teliet <teliet@student.42.fr>              +#+  +:+       +#+         #
+#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/02 11:18:16 by teliet           ###   ########.fr        #
+#    Updated: 2023/05/03 11:15:52 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -115,7 +115,7 @@ SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states sp
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #
-INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_weapons init_windows init_camera init_multi_threading basic_vectors sound load_sprites load_images))
+INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_weapons init_windows init_camera init_multi_threading basic_vectors sound load_sprites load_images load_images_2))
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # GARBAGE #

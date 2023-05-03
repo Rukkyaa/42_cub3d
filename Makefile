@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/03 11:47:10 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/03 12:33:25 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds miniaudio))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -123,7 +123,7 @@ GARBAGE_SRC_BONUS = $(addprefix bonus/garbage/, $(addsuffix .c, gc_utils))
 GARBAGE_OBJS_BONUS = $(GARBAGE_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
-MINIAUDIO = bonus/sound/miniaudio.o
+# MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 

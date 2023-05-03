@@ -3,14 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   menu.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/25 17:36:02 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/30 15:05:33 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/03 11:34:28 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+void	print_fps(int fps)
+{
+	char	*tmp;
+
+	tmp = ft_itoa(fps);
+	mlx_string_put(_mlx()->mlx, _mlx()->win, 100, RES_Y - 20, WHITE_PIXEL, tmp);
+	free(tmp);
+}
 
 void	handle_button(t_game *game, t_button *button)
 {

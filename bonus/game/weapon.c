@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapon.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/02 13:42:27 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:10:27 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	melee_attack(t_game *game, t_weapon *weapon)
 			{
 				spawn_blood(game, sprite->pos, 0);
 				if (do_damage(weapon->damage + game->player.bonus_strength,
-								sprite))
+						sprite))
 					update_kill(game);
 			}
 		}
@@ -67,7 +67,7 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 				hits--;
 				if (do_damage((weapon->damage + game->player.bonus_strength)
 						* (distance - sprite->distance) / distance,
-								sprite))
+						sprite))
 					update_kill(game);
 			}
 		}

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wave_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:29:13 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/03 12:01:45 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,35 @@ void	check_wave(t_game *game)
 		printf("\nReady for wave %d ?\n", game->wave_count);
 		spawn_wave(game);
 	}
+}
+
+void	auto_increase_difficulty(t_wave *wave, int wave_number)
+{
+	float	coeff;
+
+	coeff = 1 + ((wave_number - 15) / 5);
+	wave->baby_zombie_count *= coeff;
+	wave->normal_zombie_count *= coeff;
+	wave->big_zombie_count *= coeff;
+	wave->total_zombie_count *= coeff;
+}
+
+void	fill_result(char *type, t_wave *result, int count, cJSON *zombies)
+{
+	if (!strcmp(type, "BABY_ZOMBIE"))
+	{
+		result->baby_zombie_count = count;
+		result->baby_zombie_stats = get_stats(zombies, type);
+	}
+	else if (!strcmp(type, "NORMAL_ZOMBIE"))
+	{
+		result->normal_zombie_count = count;
+		result->normal_zombie_stats = get_stats(zombies, type);
+	}
+	else if (!strcmp(type, "BIG_ZOMBIE"))
+	{
+		result->big_zombie_count = count;
+		result->big_zombie_stats = get_stats(zombies, type);
+	}
+	result->total_zombie_count += count;
 }

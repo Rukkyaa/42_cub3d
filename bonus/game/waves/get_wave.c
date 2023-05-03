@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_wave.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:30:32 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/03 12:01:26 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,22 +78,7 @@ t_wave	*count_zombie_types(cJSON *zombies)
 	{
 		type = cJSON_GetObjectItem(zombie, "type")->valuestring;
 		count = cJSON_GetObjectItem(zombie, "count")->valueint;
-		if (!strcmp(type, "BABY_ZOMBIE"))
-		{
-			result->baby_zombie_count = count;
-			result->baby_zombie_stats = get_stats(zombies, type);
-		}
-		else if (!strcmp(type, "NORMAL_ZOMBIE"))
-		{
-			result->normal_zombie_count = count;
-			result->normal_zombie_stats = get_stats(zombies, type);
-		}
-		else if (!strcmp(type, "BIG_ZOMBIE"))
-		{
-			result->big_zombie_count = count;
-			result->big_zombie_stats = get_stats(zombies, type);
-		}
-		result->total_zombie_count += count;
+		fill_result(type, result, count, zombies);
 		zombie = zombie->next;
 	}
 	result->zombie_killed = 0;
@@ -122,17 +107,6 @@ t_wave	*parse_wave(cJSON *waves, int wave_number)
 		wave = wave->next;
 	}
 	return (NULL);
-}
-
-void	auto_increase_difficulty(t_wave *wave, int wave_number)
-{
-	float	coeff;
-
-	coeff = 1 + ((wave_number - 15) / 5);
-	wave->baby_zombie_count *= coeff;
-	wave->normal_zombie_count *= coeff;
-	wave->big_zombie_count *= coeff;
-	wave->total_zombie_count *= coeff;
 }
 
 t_wave	*get_wave(int wave_number)

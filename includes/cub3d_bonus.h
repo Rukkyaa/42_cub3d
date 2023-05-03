@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 11:48:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/03 12:08:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -445,5 +445,9 @@ t_wave			*get_wave(int wave_number);
 void			check_wave(t_game *game);
 void			update_kill(t_game *game);
 void			spawn_wave(t_game *game);
+void			fill_result(char *type, t_wave *result, int count,
+					cJSON *zombies);
+t_stats			get_stats(cJSON *zombies, const char *type);
+void			auto_increase_difficulty(t_wave *wave, int wave_number);
 
 #endif

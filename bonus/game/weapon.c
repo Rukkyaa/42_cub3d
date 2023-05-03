@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/06 17:26:53 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/03 11:10:27 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/03 11:48:19 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,16 +42,8 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 	t_sprite	*sprite;
 	t_sprite	*next_sprite;
 	int			hits;
-	int			distance;
+	int const	distance = get_shotgun_distance(game);
 
-	if (game->camera.plane_center.y < game->camera.half_res.y)
-		distance = 10 + 240 * (1 - (game->camera.half_res.y
-					- game->camera.plane_center.y)
-				/ (float)(game->camera.half_res.y - 150));
-	else
-		distance = 10 + 240 * (1 - (game->camera.plane_center.y
-					- game->camera.half_res.y) / (float)(750
-					- game->camera.half_res.y));
 	hits = 3;
 	sprite = sprite_last(game->sprites);
 	while (sprite)
@@ -60,11 +52,10 @@ void	shotgun_attack(t_game *game, t_weapon *weapon)
 		if (sprite->type == MOB && sprite->visible && sprite->state != DEATH
 			&& sprite->state != SPAWN)
 		{
-			if (hits > 0 && sinf(fabs(sprite->angle_to_player))
+			if ((hits--) > 0 && sinf(fabs(sprite->angle_to_player))
 				* sprite->distance < 15 && sprite->distance < distance)
 			{
 				spawn_blood(game, sprite->pos, 0);
-				hits--;
 				if (do_damage((weapon->damage + game->player.bonus_strength)
 						* (distance - sprite->distance) / distance,
 						sprite))

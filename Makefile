@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/03 11:15:52 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/03 11:47:10 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -98,7 +98,7 @@ SINGLETONS_SRC_BONUS = $(addprefix bonus/singletons/, $(addsuffix .c, singleton)
 SINGLETONS_OBJS_BONUS = $(SINGLETONS_SRC_BONUS:.c=.o)
 
 # GAME #
-GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, utils time player_move player_rotate player_collisions player_doors weapon))
+GAME_SRC_BONUS = $(addprefix bonus/game/, $(addsuffix .c, utils time player_move player_rotate player_collisions player_doors weapon weapon_utils))
 GAME_OBJS_BONUS = $(GAME_SRC_BONUS:.c=.o)
 
 # WAVES #

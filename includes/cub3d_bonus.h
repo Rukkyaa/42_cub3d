@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 11:34:57 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/03 11:48:23 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void			clear_z_buffer(t_game *game);
 void			handle_weapon(t_game *game, t_weapon *weapon);
 long			ft_now(void);
 void			player_doors_open(t_game *game);
+int				get_shotgun_distance(t_game *game);
 
 // Events
 int				handle_keypress(int keycode, t_game *game);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sprite_states.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 12:49:22 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 14:31:17 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/03 11:07:25 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	sprite_death(t_game *game, t_sprite *sprite)
 			spawn_item(game, sprite->pos, PLASMA_RIFFLE);
 		else if (rand_num > 0.40 && rand_num <= 0.45 && !game->player.cocaine)
 			spawn_item(game, sprite->pos, COCAINE);
-		else if (rand_num > 0.45 && rand_num <= 0.50)
+		else if (rand_num > 0.45 && rand_num <= 0.50
+			&& !weapon_in_inventory(game, SHOTGUN))
 			spawn_item(game, sprite->pos, SHOTGUN);
 		remove_entity(&game->sprites, sprite);
 	}

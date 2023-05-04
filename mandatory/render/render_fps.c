@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/05/04 15:10:18 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/04 15:18:34 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,16 +53,18 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 	{
 		x_text = (int)collision.x_pos_tex;
 		y_text = (int)((i / line_height) * 64);
-		pixel_color = img_pix_read(get_wall_texture(game,collision), x_text, y_text);
+		pixel_color = img_pix_read(get_wall_texture(game, collision), x_text,
+				y_text);
 		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
 		i++;
 	}
 	while (i < RES_Y)
-		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, game->texture.floor_color);
+		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++,
+			game->texture.floor_color);
 }
 
 void	update_collision(t_collision *collision, t_game *game,
-	t_vector line_pos, float half_width)
+		t_vector line_pos, float half_width)
 {
 	t_vector	v_player_to_camera_plane;
 	t_vector	v_right;
@@ -72,13 +74,14 @@ void	update_collision(t_collision *collision, t_game *game,
 	v_right = vec_normalize(vec_rotate(game->player.direction, 90));
 	*collision = cast_2D_ray(game,
 			vec_normalize(vec_sum(v_player_to_camera_plane,
-					vec_scalar_mult(v_right, ((2.0f * (float)line_pos.x
-								/ (RES_X - 1.0f)) - 1.0f) * half_width))));
+					vec_scalar_mult(v_right,
+						((2.0f * (float)line_pos.x / (RES_X - 1.0f))
+							- 1.0f) * half_width))));
 	collision->distance = collision->distance
 		* cosf(vec_angle(vec_normalize(vec_sum(v_player_to_camera_plane,
 						vec_scalar_mult(v_right, ((2.0f * (float)line_pos.x
-									/ (RES_X - 1.0f)) - 1.0f)
-							* half_width))), game->player.direction));
+									/ (RES_X - 1.0f)) - 1.0f) * half_width))),
+				game->player.direction));
 }
 
 void	render_fps(t_game *game)

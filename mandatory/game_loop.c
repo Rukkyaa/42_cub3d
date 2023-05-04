@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 17:54:39 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/04 15:40:25 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_walkable(t_game *game, float x, float y)
 {
-	if (game->map[(int) y][(int) x] == '1')
+	if (game->map[(int)y][(int)x] == '1')
 		return (0);
 	return (1);
 }
@@ -35,7 +35,7 @@ void	player_wall_collides(t_game *game, t_vector speed)
 		v_offset.y = 25;
 	else
 		v_offset.y = -25;
-	vi_pos = pixel_to_tile(vec_sum(game->player.pos,game->player.speed));
+	vi_pos = pixel_to_tile(vec_sum(game->player.pos, game->player.speed));
 	vi_pos_add_offset = pixel_to_tile(vec_sum(game->player.pos, v_offset));
 	if (!is_walkable(game, vi_pos_add_offset.x, vi_pos.y))
 		game->player.speed.x = 0;
@@ -91,15 +91,15 @@ void	edit_player_rotate(t_game *game)
 void	render(t_game *game)
 {
 	render_fps(game);
-	mlx_put_image_to_window(game->mlx, game->fps_win,
-		game->fps_img.mlx_img, 0, 0);
+	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0,
+		0);
 }
 
 int	game_loop(void *g)
 {
 	t_game	*game;
 
-	game = (t_game *) g;
+	game = (t_game *)g;
 	edit_player_pos(game);
 	edit_player_rotate(game);
 	usleep(16000);

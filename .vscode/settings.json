@@ -1,7 +1,0 @@
-{
-    "files.associations": {
-        "cub3d_bonus.h": "c",
-        "iterator": "c",
-        "random": "c"
-    }
-}

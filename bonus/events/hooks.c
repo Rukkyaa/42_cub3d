@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:08:15 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/29 16:04:00 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/02 16:29:02 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ void	hooks(t_game *game)
 	mlx_hook(_mlx()->win, 6, 1L << 6, mouse_mouve_hook, game);
 	mlx_hook(_mlx()->win, 4, 1L << 2, mouse_press, game);
 	mlx_hook(_mlx()->win, 5, 1L << 3, mouse_release, game);
-	mlx_hook(_mlx()->win, 17, 0, close_window, game);
+	mlx_hook(_mlx()->win, 17, 0, close_window, game); 
 	mlx_loop_hook(game->mlx, main_loop, game);
 }

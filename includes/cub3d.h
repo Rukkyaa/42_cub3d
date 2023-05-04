@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/04 15:02:20 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/04 15:09:52 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ typedef struct s_texture
 	t_img	wall;
 	int		text_heigth;
 	int		text_width;
-	int		ground_color;
+	int		floor_color;
 	int		sky_color;
 	t_img	north;
 	t_img	south;

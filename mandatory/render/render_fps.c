@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/05/04 15:03:29 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/04 15:10:18 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 	x_text = 0;
 	y_text = 0;
 	while (++i < line_pos.y)
-		img_pix_put(&game->fps_img, line_pos.x, i, 0x29b3e0);
+		img_pix_put(&game->fps_img, line_pos.x, i, game->texture.sky_color);
 	i = 0;
 	while (i < line_height)
 	{
@@ -58,7 +58,7 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 		i++;
 	}
 	while (i < RES_Y)
-		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, 0x3ecc3e);
+		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i++, game->texture.floor_color);
 }
 
 void	update_collision(t_collision *collision, t_game *game,

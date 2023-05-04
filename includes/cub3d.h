@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:54:11 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:02:20 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,9 +96,14 @@ typedef struct s_img
 typedef struct s_texture
 {
 	t_img	wall;
-	// void	*wall;
 	int		text_heigth;
 	int		text_width;
+	int		ground_color;
+	int		sky_color;
+	t_img	north;
+	t_img	south;
+	t_img	east;
+	t_img	west;
 }				t_texture;
 
 typedef struct s_game

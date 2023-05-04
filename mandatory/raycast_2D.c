@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/04/11 14:44:15 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/04 15:03:45 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char get_collision_orientation(char last_step, t_vector v_step)
     if(last_step == 'x')
     {
         if(v_step.x == 1)
-            return 'O';
+            return 'W';
         else
             return 'E';
     }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/29 17:45:45 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/04 15:03:29 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,19 @@ void	basic_render(t_game *game, t_collision collision, t_vector line_pos,
 	else
 		draw_vertical_line_2(&game->fps_img, line_pos, line_height,
 			PALE_BLUE_SHADED);
+}
+
+t_img	*get_wall_texture(t_game *game, t_collision collision)
+{
+	if (collision.orientation == 'N')
+		return (&game->texture.north);
+	else if (collision.orientation == 'S')
+		return (&game->texture.south);
+	else if (collision.orientation == 'E')
+		return (&game->texture.east);
+	else if (collision.orientation == 'W')
+		return (&game->texture.west);
+	return (NULL);
 }
 
 void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
@@ -40,7 +53,7 @@ void	texture_render(t_game *game, t_collision collision, t_vector line_pos,
 	{
 		x_text = (int)collision.x_pos_tex;
 		y_text = (int)((i / line_height) * 64);
-		pixel_color = img_pix_read(&game->texture.wall, x_text, y_text);
+		pixel_color = img_pix_read(get_wall_texture(game,collision), x_text, y_text);
 		img_pix_put(&game->fps_img, line_pos.x, line_pos.y + i, pixel_color);
 		i++;
 	}

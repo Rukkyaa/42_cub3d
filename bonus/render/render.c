@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:03:13 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 17:14:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:26:00 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ void	render_ui(t_game *game)
 	{
 		put_img_to_img(&game->inventory.img, &game->fps_img, 300, 159);
 		refresh_inventory(game);
+		check_selected(game);
 	}
 	render_life_bar(game);
 }

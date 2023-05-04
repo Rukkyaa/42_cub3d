@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 15:06:54 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 12:08:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,6 +139,7 @@ void			clear_z_buffer(t_game *game);
 void			handle_weapon(t_game *game, t_weapon *weapon);
 long			ft_now(void);
 void			player_doors_open(t_game *game);
+int				get_shotgun_distance(t_game *game);
 
 // Events
 int				handle_keypress(int keycode, t_game *game);
@@ -185,6 +186,7 @@ void			render_floor(t_game *game, t_vector3d v_ray_dir,
 void			render_floor_unicolor(t_game *game, t_vector3d line_pos);
 void			render_roof_unicolor(t_game *game, t_vector3d line_pos, int line_height);
 void			print_kill(t_game *game, int nb, int x);
+void			print_fps(int fps);
 
 int				handle_doors(t_game *game, t_raycast_data *d, int *tile_found);
 char			get_collision_orientation(char last_step, t_vector3d v_step);
@@ -337,20 +339,16 @@ void			load_sounds(t_audio *audio);
 /***********************************************************************************************
 ** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **
 ** \_$$  _|$$$\  $$ |$$ |   $$ |$$  _____|$$$\  $$ |\__$$  __|$$  __$$\ $$  __$$\\$$\   $$  | **
-**   $$ |  $$$$\ $$ |$$ |   $$ |$$ |      $$$$\ $$ |   $$ |   $$
-	/  $$ |$$ |  $$ |\$$\ $$  /  **
-**   $$ |  $$ $$\$$ |\$$\  $$  |$$$$$\    $$ $$\$$ |   $$ |   $$ |  $$ |$$$$$$$  | \$$$$ 
-	/   **
-**   $$ |  $$ \$$$$ | \$$\$$ 
-	/ $$  __|   $$ \$$$$ |   $$ |   $$ |  $$ |$$  __$$<   \$$  /    **
-**   $$ |  $$ |\$$$ |  \$$$ 
-	/  $$ |      $$ |\$$$ |   $$ |   $$ |  $$ |$$ |  $$ |   $$ |     **
-** $$$$$$\ $$ | \$$ |   \$ 
-	/   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
+**   $$ |  $$$$\ $$ |$$ |   $$ |$$ |      $$$$\ $$ |   $$ |   $$/  $$ |$$ |  $$ |\$$\ $$  /  **
+**   $$ |  $$ $$\$$ |\$$\  $$  |$$$$$\    $$ $$\$$ |   $$ |   $$ |  $$ |$$$$$$$  | \$$$$ /   **
+**   $$ |  $$ \$$$$ | \$$\$$ / $$  __|   $$ \$$$$ |   $$ |   $$ |  $$ |$$  __$$<   \$$  /    **
+**   $$ |  $$ |\$$$ |  \ $$$ /  $$ |      $$ |\$$$ |   $$ |   $$ |  $$ |$$ |  $$ |   $$ |     **
+** $$$$$$\ $$ | \$$ |   \ $ /   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
 ** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
 ***********************************************************************************************/
 void			entory(t_game *game);
 void			refresh_inventory(t_game *game);
+void			check_selected(t_game *game);
 void			add_item(t_game *game, int id);
 void			select_item(t_game *game, int x, int y);
 int				get_item(int x, int y, int items[36]);
@@ -424,6 +422,7 @@ void	sprite_death(t_game *game, t_sprite *sprite);
 
 //INIT
 void			load_img(t_game *game);
+void			load_texture(t_game *game);
 void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);
 
@@ -446,5 +445,9 @@ t_wave			*get_wave(int wave_number);
 void			check_wave(t_game *game);
 void			update_kill(t_game *game);
 void			spawn_wave(t_game *game);
+void			fill_result(char *type, t_wave *result, int count,
+					cJSON *zombies);
+t_stats			get_stats(cJSON *zombies, const char *type);
+void			auto_increase_difficulty(t_wave *wave, int wave_number);
 
 #endif

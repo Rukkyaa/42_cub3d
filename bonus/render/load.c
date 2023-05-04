@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:38:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 17:11:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:50:25 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,51 +50,51 @@ void	get_x(t_game *game, int *x, int *x_end)
 	}
 }
 
-void	load_map(t_game *game)
-{
-	int			x;
-	int			y;
-	int			x_end;
-	int			y_end;
-	t_vector3d	pos;
-	t_vector3d	size;
+// void	load_map(t_game *game)
+// {
+// 	int			x;
+// 	int			y;
+// 	int			x_end;
+// 	int			y_end;
+// 	t_vector3d	pos;
+// 	t_vector3d	size;
 
-	pos.x = 0;
-	pos.y = 0;
-	get_y(game, &y, &y_end);
-	while (++y < map_heigth(game->map) && y < y_end)
-	{
-		get_x(game, &x, &x_end);
-		if (x != -1 && x != map_width(game->map) - 8)
-		{
-			size.y = 32;
-			size.x = 32 - (int)game->player.pos.x % 64 / 2;
-			if (is_wall(game->map[y][x]))
-				draw_filled_rectangle(&game->fps_img, pos, size, BLUE_PIXEL);
-			else
-				draw_filled_rectangle(&game->fps_img, pos, size, GREEN_PIXEL);
-			pos.x = 32 - (int)game->player.pos.x % 64 / 2;
-		}
-		while (++x < (map_width(game->map)) && x < x_end)
-		{
-			if (is_wall(game->map[y][x]))
-				draw_filled_square(&game->fps_img, pos, 32, BLUE_PIXEL);
-			else if (game->map[y][x] == '0')
-				draw_filled_square(&game->fps_img, pos, 32, GREEN_PIXEL);
-			else
-				draw_filled_square(&game->fps_img, pos, 32, 888888);
-			pos.x += 32;
-		}
-		if (x_end != 7 && x_end != map_width(game->map))
-		{
-			size.y = 32;
-			size.x = (int)game->player.pos.x % 64 / 2;
-			if (is_wall(game->map[y][x]))
-				draw_filled_rectangle(&game->fps_img, pos, size, BLUE_PIXEL);
-			else
-				draw_filled_rectangle(&game->fps_img, pos, size, GREEN_PIXEL);
-		}
-		pos.x = 0;
-		pos.y += 32;
-	}
-}
+// 	pos.x = 0;
+// 	pos.y = 0;
+// 	get_y(game, &y, &y_end);
+// 	while (++y < map_heigth(game->map) && y < y_end)
+// 	{
+// 		get_x(game, &x, &x_end);
+// 		if (x != -1 && x != map_width(game->map) - 8)
+// 		{
+// 			size.y = 32;
+// 			size.x = 32 - (int)game->player.pos.x % 64 / 2;
+// 			if (is_wall(game->map[y][x]))
+// 				draw_filled_rectangle(&game->fps_img, pos, size, BLUE_PIXEL);
+// 			else
+// 				draw_filled_rectangle(&game->fps_img, pos, size, GREEN_PIXEL);
+// 			pos.x = 32 - (int)game->player.pos.x % 64 / 2;
+// 		}
+// 		while (++x < (map_width(game->map)) && x < x_end)
+// 		{
+// 			if (is_wall(game->map[y][x]))
+// 				draw_filled_square(&game->fps_img, pos, 32, BLUE_PIXEL);
+// 			else if (game->map[y][x] == '0')
+// 				draw_filled_square(&game->fps_img, pos, 32, GREEN_PIXEL);
+// 			else
+// 				draw_filled_square(&game->fps_img, pos, 32, 888888);
+// 			pos.x += 32;
+// 		}
+// 		if (x_end != 7 && x_end != map_width(game->map))
+// 		{
+// 			size.y = 32;
+// 			size.x = (int)game->player.pos.x % 64 / 2;
+// 			if (is_wall(game->map[y][x]))
+// 				draw_filled_rectangle(&game->fps_img, pos, size, BLUE_PIXEL);
+// 			else
+// 				draw_filled_rectangle(&game->fps_img, pos, size, GREEN_PIXEL);
+// 		}
+// 		pos.x = 0;
+// 		pos.y += 32;
+// 	}
+// }

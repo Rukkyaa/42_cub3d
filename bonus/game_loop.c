@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/02 11:38:22 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/03 11:33:56 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,6 @@ void	clear_z_buffer(t_game *game)
 		game->z_buffer[i] = 0;
 		i++;
 	}
-}
-
-void	print_fps(int fps)
-{
-	char	*tmp;
-
-	tmp = ft_itoa(fps);
-	mlx_string_put(_mlx()->mlx, _mlx()->win, 100, RES_Y - 20, WHITE_PIXEL, tmp);
-	free(tmp);
 }
 
 void	death_animation(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 14:34:15 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/04 13:23:46 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,8 @@ void	init_game(t_game *game)
 	game->mode = MENU;
 	game->wave_count = 1;
 	game->current_wave = get_wave(game->wave_count);
-	game->roof_color =  0x331d0f;
-	game->floor_color =  0xb8a386;
-
-	// doors 
+	game->roof_color = 0x331d0f;
+	game->floor_color = 0xb8a386;
 	game->doors[3 * map_width(game->map) + 21] = my_alloc(sizeof(t_door));
 	game->doors[3 * map_width(game->map) + 21]->pos_x = 21;
 	game->doors[3 * map_width(game->map) + 21]->pos_y = 3;
@@ -58,7 +56,7 @@ void	init_game(t_game *game)
 	game->doors[10 * map_width(game->map) + 11] = my_alloc(sizeof(t_door));
 	game->doors[10 * map_width(game->map) + 11]->pos_x = 11;
 	game->doors[10 * map_width(game->map) + 11]->pos_y = 10;
-	game->doors[10 * map_width(game->map) + 11]->x_oriented =  0;
+	game->doors[10 * map_width(game->map) + 11]->x_oriented = 0;
 	game->doors[10 * map_width(game->map) + 11]->open_state = 0;
 	game->doors[10 * map_width(game->map) + 11]->state = CLOSED;
 	game->doors_small[0] = game->doors[3 * map_width(game->map) + 21];

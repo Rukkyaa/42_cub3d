@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fill_animation_sprites.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/03/09 19:33:56 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 12:18:04 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ t_img	**fill_sprite_animation(t_game *game, char *dir_path)
 	{
 		if (entry->d_type == DT_REG && !ft_strchr(entry->d_name, ".xpm"))
 		{
-			imgs[i] = ft_xpm_to_img(game, ft_strjoin(dir_path, entry->d_name));
+			imgs[i] = create_img(ft_strjoin(dir_path, entry->d_name));
 			if (!imgs[i])
 			{
 				while (i > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   load_sprites.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 19:23:38 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/02 14:01:28 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 12:22:00 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	fill_animation(t_game *game, t_animation *animation, DIR *dir,
 			free_all_imgs(game, animation, dir, i);
 		tmp = ft_strjoin("/", entry->d_name);
 		name = ft_strjoin(dir_path, tmp);
-		ft_xpm_to_img(game, animation->imgs[i], name);
+		*(animation->imgs[i]) = create_img(name);
 		free(tmp);
 		free(name);
 		animation->imgs[i]->name = entry->d_name;

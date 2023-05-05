@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/05 11:58:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/05 12:23:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@
 # define FOV_RADIANS (M_PI / 2)
 # define FOV 60
 
-// # define RES_X 1600
-// # define RES_Y 900
+# define RES_X 1600
+# define RES_Y 900
 
-# define RES_X 300
-# define RES_Y 300
+// # define RES_X 300
+// # define RES_Y 300
 
 # define NB_THREADS 3
 

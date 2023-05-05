@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/05 23:42:58 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/05 23:46:02 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,5 @@ int	close_window(t_game *game)
 	mlx_destroy_image(_mlx()->mlx, game->minimap.mlx_img);
 	kill_threads(game);
 	free_garbage();
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
 	exit(0);
 }

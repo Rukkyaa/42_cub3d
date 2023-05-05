@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/28 17:22:25 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 23:42:58 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,25 +76,13 @@ void	kill_threads(t_game *game)
 
 int	close_window(t_game *game)
 {
-	int	i;
-
 	mlx_destroy_window(game->mlx, _mlx()->win);
 	mlx_destroy_image(_mlx()->mlx, _mlx()->img.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->debug_img.mlx_img);
 	mlx_destroy_image(_mlx()->mlx, game->minimap.mlx_img);
-	i = -1;
-	while (game->animations.zombie_run.imgs[++i])
-	{
-		mlx_destroy_image(_mlx()->mlx,
-			game->animations.zombie_run.imgs[i]->mlx_img);
-	}
-	i = -1;
-	while (game->hud.weapon_anim.imgs[++i])
-		mlx_destroy_image(_mlx()->mlx, game->hud.weapon_anim.imgs[i]->mlx_img);
-	free_imgs(game);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
 	kill_threads(game);
 	free_garbage();
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
 	exit(0);
 }

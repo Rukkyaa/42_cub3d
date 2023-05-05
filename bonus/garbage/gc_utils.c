@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:27:56 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/05 12:03:36 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/05 23:41:46 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,5 +95,5 @@ void	free_garbage(void)
 		free(tmp->content);
 		free(tmp);
 	}
-	exit(0);
+	// exit(0);
 }

@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   gc_utils.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:27:56 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/13 17:00:42 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 12:03:36 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
 
-static t_garbage	*gc_new(void *content)
+t_garbage	*gc_new(void *content)
 {
 	t_garbage	*node;
 
@@ -27,7 +27,7 @@ static t_garbage	*gc_new(void *content)
 	return (node);
 }
 
-static void	gc_add_back(t_garbage **gc, t_garbage *new)
+void	gc_add_back(t_garbage **gc, t_garbage *new)
 {
 	t_garbage	*tmp;
 
@@ -65,12 +65,29 @@ void	*my_alloc(int size)
 	return (memory);
 }
 
+void	destroy_img(void)
+{
+	t_garbage	*gc_img;
+	t_garbage	*tmp;
+
+	gc_img = _gc_img();
+	while (gc_img)
+	{
+		tmp = gc_img;
+		gc_img = gc_img->next;
+		if (tmp->content)
+			mlx_destroy_image(_mlx()->mlx, tmp->content);
+		free(tmp);
+	}
+}
+
 void	free_garbage(void)
 {
 	t_garbage	*gc;
 	t_garbage	*tmp;
 
 	gc = _gc();
+	destroy_img();
 	while (gc)
 	{
 		tmp = gc;

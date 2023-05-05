@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/04 13:23:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 11:57:37 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	init_game(t_game *game)
 	game->mouse_clicked = 0;
 	game->mouse.x = RES_X / 2;
 	game->mouse.y = RES_Y / 2;
-	game->mode = MENU;
+	game->mode = PLAY;
 	game->wave_count = 1;
 	game->current_wave = get_wave(game->wave_count);
 	game->roof_color = 0x331d0f;
@@ -88,7 +88,7 @@ void	var_init(t_game *game)
 	pre_compute_resize(game);
 	load_img(game);
 	load_buttons(game);
-	init_sounds(&game->audio);
+	// init_sounds(&game->audio);
 	sound_state_init(&game->player.sound_state);
 	init_basic_vectors(game);
 	init_inventory(game);
@@ -98,7 +98,8 @@ void	var_init(t_game *game)
 	init_weapons(game);
 	load_map_debug(game);
 	clear_z_buffer(game);
-	init_threads(game);
+	// init_threads(game);
 	load_blood_anim(game);
 	spawn_wave(game);
+	free_garbage();
 }

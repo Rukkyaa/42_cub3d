@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   singleton.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:23:53 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/26 14:57:47 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/05 12:01:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,19 @@ t_garbage	*_gc(void)
 		memset(gc, 0, sizeof(t_garbage));
 	}
 	return (gc);
+}
+
+t_garbage	*_gc_img(void)
+{
+	static t_garbage	*gc_img = NULL;
+
+	if (!gc_img)
+	{
+		gc_img = malloc(sizeof(t_garbage));
+		if (!gc_img)
+			return (NULL);
+		gc_img->content = NULL;
+		gc_img->next = NULL;
+	}
+	return (gc_img);
 }

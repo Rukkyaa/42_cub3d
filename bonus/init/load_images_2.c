@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:13:31 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/03 11:16:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/05 11:55:47 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,11 @@
 
 void	load_texture(t_game *game)
 {
-	ft_xpm_to_img(game, &game->texture.wall1,
-		"images/retro_texture_pack/CRATE_1L.xpm");
-	ft_xpm_to_img(game, &game->texture.wall2,
-		"images/retro_texture_pack/CRATE_1M.xpm");
-	ft_xpm_to_img(game, &game->texture.wall3,
-		"images/retro_texture_pack/DOOR_2A.xpm");
-	ft_xpm_to_img(game, &game->texture.wall4,
-		"images/retro_texture_pack/CRATE_1J.xpm");
-	ft_xpm_to_img(game, &game->texture.door,
-		"images/retro_texture_pack/DOOR_2E.xpm");
-	ft_xpm_to_img(game, &game->texture.roof,
-		"images/retro_texture_pack/CONCRETE_1A.xpm");
-	ft_xpm_to_img(game, &game->texture.ground,
-		"images/retro_texture_pack/TILE_3E.xpm");
+	game->texture.wall1 = create_img("images/retro_texture_pack/CRATE_1L.xpm");
+	game->texture.wall2 = create_img("images/retro_texture_pack/CRATE_1M.xpm");
+	game->texture.wall3 = create_img("images/retro_texture_pack/DOOR_2A.xpm");
+	game->texture.wall4 = create_img("images/retro_texture_pack/CRATE_1J.xpm");
+	game->texture.door = create_img("images/retro_texture_pack/DOOR_2E.xpm");
+	game->texture.roof = create_img("images/retro_texture_pack/CONCRETE_1A.xpm");
+	game->texture.ground = create_img("images/retro_texture_pack/TILE_3E.xpm");
 }

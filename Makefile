@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/03 12:33:25 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/05 11:56:28 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds miniaudio))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -115,7 +115,8 @@ SPRITES_SRC_BONUS = $(addprefix bonus/sprites/, $(addsuffix .c, sprite_states sp
 SPRITES_OBJS_BONUS = $(SPRITES_SRC_BONUS:.c=.o)
 
 # INIT #
-INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_weapons init_windows init_camera init_multi_threading basic_vectors sound load_sprites load_images load_images_2))
+INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_weapons init_windows\
+	init_camera init_multi_threading basic_vectors sound load_sprites load_images load_images_2 create_img))
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # GARBAGE #
@@ -123,7 +124,7 @@ GARBAGE_SRC_BONUS = $(addprefix bonus/garbage/, $(addsuffix .c, gc_utils))
 GARBAGE_OBJS_BONUS = $(GARBAGE_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
-# MINIAUDIO = bonus/sound/miniaudio.o
+MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 

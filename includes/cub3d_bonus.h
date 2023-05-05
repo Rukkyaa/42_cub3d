@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 12:08:03 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/05 11:58:11 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,11 @@
 # define FOV_RADIANS (M_PI / 2)
 # define FOV 60
 
-# define RES_X 1600
-# define RES_Y 900
+// # define RES_X 1600
+// # define RES_Y 900
+
+# define RES_X 300
+# define RES_Y 300
 
 # define NB_THREADS 3
 
@@ -373,6 +376,9 @@ void			swap_items(int first, int second, int items[36]);
 *********************************************************************************************/
 t_mlx			*_mlx(void);
 t_garbage		*_gc(void);
+t_garbage		*_gc_img(void);
+t_garbage		*gc_new(void *content);
+void			gc_add_back(t_garbage **gc, t_garbage *new);
 
 /*************************************************************************
 **  $$$$$$\  $$$$$$$\  $$$$$$$\  $$$$$$\ $$$$$$$$\ $$$$$$$$\  $$$$$$\   **
@@ -422,6 +428,7 @@ void	sprite_death(t_game *game, t_sprite *sprite);
 
 //INIT
 void			load_img(t_game *game);
+t_img			create_img(char *path);
 void			load_texture(t_game *game);
 void			load_buttons(t_game *game);
 void			load_map_debug(t_game *game);

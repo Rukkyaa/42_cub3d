@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player_collisions.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 13:49:35 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 14:42:52 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/06 19:43:25 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,7 @@ static void	player_mob_collide(t_game *game, t_sprite *mob)
 	t_vector3d	next_pos_a;
 	t_vector3d	next_pos_b;
 	float		distance;
-	int			collide_dist;
 
-	if (game->player.jumping)
-		collide_dist = 7;
-	else
-		collide_dist = 10;
 	next_pos_a = vec_sum(mob->pos, mob->speed);
 	next_pos_b = vec_sum(game->player.pos, game->player.speed);
 	distance = vec_distance(next_pos_a, next_pos_b);

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 11:52:44 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:43:11 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -341,6 +341,7 @@ void			load_sounds(t_audio *audio);
 
 void			entory(t_game *game);
 void			refresh_inventory(t_game *game);
+void			init_inventory(t_game *game);
 void			check_selected(t_game *game);
 void			add_item(t_game *game, int id);
 void			select_item(t_game *game, int x, int y);

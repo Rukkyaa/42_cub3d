@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 11:13:31 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/05 11:55:47 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:19:53 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	load_texture(t_game *game)
 	game->texture.wall3 = create_img("images/retro_texture_pack/DOOR_2A.xpm");
 	game->texture.wall4 = create_img("images/retro_texture_pack/CRATE_1J.xpm");
 	game->texture.door = create_img("images/retro_texture_pack/DOOR_2E.xpm");
-	game->texture.roof = create_img("images/retro_texture_pack/CONCRETE_1A.xpm");
+	game->texture.roof
+		= create_img("images/retro_texture_pack/CONCRETE_1A.xpm");
 	game->texture.ground = create_img("images/retro_texture_pack/TILE_3E.xpm");
 }

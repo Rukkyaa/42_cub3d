@@ -157,7 +157,7 @@ remove-dir:
 uninstall: uninstall-utils uninstall-cjson remove-dir
 
 clean:
-	$(RM) $(CJSON_OBJ) $(UTILS_OBJ) #delete object files
-	$(RM) $(CJSON_SHARED) $(CJSON_SHARED_VERSION) $(CJSON_SHARED_SO) $(CJSON_STATIC) #delete cJSON
-	$(RM) $(UTILS_SHARED) $(UTILS_SHARED_VERSION) $(UTILS_SHARED_SO) $(UTILS_STATIC) #delete cJSON_Utils
-	$(RM) $(CJSON_TEST)  #delete test
+	@$(RM) $(CJSON_OBJ) $(UTILS_OBJ) #delete object files
+	@$(RM) $(CJSON_SHARED) $(CJSON_SHARED_VERSION) $(CJSON_SHARED_SO) $(CJSON_STATIC) #delete cJSON
+	@$(RM) $(UTILS_SHARED) $(UTILS_SHARED_VERSION) $(UTILS_SHARED_SO) $(UTILS_STATIC) #delete cJSON_Utils
+	@$(RM) $(CJSON_TEST)  #delete test

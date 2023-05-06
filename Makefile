@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/05 11:56:28 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/06 19:11:53 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -164,6 +164,8 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS)  
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
+	@make --no-print-directory -C cjson/ > /dev/null
+	@rm -f cjson/*.so
 	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
@@ -201,6 +203,7 @@ clean:
 	@printf "========================================\n\033[m"
 	@printf "\033[K\033[1;31m|\033[1;33m Destroying objects                   \033[1;31m|\n\033[m"
 	@make --no-print-directory clean -C libft/
+	@make --no-print-directory clean -C cjson/
 	@rm -f $(OBJS) $(SHAPE_OBJS) $(MAP_OBJS) $(VECTOR_OBJS)
 	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\

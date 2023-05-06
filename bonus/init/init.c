@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 19:25:30 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:29:39 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,7 @@ void	var_init(t_game *game)
 	pre_compute_resize(game);
 	load_img(game);
 	load_buttons(game);
-	// init_sounds(&game->audio);
+	init_sounds(&game->audio);
 	sound_state_init(&game->player.sound_state);
 	init_basic_vectors(game);
 	init_inventory(game);

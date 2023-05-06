@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:27:56 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/06 20:07:22 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:46:48 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,3 @@ void	*my_alloc(int size)
 	gc_add_back(&gc, tmp);
 	return (memory);
 }
-

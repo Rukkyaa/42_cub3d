@@ -6,7 +6,7 @@
 #    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/06 19:29:31 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/06 20:06:54 by rukkyaa          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -80,7 +80,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds miniaudio))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -120,11 +120,11 @@ INIT_SRC_BONUS = $(addprefix bonus/init/, $(addsuffix .c, init init_player init_
 INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 
 # GARBAGE #
-GARBAGE_SRC_BONUS = $(addprefix bonus/garbage/, $(addsuffix .c, gc_utils))
+GARBAGE_SRC_BONUS = $(addprefix bonus/garbage/, $(addsuffix .c, gc_utils free_garbage))
 GARBAGE_OBJS_BONUS = $(GARBAGE_SRC_BONUS:.c=.o)
 
 # MINIAUDIO #
-# MINIAUDIO = bonus/sound/miniaudio.o
+MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 

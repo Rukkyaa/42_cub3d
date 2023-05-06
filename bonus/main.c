@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 18:46:36 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:21:23 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 
 int	main(int argc, char **argv)
 {
-	t_game	*game;
-
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	if (!_gc())
@@ -25,12 +23,9 @@ int	main(int argc, char **argv)
 			of the gc's singleton failed\n\033[0m");
 		exit(0);
 	}
-	game = my_alloc(sizeof(t_game));
-	if (!game)
-		exit(0);
-	game->map = get_map(argv[1]);
-	var_init(game);
-	hooks(game);
-	mlx_loop(game->mlx);
+	_game()->map = get_map(argv[1]);
+	var_init(_game());
+	hooks(_game());
+	mlx_loop(_mlx()->mlx);
 	return (EXIT_SUCCESS);
 }

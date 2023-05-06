@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 10:23:53 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 19:26:31 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:22:00 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ t_mlx	*_mlx(void)
 	{
 		mlx = my_alloc(sizeof(t_mlx));
 		mlx->mlx = mlx_init();
+		if (!mlx->mlx)
+			free_garbage(MLX_CREATION_ERROR);
 		mlx->win = mlx_new_window(mlx->mlx, RES_X, RES_Y, "cub3d");
 		mlx->img.mlx_img = mlx_new_image(mlx->mlx, RES_X, RES_Y);
 		mlx->img.addr = mlx_get_data_addr(mlx->img.mlx_img,
@@ -30,6 +32,18 @@ t_mlx	*_mlx(void)
 	if (!mlx)
 		return (NULL);
 	return (mlx);
+}
+
+t_game	*_game(void)
+{
+	static t_game	*game = NULL;
+
+	if (!game)
+	{
+		game = my_alloc(sizeof(t_game));
+		memset(game, 0, sizeof(t_game));
+	}
+	return (game);
 }
 
 t_garbage	*_gc(void)

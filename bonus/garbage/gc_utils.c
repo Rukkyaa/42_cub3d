@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 21:27:56 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/05 23:46:19 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:07:22 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,49 +53,15 @@ void	*my_alloc(int size)
 	if (!memory)
 	{
 		printf("Malloc failed !\n");
-		free_garbage();
+		free_garbage(MALLOC_ERROR);
 	}
 	tmp = gc_new(memory);
 	if (!tmp)
 	{
 		free(memory);
-		free_garbage();
+		free_garbage(MALLOC_ERROR);
 	}
 	gc_add_back(&gc, tmp);
 	return (memory);
 }
 
-void	destroy_img(void)
-{
-	t_garbage	*gc_img;
-	t_garbage	*tmp;
-
-	gc_img = _gc_img();
-	while (gc_img)
-	{
-		tmp = gc_img;
-		gc_img = gc_img->next;
-		if (tmp->content)
-			mlx_destroy_image(_mlx()->mlx, tmp->content);
-		free(tmp);
-	}
-}
-
-void	free_garbage(void)
-{
-	t_garbage	*gc;
-	t_garbage	*tmp;
-
-	gc = _gc();
-	destroy_img();
-	mlx_destroy_display(_mlx()->mlx);
-	free(_mlx()->mlx);
-	while (gc)
-	{
-		tmp = gc;
-		gc = gc->next;
-		free(tmp->content);
-		free(tmp);
-	}
-	exit(0);
-}

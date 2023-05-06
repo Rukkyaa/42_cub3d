@@ -1,5 +1,6 @@
 {
 	"files.associations": {
-		"iterator": "c"
+		"iterator": "c",
+		"functional": "c"
 	}
 }

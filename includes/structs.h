@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/04 14:50:59 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/06 20:03:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,11 @@
 # define CLOSING 3
 
 # define WAVE_FILE "./bonus/waves.json"
+
+# define MLX_CREATION_ERROR 1
+# define MALLOC_ERROR 2
+# define XPM_ERROR 3
+# define ADDR_ERROR 4
 
 typedef int WEAPON;
 

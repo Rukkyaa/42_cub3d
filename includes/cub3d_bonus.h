@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 19:43:11 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:20:14 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -354,6 +354,7 @@ bool			weapon_in_inventory(t_game *game, int id);
 void			check_item(t_game *game);
 void			swap_items(int first, int second, int items[36]);
 t_mlx			*_mlx(void);
+t_game			*_game(void);
 t_garbage		*_gc(void);
 t_garbage		*_gc_img(void);
 t_garbage		*gc_new(void *content);
@@ -423,7 +424,7 @@ void			load_map_debug(t_game *game);
 **  \______/ \__|  \__|\__|  \__|\_______/ \__|  \__| \______/ \________| **
 ***************************************************************************/
 void			*my_alloc(int size);
-void			free_garbage(void);
+void			free_garbage(int code);
 void			free_array(char **map);
 
 // WAVES

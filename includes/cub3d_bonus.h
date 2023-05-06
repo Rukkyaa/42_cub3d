@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 20:20:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:35:51 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -265,6 +265,7 @@ int				pixel_out_of_bound(float x, float y, t_img *image);
 char			**get_map(char *arg);
 int				close_window(t_game *game);
 void			move(t_game *game, char direction);
+void			kill_threads(t_game *game);
 
 // mlx Utils
 unsigned int	img_pix_read(t_img *img, int x, int y);

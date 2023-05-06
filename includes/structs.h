@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/06 20:03:03 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:42:59 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,9 +87,11 @@
 # define WAVE_FILE "./bonus/waves.json"
 
 # define MLX_CREATION_ERROR 1
-# define MALLOC_ERROR 2
+# define INIT_MALLOC_ERROR 2
 # define XPM_ERROR 3
 # define ADDR_ERROR 4
+# define INIT_ERROR 5
+# define MALLOC_ERROR 6
 
 typedef int WEAPON;
 

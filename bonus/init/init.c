@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 20:05:46 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:39:28 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,7 +98,7 @@ void	var_init(t_game *game)
 	init_weapons(game);
 	load_map_debug(game);
 	clear_z_buffer(game);
-	init_threads(game);
 	load_blood_anim(game);
 	spawn_wave(game);
+	init_threads(game);
 }

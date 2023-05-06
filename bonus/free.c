@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 20:23:10 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 20:34:57 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,11 +61,6 @@ void	kill_threads(t_game *game)
 
 int	close_window(t_game *game)
 {
-	mlx_destroy_window(game->mlx, _mlx()->win);
-	mlx_destroy_image(_mlx()->mlx, _mlx()->img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->debug_img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->minimap.mlx_img);
-	kill_threads(game);
 	free_garbage(42);
 	exit(0);
 }

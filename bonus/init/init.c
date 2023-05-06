@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 19:24:10 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:25:30 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,5 +101,4 @@ void	var_init(t_game *game)
 	init_threads(game);
 	load_blood_anim(game);
 	spawn_wave(game);
-	// free_garbage();
 }

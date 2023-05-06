@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 12:01:45 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:15:10 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,6 @@ void	check_wave(t_game *game)
 	wave = game->current_wave;
 	if (wave->zombie_killed == wave->total_zombie_count)
 	{
-		free(game->current_wave);
 		game->wave_count++;
 		game->current_wave = get_wave(game->wave_count);
 		printf("\nReady for wave %d ?\n", game->wave_count);

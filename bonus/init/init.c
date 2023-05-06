@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 16:45:27 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:24:10 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,26 @@ void	init_animations(t_game *game)
 	game->animations.cocaine = load_item_anim(game, COCAINE);
 	game->animations.grap_gun = load_item_anim(game, GRAP_GUN);
 	game->animations.shotgun = load_item_anim(game, SHOTGUN);
+	game->sprites = NULL;
 }
 
-void	init_sprites(t_game *game)
+void	init_doors(t_game *game)
 {
-	init_animations(game);
-	game->sprites = NULL;
+	game->doors[3 * map_width(game->map) + 21] = my_alloc(sizeof(t_door));
+	game->doors[3 * map_width(game->map) + 21]->pos_x = 21;
+	game->doors[3 * map_width(game->map) + 21]->pos_y = 3;
+	game->doors[3 * map_width(game->map) + 21]->x_oriented = 1;
+	game->doors[3 * map_width(game->map) + 21]->open_state = 0;
+	game->doors[3 * map_width(game->map) + 21]->state = CLOSED;
+	game->doors[10 * map_width(game->map) + 11] = my_alloc(sizeof(t_door));
+	game->doors[10 * map_width(game->map) + 11]->pos_x = 11;
+	game->doors[10 * map_width(game->map) + 11]->pos_y = 10;
+	game->doors[10 * map_width(game->map) + 11]->x_oriented = 0;
+	game->doors[10 * map_width(game->map) + 11]->open_state = 0;
+	game->doors[10 * map_width(game->map) + 11]->state = CLOSED;
+	game->doors_small[0] = game->doors[3 * map_width(game->map) + 21];
+	game->doors_small[1] = game->doors[10 * map_width(game->map) + 11];
+	game->doors_small[2] = 0;
 }
 
 void	init_game(t_game *game)
@@ -47,21 +61,7 @@ void	init_game(t_game *game)
 	game->current_wave = get_wave(game->wave_count);
 	game->roof_color = 0x331d0f;
 	game->floor_color = 0xb8a386;
-	game->doors[3 * map_width(game->map) + 21] = my_alloc(sizeof(t_door));
-	game->doors[3 * map_width(game->map) + 21]->pos_x = 21;
-	game->doors[3 * map_width(game->map) + 21]->pos_y = 3;
-	game->doors[3 * map_width(game->map) + 21]->x_oriented = 1;
-	game->doors[3 * map_width(game->map) + 21]->open_state = 0;
-	game->doors[3 * map_width(game->map) + 21]->state = CLOSED;
-	game->doors[10 * map_width(game->map) + 11] = my_alloc(sizeof(t_door));
-	game->doors[10 * map_width(game->map) + 11]->pos_x = 11;
-	game->doors[10 * map_width(game->map) + 11]->pos_y = 10;
-	game->doors[10 * map_width(game->map) + 11]->x_oriented = 0;
-	game->doors[10 * map_width(game->map) + 11]->open_state = 0;
-	game->doors[10 * map_width(game->map) + 11]->state = CLOSED;
-	game->doors_small[0] = game->doors[3 * map_width(game->map) + 21];
-	game->doors_small[1] = game->doors[10 * map_width(game->map) + 11];
-	game->doors_small[2] = 0;
+	init_doors(game);
 }
 
 void	init_keys(t_game *game)
@@ -94,7 +94,7 @@ void	var_init(t_game *game)
 	init_inventory(game);
 	mlx_put_image_to_window(game->mlx, _mlx()->win, _mlx()->img.mlx_img, 0, 0);
 	handle_time(game);
-	init_sprites(game);
+	init_animations(game);
 	init_weapons(game);
 	load_map_debug(game);
 	clear_z_buffer(game);

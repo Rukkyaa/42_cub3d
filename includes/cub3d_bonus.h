@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/05 12:23:03 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 11:52:44 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@
 # define MOUSE_SENSITIVITY 1.5f
 
 # ifndef HD
-# 	define HD 1
+#  define HD 1
 # endif
 
 # define MAX_DISTANCE 10
@@ -187,7 +187,8 @@ void			precompute_raycast(t_game *game);
 void			render_floor(t_game *game, t_vector3d v_ray_dir,
 					t_vector3d line_pos);
 void			render_floor_unicolor(t_game *game, t_vector3d line_pos);
-void			render_roof_unicolor(t_game *game, t_vector3d line_pos, int line_height);
+void			render_roof_unicolor(t_game *game,
+					t_vector3d line_pos, int line_height);
 void			print_kill(t_game *game, int nb, int x);
 void			print_fps(int fps);
 
@@ -205,13 +206,13 @@ void			put_img_to_img_alpha(t_img *img, t_img *fill, int start_x,
 					int start_y);
 void			put_img_to_img_green_alpha(t_img *img, t_img *fill, int start_x,
 					int start_y);
-void			put_img_to_img_faded(t_img *img, t_img *fill, int start_x, int start_y);
+void			put_img_to_img_faded(t_img *img, t_img *fill,
+					int start_x, int start_y);
 
 void			psychedelic_view(t_game *game, t_img *img);
 void			red_view(t_game *game, t_img *img);
 void			faded_view(t_game *game, t_img *img, int fading);
 void			sample_map(t_img *dest, t_img *src, int start_x, int start_y);
-
 
 // UI
 void			handle_button(t_game *game, t_button *button);
@@ -256,7 +257,6 @@ int				key_gestion(int keycode, t_game *game);
 int				handle_keyrelease(int keycode, int *key_states);
 int				handle_keypress(int keycode, t_game *game);
 int				main_loop(void *g);
-
 
 t_vector3d		get_next_tile(t_game *game, t_vector3d direction);
 t_vector3d		pixel_to_tile(t_vector3d vector);
@@ -339,16 +339,6 @@ void			restart_sound(ma_sound *sound);
 void			add_sound(t_audio *audio, int id, char *path, float volume);
 void			load_sounds(t_audio *audio);
 
-/***********************************************************************************************
-** $$$$$$\ $$\   $$\ $$\    $$\ $$$$$$$$\ $$\   $$\ $$$$$$$$\  $$$$$$\  $$$$$$$\ $$\     $$\  **
-** \_$$  _|$$$\  $$ |$$ |   $$ |$$  _____|$$$\  $$ |\__$$  __|$$  __$$\ $$  __$$\\$$\   $$  | **
-**   $$ |  $$$$\ $$ |$$ |   $$ |$$ |      $$$$\ $$ |   $$ |   $$/  $$ |$$ |  $$ |\$$\ $$  /  **
-**   $$ |  $$ $$\$$ |\$$\  $$  |$$$$$\    $$ $$\$$ |   $$ |   $$ |  $$ |$$$$$$$  | \$$$$ /   **
-**   $$ |  $$ \$$$$ | \$$\$$ / $$  __|   $$ \$$$$ |   $$ |   $$ |  $$ |$$  __$$<   \$$  /    **
-**   $$ |  $$ |\$$$ |  \ $$$ /  $$ |      $$ |\$$$ |   $$ |   $$ |  $$ |$$ |  $$ |   $$ |     **
-** $$$$$$\ $$ | \$$ |   \ $ /   $$$$$$$$\ $$ | \$$ |   $$ |    $$$$$$  |$$ |  $$ |   $$ |     **
-** \______|\__|  \__|    \_/    \________|\__|  \__|   \__|    \______/ \__|  \__|   \__|     **
-***********************************************************************************************/
 void			entory(t_game *game);
 void			refresh_inventory(t_game *game);
 void			check_selected(t_game *game);
@@ -362,18 +352,6 @@ void			inventory_switch(t_game *game);
 bool			weapon_in_inventory(t_game *game, int id);
 void			check_item(t_game *game);
 void			swap_items(int first, int second, int items[36]);
-
-/*********************************************************************************************
-**  $$$$$$\  $$$$$$\ $$\   $$\  $$$$$$\  $$\       $$$$$$$$\ $$$$$$$$\  $$$$$$\  $$\   $$\  **
-** $$  __$$\ \_$$  _|$$$\  $$ |$$  __$$\ $$ |      $$  _____|\__$$  __|$$  __$$\ $$$\  $$ | **
-** $$ /  \__|  $$ |  $$$$\ $$ |$$ /  \__|$$ |      $$ |         $$ |   $$
-	/  $$ |$$$$\ $$ | **
-** \$$$$$$\    $$ |  $$ $$\$$ |$$ |$$$$\ $$ |      $$$$$\       $$ |   $$ |  $$ |$$ $$\$$ | **
-**  \____$$\   $$ |  $$ \$$$$ |$$ |\_$$ |$$ |      $$  __|      $$ |   $$ |  $$ |$$ \$$$$ | **
-** $$\   $$ |  $$ |  $$ |\$$$ |$$ |  $$ |$$ |      $$ |         $$ |   $$ |  $$ |$$ |\$$$ | **
-** \$$$$$$  |$$$$$$\ $$ | \$$ |\$$$$$$  |$$$$$$$$\ $$$$$$$$\    $$ |    $$$$$$  |$$ | \$$ | **
-**  \______/ \______|\__|  \__| \______/ \________|\________|   \__|    \______/ \__|  \__| **
-*********************************************************************************************/
 t_mlx			*_mlx(void);
 t_garbage		*_gc(void);
 t_garbage		*_gc_img(void);
@@ -418,13 +396,13 @@ void			set_normal_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_big_zombie_stats(t_sprite *zombie, t_wave *wave);
 void			set_type_specs_zomb(t_game *game, t_sprite *new_zombie,
 					int type);
-void	check_mob_collisions(t_sprite *sprite);
-int		proj_mob_collide(t_sprite *mob, t_sprite *proj);
-bool	projectile_terrain_collide(char **map, t_sprite *proj);
-void	mob_wall_collide(t_game *game, t_sprite *mob);
-void	mob_mob_collide(t_sprite *sprite_a, t_sprite *sprite_b);
-void	sprite_spawn(t_game *game, t_sprite *sprite);
-void	sprite_death(t_game *game, t_sprite *sprite);
+void			check_mob_collisions(t_sprite *sprite);
+int				proj_mob_collide(t_sprite *mob, t_sprite *proj);
+bool			projectile_terrain_collide(char **map, t_sprite *proj);
+void			mob_wall_collide(t_game *game, t_sprite *mob);
+void			mob_mob_collide(t_sprite *sprite_a, t_sprite *sprite_b);
+void			sprite_spawn(t_game *game, t_sprite *sprite);
+void			sprite_death(t_game *game, t_sprite *sprite);
 
 //INIT
 void			load_img(t_game *game);

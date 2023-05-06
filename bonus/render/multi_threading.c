@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   multi_threading.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 14:49:56 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/01 22:40:35 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/06 18:46:01 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	*start_thread(void *void_game)
 	found_task = 0;
 	while (1)
 	{
+		pthread_testcancel();
 		pthread_mutex_lock(&game->queue_rights);
 		if (game->task_done < game->task_count)
 		{

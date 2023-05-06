@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 18:46:18 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:19:05 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,31 +36,28 @@ void	free_sprites(t_sprite *sprites)
 	}
 }
 
-void kill_threads(t_game *game)
+void	kill_threads(t_game *game)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    while (i < NB_THREADS)
-    {
-        pthread_cancel(game->wall_threads[i]);
-        i++;
-    }
-
-    i = 0;
-    while (i < NB_THREADS)
-    {
-        pthread_join(game->wall_threads[i], NULL);
-        i++;
-    }
-
-    pthread_mutex_destroy(&game->print_rights);
-    pthread_mutex_destroy(&game->img_read_rights);
-    pthread_mutex_destroy(&game->img_put_rights);
-    pthread_mutex_destroy(&game->queue_rights);
-    pthread_mutex_destroy(&game->render_finished_rights);
+	i = 0;
+	while (i < NB_THREADS)
+	{
+		pthread_cancel(game->wall_threads[i]);
+		i++;
+	}
+	i = 0;
+	while (i < NB_THREADS)
+	{
+		pthread_join(game->wall_threads[i], NULL);
+		i++;
+	}
+	pthread_mutex_destroy(&game->print_rights);
+	pthread_mutex_destroy(&game->img_read_rights);
+	pthread_mutex_destroy(&game->img_put_rights);
+	pthread_mutex_destroy(&game->queue_rights);
+	pthread_mutex_destroy(&game->render_finished_rights);
 }
-
 
 int	close_window(t_game *game)
 {

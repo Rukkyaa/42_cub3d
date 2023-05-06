@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/05 12:15:40 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 19:20:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,15 @@ void	load_img_two(t_game *game)
 	game->hud.life_orange_bar = create_img("images/lifebar/orange_bar.xpm");
 	game->hud.life_green_bar = create_img("images/lifebar/green_bar.xpm");
 	game->hud.life_bar_border = create_img("images/lifebar/grey_border.xpm");
-	game->texture.projectile = create_img("images/projectiles/green_energy_ball.xpm");
-	game->texture.blue_projectile = create_img("images/projectiles/blue_energy_ball.xpm");
+	game->texture.projectile
+		= create_img("images/projectiles/green_energy_ball.xpm");
+	game->texture.blue_projectile
+		= create_img("images/projectiles/blue_energy_ball.xpm");
 	game->texture.heart = create_img("images/items/heart/heart.xpm");
 	game->texture.cocaine = create_img("images/items/cocaine.xpm");
 	game->texture.menu = create_img("images/UI/menu_cub3D_v2.xpm");
-	game->texture.player_hurt_overlay = create_img("images/FX/blurry_blood.xpm");
+	game->texture.player_hurt_overlay
+		= create_img("images/FX/blurry_blood.xpm");
 	load_number(game);
 }
 
@@ -63,8 +66,10 @@ void	load_img(t_game *game)
 {
 	game->inventory.img = create_img("images/inventory.xpm");
 	game->weapon_icons.axe = create_img("images/weapons/axe.xpm");
-	game->weapon_icons.plasma_riffle = create_img("images/weapons/icon/plasma_riffle.xpm");
-	game->weapon_icons.grap_gun = create_img("images/weapons/icon/grap_gun.xpm");
+	game->weapon_icons.plasma_riffle
+		= create_img("images/weapons/icon/plasma_riffle.xpm");
+	game->weapon_icons.grap_gun
+		= create_img("images/weapons/icon/grap_gun.xpm");
 	game->weapon_icons.shotgun = create_img("images/weapons/icon/shotgun.xpm");
 	game->hud.aim = create_img("images/aim_white_simple.xpm");
 	game->hud.weapon = create_img("images/weapons/transparent.xpm");

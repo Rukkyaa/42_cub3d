@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/04/27 14:22:46 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/06 12:02:40 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ t_vector3d	p_to_midwall(t_game *game, t_collision collision)
 
 	player_to_midwall.x = collision.distance;
 	player_to_midwall.y = game->wall_height / 2 - game->player.pos3d.z;
+	player_to_midwall.z = 0;
 	player_to_midwall = vec_normalize(player_to_midwall);
 	return (player_to_midwall);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/21 11:25:02 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/06 11:59:26 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int argc, char **argv)
 			of the gc's singleton failed\n\033[0m");
 		exit(0);
 	}
-	game = malloc(sizeof(t_game));
+	game = my_alloc(sizeof(t_game));
 	if (!game)
 		exit(0);
 	game->map = get_map(argv[1]);

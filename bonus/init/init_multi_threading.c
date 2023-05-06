@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_multi_threading.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/04/30 15:05:08 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/06 11:59:53 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ void	init_threads(t_game *game)
 	init_mutex(game, &game->img_put_rights);
 	init_mutex(game, &game->queue_rights);
 	init_mutex(game, &game->render_finished_rights);
+	pthread_mutex_lock(&game->queue_rights);
+	game->render_finished = 0;
+	game->task_count = 0;
+	game->task_done = 0;
+	pthread_mutex_unlock(&game->queue_rights);
 	i = 0;
 	while (i < NB_THREADS)
 	{
@@ -37,9 +42,4 @@ void	init_threads(t_game *game)
 			(void *)game);
 		i++;
 	}
-	pthread_mutex_lock(&game->queue_rights);
-	game->render_finished = 0;
-	game->task_count = 0;
-	game->task_done = 0;
-	pthread_mutex_unlock(&game->queue_rights);
 }

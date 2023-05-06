@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:20:40 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/05 23:46:02 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 09:06:22 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,6 @@ void	free_sprites(t_sprite *sprites)
 		free(sprites);
 		sprites = tmp;
 	}
-}
-
-void	free_imgs(t_game *game)
-{
-	mlx_destroy_image(_mlx()->mlx, game->texture.wall1.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.wall2.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.wall3.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.wall4.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.ground.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.roof.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->inventory.img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.axe.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->weapon_icons.plasma_riffle.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->hud.aim.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->hud.weapon.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.projectile.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.menu.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->buttons[0].idle_img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->buttons[0].hover_img.mlx_img);
-	mlx_destroy_image(_mlx()->mlx, game->texture.player_hurt_overlay.mlx_img);
 }
 
 void	kill_threads(t_game *game)

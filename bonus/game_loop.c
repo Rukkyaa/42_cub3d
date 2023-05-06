@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 11:33:56 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 16:45:19 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main_loop(void *g)
 	if (game->mode == PLAY)
 		print_fps(game->time.fps);
 	game->player.sound_state.game_mode = game->mode;
-	game_sound(game->player.sound_state, game->audio.sounds);
+	// game_sound(game->player.sound_state, game->audio.sounds);
 	handle_sync(game);
 	game->frame_count++;
 	return (0);

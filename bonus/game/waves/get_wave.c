@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:05:11 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/03 12:01:26 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/06 16:49:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,9 @@ cJSON	*get_root(const char *filename)
 	fseek(file, 0, SEEK_END);
 	file_size = ftell(file);
 	fseek(file, 0, SEEK_SET);
-	file_contents = malloc(file_size + 1);
+	file_contents = my_alloc(file_size + 1);
+	if (!file_contents)
+		free_garbage();
 	if (fread(file_contents, file_size, 1, file) != 1)
 	{
 		fclose(file);
@@ -35,7 +37,6 @@ cJSON	*get_root(const char *filename)
 	fclose(file);
 	file_contents[file_size] = '\0';
 	root = cJSON_Parse(file_contents);
-	free(file_contents);
 	return (root);
 }
 
@@ -72,7 +73,10 @@ t_wave	*count_zombie_types(cJSON *zombies)
 	char	*type;
 	int		count;
 
-	result = calloc(1, sizeof(t_wave));
+	result = my_alloc(sizeof(t_wave));
+	if (!result)
+		free_garbage();
+	memset(result, 0, sizeof(t_wave));
 	zombie = cJSON_GetArrayItem(zombies, 0);
 	while (zombie)
 	{

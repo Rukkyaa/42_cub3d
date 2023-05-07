@@ -2,6 +2,7 @@
 	"C_Cpp.errorSquiggles": "disabled",
 	"files.associations": {
 		"*.tcc": "c",
-		"fstream": "c"
+		"fstream": "c",
+		"random": "c"
 	}
 }

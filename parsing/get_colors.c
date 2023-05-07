@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:57:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/07 13:32:14 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 14:45:08 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,55 +24,45 @@ int	len_num(const char *line)
 
 bool	is_valid_color_content(char c)
 {
-	return (c == ' ' || c == ',' || (c >= '0' && c <= '9') || c == '\0' || c == '\n');
+	return (c == ' ' || c == ',' || (c >= '0'
+			&& c <= '9') || c == '\0' || c == '\n');
+}
+
+bool	fill_color(t_parsing *parsing, int color_index, char *line, char c)
+{
+	int	color;
+
+	color = ft_atoi(line);
+	if (color > 255 || (color == 0 && line[0] != '0') || len_num(line) > 3)
+		return (false);
+	if (c == 'F')
+		parsing->floor_color[color_index] = color;
+	else if (c == 'C')
+		parsing->ceiling_color[color_index] = color;
+	return (true);
 }
 
 bool	get_color(t_parsing *parsing, char c, char *line)
 {
 	int		i;
 	int		color_index;
+	int		color;
 
-	i = 1;
+	i = 0;
 	color_index = 0;
-	while (line[i] != '\0' && line[i] != '\n')
+	while (line[++i] != '\0' && line[i] != '\n')
 	{
-		if (!is_valid_color_content(line[i]))
-		{
-			free(line);
+		if (!is_valid_color_content(line[i]) || color_index > 2
+			&& line[i] >= '0' && line[i] <= '9')
 			return (false);
-		}
-		if (color_index > 2 && line[i] >= '0' && line[i] <= '9')
-		{
-			free(line);
-			return (false);
-		}
 		if (line[i] >= '0' && line[i] <= '9')
 		{
-			if (c == 'F')
-			{
-				parsing->floor_color[color_index] = ft_atoi(line + i);
-				if (parsing->floor_color[color_index] > 255 || (parsing->floor_color[color_index] == 0 && line[i] != '0') || len_num(line + i) > 3)
-				{
-					free(line);
-					return (false);
-				}
-				i += len_num(line + i);
-			}
-			else if (c == 'C')
-			{
-				parsing->ceiling_color[color_index] = ft_atoi(line + i);
-				if (parsing->ceiling_color[color_index] > 255 || (parsing->ceiling_color[color_index] == 0 && line[i] != '0') || len_num(line + i) > 3)
-				{
-					free(line);
-					return (false);
-				}
-				i += len_num(line + i);
-			}
-			++color_index;
+			if (!fill_color(parsing, color_index++, line + i, c))
+				return (false);
+			i += len_num(line + i);
 		}
-		++i;
 	}
-	return (true);
+	return (color_index == 3);
 }
 
 bool	get_params(t_parsing *parsing, int fd)
@@ -82,7 +72,7 @@ bool	get_params(t_parsing *parsing, int fd)
 
 	found = 0;
 	line = "coucou";
-	while (line)
+	while (line && found < 2)
 	{
 		line = get_next_line(fd);
 		if (!line)
@@ -90,18 +80,16 @@ bool	get_params(t_parsing *parsing, int fd)
 		if (line[0] == 'F')
 		{
 			if (!get_color(parsing, 'F', line))
-				return (false);
-			found++;
+				return (free(line), false);
 		}
 		else if (line[0] == 'C')
 		{
 			if (!get_color(parsing, 'C', line))
-				return (false);
-			found++;
+				return (free(line), false);
 		}
+		if (line[0] == 'F' || line[0] == 'C')
+			found ++;
 		free(line);
-		if (found == 2)
-			break ;
 	}
 	return (true);
 }

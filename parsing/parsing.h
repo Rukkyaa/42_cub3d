@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 13:25:00 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 15:49:03 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 # include <stdio.h>
 # include <stdbool.h>
 # include <limits.h>
+# include <string.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
@@ -39,6 +40,10 @@ typedef struct s_parsing
 	int			map_width;
 	int			map_height;
 	char		player_dir;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
 }				t_parsing;
 
 int			ft_strlen(char const *str);
@@ -53,6 +58,10 @@ int			ft_atoi(const char *str);
 int			len_num(const char *line);
 
 bool		get_params(t_parsing *parsing, int fd);
+bool		get_color(t_parsing *parsing, char *line);
+bool		is_texture(char *line);
+bool		fill_texture(t_parsing *parsing, char *line);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
 
 // GNL
 char		*ft_strjoin(char *s1, char *s2);

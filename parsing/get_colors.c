@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:57:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/07 14:45:08 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 14:55:07 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,12 +42,14 @@ bool	fill_color(t_parsing *parsing, int color_index, char *line, char c)
 	return (true);
 }
 
-bool	get_color(t_parsing *parsing, char c, char *line)
+bool	get_color(t_parsing *parsing, char *line)
 {
 	int		i;
 	int		color_index;
 	int		color;
+	char	c;
 
+	c = line[0];
 	i = 0;
 	color_index = 0;
 	while (line[++i] != '\0' && line[i] != '\n')
@@ -63,33 +65,4 @@ bool	get_color(t_parsing *parsing, char c, char *line)
 		}
 	}
 	return (color_index == 3);
-}
-
-bool	get_params(t_parsing *parsing, int fd)
-{
-	char	*line;
-	int		found;
-
-	found = 0;
-	line = "coucou";
-	while (line && found < 2)
-	{
-		line = get_next_line(fd);
-		if (!line)
-			return (false);
-		if (line[0] == 'F')
-		{
-			if (!get_color(parsing, 'F', line))
-				return (free(line), false);
-		}
-		else if (line[0] == 'C')
-		{
-			if (!get_color(parsing, 'C', line))
-				return (free(line), false);
-		}
-		if (line[0] == 'F' || line[0] == 'C')
-			found ++;
-		free(line);
-	}
-	return (true);
 }

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 13:31:58 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:01:34 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,37 @@ bool	parse_map(t_parsing *parsing, int fd)
 	return (true);
 }
 
+bool	get_params(t_parsing *parsing, int fd)
+{
+	char	*line;
+	int		found;
+
+	found = 0;
+	line = "coucou";
+	while (line && found < 6)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			return (false);
+		if (line[0] == 'F' || line[0] == 'C')
+		{
+			if (!get_color(parsing, line))
+				return (free(line), false);
+		}
+		if (line[0] == 'F' || line[0] == 'C')
+			found++;
+		if (is_texture(line))
+		{
+			if (!fill_texture(parsing, line))
+				return (free(line), false);
+		}
+		if (is_texture(line))
+			found++;
+		free(line);
+	}
+	return (true);
+}
+
 t_parsing	*parse(char *map_path)
 {
 	t_parsing	*parsing;
@@ -62,10 +93,15 @@ t_parsing	*parse(char *map_path)
 		close(fd);
 		return (NULL);
 	}
+	memset(parsing, 0, sizeof(t_parsing));
 	if (get_params(parsing, fd))
 	{
 		printf("Floor color: %d %d %d\n", parsing->floor_color[0], parsing->floor_color[1], parsing->floor_color[2]);
 		printf("Ceiling color: %d %d %d\n", parsing->ceiling_color[0], parsing->ceiling_color[1], parsing->ceiling_color[2]);
+		printf("North texture: %s\n", parsing->no);
+		printf("South texture: %s\n", parsing->so);
+		printf("West texture: %s\n", parsing->we);
+		printf("East texture: %s\n", parsing->ea);
 	}
 	else
 	{

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:25:18 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/07 13:33:30 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	parsing = parse(argv[1]);
 	if (!parsing)
 		return (EXIT_FAILURE);
+	// printf("Parsing done\n");
 	int i = -1;
 	while (parsing->map[++i])
 		printf("%s\n", parsing->map[i]);

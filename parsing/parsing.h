@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 13:01:13 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 13:25:00 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <stdio.h>
 # include <stdbool.h>
+# include <limits.h>
 
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 64
@@ -32,9 +33,11 @@ typedef struct s_vector
 typedef struct s_parsing
 {
 	char		**map;
+	t_vector	player_pos;
+	int			floor_color[3];
+	int			ceiling_color[3];
 	int			map_width;
 	int			map_height;
-	t_vector	player_pos;
 	char		player_dir;
 }				t_parsing;
 
@@ -46,7 +49,10 @@ t_parsing	*parse(char	*map_path);
 void		free_map(char **map);
 char		**map_dup(char **map);
 bool		is_map_valid(t_parsing *parsing);
+int			ft_atoi(const char *str);
+int			len_num(const char *line);
 
+bool		get_params(t_parsing *parsing, int fd);
 
 // GNL
 char		*ft_strjoin(char *s1, char *s2);

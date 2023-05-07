@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 16:04:59 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 17:10:10 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,12 @@ bool	get_params(t_parsing *parsing, int fd)
 			if (!get_color(parsing, line))
 				return (free(line), false);
 		}
-		if (line[0] == 'F' || line[0] == 'C')
-			found++;
 		if (is_texture(line))
 		{
 			if (!fill_texture(parsing, line))
 				return (free(line), false);
 		}
-		if (is_texture(line))
+		if (line[0] == 'F' || line[0] == 'C' || is_texture(line))
 			found++;
 		free(line);
 	}

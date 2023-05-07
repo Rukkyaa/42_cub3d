@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:17:59 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:24:46 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:45:57 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**add_line(char **map, char *line)
 	int		i;
 	int		len;
 	char	**new_map;
+
 	i = 0;
 	while (map[i])
 		i++;

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:43:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 12:37:27 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 12:46:04 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,8 @@ bool	check_voisin(t_parsing *parsing, char **map)
 				if (i == 0 || i == parsing->map_height - 1 || j == 0
 					|| !map[i][j + 1] || map[i][j + 1] == '\n')
 					return (false);
-				if (ft_strlen(map[i + 1]) - 1 < j || ft_strlen(map[i - 1]) - 1 < j)
+				if (ft_strlen(map[i + 1]) - 1 < j
+					|| ft_strlen(map[i - 1]) - 1 < j)
 					return (false);
 				if (map[i + 1][j] == ' ' || map[i - 1][j] == ' '
 					|| map[i][j + 1] == ' ' || map[i][j - 1] == ' ')

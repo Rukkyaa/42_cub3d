@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 17:53:21 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:45:35 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ t_parsing	*parse(char	*map_path)
 	}
 	if (!is_map_valid(parsing))
 	{
-		printf("\nError\nInvalid map\n");
+		printf("Error\nInvalid map\n");
 		free_map(parsing->map);
 		free(parsing);
 		return (NULL);

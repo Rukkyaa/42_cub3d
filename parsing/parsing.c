@@ -6,26 +6,32 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 12:52:04 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 12:56:10 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "parsing.h"
 
-char	**parse_map(char *map_path)
+bool	parse_map(t_parsing *parsing, char *map_path)
 {
+	bool		ret;
+
+	ret = true;
 	parsing->map = get_map(map_path);
 	if (!parsing->map)
+		ret = false;
+	if (ret && !is_map_valid(parsing))
 	{
-		printf("Error\nInvalid map\n");
-		return (NULL);
-	}
-	if (!is_map_valid(parsing))
-	{
-		printf("Error\nInvalid map\n");
+		ret = false;
 		free_map(parsing->map);
-		return (NULL);
 	}
+	if (!ret)
+	{
+		printf("Map is invalid\n");
+		free(parsing);
+		return (false);
+	}
+	return (true);
 }
 
 t_parsing	*parse(char	*map_path)
@@ -35,12 +41,8 @@ t_parsing	*parse(char	*map_path)
 	parsing = malloc(sizeof(t_parsing));
 	if (!parsing)
 		return (NULL);
-	parsing->map = parse_map(map_path);
-	if (!parsing->map)
-	{
-		free(parsing);
+	if (!parse_map(parsing, map_path))
 		return (NULL);
-	}
 	printf("Map is valid\n");
 	return (parsing);
 }

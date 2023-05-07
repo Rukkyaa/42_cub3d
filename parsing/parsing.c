@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 16:01:34 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:04:59 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,14 @@ t_parsing	*parse(char *map_path)
 	}
 	else
 	{
+		if (parsing->no)
+			free(parsing->no);
+		if (parsing->so)
+			free(parsing->so);
+		if (parsing->we)
+			free(parsing->we);
+		if (parsing->ea)
+			free(parsing->ea);
 		printf("Error while parsing params\n");
 		finish_reading(fd);
 		free(parsing);

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:06 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 16:02:12 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 16:03:14 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(int argc, char **argv)
 	if (!parsing)
 		return (EXIT_FAILURE);
 	// printf("Parsing done\n");
-	int i = -1;
-	while (parsing->map[++i])
-		printf("%s\n", parsing->map[i]);
+	// int i = -1;
+	// while (parsing->map[++i])
+	// 	printf("%s\n", parsing->map[i]);
 	free(parsing->no);
 	free(parsing->so);
 	free(parsing->we);

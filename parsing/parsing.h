@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 16:11:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/07 12:59:09 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_parsing	*parse(char	*map_path);
 void		free_map(char **map);
 char		**map_dup(char **map);
 bool		is_map_valid(t_parsing *parsing);
+
 
 // GNL
 char		*ft_strjoin(char *s1, char *s2);

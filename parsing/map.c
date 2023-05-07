@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:17:59 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 12:45:57 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 13:00:55 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,17 +50,13 @@ char	**add_line(char **map, char *line)
 ** @param map_path: The path to the map file
 ** @return: The map
 */
-char	**get_map(char *map_path)
+char	**get_map(int fd)
 {
 	char	**map;
-	int		fd;
 	int		i;
 	char	*line;
 
 	i = 0;
-	fd = open(map_path, O_RDONLY);
-	if (fd == -1)
-		return (NULL);
 	map = malloc(sizeof(char *));
 	if (!map)
 		return (NULL);
@@ -71,6 +67,5 @@ char	**get_map(char *map_path)
 		map = add_line(map, line);
 		line = get_next_line(fd);
 	}
-	close(fd);
 	return (map);
 }

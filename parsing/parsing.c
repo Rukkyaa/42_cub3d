@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 13:00:53 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 13:01:57 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,15 @@ t_parsing	*parse(char *map_path)
 		return (NULL);
 	parsing = malloc(sizeof(t_parsing));
 	if (!parsing)
+	{
+		close(fd);
 		return (NULL);
+	}
 	if (!parse_map(parsing, fd))
+	{
+		close(fd);
 		return (NULL);
-	
+	}
 	printf("Map is valid\n");
 	close(fd);
 	return (parsing);

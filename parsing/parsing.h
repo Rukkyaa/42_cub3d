@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 12:59:09 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 13:01:13 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_parsing
 int			ft_strlen(char const *str);
 int			map_height(char **map);
 int			map_width(char **map);
-char		**get_map(char *map_path);
+char		**get_map(int fd);
 t_parsing	*parse(char	*map_path);
 void		free_map(char **map);
 char		**map_dup(char **map);

@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:43:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 12:46:04 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 17:30:28 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_map_content(t_parsing *parsing, char **map)
 			{
 				if (parsing->player_pos.x != 0 || parsing->player_pos.y != 0)
 					return (false);
-				parsing->player_pos = (t_vector){j, i};
+				parsing->player_pos = (t_vector3d){j, i, 0};
 				parsing->player_dir = map[i][j];
 			}
 		}
@@ -88,7 +88,7 @@ bool	is_map_valid(t_parsing *parsing)
 		return (false);
 	parsing->map_height = map_height(map);
 	parsing->map_width = map_width(map);
-	parsing->player_pos = (t_vector){0, 0};
+	parsing->player_pos = (t_vector3d){0, 0};
 	parsing->player_dir = 0;
 	if (!check_map_content(parsing, map))
 	{

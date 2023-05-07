@@ -6,7 +6,7 @@
 /*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 10:48:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 15:49:03 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/07 17:30:38 by rukkyaa          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,16 +25,17 @@
 #  define BUFFER_SIZE 64
 # endif
 
-typedef struct s_vector
+typedef struct s_vector3d
 {
 	int	x;
 	int	y;
-}				t_vector;
+	int	z;
+}				t_vector3d;
 
 typedef struct s_parsing
 {
 	char		**map;
-	t_vector	player_pos;
+	t_vector3d	player_pos;
 	int			floor_color[3];
 	int			ceiling_color[3];
 	int			map_width;

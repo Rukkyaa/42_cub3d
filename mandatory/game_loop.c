@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/04 15:40:25 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/08 09:59:56 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,15 +55,11 @@ void	edit_player_pos(t_game *game)
 	else if (game->key_states['s'])
 		game->player.speed = vec_scalar_mult(game->player.direction, -1);
 	if (game->key_states['a'])
-	{
 		game->player.speed = vec_sum(game->player.speed, left);
-		game->player.speed = vec_normalize(game->player.speed);
-	}
 	else if (game->key_states['d'])
-	{
 		game->player.speed = vec_sum(game->player.speed, right);
+	if (game->key_states['a'] || game->key_states['d'])
 		game->player.speed = vec_normalize(game->player.speed);
-	}
 	if (game->key_states[2] && game->key_states['w'])
 		game->player.speed = vec_scalar_mult(game->player.speed, 12);
 	else
@@ -86,13 +82,6 @@ void	edit_player_rotate(t_game *game)
 		game->player.direction_adjust += 0.1;
 	if (game->key_states['f'])
 		game->player.direction_adjust -= 0.1;
-}
-
-void	render(t_game *game)
-{
-	render_fps(game);
-	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0,
-		0);
 }
 
 int	game_loop(void *g)

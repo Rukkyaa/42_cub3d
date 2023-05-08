@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/04 15:09:52 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/08 10:00:50 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,6 +125,7 @@ t_collision	cast_2D_ray(t_game *game, t_vector direction);
 void	img_pix_put(t_img *img, int x, int y, int color);
 void	clean_map(t_game *game);
 void    render_fps(t_game *game);
+void	render(t_game *game);
 void	clear_img(t_img *img);
 int		get_color(t_img *img, int x, int y);
 

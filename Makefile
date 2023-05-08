@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+         #
+#    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/07 21:47:59 by rukkyaa          ###   ########.fr        #
+#    Updated: 2023/05/08 10:01:25 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ NAME = cub3d
 SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
 		mandatory/free.c mandatory/move.c \
 		mandatory/raycast_2D.c \
-		mandatory/render/load.c \
+		mandatory/render/load.c mandatory/render/render.c\
 		mandatory/render/render_fps.c mandatory/render/color.c \
 		mandatory/events.c \
 

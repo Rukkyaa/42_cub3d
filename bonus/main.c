@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 17:41:08 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:49:32 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,6 @@ int	main(int argc, char **argv)
 	if (!parsing)
 		return (EXIT_FAILURE);
 	_game()->parsing = parsing;
-	// _game()->map = get_map(argv[1]);
-	int i = -1;
-	while (parsing->map[++i])
-		printf("%s\n", parsing->map[i]);
-	_game()->map = parsing->map;
 	var_init(_game());
 	hooks(_game());
 	mlx_loop(_mlx()->mlx);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_loop.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 15:17:57 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/07 21:48:54 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:01:57 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ int	main_loop(void *g)
 	if (game->mode == PLAY)
 		print_fps(game->time.fps);
 	game->player.sound_state.game_mode = game->mode;
-	game_sound(game->player.sound_state, game->audio.sounds);
+	// game_sound(game->player.sound_state, game->audio.sounds);
 	handle_sync(game);
 	game->frame_count++;
 	return (0);

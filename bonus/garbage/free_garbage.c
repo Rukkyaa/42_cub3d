@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_garbage.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 20:07:24 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/06 20:46:55 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:04:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,11 @@ void	free_spe(int exit_code)
 		free(_mlx()->mlx);
 	}
 	free_array(_game()->map);
+	free(_game()->parsing->no);
+	free(_game()->parsing->so);
+	free(_game()->parsing->we);
+	free(_game()->parsing->ea);
+	free(_game()->parsing);
 }
 
 void	free_garbage(int exit_code)

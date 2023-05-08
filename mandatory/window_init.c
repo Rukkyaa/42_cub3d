@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:16:51 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:18:35 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,6 @@ void	var_init(void)
 	_game()->texture.sky_color = 0x29b3e0;
 	_game()->texture.floor_color = 0x3ecc3e;
 	load_img(_game());
-	mlx_put_image_to_window(_game()->mlx, _game()->fps_win, _game()->fps_img.mlx_img, 0,
-		0);
+	mlx_put_image_to_window(_game()->mlx, _game()->fps_win,
+		_game()->fps_img.mlx_img, 0, 0);
 }

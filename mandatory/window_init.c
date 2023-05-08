@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 18:31:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 19:03:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,13 +64,12 @@ void	init_player(t_game *game)
 		game->player.direction.x = -1;
 	else if (game->parsing->player_dir == 'E')
 		game->player.direction.x = 1;
-
 	game->player.direction_adjust = 10;
 }
 
 int	rgb_to_argb(int tab[3])
 {
-	return (0xFF << 24) | (tab[0] << 16) | (tab[1] << 8) | tab[2];
+	return ((0xFF << 24) | (tab[0] << 16) | (tab[1] << 8) | tab[2]);
 }
 
 void	var_init(void)

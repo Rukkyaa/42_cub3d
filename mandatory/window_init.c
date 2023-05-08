@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 15:23:23 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:17:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,10 @@ t_img	create_img(char *path)
 
 void	load_img(t_game *game)
 {
-	game->texture.wall = create_img("images/retro_texture_pack/HEDGE_1A.xpm");
-	game->texture.north = create_img("images/retro_texture_pack/HEDGE_1A.xpm");
-	game->texture.east = create_img("images/retro_texture_pack/HEDGE_1B.xpm");
-	game->texture.west = create_img("images/retro_texture_pack/HEDGE_1C.xpm");
-	game->texture.south = create_img("images/retro_texture_pack/HEDGE_2A.xpm");
+	game->texture.north = create_img(game->parsing->no);
+	game->texture.south = create_img(game->parsing->so);
+	game->texture.west = create_img(game->parsing->we);
+	game->texture.east = create_img(game->parsing->ea);
 }
 
 void	init_player(t_game *game)

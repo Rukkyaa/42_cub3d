@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 17:18:01 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:31:01 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,11 @@ void	init_player(t_game *game)
 	game->player.direction_adjust = 10;
 }
 
+int	rgb_to_argb(int tab[3])
+{
+	return (0xFF << 24) | (tab[0] << 16) | (tab[1] << 8) | tab[2];
+}
+
 void	var_init(void)
 {
 	int	i;
@@ -80,8 +85,8 @@ void	var_init(void)
 	}
 	init_player(_game());
 	_game()->map = _game()->parsing->map;
-	_game()->texture.sky_color = 0x29b3e0;
-	_game()->texture.floor_color = 0x3ecc3e;
+	_game()->texture.sky_color = rgb_to_argb(_game()->parsing->ceiling_color);
+	_game()->texture.floor_color = rgb_to_argb(_game()->parsing->floor_color);
 	load_img(_game());
 	mlx_put_image_to_window(_game()->mlx, _game()->fps_win,
 		_game()->fps_img.mlx_img, 0, 0);

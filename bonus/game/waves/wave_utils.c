@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wave_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 13:40:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 19:15:10 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 18:00:37 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,9 @@ t_vector3d	get_random_pos(char **map)
 
 	while (1)
 	{
-		pos.x = (double)rand() / (double)RAND_MAX * map_width(map) * 64;
 		pos.y = (double)rand() / (double)RAND_MAX * map_heigth(map) * 64;
+		pos.x = (double)rand() / (double)RAND_MAX
+			* ft_strlen(map[(int)pos.y / 64]) * 64;
 		pos.z = 0;
 		if (map[(int)pos.y / 64][(int)pos.x / 64] == '0')
 			return (pos);

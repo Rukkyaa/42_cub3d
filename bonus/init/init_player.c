@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/23 10:53:35 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 17:51:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:54:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,21 @@ void	init_player_two(t_game *game)
 	game->player.jumping = 0;
 }
 
+void	set_player_orientation(t_game *game)
+{
+	game->player.direction.x = 0;
+	game->player.direction.y = 0;
+	if (game->parsing->player_dir == 'N')
+		game->player.direction.y = -1;
+	else if (game->parsing->player_dir == 'S')
+		game->player.direction.y = 1;
+	else if (game->parsing->player_dir == 'W')
+		game->player.direction.x = -1;
+	else if (game->parsing->player_dir == 'E')
+		game->player.direction.x = 1;
+	game->player.direction.z = 0;
+}
+
 void	init_player(t_game *game)
 {
 	game->player.pos.x = (int)game->parsing->player_pos.x * 64 + 32;
@@ -37,9 +52,7 @@ void	init_player(t_game *game)
 	game->player.pos3d.x = 1 * 64 + 32;
 	game->player.pos3d.y = 1 * 64 + 32;
 	game->player.pos3d.z = 32;
-	game->player.direction.x = 1;
-	game->player.direction.y = 0;
-	game->player.direction.z = 0;
+	set_player_orientation(game);
 	game->player.tilt = 0;
 	game->player.angle = vec_angle(game->v_left, game->player.direction)
 		* 180.0f / M_PI;

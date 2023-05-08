@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 20:07:24 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 15:19:29 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:27:15 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,28 @@ void	print_error(int exit_code)
 		printf("\033[1;31m[Error]\033[0;31m XPM file error\n\033[0m");
 	else if (exit_code == ADDR_ERROR)
 		printf("\033[1;31m[Error]\033[0;31m Address error\n\033[0m");
+	else if (exit_code == PARSING_ERROR)
+		printf("\033[1;31m[Error]\033[0;31m Parsing error\n\033[0m");
 }
 
 void	free_spe(int exit_code)
 {
-	if (exit_code > MLX_CREATION_ERROR)
+	if (exit_code != MLX_CREATION_ERROR)
 	{
 		mlx_destroy_window(_game()->mlx, _game()->fps_win);
 		mlx_destroy_image(_game()->mlx, _game()->fps_img.mlx_img);
 		mlx_destroy_display(_game()->mlx);
 		free(_game()->mlx);
 	}
-	free_array(_game()->map);
-	free(_game()->parsing->no);
-	free(_game()->parsing->so);
-	free(_game()->parsing->we);
-	free(_game()->parsing->ea);
-	free(_game()->parsing);
+	if (exit_code > PARSING_ERROR)
+	{
+		free_array(_game()->map);
+		free(_game()->parsing->no);
+		free(_game()->parsing->so);
+		free(_game()->parsing->we);
+		free(_game()->parsing->ea);
+		free(_game()->parsing);
+	}
 }
 
 void	free_garbage(int exit_code)

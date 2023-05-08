@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 15:11:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:26:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 		return (EXIT_FAILURE);
 	_game()->parsing = parse(argv[1]);
 	if (!_game()->parsing)
-		return (EXIT_FAILURE);
+		free_garbage(PARSING_ERROR);
 	var_init();
 	usleep(1000);
 	mlx_hook(_game()->fps_win, 2, 1L << 1, handle_keypress, _game());

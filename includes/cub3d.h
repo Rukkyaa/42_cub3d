@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 15:11:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:25:13 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,7 @@
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
 
+# define PARSING_ERROR 0
 # define MLX_CREATION_ERROR 1
 # define INIT_MALLOC_ERROR 2
 # define XPM_ERROR 3

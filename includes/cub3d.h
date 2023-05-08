@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:17:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:32:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 # include <fcntl.h>
 # include <math.h>
 # include <string.h>
+# include <stdbool.h>
 
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
@@ -115,6 +116,21 @@ typedef struct s_texture
 	t_img	west;
 }				t_texture;
 
+typedef struct s_parsing
+{
+	char		**map;
+	t_vector	player_pos;
+	int			floor_color[3];
+	int			ceiling_color[3];
+	int			map_width;
+	int			map_height;
+	char		player_dir;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+}				t_parsing;
+
 typedef struct s_garbage
 {
 	void				*content;
@@ -141,6 +157,28 @@ void		*my_alloc(int size);
 void		free_array(char **map);
 t_garbage	*gc_new(void *content);
 void		gc_add_back(t_garbage **gc, t_garbage *new);
+
+int			map_height(char **map);
+int			map_width(char **map);
+char		**get_map_parse(int fd);
+t_parsing	*parse(char	*map_path);
+void		free_map(char **map);
+char		**map_dup(char **map);
+bool		is_map_valid(t_parsing *parsing);
+int			ft_atoi(const char *str);
+int			len_num(const char *line);
+
+bool		get_params(t_parsing *parsing, int fd);
+bool		get_map_color(t_parsing *parsing, char *line);
+bool		is_texture(char *line);
+bool		fill_texture(t_parsing *parsing, char *line);
+char		*ft_substr(char const *s, unsigned int start, size_t len);
+
+// GNL
+char		*ft_strjoin_free(char *s1, char *s2);
+char		*ft_strchr(const char *s, int c);
+char		*ft_strdup(const char *s);
+char		*get_next_line(int fd);
 
 // Ray casting
 t_collision	cast_2d_ray(t_game *game, t_vector direction);
@@ -200,7 +238,7 @@ unsigned int img_pix_read(t_img *img, int x, int y);
 
 int		map_heigth(char **map);
 int		map_width(char **map);
-char	**get_map(char *arg);
+// char	**get_map(char *arg);
 
 /*****************************************************************
 ** $$\    $$\ $$$$$$$$\  $$$$$$\ $$$$$$$$\  $$$$$$\  $$$$$$$\   **

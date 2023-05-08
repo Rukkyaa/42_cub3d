@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_utils.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/21 14:32:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:49:29 by axlamber         ###   ########.fr       */
+/*   Created: 2023/04/24 10:48:06 by axlamber          #+#    #+#             */
+/*   Updated: 2023/05/08 14:36:05 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-int	map_heigth(char **map)
+int	main(int argc, char **argv)
 {
-	int	i;
+	t_parsing	*parsing;
 
-	i = -1;
-	while (map[++i])
-		;
-	return (i);
+	if (argc != 2)
+		return (EXIT_FAILURE);
+	parsing = parse(argv[1]);
+	if (!parsing)
+		return (EXIT_FAILURE);
+	// printf("Parsing done\n");
+	// int i = -1;
+	// while (parsing->map[++i])
+	// 	printf("%s\n", parsing->map[i]);
+	free(parsing->no);
+	free(parsing->so);
+	free(parsing->we);
+	free(parsing->ea);
+	free_map(parsing->map);
+	free(parsing);
+	return (EXIT_SUCCESS);
 }
-
-// int	map_width(char **map)
-// {
-// 	return ((int)ft_strlen(map[0]));
-// }

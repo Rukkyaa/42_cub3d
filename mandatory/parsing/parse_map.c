@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:43:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:26:54 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:36:14 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	check_map_content(t_parsing *parsing, char **map)
 			{
 				if (parsing->player_pos.x != 0 || parsing->player_pos.y != 0)
 					return (false);
-				parsing->player_pos = (t_vector3d){j, i, 0};
+				parsing->player_pos = (t_vector){j, i};
 				parsing->player_dir = map[i][j];
 			}
 		}
@@ -61,8 +61,8 @@ bool	check_voisin(t_parsing *parsing, char **map)
 				if (i == 0 || i == parsing->map_height - 1 || j == 0
 					|| !map[i][j + 1] || map[i][j + 1] == '\n')
 					return (false);
-				if (ft_strlen(map[i + 1]) - 1 < j
-					|| ft_strlen(map[i - 1]) - 1 < j)
+				if ((int)ft_strlen(map[i + 1]) - 1 < j
+					|| (int)ft_strlen(map[i - 1]) - 1 < j)
 					return (false);
 				if (map[i + 1][j] == ' ' || map[i - 1][j] == ' '
 					|| map[i][j + 1] == ' ' || map[i][j - 1] == ' ')

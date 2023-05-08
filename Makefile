@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/08 13:58:38 by axlamber         ###   ########.fr        #
+#    Updated: 2023/05/08 14:26:10 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
 		mandatory/render/load.c mandatory/render/render.c\
 		mandatory/render/render_fps.c mandatory/render/color.c \
 		mandatory/events.c \
-		mandatory/garbage/free_garbage.c mandatory/garbage/gc_utils.c mandatory/garbage/singletons.c
+		mandatory/garbage/free_garbage.c mandatory/garbage/gc_utils.c mandatory/garbage/singletons.c \
+		mandatory/parsing/get_colors.c mandatory/parsing/get_next_line_utils.c mandatory/parsing/get_next_line.c \
+		mandatory/parsing/get_texture.c mandatory/parsing/map_utils.c mandatory/parsing/map.c \
+		mandatory/parsing/parse_map.c mandatory/parsing/parsing.c
 
 
 OBJS = $(SRC:.c=.o)

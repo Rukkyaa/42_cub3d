@@ -6,23 +6,11 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:19:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:25:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:48:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-int	ft_strlen(char const *str)
-{
-	int	i;
-
-	if (!str)
-		return (0);
-	i = -1;
-	while (str[++i])
-		;
-	return (i);
-}
 
 int	map_height(char **map)
 {
@@ -43,7 +31,7 @@ int	map_width(char **map)
 	max = 0;
 	while (map[++i])
 	{
-		if (ft_strlen(map[i]) > max)
+		if ((int)ft_strlen(map[i]) > max)
 			max = ft_strlen(map[i]);
 	}
 	return (max);

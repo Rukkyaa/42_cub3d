@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 10:10:05 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:08:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@
 # include <sys/stat.h>
 # include <fcntl.h>
 # include <math.h>
+# include <string.h>
+
 #ifndef M_PI
     #define M_PI 3.14159265358979323846
 #endif
@@ -54,6 +56,13 @@
 # define WHITE_PIXEL 0xFFFFFF
 # define PALE_BLUE 	 0x25F7C6
 # define PALE_BLUE_SHADED 	 0x0D5243
+
+# define MLX_CREATION_ERROR 1
+# define INIT_MALLOC_ERROR 2
+# define XPM_ERROR 3
+# define ADDR_ERROR 4
+# define INIT_ERROR 5
+# define MALLOC_ERROR 6
 
 // TEXTURE
 
@@ -106,6 +115,12 @@ typedef struct s_texture
 	t_img	west;
 }				t_texture;
 
+typedef struct s_garbage
+{
+	void				*content;
+	struct s_garbage	*next;
+}				t_garbage;
+
 typedef struct s_game
 {
 	void		*mlx;
@@ -117,6 +132,12 @@ typedef struct s_game
 	t_player	player;
 	t_texture	texture;
 }				t_game;
+
+t_game		*_game(void);
+t_garbage	*_gc(void);
+void		free_garbage(int exit_code);
+void		*my_alloc(int size);
+void		free_array(char **map);
 
 // Ray casting
 t_collision	cast_2d_ray(t_game *game, t_vector direction);
@@ -155,7 +176,7 @@ t_vector tile_to_pixel(t_vector tile_coord);
 int tile_out_of_bound(t_vector tile_coord, t_game *game);
 int pixel_out_of_bound(float x, float y, t_img *image);
 void	draw_player(t_game *game, int color);
-void	var_init(t_game *game);
+void	var_init(void);
 char	**get_map(char *arg);
 int		close_window(t_game *game);
 void	move(t_game *game, char direction);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 10:08:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:10:12 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,27 +47,20 @@ void	init_player(t_game *game)
 	game->player.direction_adjust = 10;
 }
 
-void	var_init(t_game *game)
+void	var_init(void)
 {
 	int	i;
 
 	i = 256;
 	while (i--)
 	{
-		game->key_states[i] = 0;
-		game->key_release_states[i] = 1;
+		_game()->key_states[i] = 0;
+		_game()->key_release_states[i] = 1;
 	}
-	game->mlx = mlx_init();
-	game->fps_win = mlx_new_window(game->mlx, RES_X, RES_Y, "first_person");
-	init_player(game);
-	game->fps_img.mlx_img = mlx_new_image(game->mlx, RES_X, RES_Y);
-	game->fps_img.addr = mlx_get_data_addr(game->fps_img.mlx_img,
-			&game->fps_img.bpp, &game->fps_img.line_len, &game->fps_img.endian);
-	game->fps_img.width = RES_X / 64;
-	game->fps_img.heigth = RES_Y / 64;
-	game->texture.sky_color = 0x29b3e0;
-	game->texture.floor_color = 0x3ecc3e;
-	load_img(game);
-	mlx_put_image_to_window(game->mlx, game->fps_win, game->fps_img.mlx_img, 0,
+	init_player(_game());
+	_game()->texture.sky_color = 0x29b3e0;
+	_game()->texture.floor_color = 0x3ecc3e;
+	load_img(_game());
+	mlx_put_image_to_window(_game()->mlx, _game()->fps_win, _game()->fps_img.mlx_img, 0,
 		0);
 }

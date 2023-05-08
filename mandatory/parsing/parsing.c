@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 16:22:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:23:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,7 @@ t_parsing	*parse(char *map_path)
 		return (NULL);
 	parsing = malloc(sizeof(t_parsing));
 	if (!parsing)
-	{
-		close(fd);
-		return (NULL);
-	}
+		return (close(fd), NULL);
 	memset(parsing, 0, sizeof(t_parsing));
 	if (!get_params(parsing, fd))
 	{
@@ -113,12 +110,7 @@ t_parsing	*parse(char *map_path)
 		return (NULL);
 	}
 	if (!parse_map(parsing, fd))
-	{
-		free_texture(parsing);
-		free(parsing);
-		close(fd);
-		return (NULL);
-	}
+		return (free_texture(parsing), free(parsing), close(fd), NULL);
 	close(fd);
 	return (parsing);
 }

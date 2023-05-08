@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 20:35:51 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:36:19 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,27 @@
 
 # include "structs.h"
 
+// Parsing
+int				map_height(char **map);
+int				map_width(char **map);
+char			**get_map_parse(int fd);
+t_parsing		*parse(char	*map_path);
+void			free_map(char **map);
+char			**map_dup(char **map);
+bool			is_map_valid(t_parsing *parsing);
+int				ft_atoi(const char *str);
+int				len_num(const char *line);
+
+bool			get_params(t_parsing *parsing, int fd);
+bool			get_map_color(t_parsing *parsing, char *line);
+bool			is_texture(char *line);
+bool			fill_texture(t_parsing *parsing, char *line);
+char			*ft_substr(char const *s, unsigned int start, size_t len);
+
+char			*ft_strjoin_free(char *s1, char *s2);
+char			*ft_strchr(const char *s, int c);
+char			*ft_strdup(const char *s);
+char			*get_next_line(int fd);
 // Color conversions
 int				get_t(int trgb);
 int				get_r(int trgb);

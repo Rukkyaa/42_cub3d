@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 14:45:58 by theo              #+#    #+#             */
-/*   Updated: 2023/05/06 20:42:59 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:33:25 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -413,6 +413,20 @@ typedef struct s_wall_task
 	int				line_height;
 }				t_wall_task;
 
+typedef struct s_parsing
+{
+	char		**map;
+	t_vector	player_pos;
+	int			floor_color[3];
+	int			ceiling_color[3];
+	int			map_width;
+	int			map_height;
+	char		player_dir;
+	char		*no;
+	char		*so;
+	char		*we;
+	char		*ea;
+}				t_parsing;
 
 // -----------------------------------------------
 
@@ -457,13 +471,10 @@ typedef struct s_game
 	void			*debug_win;
 	t_img			debug_img;
 	t_img			minimap;
-
 	t_wave			*current_wave;
 	int				wave_count;
-
 	int				floor_color;
 	int				roof_color;
-	
 	int				mouse_clicked;
 	int				inventory_display;
 	t_audio			audio;
@@ -471,7 +482,6 @@ typedef struct s_game
 	int				mode;
 	int				menu_fade_start;
 	int				game_start_time;
-
 	pthread_t 		wall_threads[NB_THREADS];
 	t_wall_task 	wall_tasks[RES_X];
 	pthread_mutex_t	print_rights;
@@ -482,6 +492,7 @@ typedef struct s_game
 	int				task_count;
 	int				task_done;
 	int				render_finished;
+	t_parsing		*parsing;
 }				t_game;
 
 

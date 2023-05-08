@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/08 14:26:10 by axlamber         ###   ########.fr        #
+#    Updated: 2023/05/08 17:32:32 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -84,7 +84,7 @@ VECTOR_SRC_BONUS = $(addprefix bonus/vector/vec_, $(addsuffix .c, angle distance
 VECTOR_OBJS_BONUS = $(VECTOR_SRC_BONUS:.c=.o)
 
 # SOUND FILES #
-SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds miniaudio))
+SOUND_SRC_BONUS = $(addprefix bonus/sound/, $(addsuffix .c, sound game_sound load_sounds))
 SOUND_OBJS_BONUS = $(SOUND_SRC_BONUS:.c=.o) 
 
 # RENDER #
@@ -127,8 +127,12 @@ INIT_OBJS_BONUS = $(INIT_SRC_BONUS:.c=.o)
 GARBAGE_SRC_BONUS = $(addprefix bonus/garbage/, $(addsuffix .c, gc_utils free_garbage))
 GARBAGE_OBJS_BONUS = $(GARBAGE_SRC_BONUS:.c=.o)
 
+PARSING_SRC_BONUS = $(addprefix bonus/parsing/, $(addsuffix .c, get_colors get_next_line get_next_line_utils \
+	get_texture map_utils map parse_map parsing))
+PARSING_OBJS_BONUS = $(PARSING_SRC_BONUS:.c=.o)
+
 # MINIAUDIO #
-# MINIAUDIO = bonus/sound/miniaudio.o
+MINIAUDIO = bonus/sound/miniaudio.o
 
 HEADERS_BONUS = ./includes/cub3d_bonus.h ./includes/miniaudio.h
 
@@ -165,7 +169,7 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
 	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
 	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS)  
+	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS) $(PARSING_OBJS_BONUS)
 	@printf "\033[K\033[1;32m| Cub3d bonus: compiled                |\n\033[m"
 	@make --no-print-directory -C libft/
 	@make --no-print-directory -C cjson/ > /dev/null
@@ -173,33 +177,12 @@ $(NAME_BONUS) : $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
 	@cc $(OBJS_BONUS) -O3 $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS) $(PARSING_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
 		-lpthread -ldl -Lcjson/ -lcjson $(LIBFT) -o $(NAME_BONUS)
 	@printf "\033[1;32m========================================\n"
 	@printf "|            BONUS FINISHED !          |\n"
 	@printf "========================================\n\033[m"
 	@setterm -cursor on
-
-perf: fclean $(HEADERS_BONUS) $(OBJS_BONUS) $(SHAPE_OBJS_BONUS)\
-	$(MAP_OBJS_BONUS) $(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS)\
-	$(RENDER_OBJS_BONUS) $(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS)\
-	$(SINGLETONS_OBJS_BONUS) $(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS)\
-	$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)  $(EVENTS_OBJS_BONUS)
-	@printf "\033[K\033[1;32m| Cub3d bonus perf: compiled           |\n\033[m"
-	@make --no-print-directory -C libft/
-	@cc $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
-		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
-		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(MINIAUDIO) $(MLXFLAGS)\
-		$(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS)\
-		-pg -lpthread -ldl $(LIBFT) -o $(NAME_BONUS)
-	@printf "\033[1;32m========================================\n"
-	@printf "|            PERF FINISHED !           |\n"
-	@printf "========================================\n\033[m"
-	@setterm -cursor on
-	@./cub3d_bonus maps/chichi.cub
-	@gprof cub3d_bonus gmon.out > analysis.txt
-	@rm gmon.out
 
 clean:
 	@printf "\033[1;31m========================================\n"
@@ -212,7 +195,7 @@ clean:
 	@rm -f $(OBJS_BONUS) $(SHAPE_OBJS_BONUS) $(MAP_OBJS_BONUS)\
 		$(VECTOR_OBJS_BONUS) $(SOUND_OBJS_BONUS) $(RENDER_OBJS_BONUS)\
 		$(INVENTORY_OBJS_BONUS) $(GAME_OBJS_BONUS) $(SINGLETONS_OBJS_BONUS)\
-		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS)
+		$(SPRITES_OBJS_BONUS) $(INIT_OBJS_BONUS) $(GARBAGE_OBJS_BONUS) $(WAVE_OBJS_BONUS) $(EVENTS_OBJS_BONUS) $(PARSING_OBJS_BONUS)
 	@printf "\033[1;31m========================================\n\033[m"
 
 fclean: clean

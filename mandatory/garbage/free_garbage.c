@@ -6,27 +6,27 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 20:07:24 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 14:00:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:17:41 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-// void	destroy_img(void)
-// {
-// 	t_garbage	*gc_img;
-// 	t_garbage	*tmp;
+void	destroy_img(void)
+{
+	t_garbage	*gc_img;
+	t_garbage	*tmp;
 
-// 	gc_img = _gc_img();
-// 	while (gc_img)
-// 	{
-// 		tmp = gc_img;
-// 		gc_img = gc_img->next;
-// 		if (tmp->content)
-// 			mlx_destroy_image(_mlx()->mlx, tmp->content);
-// 		free(tmp);
-// 	}
-// }
+	gc_img = _gc_img();
+	while (gc_img)
+	{
+		tmp = gc_img;
+		gc_img = gc_img->next;
+		if (tmp->content)
+			mlx_destroy_image(_game()->mlx, tmp->content);
+		free(tmp);
+	}
+}
 
 void	print_error(int exit_code)
 {
@@ -59,7 +59,7 @@ void	free_garbage(int exit_code)
 
 	print_error(exit_code);
 	gc = _gc();
-	// destroy_img();
+	destroy_img();
 	free_spe(exit_code);
 	while (gc)
 	{

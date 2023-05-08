@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:08:07 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:17:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,9 +135,12 @@ typedef struct s_game
 
 t_game		*_game(void);
 t_garbage	*_gc(void);
+t_garbage	*_gc_img(void);
 void		free_garbage(int exit_code);
 void		*my_alloc(int size);
 void		free_array(char **map);
+t_garbage	*gc_new(void *content);
+void		gc_add_back(t_garbage **gc, t_garbage *new);
 
 // Ray casting
 t_collision	cast_2d_ray(t_game *game, t_vector direction);

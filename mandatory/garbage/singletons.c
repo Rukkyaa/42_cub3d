@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 13:45:53 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 13:59:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:14:58 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,21 @@ t_game	*_game(void)
 		game->fps_img.heigth = RES_Y / 64;
 	}
 	return (game);
+}
+
+t_garbage	*_gc_img(void)
+{
+	static t_garbage	*gc_img = NULL;
+
+	if (!gc_img)
+	{
+		gc_img = malloc(sizeof(t_garbage));
+		if (!gc_img)
+			return (NULL);
+		gc_img->content = NULL;
+		gc_img->next = NULL;
+	}
+	return (gc_img);
 }
 
 t_garbage	*_gc(void)

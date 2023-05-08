@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   debug_map.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/07 14:55:08 by theo              #+#    #+#             */
-/*   Updated: 2023/05/01 16:12:52 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/08 17:45:33 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	load_map_debug(t_game *game)
 	while (++i < map_heigth(game->map))
 	{
 		j = -1;
-		while (++j < (map_width(game->map)))
+		while (++j < (int)ft_strlen(game->map[i]))
 		{
 			pos.x = MAP_MARGIN + j * 16;
 			pos.y = MAP_MARGIN + i * 16;

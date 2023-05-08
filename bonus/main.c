@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rukkyaa <rukkyaa@student.42.fr>            +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/06 20:21:23 by rukkyaa          ###   ########.fr       */
+/*   Updated: 2023/05/08 17:41:08 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 
 int	main(int argc, char **argv)
 {
+	t_parsing	*parsing;
+
 	if (argc != 2)
 		return (EXIT_FAILURE);
 	if (!_gc())
@@ -23,7 +25,15 @@ int	main(int argc, char **argv)
 			of the gc's singleton failed\n\033[0m");
 		exit(0);
 	}
-	_game()->map = get_map(argv[1]);
+	parsing = parse(argv[1]);
+	if (!parsing)
+		return (EXIT_FAILURE);
+	_game()->parsing = parsing;
+	// _game()->map = get_map(argv[1]);
+	int i = -1;
+	while (parsing->map[++i])
+		printf("%s\n", parsing->map[i]);
+	_game()->map = parsing->map;
 	var_init(_game());
 	hooks(_game());
 	mlx_loop(_mlx()->mlx);

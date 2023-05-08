@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:57:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 14:35:38 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 17:20:26 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	get_map_color(t_parsing *parsing, char *line)
 	while (line[++i] != '\0' && line[i] != '\n')
 	{
 		if (!is_valid_color_content(line[i]) || (color_index > 2
-			&& line[i] >= '0' && line[i] <= '9'))
+				&& line[i] >= '0' && line[i] <= '9'))
 			return (false);
 		if (line[i] >= '0' && line[i] <= '9')
 		{

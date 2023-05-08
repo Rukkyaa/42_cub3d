@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 10:03:52 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 10:08:07 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ void	init_player(t_game *game)
 {
 	game->player.pos.x = 3 * 64 + 32;
 	game->player.pos.y = 3 * 64 + 32;
+	game->player.speed.x = 0;
+	game->player.speed.y = 0;
 	game->player.collision_pos.x = game->player.pos.x + 32;
 	game->player.collision_pos.y = game->player.pos.y + 32;
 	game->player.direction.x = 1;

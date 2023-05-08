@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/24 14:55:43 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/24 18:12:25 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 18:57:44 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	init_sounds(t_audio *audio)
 {
 	ma_result	result;
 
+	if (!SOUND)
+		return ;
 	result = ma_engine_init(NULL, &audio->engine);
 	if (result != MA_SUCCESS)
 		return ;

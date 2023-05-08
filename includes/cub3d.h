@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:32:30 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:11:30 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,6 +147,7 @@ typedef struct s_game
 	int				key_release_states[256];
 	t_player	player;
 	t_texture	texture;
+	t_parsing	*parsing;
 }				t_game;
 
 t_game		*_game(void);

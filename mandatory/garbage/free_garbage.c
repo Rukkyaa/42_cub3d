@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 20:07:24 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 14:17:41 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:19:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,11 @@ void	free_spe(int exit_code)
 		free(_game()->mlx);
 	}
 	free_array(_game()->map);
+	free(_game()->parsing->no);
+	free(_game()->parsing->so);
+	free(_game()->parsing->we);
+	free(_game()->parsing->ea);
+	free(_game()->parsing);
 }
 
 void	free_garbage(int exit_code)

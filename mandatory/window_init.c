@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:50:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 14:18:35 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/08 15:17:34 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,9 @@ void	load_img(t_game *game)
 
 void	init_player(t_game *game)
 {
-	game->player.pos.x = 3 * 64 + 32;
+	// game->player.pos.x = game->parsing->player_pos.x * 64 + 32;
+	// game->player.pos.y = game->parsing->player_pos.y * 64 + 32;
+	game->player.pos.x = 13 * 64 + 32;
 	game->player.pos.y = 3 * 64 + 32;
 	game->player.speed.x = 0;
 	game->player.speed.y = 0;
@@ -71,6 +73,7 @@ void	var_init(void)
 		_game()->key_release_states[i] = 1;
 	}
 	init_player(_game());
+	_game()->map = _game()->parsing->map;
 	_game()->texture.sky_color = 0x29b3e0;
 	_game()->texture.floor_color = 0x3ecc3e;
 	load_img(_game());

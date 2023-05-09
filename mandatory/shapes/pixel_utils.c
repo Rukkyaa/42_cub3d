@@ -6,7 +6,7 @@
 /*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 13:08:44 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/09 13:11:51 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	pixel_out_of_bound(float x, float y, t_img *image)
 {
 	t_vector	pixel_coord;
 
+	(void)image;
 	pixel_coord.x = x;
 	pixel_coord.y = y;
 	return (!(0 <= pixel_coord.x && pixel_coord.x < RES_X

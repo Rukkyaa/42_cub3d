@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 19:02:22 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:34:27 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@
 # define LEFT 65363
 # define SHIFT 65505
 
-# define FOV_RADIANS (M_PI / 2)
+# define FOV_RADIANS 1.5707963268
 # define FOV 60
 
 # define RES_X 1600

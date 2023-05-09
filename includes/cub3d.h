@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 11:35:56 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/09 11:48:02 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -182,6 +182,7 @@ char		**map_dup(char **map);
 bool		is_map_valid(t_parsing *parsing);
 int			ft_atoi(const char *str);
 int			len_num(const char *line);
+bool		is_valid_map_name(char *str);
 
 bool		get_params(t_parsing *parsing, int fd);
 bool		get_map_color(t_parsing *parsing, char *line);

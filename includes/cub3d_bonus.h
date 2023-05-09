@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 11:34:27 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:16:11 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,7 @@ bool			get_map_color(t_parsing *parsing, char *line);
 bool			is_texture(char *line);
 bool			fill_texture(t_parsing *parsing, char *line);
 char			*ft_substr(char const *s, unsigned int start, size_t len);
+bool			is_valid_map_name(char *str);
 
 char			*ft_strjoin_free(char *s1, char *s2);
 char			*ft_strchr(const char *s, int c);

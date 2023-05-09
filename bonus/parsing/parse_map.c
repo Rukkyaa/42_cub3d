@@ -6,11 +6,30 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:43:09 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 18:19:04 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:16:00 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d_bonus.h"
+
+bool	is_valid_map_name(char *str)
+{
+	int	i;
+
+	i = ft_strlen(str);
+	if (i < 5)
+	{
+		printf("Map name is too short\n");
+		return (false);
+	}
+	if (str[i - 1] != 'b' || str[i - 2] != 'u' || str[i - 3] != 'c'
+		|| str[i - 4] != '.')
+	{
+		printf("Map name is invalid\n");
+		return (false);
+	}
+	return (true);
+}
 
 bool	is_valid_content(char c)
 {

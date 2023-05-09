@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 18:24:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:45:55 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,8 @@ t_parsing	*parse(char *map_path)
 	t_parsing	*parsing;
 	int			fd;
 
+	if (!is_valid_map_name(map_path))
+		return (NULL);
 	fd = open(map_path, O_RDONLY);
 	if (fd == -1)
 		return (NULL);

@@ -6,7 +6,7 @@
 #    By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/10/18 17:19:09 by axlamber          #+#    #+#              #
-#    Updated: 2023/05/08 18:22:59 by axlamber         ###   ########.fr        #
+#    Updated: 2023/05/09 10:10:18 by axlamber         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,7 @@ NAME = cub3d
 
 SRC = mandatory/main.c mandatory/window_init.c mandatory/game_loop.c \
 		mandatory/free.c mandatory/move.c \
-		mandatory/raycast_2D.c \
+		mandatory/raycast_2D.c mandatory/raycast_2D_utils.c\
 		mandatory/render/load.c mandatory/render/render.c\
 		mandatory/render/render_fps.c mandatory/render/color.c \
 		mandatory/events.c \

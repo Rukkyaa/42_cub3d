@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 15:25:13 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:11:24 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -184,6 +184,9 @@ char		*get_next_line(int fd);
 
 // Ray casting
 t_collision	cast_2d_ray(t_game *game, t_vector direction);
+char		get_collision_orientation(char last_step, t_vector v_step);
+double		get_texture_x(char last_step, t_vector v_collision_point,
+	t_vector v_map_check);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   render_fps.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 14:14:00 by theo              #+#    #+#             */
-/*   Updated: 2023/05/08 10:10:20 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:44:47 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,12 @@ void	update_collision(t_collision *collision, t_game *game,
 	v_player_to_camera_plane = vec_scalar_mult(game->player.direction,
 			game->player.direction_adjust);
 	v_right = vec_normalize(vec_rotate(game->player.direction, 90));
-	*collision = cast_2d_ray(game,
+	*collision = cast_two_d_ray(game,
 			vec_normalize(vec_sum(v_player_to_camera_plane,
 					vec_scalar_mult(v_right,
 						((2.0f * (float)line_pos.x / (RES_X - 1.0f))
 							- 1.0f) * half_width))));
-	collision->distance = collision->distance
+	collision->distance = collision->distance / 64
 		* cosf(vec_angle(vec_normalize(vec_sum(v_player_to_camera_plane,
 						vec_scalar_mult(v_right, ((2.0f * (float)line_pos.x
 									/ (RES_X - 1.0f)) - 1.0f) * half_width))),

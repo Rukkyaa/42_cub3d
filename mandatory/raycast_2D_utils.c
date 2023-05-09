@@ -3,98 +3,96 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:09:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 10:24:48 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:38:39 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 
-t_collision	fill_collision(t_vector point, float distance, char orientation,
-		int x_pos_tex)
+void	init_raycast_two(t_game *game, t_raycast_data *d)
 {
-	t_collision	collision;
-
-	collision.point = point;
-	collision.distance = distance;
-	collision.orientation = orientation;
-	collision.x_pos_tex = x_pos_tex;
-	return (collision);
+	if (d->v_ray_dir.y < 0)
+	{
+		d->v_step.y = -1;
+		d->v_ray_length_1D.y = (game->player.pos.y
+				- tile_to_pixel(d->v_map_check).y) / 64 * d->v_ray_unit_step.y;
+	}
+	else
+	{
+		d->v_step.y = 1;
+		d->v_ray_length_1D.y = (tile_to_pixel(d->v_map_check).y + 64
+				- game->player.pos.y) / 64 * d->v_ray_unit_step.y;
+	}
 }
 
-t_collision	cast_2d_ray(t_game *game, t_vector direction)
+void	init_raycast(t_game *game, t_vector direction, t_raycast_data *d)
 {
-	t_vector	v_ray_dir;
-	t_vector	v_step;
-	t_vector	v_ray_length_1d;
-	t_vector	v_map_check;
-	t_vector	collision_point;
-	char		last_step;
-	int			i;
-	t_vector	v_ray_unit_step;
-	int			tile_found;
-	float		distance;
+	d->v_map_check = pixel_to_tile(game->player.pos);
+	d->v_ray_dir = direction;
+	d->v_ray_unit_step.x = sqrt(1 + (d->v_ray_dir.y / d->v_ray_dir.x)
+			* (d->v_ray_dir.y / d->v_ray_dir.x));
+	d->v_ray_unit_step.y = sqrt(1 + (d->v_ray_dir.x / d->v_ray_dir.y)
+			* (d->v_ray_dir.x / d->v_ray_dir.y));
+	if (d->v_ray_dir.x < 0)
+	{
+		d->v_step.x = -1;
+		d->v_ray_length_1D.x = (game->player.pos.x
+				- tile_to_pixel(d->v_map_check).x) / 64 * d->v_ray_unit_step.x;
+	}
+	else
+	{
+		d->v_step.x = 1;
+		d->v_ray_length_1D.x = (tile_to_pixel(d->v_map_check).x + 64
+				- game->player.pos.x) / 64 * d->v_ray_unit_step.x;
+	}
+	init_raycast_two(game, d);
+}
 
-	v_ray_dir = direction;
-	v_map_check = pixel_to_tile(game->player.pos);
-	i = 0;
-	v_ray_unit_step.x = sqrt(1 + (v_ray_dir.y / v_ray_dir.x) * (v_ray_dir.y
-				/ v_ray_dir.x));
-	v_ray_unit_step.y = sqrt(1 + (v_ray_dir.x / v_ray_dir.y) * (v_ray_dir.x
-				/ v_ray_dir.y));
-	if (v_ray_dir.x < 0)
+void	fill_collision(t_raycast_data *d, char last_step)
+{
+	d->collision.distance = d->distance * 64;
+	d->collision.orientation = get_collision_orientation(last_step, d->v_step);
+	d->collision.x_pos_tex = get_texture_x(last_step, d->collision_point,
+			d->v_map_check);
+}
+
+void	make_step(t_raycast_data *d)
+{
+	if (d->v_ray_length_1D.x < d->v_ray_length_1D.y)
 	{
-		v_step.x = -1;
-		v_ray_length_1d.x = (game->player.pos.x - tile_to_pixel(v_map_check).x)
-			/ 64 * v_ray_unit_step.x;
+		d->last_step = 'x';
+		d->v_map_check.x += d->v_step.x;
+		d->distance = d->v_ray_length_1D.x;
+		d->v_ray_length_1D.x += d->v_ray_unit_step.x;
 	}
 	else
 	{
-		v_step.x = 1;
-		v_ray_length_1d.x = (tile_to_pixel(v_map_check).x + 64
-				- game->player.pos.x) / 64 * v_ray_unit_step.x;
+		d->last_step = 'y';
+		d->v_map_check.y += d->v_step.y;
+		d->distance = d->v_ray_length_1D.y;
+		d->v_ray_length_1D.y += d->v_ray_unit_step.y;
 	}
-	if (v_ray_dir.y < 0)
-	{
-		v_step.y = -1;
-		v_ray_length_1d.y = (game->player.pos.y - tile_to_pixel(v_map_check).y)
-			/ 64 * v_ray_unit_step.y;
-	}
-	else
-	{
-		v_step.y = 1;
-		v_ray_length_1d.y = (tile_to_pixel(v_map_check).y + 64
-				- game->player.pos.y) / 64 * v_ray_unit_step.y;
-	}
+}
+
+t_collision	cast_two_d_ray(t_game *game, t_vector direction)
+{
+	t_raycast_data	d;
+	int				tile_found;
+
 	tile_found = 0;
-	distance = 0.0f;
+	d.distance = 0;
+	init_raycast(game, direction, &d);
 	while (!tile_found)
 	{
-		if (v_ray_length_1d.x < v_ray_length_1d.y)
-		{
-			last_step = 'x';
-			v_map_check.x += v_step.x;
-			distance = v_ray_length_1d.x;
-			v_ray_length_1d.x += v_ray_unit_step.x;
-		}
-		else
-		{
-			last_step = 'y';
-			v_map_check.y += v_step.y;
-			distance = v_ray_length_1d.y;
-			v_ray_length_1d.y += v_ray_unit_step.y;
-		}
-		collision_point = vec_scalar_mult(v_ray_dir, distance * 64);
-		collision_point = vec_sum(collision_point, game->player.pos);
-		i++;
-		if (game->map[(int)v_map_check.y][(int)v_map_check.x] == '1')
+		make_step(&d);
+		d.collision_point = vec_scalar_mult(d.v_ray_dir, d.distance * 64);
+		d.collision_point = vec_sum(d.collision_point, game->player.pos);
+		if (game->map[(int)d.v_map_check.y][(int)d.v_map_check.x] == '1')
 			tile_found = 1;
-		else
-			game->map[(int)v_map_check.y][(int)v_map_check.x] = 'B';
 	}
-	return (fill_collision(collision_point, distance,
-			get_collision_orientation(last_step, v_step),
-			get_texture_x(last_step, collision_point, v_map_check)));
+	fill_collision(&d, d.last_step);
+	return ((d.collision));
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 12:45:39 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 10:11:24 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 11:35:56 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,6 +132,19 @@ typedef struct s_parsing
 	char		*ea;
 }				t_parsing;
 
+typedef struct s_raycast_data
+{
+	struct vector v_ray_dir;
+	struct vector v_step;
+	struct vector v_ray_length_1D;
+	struct vector v_map_check;
+	struct vector v_ray_unit_step;
+    struct vector collision_point;
+    t_collision collision;
+    float distance;
+	char		last_step;
+}				t_raycast_data;
+
 typedef struct s_garbage
 {
 	void				*content;
@@ -183,10 +196,11 @@ char		*ft_strdup(const char *s);
 char		*get_next_line(int fd);
 
 // Ray casting
-t_collision	cast_2d_ray(t_game *game, t_vector direction);
+t_collision	cast_two_d_ray(t_game *game, t_vector direction);
 char		get_collision_orientation(char last_step, t_vector v_step);
 double		get_texture_x(char last_step, t_vector v_collision_point,
 	t_vector v_map_check);
+void	get_wall(t_game *game, t_collision *collision, char c);
 
 // Render
 void	img_pix_put(t_img *img, int x, int y, int color);

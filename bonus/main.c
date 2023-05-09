@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 19:01:59 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:22:40 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ int	main(int argc, char **argv)
 	if (!parsing)
 		return (EXIT_FAILURE);
 	_game()->parsing = parsing;
+	random_wall(_game()->parsing->map);
 	if (!_gc())
 	{
 		printf("\033[1;31m[Error]\033[0;31m Creation \

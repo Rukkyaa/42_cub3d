@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_map.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 13:16:26 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/08 17:36:34 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:35:32 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,68 +37,26 @@
 // 	return (strjoin);
 // }
 
-static char	*random_wall(char *s)
+char	**random_wall(char **s)
 {
-	int	len;
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
-	len = ft_strlen(s);
-	i = -1;
+	i = 0;
 	srand(time(NULL));
-	while (++i < len)
-		if (s[i] == '1')
-			s[i] = (rand() % 4) + 1 + '0';
-	return (s);
-}
-
-static char	**string_to_map(char *s)
-{
-	char	**array;
-
-	if (!s)
-		return (NULL);
-	s = random_wall(s);
-	array = ft_split(s, '\n');
-	if (!array)
-		return (NULL);
-	return (array);
-}
-
-static char	**fd_to_map(int fd)
-{
-	ssize_t	len_read;
-	char	*str;
-	char	*buffer;
-
-	buffer = (char *)my_alloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buffer)
-		return (NULL);
-	str = (char *)my_alloc(1 * sizeof(char));
-	if (!str)
-		return (NULL);
-	str[0] = '\0';
-	len_read = 1;
-	while (len_read)
+	while (s[i])
 	{
-		len_read = read(fd, buffer, BUFFER_SIZE);
-		if (len_read == -1)
-			return (NULL);
-		buffer[len_read] = '\0';
-		str = ft_strjoin_free(str, buffer);
+		j = 0;
+		while (j < ft_strlen(s[i]))
+		{
+			if (s[i][j] == '1')
+				s[i][j] = (rand() % 4) + 1 + '0';
+			if (s[i][j] == 'N' || s[i][j] == 'E' || s[i][j] == 'S'
+				|| s[i][j] == 'W')
+				s[i][j] = '0';
+			j++;
+		}
+		i++;
 	}
-	return (string_to_map(str));
-}
-
-char	**get_map(char *arg)
-{
-	int		fd;
-	char	**map;
-
-	fd = open(arg, O_RDONLY);
-	if (fd < 0 || fd > 1024)
-		return (NULL);
-	map = fd_to_map(fd);
-	if (!map)
-		return (NULL);
-	return (map);
+	return (s);
 }

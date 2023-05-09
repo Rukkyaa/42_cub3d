@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   pixel_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
+/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 14:17:19 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/11 14:38:49 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:08:44 by teliet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	pixel_out_of_bound(float x, float y, t_img *image)
 
 	pixel_coord.x = x;
 	pixel_coord.y = y;
-	return (!(0 <= pixel_coord.x && pixel_coord.x < image->width * 64
-			&& 0 <= pixel_coord.y && pixel_coord.y < image->heigth * 64));
+	return (!(0 <= pixel_coord.x && pixel_coord.x < RES_X
+			&& 0 <= pixel_coord.y && pixel_coord.y < RES_Y));
 }
 
 t_vector	tile_to_pixel(t_vector tile_coord)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   raycast_2D.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: teliet <teliet@student.42.fr>              +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 14:15:48 by teliet            #+#    #+#             */
-/*   Updated: 2023/05/02 14:54:49 by teliet           ###   ########.fr       */
+/*   Updated: 2023/05/09 12:00:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ void	init_raycast_two(t_game *game, t_raycast_data *d)
 	if (d->v_ray_dir.y < 0)
 	{
 		d->v_step.y = -1;
-		d->v_ray_length_1D.y = (game->player.pos.y
+		d->v_ray_length_1d.y = (game->player.pos.y
 				- tile_to_pixel(d->v_map_check).y) / 64 * d->v_ray_unit_step.y;
 	}
 	else
 	{
 		d->v_step.y = 1;
-		d->v_ray_length_1D.y = (tile_to_pixel(d->v_map_check).y + 64
+		d->v_ray_length_1d.y = (tile_to_pixel(d->v_map_check).y + 64
 				- game->player.pos.y) / 64 * d->v_ray_unit_step.y;
 	}
 }
@@ -39,13 +39,13 @@ void	init_raycast(t_game *game, t_vector3d direction, t_raycast_data *d)
 	if (d->v_ray_dir.x < 0)
 	{
 		d->v_step.x = -1;
-		d->v_ray_length_1D.x = (game->player.pos.x
+		d->v_ray_length_1d.x = (game->player.pos.x
 				- tile_to_pixel(d->v_map_check).x) / 64 * d->v_ray_unit_step.x;
 	}
 	else
 	{
 		d->v_step.x = 1;
-		d->v_ray_length_1D.x = (tile_to_pixel(d->v_map_check).x + 64
+		d->v_ray_length_1d.x = (tile_to_pixel(d->v_map_check).x + 64
 				- game->player.pos.x) / 64 * d->v_ray_unit_step.x;
 	}
 	init_raycast_two(game, d);
@@ -61,19 +61,19 @@ void	fill_collision(t_raycast_data *d, char last_step)
 
 void	make_step(t_raycast_data *d)
 {
-	if (d->v_ray_length_1D.x < d->v_ray_length_1D.y)
+	if (d->v_ray_length_1d.x < d->v_ray_length_1d.y)
 	{
 		d->last_step = 'x';
 		d->v_map_check.x += d->v_step.x;
-		d->distance = d->v_ray_length_1D.x;
-		d->v_ray_length_1D.x += d->v_ray_unit_step.x;
+		d->distance = d->v_ray_length_1d.x;
+		d->v_ray_length_1d.x += d->v_ray_unit_step.x;
 	}
 	else
 	{
 		d->last_step = 'y';
 		d->v_map_check.y += d->v_step.y;
-		d->distance = d->v_ray_length_1D.y;
-		d->v_ray_length_1D.y += d->v_ray_unit_step.y;
+		d->distance = d->v_ray_length_1d.y;
+		d->v_ray_length_1d.y += d->v_ray_unit_step.y;
 	}
 }
 

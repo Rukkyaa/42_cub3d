@@ -6,11 +6,23 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:09:49 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 10:10:33 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 10:24:48 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
+
+t_collision	fill_collision(t_vector point, float distance, char orientation,
+		int x_pos_tex)
+{
+	t_collision	collision;
+
+	collision.point = point;
+	collision.distance = distance;
+	collision.orientation = orientation;
+	collision.x_pos_tex = x_pos_tex;
+	return (collision);
+}
 
 t_collision	cast_2d_ray(t_game *game, t_vector direction)
 {
@@ -19,7 +31,6 @@ t_collision	cast_2d_ray(t_game *game, t_vector direction)
 	t_vector	v_ray_length_1d;
 	t_vector	v_map_check;
 	t_vector	collision_point;
-	t_collision	collision;
 	char		last_step;
 	int			i;
 	t_vector	v_ray_unit_step;
@@ -83,10 +94,7 @@ t_collision	cast_2d_ray(t_game *game, t_vector direction)
 		else
 			game->map[(int)v_map_check.y][(int)v_map_check.x] = 'B';
 	}
-	collision.distance = distance;
-	collision.orientation = get_collision_orientation(last_step, v_step);
-	collision.point = collision_point;
-	collision.x_pos_tex = get_texture_x(last_step, collision_point,
-			v_map_check);
-	return ((collision));
+	return (fill_collision(collision_point, distance,
+			get_collision_orientation(last_step, v_step),
+			get_texture_x(last_step, collision_point, v_map_check)));
 }

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 15:07:00 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 13:47:37 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:04:18 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@ int	main(int argc, char **argv)
 {
 	t_parsing	*parsing;
 
+	_game();
 	if (argc != 2)
 		return (EXIT_FAILURE);
-	_game();
 	parsing = parse(argv[1]);
 	if (!parsing)
-		return (EXIT_FAILURE);
+		return (free_garbage(PARSING_ERROR), EXIT_FAILURE);
 	_game()->parsing = parsing;
 	var_init();
 	usleep(1000);

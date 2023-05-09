@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 20:07:24 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/09 13:47:58 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:04:10 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,9 @@ void	free_spe(int exit_code)
 		mlx_destroy_image(_game()->mlx, _game()->fps_img.mlx_img);
 		mlx_destroy_display(_game()->mlx);
 		free(_game()->mlx);
+	}
+	if (exit_code != PARSING_ERROR)
+	{
 		free_array(_game()->parsing->map);
 		free(_game()->parsing->no);
 		free(_game()->parsing->so);

@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/24 14:15:58 by axlamber          #+#    #+#             */
-/*   Updated: 2023/05/09 11:45:55 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 14:05:17 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,7 +104,6 @@ t_parsing	*parse(char *map_path)
 	memset(parsing, 0, sizeof(t_parsing));
 	if (!get_params(parsing, fd))
 	{
-		printf("Error while parsing params\n");
 		free_texture(parsing);
 		finish_reading(fd);
 		free(parsing);

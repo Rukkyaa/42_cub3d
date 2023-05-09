@@ -6,7 +6,7 @@
 /*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/07 12:57:09 by rukkyaa           #+#    #+#             */
-/*   Updated: 2023/05/08 18:24:26 by axlamber         ###   ########.fr       */
+/*   Updated: 2023/05/09 13:54:28 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool	get_map_color(t_parsing *parsing, char *line)
 		{
 			if (!fill_color(parsing, color_index++, line + i, c))
 				return (false);
-			i += len_num(line + i);
+			i += len_num(line + i) - 1;
 		}
 	}
 	return (color_index == 3);

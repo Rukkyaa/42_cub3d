@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   weapons.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: theo <theo@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: axlamber <axlamber@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/13 15:42:24 by axlamber          #+#    #+#             */
-/*   Updated: 2023/04/30 21:39:36 by theo             ###   ########.fr       */
+/*   Updated: 2023/05/09 10:06:29 by axlamber         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ void	inventory_switch(t_game *game)
 		game->player.weapon_selected = 1;
 	else if (game->key_states['0' + 3] == 1)
 		game->player.weapon_selected = 2;
+	else if (game->key_states['0' + 4] == 1)
+		game->player.weapon_selected = 3;
 	if (game->key_states['0' + 1] == 1 && get_weapon(game, &game->inventory, 0))
 		game->player.weapon = get_weapon(game, &game->inventory, 0);
 	else if (game->key_states['0' + 2] == 1 && get_weapon(game,

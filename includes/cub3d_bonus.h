@@ -17,7 +17,7 @@
 #  define BUFFER_SIZE 42
 # endif
 
-# define SOUND 0
+# define SOUND 1
 
 # include "../cjson/cJSON.h"
 # include "../includes/miniaudio.h"
